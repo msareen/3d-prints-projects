@@ -14,3 +14,36 @@ design, model, describe or dimension a part, or to produce drawings, STL or
 - Do not edit `.claude/skills/3d-print-design/`: it is a git submodule
   (upstream skill). Put local changes in `design-pipeline` instead.
 - Never contact a printer. Slicing and printing are the user's steps.
+
+## Commands
+
+`python .claude/skills/design-pipeline/scripts/pipeline.py <cmd> <project>`,
+with `<cmd>` one of `check`, `build`, `draw`, `view`, `finalize`, `status`
+(`materials` lists the profiles). Run ad-hoc Python (trimesh, manifold3d)
+with the skill venv: `.claude/skills/3d-print-design/.venv/Scripts/python.exe -I`.
+Write longer scripts to the scratchpad and run them; large inline heredocs
+are unreliable here.
+
+## Materials
+
+- `spec.json` `print.materials` lists every material to release; the first
+  is the primary and must equal `print.material`. Each material gets its own
+  `output/<MAT>/` folder (STLs, `<project>-<MAT>.3mf`, `print-sheet.md`).
+- Fits (per-side clearances) come from `.claude/skills/design-pipeline/materials/<MAT>.json`;
+  `processed/fits-<MAT>.json` overrides them. A dimension that differs by
+  material uses `material_values` in the spec.
+- Part notes for the print sheets go in `processed/print-notes.md` (shared)
+  and `processed/print-notes-<MAT>.md`.
+
+## Revisions
+
+- Bump `revision` in `spec.json`, add a revision line and update the register
+  rows in `spec.md`, and keep `build.py` parameters equal to the spec values
+  (`check` fails otherwise). Rebuild and `finalize` every material.
+- Snap, press and click fits are very sensitive: FDM adds about 0.1 mm of
+  overlap per side (holes small, pegs large). Change these fits in 0.05 mm
+  steps and say so in the print notes.
+- For parts that move into each other (lids, hinges, plugs), sweep the
+  motion with manifold3d and measure the overlap at each step and when
+  closed, before releasing.
+- Commit only when the user asks.
