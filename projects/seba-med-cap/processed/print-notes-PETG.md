@@ -1,0 +1,6 @@
+- **PETG is the primary design.** Fits are 0.05 mm looser per side than PLA, because PETG prints slightly fatter. The seal ring bore is 0.15 per side on the 7.4 spout.
+- **Plug (rev 8):** hollow, 3.0 long, 1.0 wall, with a 5.0 bulb (the same as the channel) and a taper to a 4.5 tip. The click comes from print growth: PETG prints the hole about 0.1 small and the plug about 0.1 large. Seated, the bulb springs fully out into the 5.2 groove, so it is not squeezed when the lid is shut. If it is too loose, step the bulb up by 0.05 (5.05, 5.1). Don't jump by 0.1.
+- **Latch:** bead 0.5 with a 0.2 hook preload. Opening and closing bends the arm to 3.0 % strain, inside PETG's 2-4 % limit.
+- If the lid is now too stiff, lower `LATCH_DEPTH` (D38) to 0.4 first. Alternatively put measured clearances in `processed/fits-PETG.json`.
+- Clear strings from the hinge pin, the 5 mm hole and the spout groove before assembly.
+- PETG takes about 70-80 °C, so the cap survives a hot bathroom or a hot car.

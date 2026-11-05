@@ -1,0 +1,561 @@
+{
+  "name": "seba-med-cap-base",
+  "units": "mm",
+  "generated_utc": "2026-11-05T10:05:13+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "seba-med-cap-base.stl",
+  "stl_sha256": "ec893423ae7b5133df3d92ee41613a74b2ecd87c3314c3100048331eca611f0c",
+  "material": "PETG",
+  "density_g_cm3": 1.27,
+  "bbox": {
+    "min": [
+      -29.05,
+      -23.05,
+      0.0
+    ],
+    "max": [
+      23.55,
+      23.05,
+      18.9
+    ],
+    "size": [
+      52.6,
+      46.1,
+      18.9
+    ]
+  },
+  "volume_mm3": 8337.84,
+  "estimated_mass_g_solid": 10.59,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 9220,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "small_holes",
+      "thin_walls"
+    ],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 52.6 x 46.1 x 18.9 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "8337.8 mm3",
+        "data": {
+          "volume_mm3": 8337.835
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "1 body as expected",
+        "data": {
+          "bodies": 1,
+          "expected": 1
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "pass",
+        "message": "1614.8 mm2 flat contact on the bed",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 1614.79,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": []
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 220 x 220 x 250 with 5 mm margin",
+        "data": {
+          "bed": [
+            220.0,
+            220.0,
+            250.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "pass",
+        "message": "no overhang steeper than 45 deg (beyond 1 mm2); 45.2 mm2 short bridges (<= 10 mm span) left to the slicer",
+        "data": {
+          "limit_deg": 45,
+          "area_mm2": 0.18,
+          "flat_ceiling_area_mm2": 0.0,
+          "bridge_area_mm2": 45.23,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [
+            {
+              "z": 1.0,
+              "span_mm": 1.6,
+              "span_is_upper_bound": false,
+              "supported_outline": 1.0,
+              "area_mm2": 45.23,
+              "bridge": true
+            }
+          ],
+          "wide_regions_not_measured": 0,
+          "faces": 4,
+          "bbox_min": [
+            -27.43,
+            -4.0,
+            0.0
+          ],
+          "bbox_max": [
+            -25.27,
+            4.0,
+            0.01
+          ],
+          "main_z_levels": [
+            {
+              "z": 0.0,
+              "area_mm2": 0.18
+            }
+          ]
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "pass",
+        "message": "all flat faces sit on 0.2 mm layer boundaries",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 6,
+          "off_grid_levels": []
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "warn",
+        "message": "1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 2,
+          "small": [
+            {
+              "axis": "z",
+              "min_width_mm": 2.37,
+              "center": [
+                -24.09,
+                -0.0,
+                2.08
+              ]
+            }
+          ],
+          "horizontal": [],
+          "all": [
+            {
+              "axis": "z",
+              "min_width_mm": 2.37,
+              "center": [
+                -24.09,
+                -0.0,
+                2.08
+              ]
+            },
+            {
+              "axis": "z",
+              "min_width_mm": 5.0,
+              "center": [
+                0.0,
+                0.0,
+                2.08
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "warn",
+        "message": "6/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.005 mm",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 6,
+          "min_thickness_mm": 0.005,
+          "thin_points": [
+            [
+              -10.52,
+              -20.51,
+              18.9
+            ],
+            [
+              17.46,
+              15.04,
+              18.88
+            ],
+            [
+              20.95,
+              8.81,
+              18.7
+            ],
+            [
+              9.28,
+              21.1,
+              18.5
+            ],
+            [
+              2.79,
+              -22.5,
+              18.67
+            ]
+          ]
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "14 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              15.0,
+              0.0,
+              1.0
+            ],
+            [
+              22.25,
+              0.0,
+              6.0
+            ],
+            [
+              11.55,
+              0.0,
+              6.0
+            ],
+            [
+              3.2,
+              0.0,
+              4.0
+            ],
+            [
+              -26.35,
+              0.0,
+              0.8
+            ],
+            [
+              23.150000000000002,
+              0.0,
+              4.0
+            ],
+            [
+              22.25,
+              0.0,
+              15.0
+            ],
+            [
+              3.1,
+              0.0,
+              0.5
+            ]
+          ],
+          "outside": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              4.0
+            ],
+            [
+              4.5,
+              0.0,
+              0.5
+            ],
+            [
+              8.0,
+              0.0,
+              6.0
+            ],
+            [
+              17.0,
+              0.0,
+              6.0
+            ],
+            [
+              -26.35,
+              0.0,
+              3.5
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 9220,
+      "vertices": 4596,
+      "bbox_min": [
+        -29.05,
+        -23.05,
+        0.0
+      ],
+      "bbox_max": [
+        23.55,
+        23.05,
+        18.9
+      ],
+      "size": [
+        52.6,
+        46.1,
+        18.9
+      ],
+      "surface_area_mm2": 10071.09,
+      "volume_mm3": 8337.835,
+      "bodies": 1
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.1,
+      "snug": 0.15,
+      "sliding": 0.25,
+      "free": 0.35,
+      "source": "fits.json (printer not named, PETG)"
+    },
+    "NAME": "seba-med-cap",
+    "MATERIAL": "PETG",
+    "COLOR": {
+      "base": "#4f8cff",
+      "lid": "#7fb0ff"
+    },
+    "PRINTER_BED": [
+      220,
+      220,
+      250
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 45,
+    "SUPPORTS_ALLOWED": false,
+    "EXPECTED_BODIES": 1,
+    "BEAD_D": 20.8,
+    "TOP_TO_BEAD": 7.0,
+    "BORE_D": 8.8,
+    "TOP_TO_LUG": 9.4,
+    "CAP_OD": 46.1,
+    "DECK_T": 2.0,
+    "SLEEVE_WALL": 1.6,
+    "SKIRT_WALL": 1.6,
+    "LUG_CLEAR": 0.5,
+    "SNAP_UNDERCUT": 0.35,
+    "LIP_H": 0.4,
+    "SLOT_N": 6,
+    "SLOT_W": 1.2,
+    "SLOT_L": 5.0,
+    "CHANNEL_D": 5.0,
+    "SPOUT_WALL": 1.2,
+    "GROOVE_W": 1.6,
+    "GROOVE_DEPTH": 1.0,
+    "RING_FIT": 0.15,
+    "RING_OUT_GAP": 0.2,
+    "RING_H": 0.8,
+    "RING_LEAD": 0.2,
+    "SEAL_L": 4.0,
+    "FOOT_CHAMFER": 0.4,
+    "SKIRT_EXT": 8.0,
+    "SKIRT_BEVEL": 1.0,
+    "TIP_CHAMFER": 0.4,
+    "BORE_CLEAR": 0.35,
+    "SEAL_FIT": 0.15,
+    "LID_T": 2.0,
+    "PIN_L": 3.0,
+    "PLUG_SHANK_CLEAR": 0.05,
+    "PLUG_BULB_D": 5.0,
+    "PLUG_BULB_Z": 1.2,
+    "PLUG_BULB_LAND": 0.4,
+    "PLUG_TIP_D": 4.5,
+    "PLUG_WALL": 1.0,
+    "CH_GROOVE_D": 5.2,
+    "TAB_OUT": 6.0,
+    "TAB_W": 12.0,
+    "TAB_R": 2.0,
+    "LID_OFFSET_X": 60.0,
+    "PIN_HINGE_D": 3.0,
+    "HINGE_OFF": 3.3,
+    "PIN_FLAT": 0.45,
+    "HINGE_GAP": 8.0,
+    "KNUCKLE_W": 4.0,
+    "KNUCKLE_H": 4.0,
+    "CLIP_WALL": 1.2,
+    "CLIP_FIT": 0.25,
+    "CLIP_SIDE": 0.35,
+    "CLIP_HORN_CAP": 0.3,
+    "LATCH_W": 8.0,
+    "LATCH_DEPTH": 0.5,
+    "LATCH_Z": 4.0,
+    "LATCH_ARM_T": 1.0,
+    "LATCH_GAP": 0.2,
+    "LATCH_PRELOAD": 0.2,
+    "PROBES_INSIDE": {
+      "base": [
+        [
+          15.0,
+          0.0,
+          1.0
+        ],
+        [
+          22.25,
+          0.0,
+          6.0
+        ],
+        [
+          11.55,
+          0.0,
+          6.0
+        ],
+        [
+          3.2,
+          0.0,
+          4.0
+        ],
+        [
+          -26.35,
+          0.0,
+          0.8
+        ],
+        [
+          23.15,
+          0.0,
+          4.0
+        ],
+        [
+          22.25,
+          0.0,
+          15.0
+        ],
+        [
+          3.1,
+          0.0,
+          0.5
+        ]
+      ],
+      "lid": [
+        [
+          75.0,
+          0.0,
+          1.0
+        ],
+        [
+          62.0,
+          0.0,
+          3.0
+        ],
+        [
+          62.45,
+          0.0,
+          3.4
+        ],
+        [
+          31.35,
+          0.0,
+          3.05
+        ],
+        [
+          64.4,
+          0.0,
+          2.4
+        ],
+        [
+          84.25,
+          0.0,
+          4.0
+        ]
+      ]
+    },
+    "PROBES_OUTSIDE": {
+      "base": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          4.0
+        ],
+        [
+          4.5,
+          0.0,
+          0.5
+        ],
+        [
+          8.0,
+          0.0,
+          6.0
+        ],
+        [
+          17.0,
+          0.0,
+          6.0
+        ],
+        [
+          -26.35,
+          0.0,
+          3.5
+        ]
+      ],
+      "lid": [
+        [
+          70.0,
+          0.0,
+          4.0
+        ],
+        [
+          60.0,
+          0.0,
+          3.0
+        ],
+        [
+          33.65,
+          0.0,
+          3.05
+        ],
+        [
+          33.65,
+          0.0,
+          5.55
+        ],
+        [
+          83.25,
+          0.0,
+          3.0
+        ]
+      ]
+    },
+    "SEG": 180
+  },
+  "preview_color": "#4f8cff",
+  "printer_bed": [
+    220.0,
+    220.0,
+    250.0
+  ]
+}

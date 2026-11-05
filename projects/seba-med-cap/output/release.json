@@ -1,0 +1,62 @@
+{
+  "project": "seba-med-cap",
+  "released_utc": "2026-11-05T10:05:19+00:00",
+  "spec_revision": 8,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PETG",
+    "PLA"
+  ],
+  "fits": {
+    "PETG": {
+      "source": "fits.json (printer not named, PETG)",
+      "press": 0.1,
+      "snug": 0.15,
+      "sliding": 0.25,
+      "free": 0.35
+    },
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "PETG/print-sheet.md": "0f17a359d747158cb2dc0038a0cd0724a7db5ef98c599716e9e98ba599af9430",
+    "PETG/seba-med-cap-base.json": "a9b6ad8f21a0bead9c73b59db538a8cfaa6b89bfed33e52edd6be5f2511adb23",
+    "PETG/seba-med-cap-base.stl": "ec893423ae7b5133df3d92ee41613a74b2ecd87c3314c3100048331eca611f0c",
+    "PETG/seba-med-cap-lid.json": "1d4c76b75c71b796101f7f8f011ad732fe72f3315b489fcc660674eb75614b7f",
+    "PETG/seba-med-cap-lid.stl": "d75a44f9b5b05280722680661d9b75fc455c4d7bd8b661fad63195756fc23cbc",
+    "PETG/seba-med-cap-PETG.3mf": "e379eb3367363e457df524224e2ad52e3a3d7aa5dab7d7e71cb838c2d051414f",
+    "PLA/print-sheet.md": "f5d7a5a2e15b9501b8eea88052e34dc9c16dfa8d82ec45efab53485bb1291fd8",
+    "PLA/seba-med-cap-base.json": "3104a85b9ddc7bcc24fcff2f07a370cfa4cc4e2c4be75e76769fa6fc595fd502",
+    "PLA/seba-med-cap-base.stl": "32503e584757d738923bc76c900825a607999664c510f01437ff668aa6f2b2e7",
+    "PLA/seba-med-cap-lid.json": "a7e4fc5c246b1f9af0abc3205204ed4f78f6e872959f6c92603a35ee9d1f53f4",
+    "PLA/seba-med-cap-lid.stl": "83bbd7a6af2ed958d6975eb2265042b3fe5e1bd4f11cd8958115fc4370d1033a",
+    "PLA/seba-med-cap-PLA.3mf": "60965a48acc81857b433adea32dbe5c67538017de92850c1bcc8c79edd325f22",
+    "seba-med-cap-drawing.svg": "16f7fb1d7682b5048717bdba5f50b16c9823cc929fd409fd283263aa851318ea",
+    "seba-med-cap-spec.md": "45c035900945aebca83e30b97e94d529a694662c570927d883a85038736b9de6"
+  },
+  "printcheck_warnings": {
+    "PETG/seba-med-cap-base": [
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out",
+      "thin_walls: 6/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.005 mm"
+    ],
+    "PETG/seba-med-cap-lid": [
+      "layer_alignment: 1 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=5.1): the slicer will round them",
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out"
+    ],
+    "PLA/seba-med-cap-base": [
+      "layer_alignment: 2 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=5.7): the slicer will round them",
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out",
+      "thin_walls: 6/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.005 mm"
+    ],
+    "PLA/seba-med-cap-lid": [
+      "layer_alignment: 2 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=5.05): the slicer will round them",
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out"
+    ]
+  }
+}

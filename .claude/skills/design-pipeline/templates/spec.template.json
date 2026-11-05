@@ -1,0 +1,45 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "<project>",
+  "status": "draft",
+  "revision": 1,
+  "units": "mm",
+  "summary": "",
+  "inputs": [],
+  "datum": {
+    "origin": "",
+    "x": "",
+    "y": "",
+    "z": "up = print direction; the part sits on Z = 0"
+  },
+  "envelope": {
+    "x": null,
+    "y": null,
+    "z": null,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [220, 220, 250],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PETG",
+    "materials": ["PETG"],
+    "supports": false,
+    "orientation": "",
+    "quantity": 1
+  },
+  "parts": [
+    {
+      "name": "<project>",
+      "description": ""
+    }
+  ],
+  "dimensions": [],
+  "features": [],
+  "assumptions": [],
+  "open_questions": [],
+  "drawing": {
+    "plan_cut_z": null,
+    "dimensions": []
+  }
+}

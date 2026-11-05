@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+
+# pipeline scratch: a build writes here first and only moves into model/ when printcheck passes
+projects/*/processed/.build-tmp/
+projects/*/output/.*.tmp
+projects/*/processed/.mat-*/

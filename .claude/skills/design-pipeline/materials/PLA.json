@@ -1,0 +1,25 @@
+{
+  "schema": "design-pipeline/material@1",
+  "material": "PLA",
+  "summary": "Stiff and easy to print. Snaps tolerate about 1 to 2 % strain. Softens at about 55 °C.",
+  "clearance_per_side": {"press": 0.05, "snug": 0.10, "sliding": 0.20, "free": 0.30},
+  "clearance_note": "the 3d-print-design defaults; replace them with values measured on your printer (processed/fits-PLA.json)",
+  "slicer": [
+    ["Nozzle temperature", "210 °C first layer, 205 °C after (200–215)", ""],
+    ["Bed temperature", "60 °C (55–60)", ""],
+    ["Bed surface", "smooth or textured PEI, clean", ""],
+    ["First layer", "20 mm/s, 100 % width", "elephant foot narrows bed-side holes and grooves"],
+    ["Walls", "4 perimeters", "1.2–1.6 mm walls print solid"],
+    ["Top / bottom", "5 / 5 layers", ""],
+    ["Infill", "30 % gyroid", ""],
+    ["Speed", "outer walls 40 mm/s, inner 60 mm/s, infill 80 mm/s", "slow outer walls keep the fits true"],
+    ["Part cooling fan", "100 % after layer 2", "PLA needs full cooling for overhangs and bridges"],
+    ["Retraction", "direct drive 0.5–0.8 mm, Bowden 4–5 mm", ""],
+    ["Supports", "as the spec says", ""],
+    ["Brim", "none unless the part lifts", ""]
+  ],
+  "notes": [
+    "Dry the filament if it pops or strings (50 °C for 4–6 h).",
+    "Do not leave PLA parts in a hot car or in direct sun: they soften and creep."
+  ]
+}

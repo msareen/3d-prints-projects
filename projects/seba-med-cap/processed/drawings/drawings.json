@@ -1,0 +1,100 @@
+{
+  "generated_utc": "2026-11-05T10:05:14+00:00",
+  "scale": "1:1",
+  "plan_cut_z": 6.0,
+  "bbox": {
+    "min": [
+      -29.05,
+      -23.05,
+      0.0
+    ],
+    "max": [
+      89.05,
+      23.05,
+      18.9
+    ],
+    "size": [
+      118.1,
+      46.1,
+      18.9
+    ]
+  },
+  "parts": [
+    "seba-med-cap-base",
+    "seba-med-cap-lid"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 2585,
+      "hidden_edges": 2938
+    },
+    "side": {
+      "visible_edges": 1633,
+      "hidden_edges": 3883
+    },
+    "top": {
+      "visible_edges": 3596,
+      "hidden_edges": 1427
+    },
+    "plan": {
+      "visible_edges": 2897,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 118.1,
+      "model": 118.1,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 46.1,
+      "model": 46.1,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 18.9,
+      "model": 18.9,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D7 front horizontal",
+      "measured": 46.1,
+      "expect": 46.1,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D13 front vertical",
+      "measured": 18.9,
+      "expect": 18.9,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D27 diameter 21.5 in plan",
+      "model_edges_at_radius": true,
+      "ok": true
+    },
+    {
+      "check": "D29 diameter 24.7 in plan",
+      "model_edges_at_radius": true,
+      "ok": true
+    },
+    {
+      "check": "D33 top vertical",
+      "measured": 8.0,
+      "expect": 8.0,
+      "tol": 0.05,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

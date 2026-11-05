@@ -1,0 +1,3 @@
+- Same geometry as PETG, with PLA clearances: seal ring 0.10 per side. The hollow plug bulb is 5.0, the same as PETG. It is untested in PLA, which prints a little more accurately: if it is too loose, set a PLA value of 5.05-5.1 (`material_values` on D51).
+- **Latch is gentler than PETG** (bead 0.4, preload 0.15). PLA cracks above about 2 % strain and creeps under constant load.
+- If the PLA lid is too loose, raise `LATCH_PRELOAD` for PLA (`material_values` on D45 in spec.json) before raising the depth.

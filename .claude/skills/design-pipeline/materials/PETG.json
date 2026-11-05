@@ -1,0 +1,30 @@
+{
+  "schema": "design-pipeline/material@1",
+  "material": "PETG",
+  "summary": "Tougher and more flexible than PLA. Snaps tolerate about 2 to 4 % strain. Takes about 70–80 °C. Strings, and oozes slightly fatter than PLA.",
+  "clearance_per_side": {"press": 0.10, "snug": 0.15, "sliding": 0.25, "free": 0.35},
+  "clearance_note": "PLA defaults + 0.05 per side, because PETG prints slightly fatter; replace them with values measured on your printer (processed/fits-PETG.json)",
+  "slicer": [
+    ["Nozzle temperature", "235 °C first layer, 230 °C after (220–250)", "good layer bonding for snaps and latches"],
+    ["Bed temperature", "75 °C (70–80)", ""],
+    ["Bed surface", "textured PEI, or smooth PEI with glue stick / release agent", "PETG can bond to smooth PEI and tear it"],
+    ["First layer", "20 mm/s, 100 % width, Z offset +0.02 to +0.05", "do not squish PETG: elephant foot closes bed-side holes and grooves"],
+    ["Walls", "4 perimeters", "1.2–1.6 mm walls print solid"],
+    ["Top / bottom", "5 / 5 layers", ""],
+    ["Infill", "30 % gyroid", ""],
+    ["Speed", "outer walls 30 mm/s, inner 50 mm/s, infill 60 mm/s", "slow outer walls keep the fits true"],
+    ["Bridges", "25 mm/s, fan 100 %", ""],
+    ["Part cooling fan", "30–50 %, off for the first 3 layers, 100 % on bridges", "too much fan weakens PETG layer bonds"],
+    ["Retraction", "direct drive 0.8–1.0 mm @ 35 mm/s, Bowden 4–5 mm @ 40 mm/s; wipe on, avoid crossing perimeters", "PETG strings, and strings jam fits and hinges"],
+    ["Z-hop", "0.2 mm (turn it off if stringing gets worse)", ""],
+    ["Seam", "rear / aligned, away from snaps, latches and hinges", "a seam blob changes a click"],
+    ["Flow", "calibrate for your PETG (often 0.95–0.98)", "over-extrusion closes tight fits first"],
+    ["Supports", "as the spec says", ""],
+    ["Brim", "none unless the part lifts", ""]
+  ],
+  "notes": [
+    "Dry the filament before printing (65 °C for 4–6 h). Wet PETG strings, pops and prints rough fits.",
+    "Clean strings off pins, holes and grooves before assembly (a hot blade or a quick pass with a heat gun).",
+    "If a fit is too tight, first lower the flow by 2 %, then raise the clearance in processed/fits-PETG.json and finalize again."
+  ]
+}

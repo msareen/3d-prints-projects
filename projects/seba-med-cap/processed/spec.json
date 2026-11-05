@@ -1,0 +1,990 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "seba-med-cap",
+  "status": "confirmed",
+  "revision": 8,
+  "units": "mm",
+  "summary": "Replacement two-piece flip-top cap for a white lotion bottle with a snap-on (non-threaded) ribbed neck. The base snaps over the neck bead, seals with a short tube into the neck bore and dispenses through a 4 mm channel. The lid clips onto a 3 mm hinge pin on the base (C-clip, assembled after printing), plugs the channel with a short plug, and is held shut by a 45-degree snap latch on the thumb-tab side. PLA, no supports: base upside down, lid outer face down.",
+  "inputs": [
+    {
+      "file": "input/20261104_074951.jpg",
+      "kind": "photo",
+      "notes": "caliper across the neck, upper ribbed band: 19.5 mm"
+    },
+    {
+      "file": "input/20261104_075007.jpg",
+      "kind": "photo",
+      "notes": "caliper across the neck, ribbed band (other angle): 19.4 mm"
+    },
+    {
+      "file": "input/20261104_075017.jpg",
+      "kind": "photo",
+      "notes": "caliper across the neck, narrower band (taken as the plain top band): 18.6 mm"
+    },
+    {
+      "file": "input/20261104_075055.jpg",
+      "kind": "photo",
+      "notes": "side profile of the neck, no scale: raised top ring, plain band, vertical ribs, segmented bead, plain neck, shoulder collar, shoulder lug"
+    },
+    {
+      "file": "input/20261104_075109.jpg",
+      "kind": "photo",
+      "notes": "inside of the original blue cap: skirt, central sleeve with internal ribs, white valve insert, radial rib, hinge"
+    },
+    {
+      "file": "input/20261104_075137.jpg",
+      "kind": "photo",
+      "notes": "caliper across the original cap outside: 46.1 mm"
+    },
+    {
+      "file": "input/20261104_075156.jpg",
+      "kind": "photo",
+      "notes": "original cap is a flip-top with a centre orifice"
+    },
+    {
+      "file": "input/20261104_075221.jpg",
+      "kind": "photo",
+      "notes": "caliper across the original cap's inner sleeve: 22.6 mm (outside of the sleeve, jaw position not certain)"
+    },
+    {
+      "file": "input/20261105_002338.jpg",
+      "kind": "photo",
+      "notes": "rev-2 print fitted on the bottle: caliper gap from the skirt rim to the bottle shoulder 6.7 mm (the skirt is too short)"
+    }
+  ],
+  "datum": {
+    "origin": "base: on the cap axis, on the cap's top face (which lies on the bed). Lid: its own axis, offset +X by LID_OFFSET_X for layout",
+    "x": "across the cap; the lid's thumb tab points +X",
+    "y": "across the cap (front faces -Y); the part is round, so Y only matters for the tab",
+    "z": "up = print direction. For the base this points from the top face into the cap, towards the bottle"
+  },
+  "envelope": {
+    "x": 118.1,
+    "y": 46.1,
+    "z": 18.9,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [
+      220,
+      220,
+      250
+    ],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PETG",
+    "supports": false,
+    "orientation": "base upside down, top face on the bed (hinge pin lies on the bed, flat 0.2); lid outer face on the bed, plug, clip and latch arm pointing up",
+    "quantity": 1,
+    "materials": [
+      "PETG",
+      "PLA"
+    ]
+  },
+  "parts": [
+    {
+      "name": "seba-med-cap-base",
+      "description": "snap-on base: deck, skirt, slotted snap sleeve, seal tube, 4 mm channel, hinge knuckles + pin, latch bead"
+    },
+    {
+      "name": "seba-med-cap-lid",
+      "description": "flip lid: disc, thumb tab, channel plug, hinge C-clip, latch arm with hook"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "neck OD at the vertical-rib band",
+      "value": 19.5,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "074951.jpg caliper 19.5; 075007.jpg caliper 19.4 (max used). Lies inside the sleeve bore, which is sized by the bead",
+      "fit": null
+    },
+    {
+      "id": "D2",
+      "name": "neck OD at the plain top band",
+      "value": 18.6,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "075017.jpg caliper 18.6; user confirmed: plain band at the top of the neck",
+      "fit": null
+    },
+    {
+      "id": "D3",
+      "name": "neck bead OD (segmented ring below the ribs, widest part of the neck)",
+      "value": 20.8,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "user caliper measurement 2026-11-04: 20.8 (photo estimate was 21.1)",
+      "fit": "free",
+      "param": "BEAD_D"
+    },
+    {
+      "id": "D4",
+      "name": "very top of the neck (top of the raised ring) to the underside of the bead",
+      "value": 7.0,
+      "tol": "±0.5",
+      "basis": "given",
+      "confidence": "medium",
+      "critical": true,
+      "source": "075055.jpg: 270 px at 38.5 px/mm. Accepted by the user as approximately right (2026-11-04), not caliper-measured",
+      "fit": null,
+      "param": "TOP_TO_BEAD"
+    },
+    {
+      "id": "D5",
+      "name": "neck bore ID at the top",
+      "value": 8.8,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "user caliper measurement 2026-11-04, inside jaws: 8.8 (photo estimate was 8.5)",
+      "fit": "snug",
+      "param": "BORE_D"
+    },
+    {
+      "id": "D6",
+      "name": "very top of the neck to the top of the shoulder lug",
+      "value": 9.4,
+      "tol": "±0.5",
+      "basis": "given",
+      "confidence": "medium",
+      "critical": true,
+      "source": "075055.jpg: 360 px at 38.5 px/mm; sets the skirt depth so the skirt clears the lug. Accepted by the user as approximately right (2026-11-04), not caliper-measured",
+      "fit": null,
+      "param": "TOP_TO_LUG"
+    },
+    {
+      "id": "D7",
+      "name": "cap outer diameter (base and lid)",
+      "value": 46.1,
+      "tol": "±0.3",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "075137.jpg caliper 46.1 across the original cap",
+      "fit": null,
+      "param": "CAP_OD"
+    },
+    {
+      "id": "D8",
+      "name": "original cap inner sleeve OD (reference only)",
+      "value": 22.6,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "075221.jpg caliper 22.6; used only as a plausibility check on D3",
+      "fit": null
+    },
+    {
+      "id": "D9",
+      "name": "deck thickness",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 10 layers",
+      "fit": null,
+      "param": "DECK_T"
+    },
+    {
+      "id": "D10",
+      "name": "sleeve wall thickness",
+      "value": 1.6,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 4 perimeters, thin enough to flex with slots",
+      "fit": null,
+      "param": "SLEEVE_WALL"
+    },
+    {
+      "id": "D11",
+      "name": "skirt wall thickness",
+      "value": 1.6,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 4 perimeters",
+      "fit": null,
+      "param": "SKIRT_WALL"
+    },
+    {
+      "id": "D12",
+      "name": "lug clearance below the skirt edge",
+      "value": 0.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice; skirt height = D9 + D6 - D12",
+      "fit": null,
+      "param": "LUG_CLEAR"
+    },
+    {
+      "id": "D13",
+      "name": "skirt height at the outer edge (base total height)",
+      "value": 18.9,
+      "basis": "derived",
+      "confidence": "medium",
+      "critical": false,
+      "source": "D9 + D6 - D12 + D43 = 2.0 + 9.4 - 0.5 + 8.0 (outer edge; inner edge D44 lower)",
+      "fit": null
+    },
+    {
+      "id": "D14",
+      "name": "snap lip undercut per side",
+      "value": 0.35,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "design choice for PLA: small undercut, 45° faces both sides so it releases instead of cracking",
+      "fit": null,
+      "param": "SNAP_UNDERCUT"
+    },
+    {
+      "id": "D15",
+      "name": "snap lip height (straight land)",
+      "value": 0.4,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 2 layers, keeps the sleeve rim (z = D9 + D4 + 2 x 0.65 + D15 = 10.7) inside the skirt height D13 = 10.9",
+      "fit": null,
+      "param": "LIP_H"
+    },
+    {
+      "id": "D16",
+      "name": "sleeve flex slots: count",
+      "value": 6,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: lets the PLA sleeve open over the bead",
+      "fit": null,
+      "param": "SLOT_N"
+    },
+    {
+      "id": "D17",
+      "name": "sleeve flex slot width",
+      "value": 1.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 3 x nozzle",
+      "fit": null,
+      "param": "SLOT_W"
+    },
+    {
+      "id": "D18",
+      "name": "sleeve flex slot length from the sleeve rim",
+      "value": 5.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "design choice; must stay shorter than the sleeve",
+      "fit": null,
+      "param": "SLOT_L"
+    },
+    {
+      "id": "D19",
+      "name": "dispensing channel diameter",
+      "value": 5.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 4: user asked for 1 mm more (was 4.0)",
+      "fit": null,
+      "param": "CHANNEL_D"
+    },
+    {
+      "id": "D20",
+      "name": "seal tube length into the neck bore",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 5: 3.0 -> 4.0, user: the cap wobbled under side pressure; a longer tube in the bore resists it",
+      "fit": null,
+      "param": "SEAL_L"
+    },
+    {
+      "id": "D21",
+      "name": "lid disc thickness",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 10 layers",
+      "fit": null,
+      "param": "LID_T"
+    },
+    {
+      "id": "D22",
+      "name": "lid plug length (rev 6)",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 6, user: lid still loose, plug too small. 3.0 chosen by the user; on the hinge arc the tip shifts ~0.06",
+      "fit": null,
+      "param": "PIN_L"
+    },
+    {
+      "id": "D23",
+      "name": "lid thumb tab: protrusion beyond the disc",
+      "value": 6.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice",
+      "fit": null,
+      "param": "TAB_OUT"
+    },
+    {
+      "id": "D24",
+      "name": "lid thumb tab width",
+      "value": 12.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice",
+      "fit": null,
+      "param": "TAB_W"
+    },
+    {
+      "id": "D25",
+      "name": "lid layout offset in X (lid centre from base centre)",
+      "value": 60.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "layout: base max X 23.35 + 5 mm gap + lid hinge side 29.25 -> 60 (rounded)",
+      "fit": null,
+      "param": "LID_OFFSET_X"
+    },
+    {
+      "id": "D26",
+      "name": "foot chamfer (elephant foot)",
+      "value": 0.4,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "3d-print-design default",
+      "fit": null,
+      "param": "FOOT_CHAMFER"
+    },
+    {
+      "id": "D27",
+      "name": "snap sleeve bore",
+      "value": 21.5,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D3 + 2 x free; PETG free 0.35 (PLA 0.30 -> 21.4)",
+      "fit": null
+    },
+    {
+      "id": "D28",
+      "name": "snap lip ID",
+      "value": 20.1,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D3 - 2 x D14 = 20.8 - 0.7",
+      "fit": null
+    },
+    {
+      "id": "D29",
+      "name": "sleeve OD",
+      "value": 24.7,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D27 + 2 x D10 (PETG; PLA 24.6)",
+      "fit": null
+    },
+    {
+      "id": "D30",
+      "name": "hinge pin diameter",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 7.5 x nozzle, stiff enough in PLA",
+      "fit": null,
+      "param": "PIN_HINGE_D"
+    },
+    {
+      "id": "D31",
+      "name": "hinge axis offset outside the skirt",
+      "value": 3.3,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "clip ring outer radius 2.9 + 0.4 clearance to the skirt",
+      "fit": null,
+      "param": "HINGE_OFF"
+    },
+    {
+      "id": "D32",
+      "name": "hinge pin flat (print contact on the bed)",
+      "value": 0.45,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "r (1 - cos 45 deg) = 0.44: no pin overhang steeper than 45 deg; pin 2.55 across the flat still exceeds the 2.4 clip mouth",
+      "fit": null,
+      "param": "PIN_FLAT"
+    },
+    {
+      "id": "D33",
+      "name": "gap between the hinge knuckles",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice; the lid clip is D33 - 2 x 0.3 wide",
+      "fit": null,
+      "param": "HINGE_GAP"
+    },
+    {
+      "id": "D34",
+      "name": "hinge knuckle width (each)",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice",
+      "fit": null,
+      "param": "KNUCKLE_W"
+    },
+    {
+      "id": "D35",
+      "name": "hinge clip ring wall",
+      "value": 1.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "3 x nozzle; thin enough to flex open by 0.3 per side",
+      "fit": null,
+      "param": "CLIP_WALL"
+    },
+    {
+      "id": "D36",
+      "name": "hinge clip mouth width",
+      "value": 2.4,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "2 x (D30/2 + 0.2 sliding) x sin 45 deg = 2.40; 45 deg mouth keeps the clip printable and grips the 3.0 pin by 0.3 per side",
+      "fit": null
+    },
+    {
+      "id": "D37",
+      "name": "latch width",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice",
+      "fit": null,
+      "param": "LATCH_W"
+    },
+    {
+      "id": "D38",
+      "name": "latch bead and hook depth",
+      "value": 0.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 5: lid too loose. PETG 0.5: arm strain 3 x 1.0 x 0.5 / (2 x 5^2) = 3.0 % (PETG limit 2-4 %). PLA stays 0.4 (2.4 %, already above the 1-2 % guide)",
+      "fit": null,
+      "param": "LATCH_DEPTH",
+      "material_values": {
+        "PLA": 0.4
+      }
+    },
+    {
+      "id": "D39",
+      "name": "latch bead centre below the top face",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: arm length ~5 mm",
+      "fit": null,
+      "param": "LATCH_Z"
+    },
+    {
+      "id": "D40",
+      "name": "latch arm thickness",
+      "value": 1.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: flexible",
+      "fit": null,
+      "param": "LATCH_ARM_T"
+    },
+    {
+      "id": "D41",
+      "name": "latch arm gap to the skirt",
+      "value": 0.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "sliding fit",
+      "fit": null,
+      "param": "LATCH_GAP"
+    },
+    {
+      "id": "D42",
+      "name": "hinge knuckle depth below the top face",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "pin bottom at 2.8 + 1.2 wall",
+      "fit": null,
+      "param": "KNUCKLE_H"
+    },
+    {
+      "id": "D43",
+      "name": "skirt extension below the rev-2 rim",
+      "value": 8.0,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 3 6.2 (photo gap 6.7 - 0.5) + rev 5 user measurement: still 1.8 short; skirt now reaches the shoulder",
+      "fit": null,
+      "param": "SKIRT_EXT"
+    },
+    {
+      "id": "D44",
+      "name": "skirt rim bevel (inner edge higher)",
+      "value": 1.0,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "shoulder slope ~32 deg from 20261104_075055.jpg across the 1.6 wall",
+      "fit": null,
+      "param": "SKIRT_BEVEL"
+    },
+    {
+      "id": "D45",
+      "name": "latch hook preload",
+      "value": 0.2,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 5: lid too loose. Held deflection PETG 0.2 (1.2 % strain), PLA 0.15 (0.9 %, PLA creeps under constant load)",
+      "fit": null,
+      "param": "LATCH_PRELOAD",
+      "material_values": {
+        "PLA": 0.15
+      }
+    },
+    {
+      "id": "D46",
+      "name": "spout ring wall around the channel (spout OD 7.4)",
+      "value": 1.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 4, user: raised circle round the hole; 3 x nozzle",
+      "fit": null,
+      "param": "SPOUT_WALL"
+    },
+    {
+      "id": "D47",
+      "name": "groove width around the spout",
+      "value": 1.6,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 4: ring-in-groove chosen by the user (prints with no supports, 1.6 bridge)",
+      "fit": null,
+      "param": "GROOVE_W"
+    },
+    {
+      "id": "D48",
+      "name": "groove depth into the deck",
+      "value": 1.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 4: leaves 1.0 of the 2.0 deck",
+      "fit": null,
+      "param": "GROOVE_DEPTH"
+    },
+    {
+      "id": "D49",
+      "name": "lid seal ring height (ID 7.6, OD 10.2)",
+      "value": 0.8,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 4: D48 - 0.2 clearance; bore snug 0.10 on the spout",
+      "fit": "snug",
+      "param": "RING_H"
+    },
+    {
+      "id": "D50",
+      "name": "plug shank clearance per side (shank 4.9)",
+      "value": 0.05,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 6: root of the plug nearly fills the channel",
+      "fit": "press",
+      "param": "PLUG_SHANK_CLEAR"
+    },
+    {
+      "id": "D51",
+      "name": "plug bulb OD",
+      "value": 5.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 8, user: 5.3 too tight, 5.2 still a little tight. Set to 5.0 = channel size: PETG prints the hole ~0.1 small and the plug ~0.1 large, which gives the real ~0.05-0.1/side click",
+      "fit": null,
+      "param": "PLUG_BULB_D"
+    },
+    {
+      "id": "D52",
+      "name": "plug tip OD (lead-in taper)",
+      "value": 4.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 6: ~16 deg taper from the bulb; tip wall 0.8",
+      "fit": null,
+      "param": "PLUG_TIP_D"
+    },
+    {
+      "id": "D53",
+      "name": "hollow plug wall",
+      "value": 1.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 6, user chose a hollow 1.0 wall plug (bore 2.9)",
+      "fit": null,
+      "param": "PLUG_WALL"
+    },
+    {
+      "id": "D54",
+      "name": "bulb land start from the lid face / depth in the channel",
+      "value": 1.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 6: land 1.2-1.6, below the 1.0 spout groove floor",
+      "fit": null,
+      "param": "PLUG_BULB_Z"
+    },
+    {
+      "id": "D55",
+      "name": "click groove OD inside the channel",
+      "value": 5.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 6 bulb + groove, 45 deg faces. Rev 8: the groove now runs past where the plug taper meets the channel radius, so the bulb fully relaxes when the lid is shut (the closing sweep showed 0.15 mm3 of leftover squeeze at the taper)",
+      "fit": null,
+      "param": "CH_GROOVE_D"
+    }
+  ],
+  "features": [
+    {
+      "id": "F1",
+      "name": "base deck (cap top face)",
+      "count": 1,
+      "position": "z = 0 .. D9, full disc D7",
+      "dims": [
+        "D7",
+        "D9",
+        "D26"
+      ],
+      "notes": "lies on the bed"
+    },
+    {
+      "id": "F2",
+      "name": "outer skirt",
+      "count": 1,
+      "position": "coaxial, z = 0 .. D13",
+      "dims": [
+        "D7",
+        "D11",
+        "D13",
+        "D6",
+        "D12"
+      ],
+      "notes": "cosmetic, ends D12 above the shoulder lug"
+    },
+    {
+      "id": "F3",
+      "name": "snap sleeve",
+      "count": 1,
+      "position": "coaxial, from the deck to z = D9 + D4 + D15",
+      "dims": [
+        "D3",
+        "D4",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "notes": "bore D3 + 2 x free fit; lip ID = D3 - 2 x D14 just below the bead; 45° faces on both sides of the lip"
+    },
+    {
+      "id": "F4",
+      "name": "sleeve flex slots",
+      "count": 6,
+      "position": "equally spaced, from the sleeve rim towards the deck",
+      "dims": [
+        "D16",
+        "D17",
+        "D18"
+      ],
+      "notes": "through the sleeve wall"
+    },
+    {
+      "id": "F5",
+      "name": "seal tube",
+      "count": 1,
+      "position": "coaxial, z = D9 .. D9 + D20",
+      "dims": [
+        "D5",
+        "D19",
+        "D20"
+      ],
+      "notes": "OD = D5 - 2 x snug fit; enters the neck bore"
+    },
+    {
+      "id": "F6",
+      "name": "dispensing channel",
+      "count": 1,
+      "position": "on the axis, through the deck and seal tube",
+      "dims": [
+        "D19"
+      ],
+      "notes": "through"
+    },
+    {
+      "id": "F7",
+      "name": "lid disc with thumb tab",
+      "count": 1,
+      "position": "closed: z 0..D21 above the base top face; tab towards +X",
+      "dims": [
+        "D7",
+        "D21",
+        "D23",
+        "D24"
+      ],
+      "notes": "printed outer face down"
+    },
+    {
+      "id": "F8",
+      "name": "lid channel plug",
+      "count": 1,
+      "position": "lid axis, D22 into the channel",
+      "dims": [
+        "D19",
+        "D22"
+      ],
+      "notes": "OD = D19 - 2 x sliding fit, 0.4 tip chamfer"
+    },
+    {
+      "id": "F9",
+      "name": "hinge knuckles + pin (base)",
+      "count": 1,
+      "position": "axis along Y at x = -(D7/2 + D31), D30/2 - D32 below the top face",
+      "dims": [
+        "D30",
+        "D31",
+        "D32",
+        "D33",
+        "D34",
+        "D42"
+      ],
+      "notes": "pin flat on the bed"
+    },
+    {
+      "id": "F10",
+      "name": "hinge C-clip (lid)",
+      "count": 1,
+      "position": "around the hinge axis, between the knuckles",
+      "dims": [
+        "D30",
+        "D33",
+        "D35",
+        "D36"
+      ],
+      "notes": "mouth faces the bottle when closed; snap the lid on with the lid opened flat"
+    },
+    {
+      "id": "F11",
+      "name": "latch bead (base)",
+      "count": 1,
+      "position": "+X on the skirt, D39 below the top face",
+      "dims": [
+        "D37",
+        "D38",
+        "D39"
+      ],
+      "notes": "45 deg both faces"
+    },
+    {
+      "id": "F12",
+      "name": "latch arm with hook (lid)",
+      "count": 1,
+      "position": "+X under the thumb tab, D41 outside the skirt",
+      "dims": [
+        "D37",
+        "D38",
+        "D40",
+        "D41"
+      ],
+      "notes": "45 deg hook; lifts off with the thumb tab"
+    },
+    {
+      "id": "F13",
+      "name": "plug bulb + channel click groove (rev 6)",
+      "count": 1,
+      "position": "lid plug / channel, depth D54",
+      "dims": [
+        "D22",
+        "D50",
+        "D51",
+        "D52",
+        "D53",
+        "D54",
+        "D55"
+      ]
+    }
+  ],
+  "assumptions": [
+    "A1: the neck is a snap-on neck, not threaded (the side profile shows vertical ribs and a bead, no helix). If it is threaded the whole sleeve design changes.",
+    "A2: rotation is not locked (no internal ribs to match the neck ribs): the cap is round and the channel is central, so orientation does not matter.",
+    "A4: the seal is a tube into the bore plus the deck pressing on the neck top; PLA is rigid, so it is splash-tight, not pressure-tight.",
+    "A5: rev 3: the shoulder lug sits inside the skirt (radius ~9-16 vs skirt bore 21.45), so the skirt extends to 0.5 above the shoulder (gap 6.7 measured) with no notch.",
+    "A3: the original white valve insert is not reused; the lid plug closes the open channel.",
+    "A7: the hinge is a clip-on pin hinge, not print-in-place (the base prints upside down, so a print-in-place lid would be under the bed). Both parts print without supports.",
+    "A8: hinge and latch sizes are design defaults; if the latch is too tight or too loose, only LATCH_DEPTH (D38) needs to change.",
+    "A9 (rev 5): PETG is the primary material (the user prints PETG). PLA is released with the same geometry, its own clearances (FITS) and a gentler latch (D38, D45 material_values)."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Neck bead OD: caliper across the widest ring (the segmented ring below the vertical ribs)",
+      "blocking": true,
+      "answer": "20.8"
+    },
+    {
+      "id": "Q2",
+      "question": "Distance from the very top of the neck (top of the small raised ring) down to the underside of the bead (caliper depth rod)",
+      "blocking": true,
+      "answer": "accepted estimate 7.0 (user: \"approx good\")"
+    },
+    {
+      "id": "Q3",
+      "question": "Inner diameter of the neck opening at the top (inside jaws)",
+      "blocking": true,
+      "answer": "8.8"
+    },
+    {
+      "id": "Q4",
+      "question": "Distance from the very top of the neck down to the top of the shoulder lug",
+      "blocking": true,
+      "answer": "accepted estimate 9.4 (user: \"approx good\")"
+    },
+    {
+      "id": "Q5",
+      "question": "Was the 18.6 mm reading taken on the plain band at the top of the neck?",
+      "blocking": false,
+      "answer": "yes"
+    }
+  ],
+  "drawing": {
+    "plan_cut_z": 6.0,
+    "dimensions": [
+      {
+        "id": "D7",
+        "view": "front",
+        "from": [
+          -23.05,
+          0,
+          18.9
+        ],
+        "to": [
+          23.05,
+          0,
+          18.9
+        ],
+        "offset": 10
+      },
+      {
+        "id": "D13",
+        "view": "front",
+        "from": [
+          -22.65,
+          0,
+          0
+        ],
+        "to": [
+          -23.05,
+          0,
+          18.9
+        ],
+        "orient": "vertical",
+        "offset": 10
+      },
+      {
+        "id": "D27",
+        "view": "plan",
+        "type": "diameter",
+        "center": [
+          0,
+          0,
+          6.0
+        ],
+        "d": 21.5
+      },
+      {
+        "id": "D29",
+        "view": "plan",
+        "type": "diameter",
+        "center": [
+          0,
+          0,
+          6.0
+        ],
+        "d": 24.7
+      },
+      {
+        "id": "D33",
+        "view": "top",
+        "from": [
+          -28.5,
+          -4.0,
+          4.0
+        ],
+        "to": [
+          -28.5,
+          4.0,
+          4.0
+        ],
+        "orient": "vertical",
+        "offset": 10
+      }
+    ]
+  }
+}
