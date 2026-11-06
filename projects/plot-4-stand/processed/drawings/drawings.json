@@ -1,0 +1,138 @@
+{
+  "generated_utc": "2026-11-05T16:42:27+00:00",
+  "scale": "1:1",
+  "plan_cut_z": 8.0,
+  "bbox": {
+    "min": [
+      -47.7,
+      0.0,
+      0.0
+    ],
+    "max": [
+      47.7,
+      69.5,
+      10.0
+    ],
+    "size": [
+      95.4,
+      69.5,
+      10.0
+    ]
+  },
+  "parts": [
+    "plot-4-stand"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 1402,
+      "hidden_edges": 425
+    },
+    "side": {
+      "visible_edges": 1076,
+      "hidden_edges": 306
+    },
+    "top": {
+      "visible_edges": 866,
+      "hidden_edges": 365
+    },
+    "plan": {
+      "visible_edges": 488,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 95.4,
+      "model": 95.4,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 69.5,
+      "model": 69.5,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 10.0,
+      "model": 10.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D1 top horizontal",
+      "measured": 95.4,
+      "expect": 95.4,
+      "tol": 1.5,
+      "ok": true
+    },
+    {
+      "check": "D2 top horizontal",
+      "measured": 20.4,
+      "expect": 20.4,
+      "tol": 0.2,
+      "ok": true
+    },
+    {
+      "check": "D10 top horizontal",
+      "measured": 20.6,
+      "expect": 20.6,
+      "tol": 0.2,
+      "ok": true
+    },
+    {
+      "check": "D22 plan horizontal",
+      "measured": 12.9,
+      "expect": 12.9,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D23 front horizontal",
+      "measured": 15.2,
+      "expect": 15.2,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D8 plan vertical",
+      "measured": 1.5,
+      "expect": 1.5,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D9 plan vertical",
+      "measured": 1.5,
+      "expect": 1.5,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D5 side vertical",
+      "measured": 10.0,
+      "expect": 10.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D15 side vertical",
+      "measured": 9.6,
+      "expect": 9.6,
+      "tol": 0.2,
+      "ok": true
+    },
+    {
+      "check": "D17 side horizontal",
+      "measured": 69.5,
+      "expect": 69.5,
+      "tol": 1.5,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

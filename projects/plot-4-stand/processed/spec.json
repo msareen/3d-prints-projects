@@ -1,0 +1,679 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "plot-4-stand",
+  "status": "confirmed",
+  "revision": 2,
+  "units": "mm",
+  "summary": "Printable copy of a blue spare foot for an upright perforated game board. In use the foot stands on the end faces of its two U arms, the half ring vertical, and the narrow 12.8 end of the board's side rail clips into the U-channel handle on top. The channel is a clip: lips at the opening (outer side) narrow it to 12.9 (original 12.7) and grip the 12.8 rail end; below them it widens to 15.2 (original 15.0). PLA, printed lying on its floor (open side up), no supports.",
+  "inputs": [
+    {
+      "file": "input/brief.md",
+      "kind": "text",
+      "notes": "user's words: the blue part is the spare part to reproduce; PLA; Bambu/Prusa 0.4 nozzle"
+    },
+    {
+      "file": "input/20261105_213638.jpg",
+      "kind": "photo",
+      "notes": "part open side up on a cm cutting mat, camera roughly square (about 99 px/cm): outer span 968 px, inner opening 540 px, arm ends to arc apex 455 px, arm ends to handle end 705 px, handle width 210 px; 4 round ejector marks in the floor; arm ends closed by thin end walls"
+    },
+    {
+      "file": "input/20261105_213652.jpg",
+      "kind": "photo",
+      "notes": "part floor side up on the mat: flat bottom, handle flush with the floor"
+    },
+    {
+      "file": "input/20261105_213709.jpg",
+      "kind": "photo",
+      "notes": "part open side up, closer: same outline; handle channel shows a step/taper line along each side wall"
+    },
+    {
+      "file": "input/20261105_213755.jpg",
+      "kind": "photo",
+      "notes": "caliper across the handle outside: '20.6 mm'"
+    },
+    {
+      "file": "input/20261105_213829.jpg",
+      "kind": "photo",
+      "notes": "caliper across one arm end, outer to inner edge: '20.4 mm'"
+    },
+    {
+      "file": "input/20261105_213910.jpg",
+      "kind": "photo",
+      "notes": "part on its side, caliper across the handle end (floor to wall top): '9.6 mm'; the handle end is open"
+    },
+    {
+      "file": "input/20261105_213947.jpg",
+      "kind": "photo",
+      "notes": "caliper inside the handle channel at the floor: '12.7 mm'"
+    },
+    {
+      "file": "input/20261105_214036.jpg",
+      "kind": "photo",
+      "notes": "part standing on its arm ends, caliper inside the handle channel at the top: '15.0 mm'"
+    },
+    {
+      "file": "input/20261105_214111.jpg",
+      "kind": "photo",
+      "notes": "caliper across one handle side wall, part way down: '3.3 mm'"
+    },
+    {
+      "file": "input/20261105_214128.jpg",
+      "kind": "photo",
+      "notes": "caliper across a handle side wall at the top: '2.6 mm'"
+    },
+    {
+      "file": "input/20261105_214133.jpg",
+      "kind": "photo",
+      "notes": "same wall, other angle: '2.6 mm'"
+    },
+    {
+      "file": "input/20261105_214151.jpg",
+      "kind": "photo",
+      "notes": "caliper across the other handle side wall at the top: '2.8 mm'"
+    },
+    {
+      "file": "input/20261105_214205.jpg",
+      "kind": "photo",
+      "notes": "caliper across a handle side wall at its base: '4.0 mm'"
+    },
+    {
+      "file": "input/20261105_215353.jpg",
+      "kind": "photo",
+      "notes": "the board the foot fits: perforated blue board, caliper across its edge rail at the end: '12.8 mm'"
+    },
+    {
+      "file": "input/20261105_215421.jpg",
+      "kind": "photo",
+      "notes": "caliper across the board's edge rail further along (two-shell rail with a seam): '15.0 mm'"
+    },
+    {
+      "file": "input/20261105_215633.jpg",
+      "kind": "photo",
+      "notes": "the foot in use: standing on its two arm ends (U plane vertical), handle pointing up; the board's vertical side rail sits down in the handle channel, the board panel leaves through the channel's open side, the board's bottom corner rests on the outer ring wall"
+    }
+  ],
+  "datum": {
+    "origin": "centre of the arcs, on the plane of the arm-end faces, on the bed (Z = 0 = underside of the floor)",
+    "x": "across the U, left arm to right arm seen from the front",
+    "y": "from the arm ends towards the arc apex and handle (the arm-end faces look to -Y, the front)",
+    "z": "up = print direction; floor on the bed, open side up"
+  },
+  "envelope": {
+    "x": 95.4,
+    "y": 69.5,
+    "z": 10.0,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [
+      250,
+      210,
+      220
+    ],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PLA",
+    "materials": [
+      "PLA"
+    ],
+    "supports": false,
+    "orientation": "floor on the bed, open side up: every wall is vertical or drafted inward, no overhangs",
+    "quantity": 1
+  },
+  "parts": [
+    {
+      "name": "plot-4-stand",
+      "description": "one-piece half-ring tray with channel handle (copy of the blue spare part)"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "outer width across the U (outer arc diameter)",
+      "value": 95.4,
+      "tol": "±1.5",
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "input/20261105_213638.jpg: 968 px / 99 px per cm = 97.8 at rim height, less 2.5 % for the rim being nearer the camera = 95.4. Q2 (non-blocking)",
+      "fit": null,
+      "param": "OUTER_W"
+    },
+    {
+      "id": "D2",
+      "name": "ring band width at the arm ends (outer to inner)",
+      "value": 20.4,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261105_213829.jpg: caliper '20.4 mm'",
+      "fit": null,
+      "param": "BAND_W"
+    },
+    {
+      "id": "D3",
+      "name": "outer arc radius",
+      "value": 47.7,
+      "basis": "derived",
+      "confidence": "medium",
+      "critical": false,
+      "source": "D1 / 2",
+      "fit": null
+    },
+    {
+      "id": "D4",
+      "name": "inner arc radius",
+      "value": 27.3,
+      "basis": "derived",
+      "confidence": "medium",
+      "critical": false,
+      "source": "D3 - D2 = 47.7 - 20.4; photo check 540 px / 99 / 1.025 / 2 = 26.6",
+      "fit": null
+    },
+    {
+      "id": "D5",
+      "name": "overall height of the ring walls (floor underside to rim top)",
+      "value": 10.0,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured; side photos show the rim about level with the 9.6 handle. Q3",
+      "fit": null,
+      "param": "RIM_H"
+    },
+    {
+      "id": "D6",
+      "name": "floor thickness",
+      "value": 1.6,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured. Q4",
+      "fit": null,
+      "param": "FLOOR_T"
+    },
+    {
+      "id": "D7",
+      "name": "outer curved wall thickness",
+      "value": 1.8,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured; input/20261105_213638.jpg rim about 18 px. Q4",
+      "fit": null,
+      "param": "WALL_OUT"
+    },
+    {
+      "id": "D8",
+      "name": "inner curved wall thickness",
+      "value": 1.5,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured; input/20261105_213638.jpg rim about 15 px. Q4",
+      "fit": null,
+      "param": "WALL_IN"
+    },
+    {
+      "id": "D9",
+      "name": "arm end wall thickness",
+      "value": 1.5,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured; input/20261105_213638.jpg about 15-25 px. Q4",
+      "fit": null,
+      "param": "END_WALL"
+    },
+    {
+      "id": "D10",
+      "name": "handle outer width",
+      "value": 20.6,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261105_213755.jpg: caliper '20.6 mm'",
+      "fit": null,
+      "param": "HANDLE_W"
+    },
+    {
+      "id": "D11",
+      "name": "original opening between the lips, at the outer side (reference)",
+      "value": 12.7,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261105_213947.jpg: caliper '12.7 mm' across the channel opening",
+      "fit": null
+    },
+    {
+      "id": "D12",
+      "name": "original channel width below the lips (reference)",
+      "value": 15.0,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261105_214036.jpg: caliper '15.0 mm' deep in the channel",
+      "fit": null
+    },
+    {
+      "id": "D13",
+      "name": "handle side wall thickness below the lips",
+      "value": 2.8,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261105_214151.jpg '2.8'; 214128/214133 '2.6'; check (D10 - D12) / 2 = 2.8",
+      "fit": null
+    },
+    {
+      "id": "D14",
+      "name": "side wall + lip at the opening (reference)",
+      "value": 4.0,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261105_214205.jpg '4.0'; check D13 + (D12 - D11) / 2 = 2.8 + 1.15 = 3.95",
+      "fit": null
+    },
+    {
+      "id": "D15",
+      "name": "handle height (floor underside to wall top)",
+      "value": 9.6,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261105_213910.jpg: caliper '9.6 mm'",
+      "fit": null,
+      "param": "HANDLE_H"
+    },
+    {
+      "id": "D16",
+      "name": "handle floor thickness",
+      "value": 2.0,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured. Q4",
+      "fit": null,
+      "param": "HANDLE_FLOOR"
+    },
+    {
+      "id": "D17",
+      "name": "overall length, arm-end faces to handle end",
+      "value": 69.5,
+      "tol": "±1.5",
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "input/20261105_213638.jpg: 705 px / 99 px per cm = 71.2, less 2.5 % = 69.5. Q2",
+      "fit": null,
+      "param": "OVERALL_L"
+    },
+    {
+      "id": "D18",
+      "name": "handle length beyond the outer arc apex",
+      "value": 21.8,
+      "basis": "derived",
+      "confidence": "medium",
+      "critical": false,
+      "source": "D17 - D3 = 69.5 - 47.7",
+      "fit": null
+    },
+    {
+      "id": "D19",
+      "name": "bottom elephant-foot chamfer",
+      "value": 0.4,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "3d-print-design design rules",
+      "fit": null,
+      "param": "FOOT_CHAMFER"
+    },
+    {
+      "id": "D20",
+      "name": "board side rail, narrow end section that goes into the channel (gripped by the lips)",
+      "value": 12.8,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261105_215353.jpg: caliper '12.8 mm' across the rail end below its step; 215633 shows this end in the foot",
+      "fit": "press",
+      "param": "RAIL_EDGE_T"
+    },
+    {
+      "id": "D21",
+      "name": "board side rail body above the step (sets the channel width below the lips)",
+      "value": 15.0,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261105_215421.jpg: caliper '15.0 mm' across the rail body; equals the original's 15.0 below the lips (D12)",
+      "fit": "snug",
+      "param": "RAIL_IN_T"
+    },
+    {
+      "id": "D22",
+      "name": "printed opening between the lips",
+      "value": 12.9,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D20 + 2 x FITS['press'] (PLA 0.05) = 12.9; FDM prints about 0.1 per side narrow, so about 12.7 like the original catch",
+      "fit": "press"
+    },
+    {
+      "id": "D23",
+      "name": "printed channel width below the lips",
+      "value": 15.2,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D21 + 2 x FITS['snug'] (PLA 0.10) = 15.0 + 0.2. Original: D12 15.0",
+      "fit": "snug"
+    },
+    {
+      "id": "D24",
+      "name": "printed lip width / side wall below the lips",
+      "value": 1.15,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "(D23 - D22) / 2 = 1.15 lip; (D10 - D23) / 2 = 2.7 side wall (original 1.15 / 2.8)",
+      "fit": null
+    },
+    {
+      "id": "D25",
+      "name": "lip depth: vertical catch face from the handle top down",
+      "value": 3.0,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "not measured. Q6. Below it the lip returns to the wall at 45 deg (1.15 high), so it prints without support",
+      "fit": null,
+      "param": "EDGE_H"
+    },
+    {
+      "id": "D26",
+      "name": "lip lead-in chamfer at the opening",
+      "value": 0.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: guides the rail past the lips",
+      "fit": null,
+      "param": "LEAD_IN"
+    }
+  ],
+  "features": [
+    {
+      "id": "F1",
+      "name": "half-ring tray",
+      "count": 1,
+      "position": "arcs centred on X = 0, Y = 0, spanning Y >= 0; arm-end faces on Y = 0",
+      "dims": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9"
+      ],
+      "notes": "floor, outer and inner curved walls, closed end walls at both arm ends, open top"
+    },
+    {
+      "id": "F2",
+      "name": "U-channel handle",
+      "count": 1,
+      "position": "centred on X = 0, from the outer arc (Y = D3) out to Y = D17, floor flush with Z = 0",
+      "dims": [
+        "D10",
+        "D13",
+        "D15",
+        "D16",
+        "D17",
+        "D18",
+        "D20",
+        "D21",
+        "D22",
+        "D23",
+        "D24",
+        "D25",
+        "D26"
+      ],
+      "notes": "clip channel, open at the outer end and at the top. Lips along the top of both side walls narrow the opening to D22; below them the channel widens to D23 down to the floor. Lip: vertical catch face D25 deep, 45 deg underside back to the wall, D26 lead-in on top. Runs from the outer ring wall to the handle end"
+    },
+    {
+      "id": "F3",
+      "name": "bottom edge chamfer",
+      "count": 1,
+      "position": "all outer bottom edges",
+      "dims": [
+        "D19"
+      ],
+      "notes": "against elephant foot"
+    }
+  ],
+  "assumptions": [
+    "A1: the arcs are concentric half circles centred on the arm-end plane: inner radius D4 checks against the photo within 0.7 mm.",
+    "A2: the 4 round marks and 2 small dots in the floor are moulding ejector marks and are not copied.",
+    "A3: the channel is a clip. Lips at the opening (outer side) grip the board rail's 12.8 end; below them it widens to the original's 15.0 (user: 'it is outer side to catch ... clip on'; board photos 215353, 215421, 215633). The 3.3 reading (214111) is not used.",
+    "A4: rim top is flat; no lips, fillets or draft on the ring walls (none visible in the photos).",
+    "A5: bed 250 x 210 (Prusa MK4 class); every Bambu bed is larger.",
+    "A6: lips use PLA press (0.05 per side), the wide part PLA snug (0.10 per side). PLA is stiffer than the original's soft plastic: if the clip is too hard to push on or cracks, open the lips in 0.05 steps (processed/fits-PLA.json press) or print in PETG.",
+    "A7: quantity 1 (one replacement foot); the board uses one at each side.",
+    "A8: ring sizes D1, D5, D17 and the wall thicknesses only set the footprint and look; photo estimates are acceptable for them.",
+    "A9: in use the arm-end faces (Y = 0) are the feet: both lie flat in one plane, and the print copies that exactly."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "What does the part mate with?",
+      "blocking": true,
+      "answer": "the edge rail of the perforated game board (input/20261105_215353.jpg, 215421.jpg): rail 12.8 / 15.0 slides into the handle channel"
+    },
+    {
+      "id": "Q2",
+      "question": "Caliper: outer width across the U (D1) and overall length from the arm ends to the handle end (D17).",
+      "blocking": false,
+      "answer": null
+    },
+    {
+      "id": "Q3",
+      "question": "Caliper: overall height of the ring walls, part lying floor-down (D5).",
+      "blocking": false,
+      "answer": null
+    },
+    {
+      "id": "Q4",
+      "question": "Caliper: floor, outer wall, inner wall, arm end wall and handle floor thicknesses (D6, D7, D8, D9, D16).",
+      "blocking": false,
+      "answer": null
+    },
+    {
+      "id": "Q5",
+      "question": "How many feet to print: 1 or 2?",
+      "blocking": false,
+      "answer": null
+    },
+    {
+      "id": "Q6",
+      "question": "Lip depth: how far down from the handle top the narrow opening goes before the channel widens (D25).",
+      "blocking": false,
+      "answer": null
+    }
+  ],
+  "drawing": {
+    "plan_cut_z": 8.0,
+    "dimensions": [
+      {
+        "id": "D1",
+        "view": "top",
+        "from": [
+          -47.7,
+          0,
+          10
+        ],
+        "to": [
+          47.7,
+          0,
+          10
+        ],
+        "offset": 10
+      },
+      {
+        "id": "D2",
+        "view": "top",
+        "from": [
+          27.3,
+          0,
+          10
+        ],
+        "to": [
+          47.7,
+          0,
+          10
+        ],
+        "offset": 18
+      },
+      {
+        "id": "D10",
+        "view": "top",
+        "from": [
+          -10.3,
+          60,
+          9.6
+        ],
+        "to": [
+          10.3,
+          60,
+          9.6
+        ],
+        "offset": -10
+      },
+      {
+        "id": "D22",
+        "view": "plan",
+        "from": [
+          -6.45,
+          60,
+          8
+        ],
+        "to": [
+          6.45,
+          60,
+          8
+        ],
+        "offset": -18
+      },
+      {
+        "id": "D23",
+        "view": "front",
+        "from": [
+          -7.6,
+          60,
+          3
+        ],
+        "to": [
+          7.6,
+          60,
+          3
+        ],
+        "offset": 12
+      },
+      {
+        "id": "D8",
+        "view": "plan",
+        "from": [
+          0,
+          27.3,
+          8
+        ],
+        "to": [
+          0,
+          28.8,
+          8
+        ],
+        "orient": "vertical",
+        "offset": 10
+      },
+      {
+        "id": "D9",
+        "view": "plan",
+        "from": [
+          37,
+          0,
+          8
+        ],
+        "to": [
+          37,
+          1.5,
+          8
+        ],
+        "orient": "vertical",
+        "offset": 10
+      },
+      {
+        "id": "D5",
+        "view": "side",
+        "from": [
+          40,
+          40,
+          0
+        ],
+        "to": [
+          40,
+          40,
+          10
+        ],
+        "orient": "vertical",
+        "offset": -10
+      },
+      {
+        "id": "D15",
+        "view": "side",
+        "from": [
+          60,
+          60,
+          0
+        ],
+        "to": [
+          60,
+          60,
+          9.6
+        ],
+        "orient": "vertical",
+        "offset": 10
+      },
+      {
+        "id": "D17",
+        "view": "side",
+        "from": [
+          0,
+          0,
+          5
+        ],
+        "to": [
+          0,
+          69.5,
+          5
+        ],
+        "orient": "horizontal",
+        "offset": 12
+      }
+    ]
+  }
+}

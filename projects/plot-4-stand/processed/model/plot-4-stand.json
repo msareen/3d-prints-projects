@@ -1,0 +1,335 @@
+{
+  "name": "plot-4-stand",
+  "units": "mm",
+  "generated_utc": "2026-11-05T16:42:27+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "plot-4-stand.stl",
+  "stl_sha256": "206da9f23435d0ae75e17f13ae9d488cc178d71cf4a486ae584409592d47a6f2",
+  "material": "PLA",
+  "density_g_cm3": 1.24,
+  "bbox": {
+    "min": [
+      -47.7,
+      0.0,
+      0.0
+    ],
+    "max": [
+      47.7,
+      69.5,
+      10.0
+    ],
+    "size": [
+      95.4,
+      69.5,
+      10.0
+    ]
+  },
+  "volume_mm3": 9603.91,
+  "estimated_mass_g_solid": 11.91,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 3620,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 95.4 x 69.5 x 10.0 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "9603.9 mm3",
+        "data": {
+          "volume_mm3": 9603.908
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "1 body as expected",
+        "data": {
+          "bodies": 1,
+          "expected": 1
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "pass",
+        "message": "2731.8 mm2 flat contact on the bed",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 2731.81,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": []
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 250 x 210 x 220 with 5 mm margin",
+        "data": {
+          "bed": [
+            250.0,
+            210.0,
+            220.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "pass",
+        "message": "no overhang steeper than 45 deg (beyond 1 mm2)",
+        "data": {
+          "limit_deg": 45,
+          "area_mm2": 0.0,
+          "flat_ceiling_area_mm2": 0.0,
+          "bridge_area_mm2": 0.0,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [],
+          "wide_regions_not_measured": 0,
+          "faces": 0
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "pass",
+        "message": "all flat faces sit on 0.2 mm layer boundaries",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 4,
+          "off_grid_levels": []
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "pass",
+        "message": "1 hole(s) found, none narrower than 3 mm",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 1,
+          "small": [],
+          "horizontal": [],
+          "all": [
+            {
+              "axis": "z",
+              "min_width_mm": 17.1,
+              "center": [
+                -0.0,
+                24.81,
+                3.0
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "pass",
+        "message": "no sampled wall thinner than 0.8 mm (2 x nozzle)",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 0,
+          "min_thickness_mm": 1.5
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "9 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              0.0,
+              37.5,
+              0.8
+            ],
+            [
+              46.800000000000004,
+              0.5,
+              5.0
+            ],
+            [
+              8.95,
+              57.7,
+              4.8
+            ],
+            [
+              0.0,
+              57.7,
+              1.0
+            ],
+            [
+              7.025,
+              57.7,
+              8.1
+            ]
+          ],
+          "outside": [
+            [
+              0.0,
+              37.5,
+              5.0
+            ],
+            [
+              0.0,
+              57.7,
+              8.1
+            ],
+            [
+              7.025,
+              57.7,
+              3.0
+            ],
+            [
+              0.0,
+              13.650000000000002,
+              5.0
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 3620,
+      "vertices": 1812,
+      "bbox_min": [
+        -47.7,
+        0.0,
+        0.0
+      ],
+      "bbox_max": [
+        47.7,
+        69.5,
+        10.0
+      ],
+      "size": [
+        95.4,
+        69.5,
+        10.0
+      ],
+      "surface_area_mm2": 11454.97,
+      "volume_mm3": 9603.908,
+      "bodies": 1
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3,
+      "source": "fits.json (printer not named, PLA)"
+    },
+    "NAME": "plot-4-stand",
+    "MATERIAL": "PLA",
+    "COLOR": "#2f6fe0",
+    "PRINTER_BED": [
+      250,
+      210,
+      220
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 45,
+    "SUPPORTS_ALLOWED": false,
+    "EXPECTED_BODIES": 1,
+    "OUTER_W": 95.4,
+    "BAND_W": 20.4,
+    "RIM_H": 10.0,
+    "FLOOR_T": 1.6,
+    "WALL_OUT": 1.8,
+    "WALL_IN": 1.5,
+    "END_WALL": 1.5,
+    "FOOT_CHAMFER": 0.4,
+    "HANDLE_W": 20.6,
+    "HANDLE_H": 9.6,
+    "HANDLE_FLOOR": 2.0,
+    "OVERALL_L": 69.5,
+    "RAIL_EDGE_T": 12.8,
+    "RAIL_IN_T": 15.0,
+    "EDGE_H": 3.0,
+    "LEAD_IN": 0.5,
+    "CH_CLEAR": 0.1,
+    "LIP_CLEAR": 0.05,
+    "R_OUT": 47.7,
+    "R_IN": 27.3,
+    "CH_BOT": 12.9,
+    "CH_TOP": 15.2,
+    "EPS": 0.01,
+    "PROBES_INSIDE": [
+      [
+        0.0,
+        37.5,
+        0.8
+      ],
+      [
+        46.8,
+        0.5,
+        5.0
+      ],
+      [
+        8.95,
+        57.7,
+        4.8
+      ],
+      [
+        0.0,
+        57.7,
+        1.0
+      ],
+      [
+        7.025,
+        57.7,
+        8.1
+      ]
+    ],
+    "PROBES_OUTSIDE": [
+      [
+        0.0,
+        37.5,
+        5.0
+      ],
+      [
+        0.0,
+        57.7,
+        8.1
+      ],
+      [
+        7.025,
+        57.7,
+        3.0
+      ],
+      [
+        0.0,
+        13.65,
+        5.0
+      ]
+    ]
+  },
+  "preview_color": "#2f6fe0",
+  "printer_bed": [
+    250.0,
+    210.0,
+    220.0
+  ]
+}

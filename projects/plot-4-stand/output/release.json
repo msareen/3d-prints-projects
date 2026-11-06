@@ -1,0 +1,30 @@
+{
+  "project": "plot-4-stand",
+  "released_utc": "2026-11-05T16:42:29+00:00",
+  "spec_revision": 2,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PLA"
+  ],
+  "fits": {
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "PLA/plot-4-stand-PLA.3mf": "d47ae6d13a8be21389c67596ff3755f46ee6c02ac7e30ad39fd2a3f5460580bd",
+    "PLA/plot-4-stand.json": "1f7640d53636eeae7df493ed72e931485855b0a319e63a070ea9a38f3527ae1a",
+    "PLA/plot-4-stand.stl": "206da9f23435d0ae75e17f13ae9d488cc178d71cf4a486ae584409592d47a6f2",
+    "PLA/print-sheet.md": "f5a8595428f6b2a0f4742c9e98aa74c8a901f9f003831984e604479668788163",
+    "plot-4-stand-drawing.svg": "0303fa1f3d2aa73c3f2dcef1727d8791b117bf85fe3f0ef24435755bc32c61f1",
+    "plot-4-stand-spec.md": "4b0ef8f7be2c82e9224c753a40a911db132531060be619a7b0eb0c4fb0bb74b5"
+  },
+  "printcheck_warnings": {
+    "PLA/plot-4-stand": []
+  }
+}
