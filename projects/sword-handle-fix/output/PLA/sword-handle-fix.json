@@ -1,0 +1,419 @@
+{
+  "name": "sword-handle-fix",
+  "units": "mm",
+  "generated_utc": "2026-11-06T04:34:58+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "sword-handle-fix.stl",
+  "stl_sha256": "bdaff37487e736c7f4d2c66de294dc5c48e43998b8aa50a71b8520b78127265f",
+  "material": "PLA",
+  "density_g_cm3": 1.24,
+  "bbox": {
+    "min": [
+      -20.5,
+      -18.85,
+      0.0
+    ],
+    "max": [
+      20.5,
+      18.85,
+      17.4
+    ],
+    "size": [
+      41.0,
+      37.7,
+      17.4
+    ]
+  },
+  "volume_mm3": 9811.3,
+  "estimated_mass_g_solid": 12.17,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 23984,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "small_holes"
+    ],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 41.0 x 37.7 x 17.4 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "9811.3 mm3",
+        "data": {
+          "volume_mm3": 9811.301
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "1 body as expected",
+        "data": {
+          "bodies": 1,
+          "expected": 1
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "pass",
+        "message": "1147.0 mm2 flat contact on the bed",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 1146.98,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": []
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 250 x 210 x 220 with 5 mm margin",
+        "data": {
+          "bed": [
+            250.0,
+            210.0,
+            220.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "pass",
+        "message": "no overhang steeper than 45 deg (beyond 1 mm2)",
+        "data": {
+          "limit_deg": 45,
+          "area_mm2": 0.0,
+          "flat_ceiling_area_mm2": 0.0,
+          "bridge_area_mm2": 0.0,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [],
+          "wide_regions_not_measured": 0,
+          "faces": 0
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "pass",
+        "message": "all flat faces sit on 0.2 mm layer boundaries",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 2,
+          "off_grid_levels": []
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "warn",
+        "message": "1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 1,
+          "small": [
+            {
+              "axis": "z",
+              "min_width_mm": 2.97,
+              "center": [
+                0.0,
+                0.0,
+                1.91
+              ]
+            }
+          ],
+          "horizontal": [],
+          "all": [
+            {
+              "axis": "z",
+              "min_width_mm": 2.97,
+              "center": [
+                0.0,
+                0.0,
+                1.91
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "pass",
+        "message": "no sampled wall thinner than 0.8 mm (2 x nozzle)",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 0,
+          "min_thickness_mm": 1.044
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "16 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              17.3,
+              0.0,
+              8.7
+            ],
+            [
+              0.0,
+              15.650000000000002,
+              8.7
+            ],
+            [
+              0.0,
+              7.2250000000000005,
+              1.2
+            ],
+            [
+              0.0,
+              18.55,
+              8.7
+            ],
+            [
+              0.0,
+              18.416790190656158,
+              5.6000000000000005
+            ],
+            [
+              0.0,
+              18.513827118148285,
+              9.1
+            ],
+            [
+              0.0,
+              17.987665449964524,
+              12.6
+            ]
+          ],
+          "outside": [
+            [
+              0.0,
+              0.0,
+              8.7
+            ],
+            [
+              0.0,
+              0.0,
+              1.2
+            ],
+            [
+              0.0,
+              19.150000000000002,
+              8.7
+            ],
+            [
+              0.0,
+              18.416790190656158,
+              6.4
+            ],
+            [
+              0.0,
+              -18.416790190656158,
+              6.4
+            ],
+            [
+              0.0,
+              18.513827118148285,
+              9.9
+            ],
+            [
+              0.0,
+              -18.513827118148285,
+              9.9
+            ],
+            [
+              0.0,
+              17.987665449964524,
+              13.4
+            ],
+            [
+              0.0,
+              -17.987665449964524,
+              13.4
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 23984,
+      "vertices": 11992,
+      "bbox_min": [
+        -20.5,
+        -18.85,
+        0.0
+      ],
+      "bbox_max": [
+        20.5,
+        18.85,
+        17.4
+      ],
+      "size": [
+        41.0,
+        37.7,
+        17.4
+      ],
+      "surface_area_mm2": 6354.34,
+      "volume_mm3": 9811.301,
+      "bodies": 1
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3,
+      "source": "fits.json (printer not named, PLA)"
+    },
+    "NAME": "sword-handle-fix",
+    "MATERIAL": "PLA",
+    "COLOR": "#2b2b2b",
+    "PRINTER_BED": [
+      250,
+      210,
+      220
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 45,
+    "SUPPORTS_ALLOWED": false,
+    "EXPECTED_BODIES": 1,
+    "HANDLE_W": 31.6,
+    "HANDLE_T": 28.3,
+    "SLEEVE_L": 15.0,
+    "BORE_R": 8.0,
+    "CLEAR": 0.3,
+    "WALL": 2.4,
+    "FLOOR_T": 2.4,
+    "VENT_D": 3.0,
+    "TOP_CHAMFER": 0.6,
+    "LEAD_IN": 0.6,
+    "BULGE": 2.0,
+    "SLICES": 59,
+    "CHEV_DEPTH": 0.7,
+    "CHEV_RAMP_DEG": 15,
+    "CHEV_PITCH": 3.5,
+    "CHEV_Z0": 6.0,
+    "CHEV_N": 3,
+    "CHEV_ANGLE": 25,
+    "CHEV_FADE": 4.0,
+    "BORE_W": 32.2,
+    "BORE_T": 28.9,
+    "OUT_W": 37.0,
+    "OUT_T": 33.7,
+    "HEIGHT": 17.4,
+    "EPS": 0.01,
+    "PROBES_INSIDE": [
+      [
+        17.3,
+        0.0,
+        8.7
+      ],
+      [
+        0.0,
+        15.65,
+        8.7
+      ],
+      [
+        0.0,
+        7.225,
+        1.2
+      ],
+      [
+        0.0,
+        18.55,
+        8.7
+      ],
+      [
+        0.0,
+        18.41679,
+        5.6
+      ],
+      [
+        0.0,
+        18.513827,
+        9.1
+      ],
+      [
+        0.0,
+        17.987665,
+        12.6
+      ]
+    ],
+    "PROBES_OUTSIDE": [
+      [
+        0.0,
+        0.0,
+        8.7
+      ],
+      [
+        0.0,
+        0.0,
+        1.2
+      ],
+      [
+        0.0,
+        19.15,
+        8.7
+      ],
+      [
+        0.0,
+        18.41679,
+        6.4
+      ],
+      [
+        0.0,
+        -18.41679,
+        6.4
+      ],
+      [
+        0.0,
+        18.513827,
+        9.9
+      ],
+      [
+        0.0,
+        -18.513827,
+        9.9
+      ],
+      [
+        0.0,
+        17.987665,
+        13.4
+      ],
+      [
+        0.0,
+        -17.987665,
+        13.4
+      ]
+    ]
+  },
+  "preview_color": "#2b2b2b",
+  "printer_bed": [
+    250.0,
+    210.0,
+    220.0
+  ]
+}

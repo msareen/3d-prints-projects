@@ -1,0 +1,32 @@
+{
+  "project": "sword-handle-fix",
+  "released_utc": "2026-11-06T04:34:58+00:00",
+  "spec_revision": 1,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PLA"
+  ],
+  "fits": {
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "PLA/print-sheet.md": "b7f71dc5cb2706c7882d097d9ba145ce307def19ca60d489f89a5b7177e3f31c",
+    "PLA/sword-handle-fix-PLA.3mf": "6d5ab161c792409036ca1293f77bcdbc0f6e5153e7d3b0f8c718dfd9a1a06f41",
+    "PLA/sword-handle-fix.json": "511cce26118a66c5b490f08e887f1ce0d7100af9151a41f983d03ea2e8fb057b",
+    "PLA/sword-handle-fix.stl": "bdaff37487e736c7f4d2c66de294dc5c48e43998b8aa50a71b8520b78127265f",
+    "sword-handle-fix-drawing.svg": "178892715ad14d3dd4a5e7ef98f7783bd90e0ff5ea04810a58670f6f95e39e99",
+    "sword-handle-fix-spec.md": "a8de38686e9097320ab6381a4d18f6ff4f654853b51477450abb1e4fb474dc04"
+  },
+  "printcheck_warnings": {
+    "PLA/sword-handle-fix": [
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out"
+    ]
+  }
+}

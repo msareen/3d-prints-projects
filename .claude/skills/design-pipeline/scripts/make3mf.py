@@ -68,8 +68,11 @@ def model_xml(parts, title: str) -> str:
     return "".join(out)
 
 
-def write_3mf(path: Path, stl_paths, title: str, bed=None) -> dict:
+def write_3mf(path: Path, stl_paths, title: str, bed=None, copies: int = 1, gap: float = 10.0) -> dict:
     """bed = (x, y): move all parts together so their footprint is centred on the bed.
+
+    copies > 1 places that many copies of the part set side by side along X (gap mm apart),
+    each as its own named object (<part>-1, <part>-2, ...).
 
     The parts keep their positions relative to each other; Z is untouched (they sit on Z = 0).
     """
@@ -91,6 +94,13 @@ def write_3mf(path: Path, stl_paths, title: str, bed=None) -> dict:
                         "volume_mm3": round(float(mesh.volume), 2)})
     if not parts:
         raise ValueError("no STL files given")
+    if copies > 1:
+        # lay out `copies` copies of the whole part set side by side along X, gap mm apart
+        allv = np.vstack([p[1] for p in parts])
+        step = float(allv[:, 0].max() - allv[:, 0].min()) + gap
+        parts = [(f"{n}-{k + 1}", v + np.array([k * step, 0.0, 0.0]), f, c)
+                 for k in range(copies) for n, v, f, c in parts]
+        summary = [{**s, "copies": copies} for s in summary]
     if bed:
         allv = np.vstack([p[1] for p in parts])
         lo, hi = allv.min(0), allv.max(0)
@@ -112,7 +122,11 @@ def main(argv=None) -> int:
     ap.add_argument("stl", nargs="+", help="input .stl files (one object each)")
     ap.add_argument("--title", default="", help="title stored in the 3MF metadata")
     ap.add_argument("--bed", default=None, metavar="XxY", help="centre the parts on a bed of this size, e.g. 220x220")
+    ap.add_argument("--copies", type=int, default=1, help="copies of the part set on the plate (spec print.quantity)")
     args = ap.parse_args(argv)
+    if not 1 <= args.copies <= 50:
+        print("--copies must be 1 to 50", file=sys.stderr)
+        return 2
     out = Path(args.out)
     if out.suffix.lower() != ".3mf":
         print("output must end in .3mf", file=sys.stderr)
@@ -125,7 +139,7 @@ def main(argv=None) -> int:
             print("--bed must look like 220x220", file=sys.stderr)
             return 2
     try:
-        info = write_3mf(out, args.stl, args.title or out.stem, bed=bed)
+        info = write_3mf(out, args.stl, args.title or out.stem, bed=bed, copies=args.copies)
     except (ValueError, OSError) as exc:
         print(f"3mf: {exc}", file=sys.stderr)
         return 1

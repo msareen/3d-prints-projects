@@ -1,0 +1,634 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "sword-handle-fix",
+  "status": "confirmed",
+  "revision": 1,
+  "units": "mm",
+  "summary": "Closed-end cap (new pommel end) for a toy sword whose hollow two-shell plastic handle is broken open at the pommel end. The cap slides 15 mm over the broken end and is glued on. Per the user, the bore is straight and sized to the largest handle readings (31.6 wide x 28.3 thick) plus a 0.3 mm glue gap per side; glue fills the gap where the handle is thinner. Outside: a pommel-like outward bulge (2 mm per side at mid-height, circular arc) with three stepped chevron grooves on each wide face, echoing the handle's chevrons. 2.4 mm closed end with a 3 mm vent. PLA, closed end on the bed, open rim up, no supports.",
+  "inputs": [
+    {
+      "file": "input/brief.md",
+      "kind": "text",
+      "notes": "user: 15 mm sleeve that slides over the broken part, glued; closed end cap; width 31.6; PLA 0.4 nozzle; 'keep it thickest only'; 'make it little desinger'; 'I need that curve'; 'a outward buldge'; approved: 'ok, create a print, I need 2 on a plate'"
+    },
+    {
+      "file": "input/20261106_093318.jpg",
+      "kind": "photo",
+      "notes": "broken end, caliper across the width: '28.8 mm'; section is a rounded barrel, two shells, tang and pin inside"
+    },
+    {
+      "file": "input/20261106_093337.jpg",
+      "kind": "photo",
+      "notes": "broken end, caliper across the width: '31.6 mm' (user: this is the true width)"
+    },
+    {
+      "file": "input/20261106_093346.jpg",
+      "kind": "photo",
+      "notes": "whole toy sword: green plastic blade, black guard and chevron-ribbed handle, broken open at the pommel end"
+    },
+    {
+      "file": "input/20261106_093403.jpg",
+      "kind": "photo",
+      "notes": "width at the broken end, chevron face up: '29.1 mm'"
+    },
+    {
+      "file": "input/20261106_093418.jpg",
+      "kind": "photo",
+      "notes": "same, other angle: '29.1 mm'"
+    },
+    {
+      "file": "input/20261106_093457.jpg",
+      "kind": "photo",
+      "notes": "thickness (narrow side) near the broken end: '19.9 mm'"
+    },
+    {
+      "file": "input/20261106_093500.jpg",
+      "kind": "photo",
+      "notes": "thickness: '21.4 mm'"
+    },
+    {
+      "file": "input/20261106_093502.jpg",
+      "kind": "photo",
+      "notes": "thickness: '22.6 mm'"
+    },
+    {
+      "file": "input/20261106_093509.jpg",
+      "kind": "photo",
+      "notes": "thickness: '24.1 mm'"
+    },
+    {
+      "file": "input/20261106_093513.jpg",
+      "kind": "photo",
+      "notes": "thickness: '26.0 mm'"
+    },
+    {
+      "file": "input/20261106_093517.jpg",
+      "kind": "photo",
+      "notes": "thickness: '27.7 mm'"
+    },
+    {
+      "file": "input/20261106_093520.jpg",
+      "kind": "photo",
+      "notes": "thickness: '28.3 mm' (largest reading)"
+    },
+    {
+      "file": "input/20261106_093612.jpg",
+      "kind": "photo",
+      "notes": "caliper along the handle axis over the broken zone: '15.1 mm'"
+    },
+    {
+      "file": "input/tapper/20261106_094454.jpg",
+      "kind": "photo",
+      "notes": "second, intact sword ('Ratna's' sticker) standing on its pommel end on a cm mat: handle narrows to a rounded end"
+    },
+    {
+      "file": "input/tapper/20261106_094457.jpg",
+      "kind": "photo",
+      "notes": "intact sword, side view on the mat"
+    },
+    {
+      "file": "input/tapper/20261106_094504.jpg",
+      "kind": "photo",
+      "notes": "intact sword: closed, rounded pommel end with a small round hole"
+    },
+    {
+      "file": "input/tapper/20261106_094512.jpg",
+      "kind": "photo",
+      "notes": "intact sword, oblique view on the mat"
+    },
+    {
+      "file": "input/tapper/20261106_094640.jpg",
+      "kind": "photo",
+      "notes": "intact sword, caliper '30.3 mm' at about 4 cm from the end (user)"
+    },
+    {
+      "file": "input/tapper/20261106_094705.jpg",
+      "kind": "photo",
+      "notes": "intact sword, caliper '23.3 mm' at about 2.5 cm from the end (user)"
+    },
+    {
+      "file": "input/tapper/20261106_094747.jpg",
+      "kind": "photo",
+      "notes": "intact sword, caliper '28.2 mm' at about 3 cm from the end (user)"
+    }
+  ],
+  "datum": {
+    "origin": "centre of the bore, on the bed (Z = 0 = outside of the closed end)",
+    "x": "across the handle width (chevron face), left to right seen from the front",
+    "y": "across the handle thickness (narrow side); front faces -Y",
+    "z": "up = print direction = towards the sword guard; closed end on the bed, open rim up"
+  },
+  "envelope": {
+    "x": 41.0,
+    "y": 37.7,
+    "z": 17.4,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [
+      250,
+      210,
+      220
+    ],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PLA",
+    "materials": [
+      "PLA"
+    ],
+    "supports": false,
+    "orientation": "closed end on the bed, open rim up: all walls vertical, no overhangs",
+    "quantity": 2
+  },
+  "parts": [
+    {
+      "name": "sword-handle-fix",
+      "description": "one-piece closed-end cap glued over the broken pommel end"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "handle width across the chevron face, largest reading",
+      "value": 31.6,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261106_093337.jpg caliper '31.6 mm'; user confirmed 31.6 as the width (other readings 28.8, 29.1)",
+      "fit": "free",
+      "param": "HANDLE_W"
+    },
+    {
+      "id": "D2",
+      "name": "handle thickness (narrow side), largest reading",
+      "value": 28.3,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261106_093520.jpg caliper '28.3 mm'; user: 'keep it thickest only'",
+      "fit": "free",
+      "param": "HANDLE_T"
+    },
+    {
+      "id": "D3",
+      "name": "handle thickness at the broken edge (reference, not modelled)",
+      "value": 19.9,
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261106_093457.jpg caliper '19.9 mm'; readings rise 19.9 to 28.3 towards the guard",
+      "fit": null
+    },
+    {
+      "id": "D4",
+      "name": "cap depth over the handle (bore depth)",
+      "value": 15.0,
+      "tol": "±0.2",
+      "basis": "given",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/brief.md '15mm sleave'; input/20261106_093612.jpg caliper '15.1 mm' over the broken zone",
+      "fit": null,
+      "param": "SLEEVE_L"
+    },
+    {
+      "id": "D5",
+      "name": "bore corner radius",
+      "value": 8.0,
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "input/20261106_093318.jpg: rounded barrel section; the glue gap absorbs the error",
+      "fit": null,
+      "param": "BORE_R"
+    },
+    {
+      "id": "D6",
+      "name": "side wall thickness at both ends (thicker in the bulge)",
+      "value": 2.4,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 6 perimeters of 0.4",
+      "fit": null,
+      "param": "WALL"
+    },
+    {
+      "id": "D7",
+      "name": "closed end thickness",
+      "value": 2.4,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 12 layers",
+      "fit": null,
+      "param": "FLOOR_T"
+    },
+    {
+      "id": "D8",
+      "name": "glue gap per side",
+      "value": 0.3,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "materials/PLA.json clearance_per_side.free",
+      "fit": "free"
+    },
+    {
+      "id": "D9",
+      "name": "printed bore width",
+      "value": 32.2,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D1 + 2 x D8 = 31.6 + 0.6",
+      "fit": "free"
+    },
+    {
+      "id": "D10",
+      "name": "printed bore thickness",
+      "value": 28.9,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D2 + 2 x D8 = 28.3 + 0.6",
+      "fit": "free"
+    },
+    {
+      "id": "D11",
+      "name": "outer width at the closed end and at the rim",
+      "value": 37.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D9 + 2 x D6",
+      "fit": null
+    },
+    {
+      "id": "D12",
+      "name": "outer thickness at the closed end and at the rim",
+      "value": 33.7,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D10 + 2 x D6",
+      "fit": null
+    },
+    {
+      "id": "D13",
+      "name": "overall height",
+      "value": 17.4,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D7 + D4",
+      "fit": null
+    },
+    {
+      "id": "D14",
+      "name": "vent hole diameter in the closed end",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: lets air and extra glue out; the intact sword's end also has a small hole (tapper/094504)",
+      "fit": null,
+      "param": "VENT_D"
+    },
+    {
+      "id": "D16",
+      "name": "outer chamfer at the open rim",
+      "value": 0.6,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 3 layers",
+      "fit": null,
+      "param": "TOP_CHAMFER"
+    },
+    {
+      "id": "D17",
+      "name": "lead-in chamfer inside the open rim",
+      "value": 0.6,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: guides the cracked shell edges into the bore",
+      "fit": null,
+      "param": "LEAD_IN"
+    },
+    {
+      "id": "D18",
+      "name": "outward bulge per side at mid-height (circular arc profile)",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: 'I need that curve', 'a outward buldge'; amount is a design choice, arc leans at most about 26 deg so it prints without support",
+      "fit": null,
+      "param": "BULGE"
+    },
+    {
+      "id": "D19",
+      "name": "chevron groove depth at the shelf",
+      "value": 0.7,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: visible, leaves at least 1.7 of wall",
+      "fit": null,
+      "param": "CHEV_DEPTH"
+    },
+    {
+      "id": "D20",
+      "name": "chevron groove ramp angle to the surface (deg)",
+      "value": 15,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: ramp underside stays under the 45 deg overhang limit on the bulge",
+      "fit": null,
+      "param": "CHEV_RAMP_DEG"
+    },
+    {
+      "id": "D21",
+      "name": "chevron pitch (vertical)",
+      "value": 3.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 3 chevrons per face",
+      "fit": null,
+      "param": "CHEV_PITCH"
+    },
+    {
+      "id": "D22",
+      "name": "lowest chevron apex height",
+      "value": 6.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: apexes at Z 6.0 / 9.5 / 13.0",
+      "fit": null,
+      "param": "CHEV_Z0"
+    },
+    {
+      "id": "D23",
+      "name": "chevron arm angle below horizontal (deg)",
+      "value": 25,
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "input/20261106_093346.jpg: handle chevrons, apex towards the guard",
+      "fit": null,
+      "param": "CHEV_ANGLE"
+    },
+    {
+      "id": "D24",
+      "name": "outer width at the bulge",
+      "value": 41.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D11 + 2 x D18",
+      "fit": null
+    },
+    {
+      "id": "D25",
+      "name": "outer thickness at the bulge",
+      "value": 37.7,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D12 + 2 x D18",
+      "fit": null
+    },
+    {
+      "id": "D26",
+      "name": "side wall at mid-height",
+      "value": 4.4,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D6 + D18",
+      "fit": null
+    }
+  ],
+  "features": [
+    {
+      "id": "F1",
+      "name": "cap body",
+      "count": 1,
+      "position": "centred on X = 0, Y = 0, from Z = 0 to Z = D13",
+      "dims": [
+        "D11",
+        "D12",
+        "D13",
+        "D16",
+        "D18",
+        "D24",
+        "D25",
+        "D26"
+      ],
+      "notes": "rounded rectangle offset outward from the bore: D6 at Z = 0 and at the rim, D6 + D18 at Z = D13 / 2 (circular arc); outer corner radius D5 + offset"
+    },
+    {
+      "id": "F2",
+      "name": "bore",
+      "count": 1,
+      "position": "centred on X = 0, Y = 0, from Z = D7 to the rim",
+      "dims": [
+        "D1",
+        "D2",
+        "D4",
+        "D5",
+        "D8",
+        "D9",
+        "D10",
+        "D17"
+      ],
+      "notes": "straight (no taper), rounded rectangle, open at the top, 45 deg lead-in at the rim"
+    },
+    {
+      "id": "F3",
+      "name": "vent hole",
+      "count": 1,
+      "position": "X = 0, Y = 0, through the closed end",
+      "dims": [
+        "D7",
+        "D14"
+      ],
+      "notes": "through"
+    },
+    {
+      "id": "F4",
+      "name": "chevron grooves",
+      "count": 6,
+      "position": "3 per wide face (+Y and -Y), apex on X = 0 at Z = 6.0, 9.5, 13.0, arms down and out at D23",
+      "dims": [
+        "D19",
+        "D20",
+        "D21",
+        "D22",
+        "D23"
+      ],
+      "notes": "stepped profile: flat shelf facing up at the bottom, 15 deg ramp back out above; grooves fade out round the corners"
+    }
+  ],
+  "assumptions": [
+    "A1: straight bore at the largest readings (user: 'keep it thickest only'). The handle is thinner at the broken edge (19.9 thick there), so the gap there is up to about 4.5 mm per side on the narrow faces; the glue fills it. Use a gap-filling glue (2-part epoxy or hot glue), not thin superglue.",
+    "A2: the rounded-rectangle section (corner R8) approximates the handle's barrel section; the glue gap absorbs the difference.",
+    "A3: the cap only covers 15 mm of handle; it does not restore any length lost at the break.",
+    "A5: bed 250 x 210 (Prusa MK4 class), the same as the other projects; every Bambu bed is larger.",
+    "A6: the second sword in input/tapper/ is a reference only; its readings are not used for the bore.",
+    "A7: the outside is decorative: a 2 mm outward bulge (user) and stepped chevron grooves echoing the handle; the closed-end chamfer (former D15) is dropped because the bulge already rounds the base."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Bore taper",
+      "blocking": true,
+      "answer": "user: keep it thickest only: straight bore at 31.6 x 28.3 plus glue gap"
+    },
+    {
+      "id": "Q2",
+      "question": "Open tube or closed end",
+      "blocking": true,
+      "answer": "closed end cap"
+    },
+    {
+      "id": "Q3",
+      "question": "Material",
+      "blocking": true,
+      "answer": "PLA, 0.4 nozzle"
+    }
+  ],
+  "drawing": {
+    "plan_cut_z": 8.7,
+    "dimensions": [
+      {
+        "id": "D1",
+        "view": "plan",
+        "from": [
+          -16.1,
+          0,
+          8.7
+        ],
+        "to": [
+          16.1,
+          0,
+          8.7
+        ],
+        "offset": 10,
+        "expect": 32.2
+      },
+      {
+        "id": "D2",
+        "view": "plan",
+        "from": [
+          0,
+          -14.45,
+          8.7
+        ],
+        "to": [
+          0,
+          14.45,
+          8.7
+        ],
+        "orient": "vertical",
+        "offset": 10,
+        "expect": 28.9
+      },
+      {
+        "id": "D26",
+        "view": "plan",
+        "from": [
+          16.1,
+          0,
+          8.7
+        ],
+        "to": [
+          20.5,
+          0,
+          8.7
+        ],
+        "offset": -10
+      },
+      {
+        "id": "D24",
+        "view": "top",
+        "from": [
+          -20.5,
+          0,
+          8.7
+        ],
+        "to": [
+          20.5,
+          0,
+          8.7
+        ],
+        "offset": 10
+      },
+      {
+        "id": "D25",
+        "view": "top",
+        "from": [
+          0,
+          -18.85,
+          8.7
+        ],
+        "to": [
+          0,
+          18.85,
+          8.7
+        ],
+        "orient": "vertical",
+        "offset": 10
+      },
+      {
+        "id": "D11",
+        "view": "front",
+        "from": [
+          -18.5,
+          0,
+          0
+        ],
+        "to": [
+          18.5,
+          0,
+          0
+        ],
+        "offset": 10
+      },
+      {
+        "id": "D13",
+        "view": "side",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          0,
+          17.4
+        ],
+        "orient": "vertical",
+        "offset": 30
+      },
+      {
+        "id": "D14",
+        "view": "top",
+        "type": "diameter",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "d": 3.0
+      }
+    ]
+  }
+}

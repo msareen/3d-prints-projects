@@ -1,0 +1,122 @@
+{
+  "generated_utc": "2026-11-06T04:34:55+00:00",
+  "scale": "2:1",
+  "plan_cut_z": 8.7,
+  "bbox": {
+    "min": [
+      -20.5,
+      -18.85,
+      0.0
+    ],
+    "max": [
+      20.5,
+      18.85,
+      17.4
+    ],
+    "size": [
+      41.0,
+      37.7,
+      17.4
+    ]
+  },
+  "parts": [
+    "sword-handle-fix"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 980,
+      "hidden_edges": 512
+    },
+    "side": {
+      "visible_edges": 1139,
+      "hidden_edges": 682
+    },
+    "top": {
+      "visible_edges": 1342,
+      "hidden_edges": 592
+    },
+    "plan": {
+      "visible_edges": 396,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 41.0,
+      "model": 41.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 37.7,
+      "model": 37.7,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 17.4,
+      "model": 17.4,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D1 plan horizontal",
+      "measured": 32.2,
+      "expect": 32.2,
+      "tol": 0.2,
+      "ok": true
+    },
+    {
+      "check": "D2 plan vertical",
+      "measured": 28.9,
+      "expect": 28.9,
+      "tol": 0.2,
+      "ok": true
+    },
+    {
+      "check": "D26 plan horizontal",
+      "measured": 4.4,
+      "expect": 4.4,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D24 top horizontal",
+      "measured": 41.0,
+      "expect": 41.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D25 top vertical",
+      "measured": 37.7,
+      "expect": 37.7,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D11 front horizontal",
+      "measured": 37.0,
+      "expect": 37.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D13 side vertical",
+      "measured": 17.4,
+      "expect": 17.4,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D14 diameter 3 in top",
+      "model_edges_at_radius": true,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

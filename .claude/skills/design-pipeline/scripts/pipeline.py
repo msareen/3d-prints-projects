@@ -542,7 +542,8 @@ def cmd_finalize(args) -> int:
             return rc
         stls = sorted(dest.glob("*.stl"))
         rc = run([venv_python(), "-P", HERE / "make3mf.py", dest / f"{name}-{mat.upper()}.3mf", *stls,
-                  "--title", f"{spec.get('project', name)} ({mat})", *bed_arg], env=env)
+                  "--title", f"{spec.get('project', name)} ({mat})", *bed_arg,
+                  "--copies", str(int((spec.get("print") or {}).get("quantity", 1) or 1))], env=env)
         if rc:
             return rc
         metas = [json.loads(js.read_text(encoding="utf-8")) for js in sorted(dest.glob("*.json"))]
