@@ -1,0 +1,89 @@
+{
+  "generated_utc": "2026-11-07T09:18:25+00:00",
+  "scale": "1:2",
+  "plan_cut_z": 3.9,
+  "bbox": {
+    "min": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      170.0,
+      170.0,
+      7.8
+    ],
+    "size": [
+      170.0,
+      170.0,
+      7.8
+    ]
+  },
+  "parts": [
+    "bathroom-plate"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 1588,
+      "hidden_edges": 0
+    },
+    "side": {
+      "visible_edges": 1613,
+      "hidden_edges": 0
+    },
+    "top": {
+      "visible_edges": 929,
+      "hidden_edges": 116
+    },
+    "plan": {
+      "visible_edges": 70,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 170.0,
+      "model": 170.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 170.0,
+      "model": 170.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 7.8,
+      "model": 7.8,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D3 front vertical",
+      "measured": 7.8,
+      "expect": 7.8,
+      "tol": 0.1,
+      "ok": true
+    },
+    {
+      "check": "D16 top horizontal",
+      "measured": 170.0,
+      "expect": 170.0,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D11 top vertical",
+      "measured": 163.14,
+      "expect": 163.14,
+      "tol": 0.3,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

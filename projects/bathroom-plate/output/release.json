@@ -1,0 +1,30 @@
+{
+  "project": "bathroom-plate",
+  "released_utc": "2026-11-07T09:18:26+00:00",
+  "spec_revision": 2,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PETG"
+  ],
+  "fits": {
+    "PETG": {
+      "source": "fits.json (printer not named, PETG)",
+      "press": 0.1,
+      "snug": 0.15,
+      "sliding": 0.25,
+      "free": 0.35
+    }
+  },
+  "files": {
+    "bathroom-plate-drawing.svg": "52c28d4450fff4481ebe7c01533d97491b185c2c952cd6b9b771a136f1aa9364",
+    "bathroom-plate-spec.md": "810522ef90ddad70962d1f9184a65619b81ea18c7322a9af485f245d5696821e",
+    "PETG/bathroom-plate-PETG.3mf": "22ab99fdbcf3dcb2ac6b30b9d6fbecd95ab3c161aa7ec99f2a0975100a615c5d",
+    "PETG/bathroom-plate.json": "45e66b80f185aac626a4f6ff3aec2605358a4a5b9491d475563efbc053a91045",
+    "PETG/bathroom-plate.stl": "91e36a41bde478a3d918cfb752861432d0fe287c155c885d8cea83466a9a6c33",
+    "PETG/print-sheet.md": "60c9dd8d6ec28bbaf08c34644efa984d29f3593e92ea3bab44f2dcc384dc0c91"
+  },
+  "printcheck_warnings": {
+    "PETG/bathroom-plate": []
+  }
+}

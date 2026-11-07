@@ -1,0 +1,379 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "bathroom-plate",
+  "status": "confirmed",
+  "revision": 2,
+  "units": "mm",
+  "summary": "PETG corner shelf plate that replaces a glass corner shelf in two existing wall brackets (one on each wall of a 90 deg corner, far edge of each bracket 152.4 mm / 6 in from the corner). Mostly square: 170 x 170, two edges along the walls. Only the front corner (opposite the wall corner) gets a subtle R40 curve; the other three corners are rounded R4. R1.2 top edge roundover, 0.4 bottom elephant-foot chamfer. 7.8 mm thick so it drops into the brackets like the 7.9 mm glass. Printed flat on a Bambu Lab A1 mini (180 x 180), 5 mm margin.",
+  "inputs": [
+    {
+      "file": "input/brief.md",
+      "kind": "text",
+      "notes": "user's words: PETG plate for existing glass-shelf brackets, as big as fits the A1 mini with a safe margin, one gently curved side, other 3 corners slightly rounded; 2 brackets, 6 in from the corner to the far edge; soft arc chosen; then: 'curve is removing too much of the space, keep it mostly square, curve is just a very subtle, just a very small part of corner'; then: 'increase the curve little bit make be 1cm' (R30 -> R40)"
+    },
+    {
+      "file": "input/20261107_123217.jpg",
+      "kind": "photo",
+      "notes": "D-shaped chrome glass clamp on the wall, top view (two slotted screws); caliper jaws over its top and bottom: '11.7 mm'"
+    },
+    {
+      "file": "input/20261107_123228.jpg",
+      "kind": "photo",
+      "notes": "the same clamp type from the front (Phillips clamp screw, slot between the two jaws); caliper over top and bottom: '12.8 mm' (first digit partly under glare)"
+    },
+    {
+      "file": "input/20261107_123245.jpg",
+      "kind": "photo",
+      "notes": "the old glass shelf edge, caliper across its thickness: '7.9 mm'"
+    },
+    {
+      "file": "input/20261107_143349.jpg",
+      "kind": "photo",
+      "notes": "the empty corner: one D bracket on each wall at the same height, roughly equal distance from the corner"
+    },
+    {
+      "file": "input/20261107_143413.jpg",
+      "kind": "photo",
+      "notes": "the old glass shelf from below, in use: corner shelf, straight edges along both walls, full quarter-circle front; both brackets near the ends of the wall edges"
+    }
+  ],
+  "datum": {
+    "origin": "the (virtual, sharp) wall corner of the plate, on the bed face Z = 0",
+    "x": "along the wall-A edge (the plate edge that lies against wall A), away from the corner",
+    "y": "along the wall-B edge, away from the corner; the wall-A edge (Y = 0) faces -Y and is the front elevation",
+    "z": "up = print direction; the plate lies flat, top (shelf) face up"
+  },
+  "envelope": {
+    "x": 170.0,
+    "y": 170.0,
+    "z": 7.8,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [
+      180,
+      180,
+      180
+    ],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PETG",
+    "materials": [
+      "PETG"
+    ],
+    "supports": false,
+    "orientation": "flat, shelf face up, bottom face on the textured PEI plate; no overhangs except the 45 deg bottom chamfer",
+    "quantity": 1
+  },
+  "parts": [
+    {
+      "name": "bathroom-plate",
+      "description": "one-piece solid corner shelf plate with a soft-arc front"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "old glass shelf thickness (reference)",
+      "value": 7.9,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "input/20261107_123245.jpg: caliper '7.9 mm' across the glass edge",
+      "fit": null
+    },
+    {
+      "id": "D2",
+      "name": "bracket clamp outer height, top to bottom jaw (reference)",
+      "value": 12.8,
+      "tol": "±0.6",
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "input/20261107_123228.jpg: caliper '12.8 mm' (glare on the first digit); input/20261107_123217.jpg reads '11.7 mm' at the clamp tip. Only a sanity check: a 7.9 slot fits inside",
+      "fit": null
+    },
+    {
+      "id": "D3",
+      "name": "plate thickness",
+      "value": 7.8,
+      "tol": "±0.1",
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D1 7.9 rounded down to whole 0.2 layers (39): slides into the clamp slot that held the glass; the clamp screws take up the 0.1",
+      "fit": "snug",
+      "param": "PLATE_T"
+    },
+    {
+      "id": "D4",
+      "name": "printer bed size, X and Y",
+      "value": 180.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "Bambu Lab A1 mini build volume 180 x 180 x 180 (user: 'bambu lab a1 mini plate')",
+      "fit": null
+    },
+    {
+      "id": "D5",
+      "name": "safe margin to the bed edge, per side",
+      "value": 5.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: 'with safe margin'; 5 mm keeps the part off the bed edge and the purge area",
+      "fit": null
+    },
+    {
+      "id": "D6",
+      "name": "square side = wall-edge length, both walls",
+      "value": 170.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D4 - 2 x D5 = 180 - 10; must exceed D7 (152.4) so the plate passes through each bracket",
+      "fit": null,
+      "param": "LEG_L"
+    },
+    {
+      "id": "D7",
+      "name": "corner to the far edge of each bracket, along its wall",
+      "value": 152.4,
+      "tol": "±3",
+      "basis": "given",
+      "confidence": "medium",
+      "critical": true,
+      "source": "user: '6inch outerside from corner', answered: far edge of bracket. 6 in = 152.4 mm",
+      "fit": null,
+      "param": "BRACKET_FAR"
+    },
+    {
+      "id": "D11",
+      "name": "plate depth from wall A at the bracket far edge (X = D7)",
+      "value": 163.14,
+      "tol": "±0.3",
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "X = 152.4 lies under the R40 front corner (centre 130, 130): 130 + sqrt(40^2 - 22.4^2) = 163.14; full 170 for X <= 130. Must exceed the bracket projection D15",
+      "fit": null
+    },
+    {
+      "id": "D12",
+      "name": "corner radius, the other three corners (wall corner and both wall-edge tips)",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: 'rest 3 corners are very little curve so it does not come sharp'",
+      "fit": null,
+      "param": "CORNER_R"
+    },
+    {
+      "id": "D13",
+      "name": "top edge roundover radius, all round",
+      "value": 1.2,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: soft top edge, 6 layers; no sharp edge on the shelf face",
+      "fit": null,
+      "param": "TOP_R"
+    },
+    {
+      "id": "D14",
+      "name": "bottom elephant-foot chamfer",
+      "value": 0.4,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "3d-print-design design rules",
+      "fit": null,
+      "param": "FOOT_CHAMFER"
+    },
+    {
+      "id": "D15",
+      "name": "bracket projection from the wall (clamp depth)",
+      "value": 20.0,
+      "tol": "±8",
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "input/20261107_143349.jpg: the D clamps stick out roughly half their width, about 20. Only checked against D11 (40.6): large margin. Q4",
+      "fit": null
+    },
+    {
+      "id": "D16",
+      "name": "overall extent along X and along Y (envelope)",
+      "value": 170.0,
+      "tol": "±0.3",
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "= D6: the R4 tip rounding does not shorten the straight edges",
+      "fit": null
+    },
+    {
+      "id": "D17",
+      "name": "front corner radius (corner opposite the wall corner)",
+      "value": 40.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: 'keep it mostly square, curve is just a very subtle, just a very small part of corner', then 'increase the curve little bit make be 1cm': R30 + 10 = R40. Cuts 16.6 off the diagonal (vs 70 for a full quarter circle)",
+      "fit": null,
+      "param": "FRONT_R"
+    }
+  ],
+  "features": [
+    {
+      "id": "F1",
+      "name": "plate outline",
+      "count": 1,
+      "position": "square from (0, 0) to (D6, D6): wall-A edge on Y = 0, wall-B edge on X = 0",
+      "dims": [
+        "D6",
+        "D11",
+        "D16"
+      ],
+      "notes": "symmetric about the diagonal X = Y"
+    },
+    {
+      "id": "F2",
+      "name": "rounded corners",
+      "count": 4,
+      "position": "front corner (D6, D6): R D17, centre (130, 130); wall corner (0, 0) and the tips (D6, 0), (0, D6): R D12",
+      "dims": [
+        "D12",
+        "D17"
+      ],
+      "notes": "tangent fillets in plan"
+    },
+    {
+      "id": "F3",
+      "name": "plate body",
+      "count": 1,
+      "position": "Z = 0 to D3",
+      "dims": [
+        "D3"
+      ],
+      "notes": "solid plate (slicer infill), no holes"
+    },
+    {
+      "id": "F4",
+      "name": "top edge roundover",
+      "count": 1,
+      "position": "all outer top edges",
+      "dims": [
+        "D13"
+      ],
+      "notes": "quarter-round profile, layer-stepped"
+    },
+    {
+      "id": "F5",
+      "name": "bottom edge chamfer",
+      "count": 1,
+      "position": "all outer bottom edges",
+      "dims": [
+        "D14"
+      ],
+      "notes": "against elephant foot"
+    }
+  ],
+  "assumptions": [
+    "A1: the wall corner is 90 deg and both brackets are at the same height and the same distance from the corner (input/20261107_143349.jpg). A wall 1 deg off square moves a tip about 3 mm, which the brackets absorb.",
+    "A2: the brackets clamp the plate edge with their screws, as with the glass; the plate needs no holes or tabs.",
+    "A3: the plate is the same shape on both walls (symmetric about the diagonal).",
+    "A4 (rev 2): the plate carries load but should not be a solid block (user: 'you decide what should be the best fill with min material use, 282 is too much I need stuctural streghtn rather than make a block'). Sandwich print: 4 walls, 6/6 top/bottom layers (1.2 mm skins), 20 % gyroid core. About 104 cm3, 130 g (100 % would be 282 g).",
+    "A5: plate thickness 7.8 (39 layers) rather than 7.9 so it is never thicker than the old glass; if it rattles, the clamp screws are tightened a little more.",
+    "A6: PETG is used because the shelf sits in a wet shower area (PETG takes water and up to about 70 deg C).",
+    "A7: the shelf face is flat like the glass; no drain holes or lip."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "How are the brackets arranged?",
+      "blocking": true,
+      "answer": "two brackets, one on each wall of the corner (input/20261107_143349.jpg, 143413.jpg)"
+    },
+    {
+      "id": "Q2",
+      "question": "Is the 6 in from the corner to the near or far edge of each bracket?",
+      "blocking": true,
+      "answer": "far edge"
+    },
+    {
+      "id": "Q3",
+      "question": "Front curve style?",
+      "blocking": true,
+      "answer": "mostly square; only a subtle radius on the front corner: R30 proposed, user asked for 1 cm more: R40"
+    },
+    {
+      "id": "Q4",
+      "question": "Caliper: how far each bracket sticks out from the wall, and the slot gap inside a bracket (D15).",
+      "blocking": false,
+      "answer": null
+    },
+    {
+      "id": "Q5",
+      "question": "Infill?",
+      "blocking": false,
+      "answer": "rev 1: 100 % (user: 'this should take some load'); rev 2: sandwich, 4 walls, 6/6 shells, 20 % gyroid (user asked for least material with structural strength)"
+    }
+  ],
+  "drawing": {
+    "plan_cut_z": 3.9,
+    "dimensions": [
+      {
+        "id": "D3",
+        "view": "front",
+        "from": [
+          80,
+          0,
+          0
+        ],
+        "to": [
+          80,
+          0,
+          7.8
+        ],
+        "orient": "vertical",
+        "offset": 10
+      },
+      {
+        "id": "D16",
+        "view": "top",
+        "from": [
+          0,
+          80,
+          7.8
+        ],
+        "to": [
+          170,
+          80,
+          7.8
+        ],
+        "orient": "horizontal",
+        "offset": -10
+      },
+      {
+        "id": "D11",
+        "view": "top",
+        "from": [
+          152.4,
+          0,
+          7.8
+        ],
+        "to": [
+          152.4,
+          163.14,
+          7.8
+        ],
+        "orient": "vertical",
+        "offset": 12
+      }
+    ]
+  }
+}
