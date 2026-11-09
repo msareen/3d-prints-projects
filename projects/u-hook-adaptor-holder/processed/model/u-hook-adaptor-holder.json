@@ -1,0 +1,373 @@
+{
+  "name": "u-hook-adaptor-holder",
+  "units": "mm",
+  "generated_utc": "2026-11-09T11:37:56+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "u-hook-adaptor-holder.stl",
+  "stl_sha256": "c7dda25d1f9813c57380613b5bb1cd8b74e9b99e5f0cc1d30847ea4ede777cf7",
+  "material": "PLA",
+  "density_g_cm3": 1.24,
+  "bbox": {
+    "min": [
+      0.0,
+      -34.2,
+      0.0
+    ],
+    "max": [
+      58.2,
+      4.75,
+      73.0
+    ],
+    "size": [
+      58.2,
+      38.95,
+      73.0
+    ]
+  },
+  "volume_mm3": 27324.73,
+  "estimated_mass_g_solid": 33.88,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 1186,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 58.2 x 39.0 x 73.0 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "27324.7 mm3",
+        "data": {
+          "volume_mm3": 27324.729
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "1 body as expected",
+        "data": {
+          "bodies": 1,
+          "expected": 1
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "pass",
+        "message": "1092.6 mm2 flat contact on the bed",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 1092.6,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": []
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 180 x 180 x 180 with 5 mm margin",
+        "data": {
+          "bed": [
+            180.0,
+            180.0,
+            180.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "pass",
+        "message": "no overhang steeper than 45 deg (beyond 1 mm2)",
+        "data": {
+          "limit_deg": 45,
+          "area_mm2": 0.0,
+          "flat_ceiling_area_mm2": 0.0,
+          "bridge_area_mm2": 0.0,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [],
+          "wide_regions_not_measured": 0,
+          "faces": 0
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "pass",
+        "message": "all flat faces sit on 0.2 mm layer boundaries",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 5,
+          "off_grid_levels": []
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "pass",
+        "message": "1 hole(s) found, none narrower than 3 mm",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 1,
+          "small": [],
+          "horizontal": [],
+          "all": [
+            {
+              "axis": "z",
+              "min_width_mm": 27.2,
+              "center": [
+                29.1,
+                -17.6,
+                8.03
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "pass",
+        "message": "no sampled wall thinner than 0.8 mm (2 x nozzle)",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 0,
+          "min_thickness_mm": 2.828
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "8 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              10.0,
+              -2.0,
+              71.0
+            ],
+            [
+              10.0,
+              0.85,
+              27.0
+            ],
+            [
+              10.0,
+              3.2,
+              65.0
+            ],
+            [
+              29.1,
+              -6.5,
+              1.5
+            ],
+            [
+              29.1,
+              -28.700000000000003,
+              1.5
+            ]
+          ],
+          "outside": [
+            [
+              29.1,
+              -17.6,
+              43.0
+            ],
+            [
+              29.1,
+              -17.6,
+              1.5
+            ],
+            [
+              5.0,
+              -17.6,
+              1.5
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 1186,
+      "vertices": 561,
+      "bbox_min": [
+        0.0,
+        -34.2,
+        0.0
+      ],
+      "bbox_max": [
+        58.2,
+        4.75,
+        73.0
+      ],
+      "size": [
+        58.2,
+        38.95,
+        73.0
+      ],
+      "surface_area_mm2": 18974.86,
+      "volume_mm3": 27324.729,
+      "bodies": 1
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3,
+      "source": "fits.json (printer not named, PLA)"
+    },
+    "NAME": "u-hook-adaptor-holder",
+    "MATERIAL": "PLA",
+    "COLOR": {
+      "": "#4f8cff",
+      "pin-test": "#ff9f40"
+    },
+    "PRINTER_BED": [
+      180,
+      180,
+      180
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 45,
+    "SUPPORTS_ALLOWED": false,
+    "EXPECTED_BODIES": 1,
+    "BRICK_L": 90.4,
+    "BRICK_D": 25.6,
+    "BRICK_W": 50.6,
+    "CRADLE_SLACK": 0.5,
+    "CLEAR": 0.3,
+    "BACK_T": 4.0,
+    "WALL_T": 3.0,
+    "FLOOR_T": 3.0,
+    "BACK_H": 70.0,
+    "LIP_H": 30.0,
+    "LEDGE_W": 5.0,
+    "PIN_COL_W": 20.0,
+    "PIN_X": 10.0,
+    "LOWER_PIN_Z": 27.0,
+    "PIN_PITCH": 38.0,
+    "STRIP_TOP_MARGIN": 8.0,
+    "NECK_D": 5.6,
+    "NECK_L": 1.7,
+    "HEAD_D": 9.6,
+    "HEAD_T": 3.0,
+    "SAMPLE_GAP": 10.0,
+    "SAMPLE_PIN_Z": 8.0,
+    "FOOT_D": 14.0,
+    "FOOT_T": 2.0,
+    "DIAMOND_D": 10.0,
+    "DIAMOND_PITCH": 14.0,
+    "MESH_BORDER": 4.0,
+    "SIDE": 0.8,
+    "INNER_W": 52.2,
+    "INNER_D": 27.2,
+    "OUTER_X": 58.2,
+    "Y_FRONT": -34.2,
+    "Z_BACK_TOP": 73.0,
+    "PIN_ZS": [
+      27.0,
+      65.0
+    ],
+    "Y_MID": -17.6,
+    "SAMPLE_X0": 68.2,
+    "SAMPLE_H": 54.0,
+    "PROBES_INSIDE": {
+      "": [
+        [
+          10.0,
+          -2.0,
+          71.0
+        ],
+        [
+          10.0,
+          0.85,
+          27.0
+        ],
+        [
+          10.0,
+          3.2,
+          65.0
+        ],
+        [
+          29.1,
+          -6.5,
+          1.5
+        ],
+        [
+          29.1,
+          -28.7,
+          1.5
+        ]
+      ],
+      "pin-test": [
+        [
+          78.2,
+          0.85,
+          8.0
+        ],
+        [
+          78.2,
+          3.2,
+          46.0
+        ],
+        [
+          78.2,
+          -2.0,
+          52.0
+        ]
+      ]
+    },
+    "PROBES_OUTSIDE": {
+      "": [
+        [
+          29.1,
+          -17.6,
+          43.0
+        ],
+        [
+          29.1,
+          -17.6,
+          1.5
+        ],
+        [
+          5.0,
+          -17.6,
+          1.5
+        ]
+      ],
+      "pin-test": [
+        [
+          82.0,
+          0.85,
+          8.0
+        ]
+      ]
+    }
+  },
+  "preview_color": "#4f8cff",
+  "printer_bed": [
+    180.0,
+    180.0,
+    180.0
+  ]
+}

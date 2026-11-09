@@ -1,0 +1,188 @@
+{
+  "generated_utc": "2026-11-09T11:37:56+00:00",
+  "scale": "1:1",
+  "plan_cut_z": 1.5,
+  "bbox": {
+    "min": [
+      0.0,
+      -34.2,
+      0.0
+    ],
+    "max": [
+      88.2,
+      4.75,
+      73.0
+    ],
+    "size": [
+      88.2,
+      38.95,
+      73.0
+    ]
+  },
+  "parts": [
+    "u-hook-adaptor-holder-pin-test",
+    "u-hook-adaptor-holder"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 94,
+      "hidden_edges": 496
+    },
+    "side": {
+      "visible_edges": 625,
+      "hidden_edges": 32
+    },
+    "top": {
+      "visible_edges": 412,
+      "hidden_edges": 37
+    },
+    "plan": {
+      "visible_edges": 18,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 88.2,
+      "model": 88.2,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 39.0,
+      "model": 38.95,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 73.0,
+      "model": 73.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D28 plan horizontal",
+      "measured": 52.2,
+      "expect": 52.2,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D29 top vertical",
+      "measured": 27.2,
+      "expect": 27.2,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D34 plan vertical",
+      "measured": 17.2,
+      "expect": 17.2,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D33 top vertical",
+      "measured": 5.0,
+      "expect": 5.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D5 top vertical",
+      "measured": 4.0,
+      "expect": 4.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D6 top vertical",
+      "measured": 3.0,
+      "expect": 3.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D12 top horizontal",
+      "measured": 20.0,
+      "expect": 20.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D13 front horizontal",
+      "measured": 10.0,
+      "expect": 10.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D14 side vertical",
+      "measured": 27.0,
+      "expect": 27.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D15 side vertical",
+      "measured": 38.0,
+      "expect": 38.0,
+      "tol": 1.5,
+      "ok": true
+    },
+    {
+      "check": "D16 side vertical",
+      "measured": 8.0,
+      "expect": 8.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D17 top horizontal",
+      "measured": 5.6,
+      "expect": 5.6,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D19 top horizontal",
+      "measured": 9.6,
+      "expect": 9.6,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D18 side horizontal",
+      "measured": 1.7,
+      "expect": 1.7,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D20 side horizontal",
+      "measured": 3.0,
+      "expect": 3.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D9 side vertical",
+      "measured": 30.0,
+      "expect": 30.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D32 front vertical",
+      "measured": 73.0,
+      "expect": 73.0,
+      "tol": 0.05,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

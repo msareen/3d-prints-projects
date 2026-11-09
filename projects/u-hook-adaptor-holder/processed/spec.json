@@ -1,0 +1,903 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "u-hook-adaptor-holder",
+  "status": "confirmed",
+  "revision": 2,
+  "units": "mm",
+  "summary": "Upright PLA cup that hangs a Surface 65 W power brick (model 1706, caliper 90.4 x 50.6 x 25.6) on the blue keyhole-slotted rack upright. The brick stands on its end, 90.4 tall, so it takes only 58 mm of rack width; its AC input faces up (top open) and its DC cable and USB-A port face down through a full-width bottom opening. It rests on 5 mm ledges under its front and back edges and is held by a 70 mm back wall and 30 mm front and side walls (a J seen from the side). Two point-down teardrop pins (9.6 mm head, 1.7 mm wide groove 5.6 mm across that grips the 1.6 mm steel), 38 mm apart in a solid column at the left end of the back wall, go into the big round holes of two keyholes and slide down. Back, front and side walls are a large diamond mesh for cooling. A small pin test sample (the pin column alone) ships with it, to check the fit before printing the holder.",
+  "inputs": [
+    {
+      "file": "input/20261109_150626.jpg",
+      "kind": "photo",
+      "notes": "blue rack upright with keyhole slots, Camlin cm ruler held flat against its face; source of the keyhole sizes and pitch (scaled, ~89 px/cm)"
+    },
+    {
+      "file": "input/Frontview.png",
+      "kind": "sketch",
+      "notes": "hand-drawn front view: narrow strip with two circles (pins) on top-left, wider box (cradle) below, strip flush with the cradle left edge; no numbers"
+    },
+    {
+      "file": "input/brief.md",
+      "kind": "text",
+      "notes": "user's requirements: J holder, two pins into the big holes then slide down, both ends open for the wires, brick held from the edges, large mesh for heat; dimensions to be taken from the ruler in the photo"
+    },
+    {
+      "file": "input/41r-UDbVOgL.jpg",
+      "kind": "photo",
+      "notes": "product photo of the Surface 65 W brick: DC cable and USB-A port on the same short end; no numbers"
+    },
+    {
+      "file": "web: B&H Microsoft 65W Surface Power Supply W8Y-00001",
+      "kind": "text",
+      "notes": "89.92 x 50.04 x 24.89 mm, 1x USB-A (5 V 1 A); agrees with the caliper values within 0.7 mm"
+    }
+  ],
+  "datum": {
+    "origin": "left outer face (X), back face resting on the rack upright (Y), underside of the bottom frame (Z)",
+    "x": "left to right seen from the front; brick width 50.6 runs along X",
+    "y": "towards the rack: +Y = back; the cup lies at -Y, the pins stick out to +Y into the keyholes",
+    "z": "up = print direction; the part sits on Z = 0 (printed in its use orientation); brick length 90.4 runs along Z"
+  },
+  "envelope": {
+    "x": 88.2,
+    "y": 39.0,
+    "z": 73.0,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [
+      180,
+      180,
+      180
+    ],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PLA",
+    "materials": [
+      "PLA"
+    ],
+    "supports": false,
+    "orientation": "upright as used: bottom frame on the bed, pins pointing sideways (+Y). Pin groove and head are point-down teardrops and every mesh opening is a 45 deg diamond, so nothing needs support; pin layers run along the pin axis",
+    "quantity": 1
+  },
+  "parts": [
+    {
+      "name": "u-hook-adaptor-holder",
+      "description": "the holder: upright cup, open-centre bottom frame, two round grooved keyhole pins, diamond mesh"
+    },
+    {
+      "name": "u-hook-adaptor-holder-pin-test",
+      "description": "pin test sample: the holder's 20 mm pin column (4 mm plate, same two pins, same 38 mm pitch) on a 14 mm foot; print it first to check the fit in the rack"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "brick length, standing vertical (Z): AC input on top, DC cable + USB-A at the bottom",
+      "value": 90.4,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "user caliper 90.4 (chat); web B&H 89.92. The cup is open at the top, so it only sets wall heights",
+      "fit": null,
+      "param": "BRICK_L"
+    },
+    {
+      "id": "D2",
+      "name": "brick thickness, front to back (Y)",
+      "value": 25.6,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "user caliper '25.6mm' (chat); web B&H 24.89",
+      "fit": "free",
+      "param": "BRICK_D"
+    },
+    {
+      "id": "D3",
+      "name": "brick width, left to right along the rack (X)",
+      "value": 50.6,
+      "tol": "±0.1",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "user caliper '50.6mm' (chat); web B&H 50.04",
+      "fit": "free",
+      "param": "BRICK_W"
+    },
+    {
+      "id": "D4",
+      "name": "extra per-side cradle room on top of the free fit",
+      "value": 0.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: brick drops in without rubbing; total per side = FITS free 0.30 + 0.5 = 0.8",
+      "fit": null,
+      "param": "CRADLE_SLACK"
+    },
+    {
+      "id": "D5",
+      "name": "back wall thickness",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: carries the pins, 10 perimeters",
+      "fit": null,
+      "param": "BACK_T"
+    },
+    {
+      "id": "D6",
+      "name": "front and side wall thickness",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: >= 2 x nozzle, stiff enough for a 0.3 kg brick",
+      "fit": null,
+      "param": "WALL_T"
+    },
+    {
+      "id": "D7",
+      "name": "bottom frame thickness",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 15 layers",
+      "fit": null,
+      "param": "FLOOR_T"
+    },
+    {
+      "id": "D8",
+      "name": "back wall height above the floor top",
+      "value": 70.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: carries both pins (27 and 65) plus margin; brick top stands 20.4 mm proud so the AC plug is free",
+      "fit": null,
+      "param": "BACK_H"
+    },
+    {
+      "id": "D9",
+      "name": "front and side wall height above the frame top",
+      "value": 30.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: short arm of the J; the brick cannot tip out without first lifting (0.8 mm play)",
+      "fit": null,
+      "param": "LIP_H"
+    },
+    {
+      "id": "D12",
+      "name": "solid pin column width (X), at the left end of the back wall",
+      "value": 20.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "Frontview.png: pins at the left of the holder (proportions not used); 20 fits inside the ~25 mm upright face",
+      "fit": null,
+      "param": "PIN_COL_W"
+    },
+    {
+      "id": "D13",
+      "name": "pin centre from the left end (X)",
+      "value": 10.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D12 / 2",
+      "fit": null,
+      "param": "PIN_X"
+    },
+    {
+      "id": "D14",
+      "name": "lower pin centre height above the floor underside",
+      "value": 27.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: upper pin at 65 leaves 8 mm to the back wall top at 73",
+      "fit": null,
+      "param": "LOWER_PIN_Z"
+    },
+    {
+      "id": "D15",
+      "name": "pin pitch, centre to centre (= keyhole pitch)",
+      "value": 38.0,
+      "tol": "±1.5",
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "20261109_150626.jpg: keyhole tops at y 322 / 676 / 1005 px against ruler cm marks 0 = 295, 4 = 667, 8 = 1016 px -> 37.8 and 38.2 mm. Not critical: the 8 mm heads enter 11 mm holes, so either pin may be off by 1.5 mm and both still go in",
+      "fit": null,
+      "param": "PIN_PITCH"
+    },
+    {
+      "id": "D16",
+      "name": "back wall top above the upper pin centre",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 4 mm of solid strip above the 8 mm head",
+      "fit": null,
+      "param": "STRIP_TOP_MARGIN"
+    },
+    {
+      "id": "D17",
+      "name": "pin groove width across (X), point-down teardrop",
+      "value": 5.6,
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 1 test sample (round 5.6 groove) was 'very good fit' in the slot (user); kept for rev 2. 0.3 play per side in the ~6.2 slot",
+      "fit": "free",
+      "param": "NECK_D"
+    },
+    {
+      "id": "D18",
+      "name": "pin groove width (Y), starts at the back face",
+      "value": 1.7,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: 'inner will have thickness of 1.7mm (to easily fit on 1.6mm thickness of steel bar)'",
+      "fit": "free",
+      "param": "NECK_L"
+    },
+    {
+      "id": "D19",
+      "name": "pin head width (X), point-down teardrop",
+      "value": 9.6,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "user rev 2: 'increase the outer diameter by 2mm' (7.6 + 2). Passes the ~11 mm round hole (0.7 per side, estimate range 10.4-11.6); 1.7 grip each side of the 6.2 slot. Teardrop tip reaches 6.8 below centre, inside the slot (half-width 2.3 where the hole meets the slot)",
+      "fit": "free",
+      "param": "HEAD_D"
+    },
+    {
+      "id": "D20",
+      "name": "pin head thickness (Y), behind the groove",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 15 layers across the grip",
+      "fit": null,
+      "param": "HEAD_T"
+    },
+    {
+      "id": "D21",
+      "name": "diamond mesh opening, corner to corner",
+      "value": 10.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "brief: 'large mesh, so there is no heating issue'; diamonds keep 45 deg roofs",
+      "fit": null,
+      "param": "DIAMOND_D"
+    },
+    {
+      "id": "D22",
+      "name": "diamond lattice pitch (staggered rows at half pitch)",
+      "value": 14.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: web = (14 - 10) / 2 x 1.414 = 2.8 mm",
+      "fit": null,
+      "param": "DIAMOND_PITCH"
+    },
+    {
+      "id": "D23",
+      "name": "solid border round each mesh field",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice",
+      "fit": null,
+      "param": "MESH_BORDER"
+    },
+    {
+      "id": "D24",
+      "name": "rack keyhole round hole diameter (reference)",
+      "value": 11.0,
+      "tol": "±0.8",
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "20261109_150626.jpg: 96-100 px wide on three keyholes at 86-92 px/cm -> 10.4-11.6 mm. Covered by the 3 mm margin on D19",
+      "fit": null
+    },
+    {
+      "id": "D25",
+      "name": "rack keyhole slot width (reference)",
+      "value": 6.2,
+      "tol": "±0.5",
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "20261109_150626.jpg: 55-57 px at 86-92 px/cm -> 6.0-6.7 mm. Covered by D17 / D19 margins",
+      "fit": null
+    },
+    {
+      "id": "D26",
+      "name": "rack keyhole overall length (reference)",
+      "value": 19.5,
+      "tol": "±1",
+      "basis": "estimated",
+      "confidence": "medium",
+      "critical": false,
+      "source": "20261109_150626.jpg: 157-183 px -> 18.5-19.9 mm; gives about 10 mm of slide-down travel",
+      "fit": null
+    },
+    {
+      "id": "D27",
+      "name": "rack upright steel thickness (reference)",
+      "value": 1.6,
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "user caliper: 'thickness is 1.6mm' of the steel upright",
+      "fit": null,
+      "tol": "±0.05"
+    },
+    {
+      "id": "D28",
+      "name": "cup inner width (X)",
+      "value": 52.2,
+      "tol": "±0.3",
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D3 + 2 x (FITS free 0.30 + D4 0.5) = 50.6 + 1.6",
+      "fit": null
+    },
+    {
+      "id": "D29",
+      "name": "cup inner depth (Y)",
+      "value": 27.2,
+      "tol": "±0.3",
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D2 + 2 x 0.8 = 25.6 + 1.6",
+      "fit": null
+    },
+    {
+      "id": "D30",
+      "name": "overall width (X)",
+      "value": 58.2,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D28 + 2 x D6",
+      "fit": null
+    },
+    {
+      "id": "D31",
+      "name": "overall depth without pins (Y)",
+      "value": 34.2,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D5 + D29 + D6 = 4 + 27.2 + 3; the pins add D18 + D20 = 5.5 behind",
+      "fit": null
+    },
+    {
+      "id": "D32",
+      "name": "overall height (back wall top)",
+      "value": 73.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "D7 + D8 = 3 + 70; = D14 + D15 + D16 = 27 + 38 + 8",
+      "fit": null
+    },
+    {
+      "id": "D33",
+      "name": "bottom ledge width under the brick's front and back edges (Y)",
+      "value": 5.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "design choice: carries the brick on its edges; leaves D34 open for the DC cable and USB-A plug",
+      "fit": null,
+      "param": "LEDGE_W"
+    },
+    {
+      "id": "D34",
+      "name": "bottom opening, front to back (Y), full inner width in X",
+      "value": 17.2,
+      "tol": "±0.3",
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "D29 - 2 x D33 = 27.2 - 10. A USB-A plug body is about 16 x 8 and the DC strain relief about 8 across, so both pass in either orientation",
+      "fit": null
+    },
+    {
+      "id": "D35",
+      "name": "gap between holder and pin test sample on the plate (X)",
+      "value": 10.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "placement only: sample at x 68.2-88.2",
+      "fit": null,
+      "param": "SAMPLE_GAP"
+    },
+    {
+      "id": "D36",
+      "name": "pin test sample lower pin centre above the bed",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: head clears the bed by 4.2; upper pin at 46, plate top at 54 (D36 + D15 + D16)",
+      "fit": null,
+      "param": "SAMPLE_PIN_Z"
+    },
+    {
+      "id": "D37",
+      "name": "pin test sample foot depth (-Y)",
+      "value": 14.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: keeps the 20 x 4 x 54 plate standing while printing",
+      "fit": null,
+      "param": "FOOT_D"
+    },
+    {
+      "id": "D38",
+      "name": "pin test sample foot thickness",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "design choice: 10 layers",
+      "fit": null,
+      "param": "FOOT_T"
+    }
+  ],
+  "features": [
+    {
+      "id": "F1",
+      "name": "bottom frame with full-width opening",
+      "count": 1,
+      "position": "x 0-58.2, y -34.2-0, z 0-3; opening x 3-55.2, y -26.2 to -9",
+      "dims": [
+        "D7",
+        "D33",
+        "D34"
+      ],
+      "notes": "the brick stands on the front and back ledges; DC cable and USB-A plug hang through the opening"
+    },
+    {
+      "id": "F2",
+      "name": "back wall (long arm of the J) with diamond mesh",
+      "count": 1,
+      "position": "x 0-58.2, y -4-0, z 0-73; mesh field x 24-54.2, z 7-69",
+      "dims": [
+        "D5",
+        "D8",
+        "D21",
+        "D22",
+        "D23"
+      ],
+      "notes": "back face Y = 0 rests on the upright; solid pin column x 0-20"
+    },
+    {
+      "id": "F3",
+      "name": "front wall with diamond mesh",
+      "count": 1,
+      "position": "x 0-58.2, y -34.2 to -31.2, z 0-33",
+      "dims": [
+        "D6",
+        "D9",
+        "D21"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "F4",
+      "name": "side wall with diamond mesh",
+      "count": 2,
+      "position": "x 0-3 and 55.2-58.2, y -34.2 to -4, z 0-33",
+      "dims": [
+        "D6",
+        "D9",
+        "D21"
+      ],
+      "notes": "stop the brick sliding along the rack"
+    },
+    {
+      "id": "F6",
+      "name": "keyhole pin with groove, point-down teardrops",
+      "count": 2,
+      "position": "x = 10; z = 27 and 65; groove y 0-1.7 (5.6 across), head y 1.7-4.7 (9.6 across)",
+      "dims": [
+        "D13",
+        "D14",
+        "D15",
+        "D17",
+        "D18",
+        "D19",
+        "D20"
+      ],
+      "notes": "user rev 2: teardrops back for grip; the groove point seats in the round bottom of the slot"
+    },
+    {
+      "id": "F7",
+      "name": "pin test sample",
+      "count": 1,
+      "position": "x 68.2-88.2, plate y -4-0, z 0-54; foot y -18 to -4, z 0-2; pins at x 78.2, z 8 and 46",
+      "dims": [
+        "D12",
+        "D5",
+        "D15",
+        "D16",
+        "D17",
+        "D18",
+        "D19",
+        "D20",
+        "D35",
+        "D36",
+        "D37",
+        "D38"
+      ],
+      "notes": "same pins and plate thickness as the holder, so a good fit here means a good fit for the holder"
+    }
+  ],
+  "assumptions": [
+    "A1: keyhole sizes from the photo (D24-D26). The rev 1 sample proved the 5.6 groove, 1.7 width and 38 pitch. The 9.6 head needs the round hole to be at least ~9.8: re-print the sample to check before the holder.",
+    "A2: steel 1.6 mm (user caliper); the 1.7 mm groove leaves 0.1 mm, so the pin sits snug against the steel. If it will not slide down, the groove can open in 0.05 mm steps.",
+    "A3: the DC cable and USB-A port are on the bottom end face, within its middle 17 mm front to back (the product photo shows them there); the 5 mm ledges stay clear of them.",
+    "A4: the brick is lowered in from the top and lifted out; the AC cord plugs into its top end, which stands 20.4 mm above the back wall.",
+    "A5: pins at the left end as drawn (the cup sticks out 33 mm to the right of the pin line). It can be centred or mirrored by request.",
+    "A6: PLA softens at about 55 C; a Surface brick runs at about 40-50 C. The mesh keeps air moving: do not cover it.",
+    "A7: printer is the 180 x 180 x 180 machine used for the earlier projects, 0.4 nozzle, 0.2 layer."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Brick length?",
+      "blocking": true,
+      "answer": "90.4 mm (user caliper)"
+    },
+    {
+      "id": "Q2",
+      "question": "How does the brick sit?",
+      "blocking": true,
+      "answer": "vertical: AC input on top (centred), DC output and USB-A at the bottom (user, after the first render)"
+    },
+    {
+      "id": "Q3",
+      "question": "Retention?",
+      "blocking": true,
+      "answer": "held by its edges; top and bottom open for the cables"
+    },
+    {
+      "id": "Q4",
+      "question": "Material?",
+      "blocking": true,
+      "answer": "PLA"
+    },
+    {
+      "id": "Q5",
+      "question": "Keyhole sizes: calipers or photo?",
+      "blocking": false,
+      "answer": "use the ruler in the first photo (user)"
+    },
+    {
+      "id": "Q6",
+      "question": "Pin size with the 1.7 groove?",
+      "blocking": true,
+      "answer": "outer 7.6 / groove 5.6, round, no teardrop (user)"
+    },
+    {
+      "id": "Q7",
+      "question": "Test sample?",
+      "blocking": false,
+      "answer": "user: add a quick, low-infill pin sample to the release with the full model"
+    },
+    {
+      "id": "Q8",
+      "question": "Rev 2 pin change?",
+      "blocking": true,
+      "answer": "user: head outer +2 mm (9.6), teardrop back; groove kept at 5.6 since the sample fitted the slot"
+    }
+  ],
+  "drawing": {
+    "plan_cut_z": 1.5,
+    "dimensions": [
+      {
+        "id": "D28",
+        "view": "plan",
+        "from": [
+          3,
+          -20,
+          1.5
+        ],
+        "to": [
+          55.2,
+          -20,
+          1.5
+        ],
+        "orient": "horizontal",
+        "offset": -14
+      },
+      {
+        "id": "D29",
+        "view": "top",
+        "from": [
+          40,
+          -4,
+          73
+        ],
+        "to": [
+          40,
+          -31.2,
+          33
+        ],
+        "orient": "vertical",
+        "offset": 12
+      },
+      {
+        "id": "D34",
+        "view": "plan",
+        "from": [
+          30,
+          -9,
+          1.5
+        ],
+        "to": [
+          30,
+          -26.2,
+          1.5
+        ],
+        "orient": "vertical",
+        "offset": 12
+      },
+      {
+        "id": "D33",
+        "view": "top",
+        "from": [
+          45,
+          -4,
+          73
+        ],
+        "to": [
+          45,
+          -9,
+          3
+        ],
+        "orient": "vertical",
+        "offset": 20
+      },
+      {
+        "id": "D5",
+        "view": "top",
+        "from": [
+          50,
+          0,
+          73
+        ],
+        "to": [
+          50,
+          -4,
+          73
+        ],
+        "orient": "vertical",
+        "offset": 8
+      },
+      {
+        "id": "D6",
+        "view": "top",
+        "from": [
+          50,
+          -31.2,
+          33
+        ],
+        "to": [
+          50,
+          -34.2,
+          33
+        ],
+        "orient": "vertical",
+        "offset": 8
+      },
+      {
+        "id": "D12",
+        "view": "top",
+        "from": [
+          0,
+          0,
+          73
+        ],
+        "to": [
+          20,
+          0,
+          73
+        ],
+        "orient": "horizontal",
+        "offset": -26,
+        "on_geometry": false
+      },
+      {
+        "id": "D13",
+        "view": "front",
+        "from": [
+          0,
+          0,
+          73
+        ],
+        "to": [
+          10,
+          0,
+          73
+        ],
+        "orient": "horizontal",
+        "offset": -8,
+        "on_geometry": false
+      },
+      {
+        "id": "D14",
+        "view": "side",
+        "from": [
+          58.2,
+          0,
+          0
+        ],
+        "to": [
+          58.2,
+          0,
+          27
+        ],
+        "orient": "vertical",
+        "offset": 10,
+        "on_geometry": false
+      },
+      {
+        "id": "D15",
+        "view": "side",
+        "from": [
+          58.2,
+          0,
+          27
+        ],
+        "to": [
+          58.2,
+          0,
+          65
+        ],
+        "orient": "vertical",
+        "offset": 18,
+        "on_geometry": false
+      },
+      {
+        "id": "D16",
+        "view": "side",
+        "from": [
+          58.2,
+          0,
+          65
+        ],
+        "to": [
+          58.2,
+          0,
+          73
+        ],
+        "orient": "vertical",
+        "offset": 26,
+        "on_geometry": false
+      },
+      {
+        "id": "D17",
+        "view": "top",
+        "from": [
+          7.2,
+          1.0,
+          65
+        ],
+        "to": [
+          12.8,
+          1.0,
+          65
+        ],
+        "orient": "horizontal",
+        "offset": -18
+      },
+      {
+        "id": "D19",
+        "view": "top",
+        "from": [
+          5.2,
+          4.7,
+          65
+        ],
+        "to": [
+          14.8,
+          4.7,
+          65
+        ],
+        "orient": "horizontal",
+        "offset": -10
+      },
+      {
+        "id": "D18",
+        "view": "side",
+        "from": [
+          58.2,
+          0,
+          65
+        ],
+        "to": [
+          58.2,
+          1.7,
+          65
+        ],
+        "orient": "horizontal",
+        "offset": -14
+      },
+      {
+        "id": "D20",
+        "view": "side",
+        "from": [
+          58.2,
+          1.7,
+          65
+        ],
+        "to": [
+          58.2,
+          4.7,
+          65
+        ],
+        "orient": "horizontal",
+        "offset": -14
+      },
+      {
+        "id": "D9",
+        "view": "side",
+        "from": [
+          58.2,
+          -34.2,
+          3
+        ],
+        "to": [
+          58.2,
+          -34.2,
+          33
+        ],
+        "orient": "vertical",
+        "offset": -10,
+        "on_geometry": false
+      },
+      {
+        "id": "D32",
+        "view": "front",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          0,
+          73
+        ],
+        "orient": "vertical",
+        "offset": -12
+      }
+    ]
+  }
+}

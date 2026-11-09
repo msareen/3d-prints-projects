@@ -1,0 +1,33 @@
+{
+  "project": "u-hook-adaptor-holder",
+  "released_utc": "2026-11-09T11:37:58+00:00",
+  "spec_revision": 2,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PLA"
+  ],
+  "fits": {
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "PLA/print-sheet.md": "ab76bebad73c4c671860789022334ebe39dc2bf78a7c875934e22984d2d60f61",
+    "PLA/u-hook-adaptor-holder-pin-test.json": "1509f4508895c9531e0a719c525b9f7c19dfd24f79ece2f7c064f664609aec70",
+    "PLA/u-hook-adaptor-holder-pin-test.stl": "cc5b44b16599be0840e23b6e0e80c073ea0a16dbb7fc53b0a2ea437137dc44c6",
+    "PLA/u-hook-adaptor-holder-PLA.3mf": "f0514c1cb82b6bd582bc31b1bc0fda0fb1fe2e93397489048560f2d389516722",
+    "PLA/u-hook-adaptor-holder.json": "74d91cd9350cf82ee2ff5784565cb47eef03fbcd1a9dc31e381fe053655cb0d7",
+    "PLA/u-hook-adaptor-holder.stl": "c7dda25d1f9813c57380613b5bb1cd8b74e9b99e5f0cc1d30847ea4ede777cf7",
+    "u-hook-adaptor-holder-drawing.svg": "cb6d29cc520860a114ea2fa29807eab779cd18659d6aed7407118be22097e08f",
+    "u-hook-adaptor-holder-spec.md": "758c190cce4d8f7c9986c9decb07c8cb55a3738bd1eaa3927af3b8581865b1db"
+  },
+  "printcheck_warnings": {
+    "PLA/u-hook-adaptor-holder-pin-test": [],
+    "PLA/u-hook-adaptor-holder": []
+  }
+}
