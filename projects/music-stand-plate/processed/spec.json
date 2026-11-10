@@ -1,0 +1,1344 @@
+{
+  "schema": "design-pipeline/spec@1",
+  "project": "music-stand-plate",
+  "status": "confirmed",
+  "revision": 12,
+  "units": "mm",
+  "summary": "A 4-plate music plate for an existing folding music-stand holder (tapered sheet-metal channel, M6 stud with a thumb nut, two rivet heads). A separate V part slides into the holder; its 50 mm tongue sits behind the centre plate, held by 2 dovetail keys in grooves in the plate's back and 2 printed M6 countersunk bolts with printed nuts. The 170 x 170 centre plate and two 170 x 170 extenders (dropped on from the top on dovetail rails) make a 430 x 170 mm plate with a 10 mm lip and a hex mesh. PLA on an A1 mini, one part per plate.",
+  "inputs": [
+    {
+      "file": "input/brief.md",
+      "kind": "text",
+      "notes": "user's description: 3 sections because the A1 mini bed is small, standard music-plate size"
+    },
+    {
+      "file": "input/Suggested-Plate design_261110_111501.jpg",
+      "kind": "sketch",
+      "notes": "hand sketch: stand holder (U channel with one hole = stud), connector plate with 8 holes and tapered fit-plate tab, and a 3-section assembly with 4 push-button holes per joint. Proportions are meaningless, only words count."
+    },
+    {
+      "file": "input/20261110_110257.jpg",
+      "kind": "photo",
+      "notes": "caliper 66.2 mm along channel length"
+    },
+    {
+      "file": "input/20261110_110315.jpg",
+      "kind": "photo",
+      "notes": "caliper 44.5 mm outer width at the top; stud and two domes visible, curved support at the bottom"
+    },
+    {
+      "file": "input/20261110_110327.jpg",
+      "kind": "photo",
+      "notes": "caliper 42.5 mm, outer width at mid length"
+    },
+    {
+      "file": "input/20261110_110346.jpg",
+      "kind": "photo",
+      "notes": "caliper 38.0 mm, outer width at the bottom"
+    },
+    {
+      "file": "input/20261110_110352.jpg",
+      "kind": "photo",
+      "notes": "caliper 44.0 mm, outer width near the top"
+    },
+    {
+      "file": "input/20261110_110441.jpg",
+      "kind": "photo",
+      "notes": "caliper 10.1 mm, side wall height (outer)"
+    },
+    {
+      "file": "input/20261110_110514.jpg",
+      "kind": "photo",
+      "notes": "caliper 10.1 mm, same measurement from another angle"
+    },
+    {
+      "file": "input/20261110_110530.jpg",
+      "kind": "photo",
+      "notes": "no number; shows stud, two domes and thumb nut behind the channel"
+    },
+    {
+      "file": "input/20261110_110534.jpg",
+      "kind": "photo",
+      "notes": "no number; same view"
+    },
+    {
+      "file": "input/20261110_110612.jpg",
+      "kind": "photo",
+      "notes": "no number; side view of the channel and clamp head"
+    },
+    {
+      "file": "input/20261110_110614.jpg",
+      "kind": "photo",
+      "notes": "caliper 66.4 mm, channel length"
+    },
+    {
+      "file": "input/20261110_115004.jpg",
+      "kind": "sketch",
+      "notes": "user's dimensioned sketch of the channel: front 44.4 outer top, 37.6 inner top, 30.6 inner bottom, 37.9 outer bottom, 66.9 length; side 9.5; top view 9.5 each side, 15.9 wide x 1 high curved support at the bottom"
+    },
+    {
+      "file": "input/20261110_131610.jpg",
+      "kind": "photo",
+      "notes": "channel with the stud removed and a ruler along the right side: stud hole with a raised collar about 6.4 mm, about 9.2 mm below the top; rivet domes about 36.3 and 57.8 mm below the top, 9.5 mm across; all on the centre line (scaled from the dome width, about 16.3 px/mm)"
+    },
+    {
+      "file": "input/20261110_125957.jpg",
+      "kind": "photo",
+      "notes": "printed fit test (rev 6) with the stud position marked: about 9.7 mm below the tab root, on the centre line"
+    },
+    {
+      "file": "input/20261110_130026.jpg",
+      "kind": "photo",
+      "notes": "the same, measured across: about 10.7 mm below the root, centred"
+    },
+    {
+      "file": "input/20261110_130155.jpg",
+      "kind": "photo",
+      "notes": "caliper 5.9 mm across the stud thread (M6)"
+    }
+  ],
+  "datum": {
+    "origin": "centre plate: middle of the bottom edge of the plate body, on its back face (the tab hangs below, towards -Y). Extender: its inner overlap edge, on the bottom edge of the back face.",
+    "x": "across the plate, left to right seen from the front",
+    "y": "up the plate; the bottom edge and the tab are towards -Y (front elevation faces -Y)",
+    "z": "up = print direction; the back face lies on the bed at Z = 0; the music face and the lip point up"
+  },
+  "envelope": {
+    "x": 530,
+    "y": 295,
+    "z": 18,
+    "tolerance": 0.5
+  },
+  "print": {
+    "printer_bed": [
+      180,
+      180,
+      180
+    ],
+    "nozzle": 0.4,
+    "layer": 0.2,
+    "material": "PLA",
+    "materials": [
+      "PLA"
+    ],
+    "supports": false,
+    "orientation": "back face flat on the bed, music face and lip pointing up; no supports (the extender's rebate faces up)",
+    "quantity": 1,
+    "plates": [
+      [
+        "centre"
+      ],
+      [
+        "extender-left"
+      ],
+      [
+        "extender-right"
+      ],
+      [
+        "v-tab",
+        "bolt-1",
+        "bolt-2",
+        "jam-nut-1",
+        "jam-nut-2",
+        "nut"
+      ]
+    ]
+  },
+  "parts": [
+    {
+      "name": "music-stand-plate-centre",
+      "description": "170 x 170 plate, 4 mm, 10 mm lip, hex mesh, 4 rail grooves, 2 key grooves, 2 countersunk bolt holes"
+    },
+    {
+      "name": "music-stand-plate-extender-left",
+      "description": "170 x 170 extender, 8 mm, rear strip with rebate and 2 rails, lip, hex mesh"
+    },
+    {
+      "name": "music-stand-plate-extender-right",
+      "description": "mirror image of the left extender"
+    },
+    {
+      "name": "music-stand-plate-v-tab",
+      "description": "the V (holder fit, slot, tip bridge, nut recess) with a 50 x 44 mm tongue, 2 dovetail keys and 2 nut pockets"
+    },
+    {
+      "name": "music-stand-plate-bolt-1",
+      "description": "printed M6 x 10 countersunk bolt"
+    },
+    {
+      "name": "music-stand-plate-bolt-2",
+      "description": "printed M6 x 10 countersunk bolt"
+    },
+    {
+      "name": "music-stand-plate-jam-nut-1",
+      "description": "printed M6 nut, 10 AF x 3.2"
+    },
+    {
+      "name": "music-stand-plate-jam-nut-2",
+      "description": "printed M6 nut, 10 AF x 3.2"
+    },
+    {
+      "name": "music-stand-plate-nut",
+      "description": "printed M6 thumb nut for the stand's stud, 16 x 8"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "holder channel length",
+      "value": 66.4,
+      "tol": "±0.3",
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": true,
+      "source": "photos 110614 = 66.4, 110257 = 66.2; sketch 115004 says 66.9 (conflict, 66.4 used, to be confirmed)",
+      "fit": null,
+      "param": "CH_LEN"
+    },
+    {
+      "id": "D2",
+      "name": "holder inner width at the top (open) end",
+      "value": 37.6,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261110_115004.jpg: '37.6' arrow just below the top edge",
+      "fit": "sliding",
+      "param": "CH_IN_TOP"
+    },
+    {
+      "id": "D3",
+      "name": "holder inner width at the bottom end",
+      "value": 30.6,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "input/20261110_115004.jpg: '30.6' near the bottom",
+      "fit": "sliding",
+      "param": "CH_IN_BOT"
+    },
+    {
+      "id": "D4",
+      "name": "holder outer width at the top",
+      "value": 44.4,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "sketch 115004 '44.4'; photo 110315 44.5, 110352 44.0 (reference only)",
+      "fit": null
+    },
+    {
+      "id": "D5",
+      "name": "holder outer width at the bottom",
+      "value": 37.9,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "high",
+      "critical": false,
+      "source": "sketch 115004 '37.9mm'; photo 110346 38.0 (reference only)",
+      "fit": null
+    },
+    {
+      "id": "D6",
+      "name": "holder channel depth (usable)",
+      "value": 9.5,
+      "tol": "±0.2",
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": true,
+      "source": "sketch 115004 side '9.5mm' and top view '9.5'; photos 110441/110514 read 10.1 on the outer edge",
+      "fit": null,
+      "param": "CH_DEPTH"
+    },
+    {
+      "id": "D7",
+      "name": "bottom curved support width",
+      "value": 15.9,
+      "tol": "±0.3",
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "sketch 115004 top view '15.9' with arrow 'At Bottom'",
+      "fit": null
+    },
+    {
+      "id": "D8",
+      "name": "bottom curved support height (into the channel)",
+      "value": 1.0,
+      "tol": "±0.3",
+      "basis": "measured",
+      "confidence": "low",
+      "critical": false,
+      "source": "sketch 115004 top view, small '1' beside the half-circle",
+      "fit": null,
+      "param": "CH_STOP_H"
+    },
+    {
+      "id": "D9",
+      "name": "stud distance from the top end of the channel",
+      "value": 9.5,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": true,
+      "source": "fit-test marks 9.7 mm (photo 125957) and 10.7 mm (photo 130026) below the tab root, photo 131610 about 9.2 mm; 9.5 used and the slot runs 1 mm further (D55), so 8.5 to 10.7 are all clear",
+      "fit": null,
+      "param": "STUD_POS"
+    },
+    {
+      "id": "D10",
+      "name": "stud diameter",
+      "value": 5.9,
+      "basis": "measured",
+      "confidence": "high",
+      "critical": true,
+      "source": "caliper 5.9 mm across the stud thread (photo 130155): M6",
+      "fit": "free",
+      "param": "STUD_D"
+    },
+    {
+      "id": "D11",
+      "name": "dome rivet 1 distance from the top end",
+      "value": 36.3,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "photo 131610, ruler along the channel, scaled from the 9.5 mm dome width",
+      "fit": null,
+      "param": "DOME1_POS"
+    },
+    {
+      "id": "D12",
+      "name": "dome rivet 2 distance from the top end",
+      "value": 57.8,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "photo 131610, ruler along the channel",
+      "fit": null,
+      "param": "DOME2_POS"
+    },
+    {
+      "id": "D13",
+      "name": "dome rivet head diameter",
+      "value": 9.5,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "photo 131610: dome 155 px across at about 16.3 px/mm",
+      "fit": "free",
+      "param": "DOME_D"
+    },
+    {
+      "id": "D14",
+      "name": "dome rivet head height",
+      "value": 2.0,
+      "basis": "estimated",
+      "confidence": "low",
+      "critical": false,
+      "source": "side photos 110612/110530, not measurable | rev 7: the dome slot is back",
+      "fit": null,
+      "param": "DOME_H"
+    },
+    {
+      "id": "D15",
+      "name": "tab clearance per side in the channel",
+      "value": 0.3,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: a slightly loose fit is fine, the nut tightens the plate (FITS free = 0.30 mm per side)",
+      "fit": "free"
+    },
+    {
+      "id": "D16",
+      "name": "tab length (below the plate)",
+      "value": 65.0,
+      "tol": "±0.3",
+      "basis": "derived",
+      "confidence": "medium",
+      "critical": true,
+      "source": "D1 - D8 (stop) = 65.4 is where the tip stops; 65.0 leaves 0.4 mm at the tip so the plate edge rests on the channel top (found in the insertion sweep, rev 3)",
+      "fit": null,
+      "param": "TAB_L"
+    },
+    {
+      "id": "D17",
+      "name": "tab thickness",
+      "value": 4.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "= D18. rev 7: the slot is back (the solid tab was pushed up by the stud), so the tab sits on the floor and the stud comes through for the nut",
+      "fit": null,
+      "param": "TAB_T"
+    },
+    {
+      "id": "D18",
+      "name": "plate thickness",
+      "value": 4.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "user answer: PLA, 4 mm",
+      "fit": null,
+      "param": "PLATE_T"
+    },
+    {
+      "id": "D19",
+      "name": "centre plate width",
+      "value": 170.0,
+      "tol": "±0.3",
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "A1 mini bed 180 minus 10 margin",
+      "fit": null,
+      "param": "PLATE_W"
+    },
+    {
+      "id": "D20",
+      "name": "centre plate height (above the tab)",
+      "value": 170.0,
+      "tol": "±0.3",
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 12: the V is a separate part, so the plate uses the 170 the bed allows (5 mm margin per side)",
+      "fit": null,
+      "param": "PLATE_H"
+    },
+    {
+      "id": "D21",
+      "name": "bottom lip projection (towards the music)",
+      "value": 10.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "user answer: yes, 10 mm lip",
+      "fit": null,
+      "param": "LIP_H"
+    },
+    {
+      "id": "D22",
+      "name": "bottom lip thickness",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "= D18",
+      "fit": null,
+      "param": "LIP_T"
+    },
+    {
+      "id": "D23",
+      "name": "overlap length (extender strip behind the centre plate)",
+      "value": 40.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "user: overlap for maximum strength; recommended option chosen: behind the centre plate, 40 mm",
+      "fit": null,
+      "param": "OVERLAP"
+    },
+    {
+      "id": "D24",
+      "name": "extender width beyond the centre plate edge",
+      "value": 130.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 12: full size: extender 170 wide = 40 overlap + 130 visible; total 170 + 2 x 130 = 430",
+      "fit": null,
+      "param": "EXT_VIS_W"
+    },
+    {
+      "id": "D25",
+      "name": "extender main thickness",
+      "value": 8.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": false,
+      "source": "2 x D18: 4 mm behind the centre-plate plane + 4 mm in the music plane",
+      "fit": null,
+      "param": "EXT_T"
+    },
+    {
+      "id": "D26",
+      "name": "extender rebate depth (the centre plate's edge sits in it)",
+      "value": 4.0,
+      "basis": "derived",
+      "confidence": "high",
+      "critical": true,
+      "source": "= D18 + clearance, so the fronts are flush",
+      "fit": "sliding",
+      "param": "REBATE_D"
+    },
+    {
+      "id": "D27",
+      "name": "extender height (full square, same as the centre plate)",
+      "value": 170.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 12: = D20",
+      "fit": null,
+      "param": "EXT_H"
+    },
+    {
+      "id": "D33",
+      "name": "corner radius",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "no corner treatment in the sketch",
+      "fit": null,
+      "param": "CORNER_R"
+    },
+    {
+      "id": "D34",
+      "name": "mesh hole size (hexagon, across flats)",
+      "value": 12.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user: chicken-net holes in the side plates to save material, thick but not super strong",
+      "fit": null,
+      "param": "MESH_AF"
+    },
+    {
+      "id": "D35",
+      "name": "mesh rib width between holes",
+      "value": 3.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "about 7 perimeters at 0.4 mm nozzle; thick, as the user wants",
+      "fit": null,
+      "param": "MESH_RIB"
+    },
+    {
+      "id": "D36",
+      "name": "solid border around the mesh (outer edges and the strip)",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "keeps edges stiff; the 40 mm overlap strip stays fully solid",
+      "fit": null,
+      "param": "MESH_BORDER"
+    },
+    {
+      "id": "D37",
+      "name": "rail neck width (base of the dovetail)",
+      "value": 5.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": "sliding",
+      "param": "RAIL_NECK"
+    },
+    {
+      "id": "D38",
+      "name": "rail head width (top of the dovetail)",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": "sliding",
+      "param": "RAIL_HEAD"
+    },
+    {
+      "id": "D39",
+      "name": "rail height above the strip face",
+      "value": 2.4,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": "sliding",
+      "param": "RAIL_H"
+    },
+    {
+      "id": "D40",
+      "name": "first rail centre from the centre plate side edge",
+      "value": 10.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": null,
+      "param": "RAIL_EDGE0"
+    },
+    {
+      "id": "D41",
+      "name": "rail pitch (second rail further in)",
+      "value": 20.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": null,
+      "param": "RAIL_PITCH"
+    },
+    {
+      "id": "D42",
+      "name": "rail bottom end = closed groove bottom (y from the plate bottom edge)",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": null,
+      "param": "RAIL_Y0"
+    },
+    {
+      "id": "D43",
+      "name": "gap from the rail top end to the extender top edge",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "fit": null,
+      "param": "RAIL_TOP_GAP"
+    },
+    {
+      "id": "D44",
+      "name": "lead-in chamfer at the tab tip (back edge, 45 deg)",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 5 lead-in; kept in rev 7 for easier entry",
+      "fit": null,
+      "param": "TAB_LEADIN"
+    },
+    {
+      "id": "D47",
+      "name": "M6 thread pitch (coarse)",
+      "value": 1.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 7: M6 standard coarse pitch; not measured",
+      "fit": null,
+      "param": "THREAD_P"
+    },
+    {
+      "id": "D48",
+      "name": "thumb nut outside diameter",
+      "value": 16.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 7: user: print a nut of this thread to test the sample",
+      "fit": null,
+      "param": "NUT_OD"
+    },
+    {
+      "id": "D49",
+      "name": "thumb nut height",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 7: 8 thread turns",
+      "fit": null,
+      "param": "NUT_H"
+    },
+    {
+      "id": "D50",
+      "name": "nut recess diameter in the tab front",
+      "value": 17.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 7: nut OD 16 + 1",
+      "fit": null,
+      "param": "NUT_RECESS_D"
+    },
+    {
+      "id": "D51",
+      "name": "nut recess depth",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 7: leaves 2 mm of tab under the nut, so more stud thread reaches the nut",
+      "fit": null,
+      "param": "NUT_RECESS_DEPTH"
+    },
+    {
+      "id": "D52",
+      "name": "stud slot extra width (over the raised collar)",
+      "value": 1.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 8: the slot must clear the raised collar around the stud hole (6.4 mm, photo 131610), 0.5 mm per side -> 7.4 mm",
+      "fit": null,
+      "param": "STUD_SLOT_EXTRA"
+    },
+    {
+      "id": "D53",
+      "name": "dome slot extra width (over the dome diameter)",
+      "value": 1.5,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 7: 11 mm slot over the dome range",
+      "fit": null,
+      "param": "DOME_SLOT_EXTRA"
+    },
+    {
+      "id": "D54",
+      "name": "raised collar around the stud hole, diameter",
+      "value": 6.4,
+      "basis": "measured",
+      "confidence": "medium",
+      "critical": false,
+      "source": "photo 131610: ring about 105 px across at about 16.3 px/mm",
+      "fit": null,
+      "param": "COLLAR_D"
+    },
+    {
+      "id": "D55",
+      "name": "slot overrun past the measured stud and dome 1",
+      "value": 1.0,
+      "basis": "default",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 8: margin for the photo scaling (stud 9.2 to 10.7)",
+      "fit": null,
+      "param": "SLOT_OVERRUN"
+    },
+    {
+      "id": "D56",
+      "name": "bridge closing the slot at the tab tip, length",
+      "value": 5.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 9: user, rev 9: join 5 mm from the bottom to make it stronger",
+      "fit": null,
+      "param": "BRIDGE_L"
+    },
+    {
+      "id": "D57",
+      "name": "gable relief under the bridge (back face), peak height",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 9: gable (no flat roof); clears a 9.5 x 2 mm dome cap and the 6.4 x 1.5 mm collar everywhere across its width",
+      "fit": null,
+      "param": "BRIDGE_RELIEF"
+    },
+    {
+      "id": "D58",
+      "name": "tab thickness at the tip boss",
+      "value": 7.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 9: 3 mm of bridge over the 4 mm relief peak; 7 mm leaves 2.5 mm in the 9.5 mm channel",
+      "fit": null,
+      "param": "TIP_BOSS_T"
+    },
+    {
+      "id": "D59",
+      "name": "tip boss width (centred)",
+      "value": 15.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 9: clear of the channel's side lips",
+      "fit": null,
+      "param": "TIP_BOSS_W"
+    },
+    {
+      "id": "D60",
+      "name": "tip boss length from the tip",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 9: covers the 5 mm bridge + 3 mm",
+      "fit": null,
+      "param": "TIP_BOSS_L"
+    },
+    {
+      "id": "D61",
+      "name": "gable relief width at the back face",
+      "value": 13.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 9: faces atan(4 / 6.5) = 31.6 deg from horizontal, 58.4 deg from vertical (limit 60)",
+      "fit": null,
+      "param": "RELIEF_W"
+    },
+    {
+      "id": "D62",
+      "name": "tab widening per side after the fit test",
+      "value": 1.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": true,
+      "source": "user, rev 11, after printing the fit test: 'fit is good, increase the V 1 mm from both sides for a snugger fit'. The tab is now 0.7 mm per side wider than the sketched inner widths (37.6 / 30.6), so the channel is roomier at the tab than those numbers",
+      "fit": "snug",
+      "param": "TAB_WIDEN"
+    },
+    {
+      "id": "D63",
+      "name": "V tongue length above the V root (behind the centre plate)",
+      "value": 50.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "TONGUE_L"
+    },
+    {
+      "id": "D64",
+      "name": "V tongue width",
+      "value": 44.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "TONGUE_W"
+    },
+    {
+      "id": "D65",
+      "name": "dovetail keys on the tongue front, x position (+-)",
+      "value": 13.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "KEY_X"
+    },
+    {
+      "id": "D66",
+      "name": "lower bolt, height above the plate bottom edge (centre line)",
+      "value": 15.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "BOLT_Y1"
+    },
+    {
+      "id": "D67",
+      "name": "upper bolt, height above the plate bottom edge (centre line)",
+      "value": 38.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "BOLT_Y2"
+    },
+    {
+      "id": "D68",
+      "name": "printed M6 countersunk bolt, overall length",
+      "value": 10.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "BOLT_L"
+    },
+    {
+      "id": "D69",
+      "name": "bolt head diameter (90 deg countersunk)",
+      "value": 12.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "BOLT_HEAD_D"
+    },
+    {
+      "id": "D70",
+      "name": "printed M6 nut, across flats",
+      "value": 10.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "JAM_AF"
+    },
+    {
+      "id": "D71",
+      "name": "printed M6 nut, thickness",
+      "value": 3.2,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "JAM_T"
+    },
+    {
+      "id": "D72",
+      "name": "nut pocket depth in the back of the tongue",
+      "value": 2.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "JAM_POCKET"
+    },
+    {
+      "id": "D73",
+      "name": "hex key socket in the bolt head, across flats",
+      "value": 4.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
+      "fit": null,
+      "param": "BOLT_HEX"
+    }
+  ],
+  "features": [
+    {
+      "id": "F1",
+      "name": "tapered tab",
+      "count": 1,
+      "position": "x = 0 centred, hangs below the plate from y = 0 to y = -65",
+      "dims": [
+        "D2",
+        "D3",
+        "D15",
+        "D16",
+        "D17",
+        "D44",
+        "D62"
+      ],
+      "notes": "4 mm, on the channel floor; width = channel inner width - 0.3 + 1.0 mm per side (rev 11, from the fit test): about 38.4 mm at the root, 32.1 mm at the tip; 2 mm lead-in at the tip"
+    },
+    {
+      "id": "F2",
+      "name": "stud slot in the tab (narrow)",
+      "count": 1,
+      "position": "x = 0; from the tab tip up to 1 mm past the stud (slot end centre 8.5 mm below the channel top)",
+      "dims": [
+        "D9",
+        "D10",
+        "D52",
+        "D54",
+        "D55"
+      ],
+      "notes": "rev 8: 7.4 mm wide, clears the raised collar (6.4) around the stud; the nut clamps the tab around it; rev 9: closed at the tip by the 5 mm bridge"
+    },
+    {
+      "id": "F3",
+      "name": "dome slot (wider part of the slot)",
+      "count": 1,
+      "position": "x = 0; from the tab tip up to 1.75 mm past the top edge of rivet 1 (D11)",
+      "dims": [
+        "D11",
+        "D12",
+        "D13",
+        "D53",
+        "D55"
+      ],
+      "notes": "11 mm wide, through; ends 21 mm below the stud so the nut bears on solid tab; rev 9: closed at the tip by the 5 mm bridge"
+    },
+    {
+      "id": "F4",
+      "name": "dovetail grooves in the back face of the centre plate",
+      "count": 4,
+      "position": "2 per side, centre lines 10 and 30 mm from the side edge, from y = 8 up to the top edge (open at the top, closed at the bottom)",
+      "dims": [
+        "D37",
+        "D38",
+        "D39",
+        "D40",
+        "D41",
+        "D42"
+      ],
+      "notes": "the extender's rails slide in from the top; the closed bottom end carries the weight; groove = rail + 0.2 mm per side"
+    },
+    {
+      "id": "F5",
+      "name": "bottom lip",
+      "count": 3,
+      "position": "along the bottom edge of every part, y = 0..4, full width",
+      "dims": [
+        "D21",
+        "D22"
+      ],
+      "notes": "protrudes up (towards the music) 10 mm"
+    },
+    {
+      "id": "F6",
+      "name": "extender rebate and strip",
+      "count": 2,
+      "position": "inner 40 mm of each extender, front face recessed 4 mm",
+      "dims": [
+        "D23",
+        "D25",
+        "D26"
+      ],
+      "notes": "the centre plate edge sits in the rebate; fronts end up flush"
+    },
+    {
+      "id": "F7",
+      "name": "dovetail rails on the extender strip",
+      "count": 4,
+      "position": "2 per extender, mirrored positions of F4, from y = 8 to 8 mm below the top edge, standing on the rebate floor",
+      "dims": [
+        "D37",
+        "D38",
+        "D39",
+        "D40",
+        "D41",
+        "D42",
+        "D43"
+      ],
+      "notes": "overhang of the head is about 31 degrees from vertical, so it prints without support"
+    },
+    {
+      "id": "F8",
+      "name": "full-height square outline",
+      "count": 2,
+      "position": "extender is a 130 x 105 rectangle: x from the overlap inner end (45 from the centre line) to 175, y = 0 to 105",
+      "dims": [
+        "D24",
+        "D27"
+      ],
+      "notes": "the user chose a full square with the mesh over sloped wings; corners R3 on the outer end"
+    },
+    {
+      "id": "F9",
+      "name": "hex mesh (chicken net) through holes",
+      "count": 2,
+      "position": "inside the visible 90 mm of each extender, D36 away from its outer edge, the sloped edge, the lip and the overlap strip, in a hex pattern",
+      "dims": [
+        "D34",
+        "D35",
+        "D36"
+      ],
+      "notes": "through the 8 mm thick main body; centre plate stays solid; lip stays solid"
+    },
+    {
+      "id": "F10",
+      "name": "hex mesh in the centre plate",
+      "count": 1,
+      "position": "x within +-37 of the centre line (the 40 mm peg-hole zones and D36 border stay solid), y from the lip border to the top border; the tab and lip stay solid",
+      "dims": [
+        "D34",
+        "D35",
+        "D36",
+        "D23"
+      ],
+      "notes": "user request, revision 2: mesh also in the centre plate except where it has holes"
+    },
+    {
+      "id": "F12",
+      "name": "nut recess",
+      "count": 1,
+      "position": "tab front face, centred on the stud",
+      "dims": [
+        "D50",
+        "D51"
+      ],
+      "notes": "17 mm, 2 mm deep"
+    },
+    {
+      "id": "F13",
+      "name": "printed M6 thumb nut (test part)",
+      "count": 1,
+      "position": "separate part, next to the fit test in the model files",
+      "dims": [
+        "D10",
+        "D47",
+        "D48",
+        "D49"
+      ],
+      "notes": "right-hand ISO M6x1 internal thread + 0.3 mm radial clearance, 45 deg entry chamfers, 10 grip notches"
+    },
+    {
+      "id": "F14",
+      "name": "tip bridge with back relief and front boss",
+      "count": 1,
+      "position": "tab tip, y = -65 to -60 (bridge), boss 15 mm wide from -65 to -57",
+      "dims": [
+        "D56",
+        "D57",
+        "D58",
+        "D59",
+        "D60",
+        "D61"
+      ],
+      "notes": "joins the two legs; 13 mm wide, 4 mm high gable relief on the back so it rides over the collar and the domes; 7 mm thick, 15 mm wide boss on the front keeps 3 mm of bridge over the peak"
+    },
+    {
+      "id": "F15",
+      "name": "V tongue with 2 dovetail keys",
+      "count": 1,
+      "position": "V part, y = 0 to 50 above the V root, 44 mm wide; keys at x = +-13 from y = 2 to 48 on the front",
+      "dims": [
+        "D63",
+        "D64",
+        "D65",
+        "D37",
+        "D38",
+        "D39"
+      ],
+      "notes": "the tongue sits flat behind the centre plate; the keys (same profile as the extender rails) go 2.4 mm into the plate"
+    },
+    {
+      "id": "F16",
+      "name": "key grooves and countersunk bolt holes in the centre plate",
+      "count": 1,
+      "position": "plate back, x = +-13, open at the bottom edge, closed at y = 48; bolt holes on the centre line at y = 15 and 38",
+      "dims": [
+        "D65",
+        "D66",
+        "D67",
+        "D69"
+      ],
+      "notes": "the V slides up into the grooves until the keys stop at the closed ends; 6.6 mm holes, 90 deg countersinks on the music face"
+    },
+    {
+      "id": "F17",
+      "name": "2 printed M6 countersunk bolts",
+      "count": 2,
+      "position": "separate parts, printed head down",
+      "dims": [
+        "D68",
+        "D69",
+        "D73",
+        "D47"
+      ],
+      "notes": "M6 x 1, 0.2 mm smaller per side than nominal, 4 mm hex key socket, chamfered tip"
+    },
+    {
+      "id": "F18",
+      "name": "2 printed M6 nuts in hex pockets on the back of the tongue",
+      "count": 2,
+      "position": "V back, at the bolt positions",
+      "dims": [
+        "D70",
+        "D71",
+        "D72"
+      ],
+      "notes": "10 mm across flats, 3.2 mm thick; 2 mm in the pocket so they do not turn, 1.2 mm stand out behind"
+    }
+  ],
+  "assumptions": [
+    "A1: PLA on a Bambu A1 mini (180 x 180 x 180), 0.4 mm nozzle, 0.2 mm layers, no supports. If the bed differs, the 170 mm long centre plate (plate + tab) may not fit.",
+    "A3: the channel's usable inner widths are the user's 37.6 and 30.6 (not the outer 44.4 / 37.9). The tab is made 0.3 mm smaller per side on both widths.",
+    "A6: all extenders are a left/right pair, printed once each.",
+    "A7: the model files lay the three parts out side by side (extenders moved 50 mm out) so the drawings and the viewer show a print layout; the assembled position is in the datum and the section views. Slicers re-place the parts anyway.",
+    "A8 (rev 2): centre plate mesh uses the same hole size, rib and border (D34-D36), 5 columns across x = -37..37; it stops D36 away from the peg-hole zones and above the lip.",
+    "A9 (rev 3): from the insertion sweep, the tab is 65 mm and the plates 105 mm tall, so the plate bottom edge rests on the channel top and the tab tip stops 0.4 mm short of the curved support. A channel of 66.9 mm leaves 0.9 mm at the tip.",
+    "A10 (rev 4): the extenders drop on from the top. 2 dovetail rails per extender (5 mm neck, 8 mm head, 2.4 mm high) slide down into grooves in the centre plate's back face; the grooves are closed at the bottom (y = 8), so gravity seats the extender and the paper weight loads the joint in compression. The groove leaves a 1.4 mm front skin on the 4 mm plate. No snap detent: add a dab of glue or a small bump later if it lifts out.",
+    "A5 (replaced in rev 4): the push-in pegs were dropped.",
+    "A12 (rev 7): the solid tab was pushed up by the stud on the printed test, so the slot is back, narrowed to the measured M6 stud. The nut screws onto the stud through the slot; a 2 mm recess lets it reach more thread. How far the stud stands out was not measured.",
+    "A13 (rev 7): the printed nut assumes M6 x 1.0 (coarse). Its thread flanks are 60 degree overhangs (ISO profile), which the A1 mini prints at this size; OVERHANG_LIMIT is 60 for that reason and the plates were checked at 45.",
+    "A14 (rev 8): photo 131610 shows the raised collar round the stud hole and the two rivet domes. The narrow slot is sized for the collar (7.4 mm) and both slot ends run 1 mm past the measured positions.",
+    "A15 (rev 9): with the slot closed at the tip, the stud (bolt) must be taken out before the tab slides in, then pushed back through the slot from behind and the nut fitted. The bridge rides over the domes and the collar: if the domes are taller than 3 mm, the relief must be deeper.",
+    "A16 (rev 10): the final 3MF has 3 plates (centre, left extender, right extender) for Bambu Studio / OrcaSlicer; the fit test and the nut are only in the separate test-plate 3MF.",
+    "A17 (rev 11): tab widened 1 mm per side after the physical fit test; the sweep checks the stud, collar, domes and the stop, and the side walls were checked by the user's test print.",
+    "A18 (rev 12): the V is a separate part. The chosen 'thickened pad with a socket on the back of the centre plate' cannot print with the plate's back on the bed (the pad would stick out below the bed face, a back socket needs a 40 mm flat roof), so the V's tongue sits behind the plate and goes into it with 2 dovetail keys in grooves (2.4 mm deep) instead, plus 2 printed M6 bolts. Printed M6 threads are weak: the keys carry the load, the bolts only clamp."
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "Stud distance from the top end, stud diameter, both dome rivet distances and the dome head size and height (D9-D14) are photo estimates. Please confirm or measure.",
+      "blocking": false,
+      "answer": "User confirmed on 2026-11-10: use the photo estimates (D9-D13). Slot and pockets are generous."
+    },
+    {
+      "id": "Q2",
+      "question": "Channel length: photos say 66.2 / 66.4, the sketch 66.9. Which should I use?",
+      "blocking": false,
+      "answer": null
+    },
+    {
+      "id": "Q4",
+      "question": "Keep the sloped outer edge on the extenders, or use a full-height square now that the hex mesh saves the material?",
+      "blocking": false,
+      "answer": "Full square with the mesh; 12 mm holes are fine (user, 2026-11-10)"
+    },
+    {
+      "id": "Q3",
+      "question": "How far does the stud stick up above the channel floor (for a 4 mm tab plus a nut)?",
+      "blocking": false,
+      "answer": null
+    }
+  ],
+  "drawing": {
+    "plan_cut_z": 2.0,
+    "dimensions": [
+      {
+        "id": "D19",
+        "view": "top",
+        "from": [
+          -85,
+          0,
+          0
+        ],
+        "to": [
+          85,
+          0,
+          0
+        ],
+        "offset": 12
+      },
+      {
+        "id": "D20",
+        "view": "top",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          170,
+          0
+        ],
+        "offset": -12,
+        "orient": "vertical"
+      },
+      {
+        "id": "D16",
+        "view": "top",
+        "from": [
+          10,
+          180,
+          0
+        ],
+        "to": [
+          20.5,
+          245,
+          0
+        ],
+        "offset": 12,
+        "orient": "vertical"
+      },
+      {
+        "id": "D3",
+        "view": "top",
+        "from": [
+          -16.053,
+          180,
+          0
+        ],
+        "to": [
+          16.053,
+          180,
+          0
+        ],
+        "offset": 12,
+        "expect": 32.1,
+        "tol": 0.1
+      },
+      {
+        "id": "D52",
+        "view": "top",
+        "from": [
+          -3.7,
+          225,
+          0
+        ],
+        "to": [
+          3.7,
+          225,
+          0
+        ],
+        "offset": -12,
+        "expect": 7.4,
+        "tol": 0.1
+      },
+      {
+        "id": "D53",
+        "view": "top",
+        "from": [
+          -5.5,
+          195,
+          0
+        ],
+        "to": [
+          5.5,
+          195,
+          0
+        ],
+        "offset": -20,
+        "expect": 11.0,
+        "tol": 0.1
+      },
+      {
+        "id": "D64",
+        "view": "top",
+        "from": [
+          -22,
+          290,
+          0
+        ],
+        "to": [
+          22,
+          290,
+          0
+        ],
+        "offset": -10,
+        "on_geometry": false
+      },
+      {
+        "id": "D66",
+        "view": "top",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          15,
+          0
+        ],
+        "offset": 14,
+        "orient": "vertical",
+        "on_geometry": false
+      },
+      {
+        "id": "D67",
+        "view": "top",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          38,
+          0
+        ],
+        "offset": 22,
+        "orient": "vertical",
+        "on_geometry": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "generated_utc": "2026-11-10T10:16:28+00:00",
+  "scale": "1:5",
+  "plan_cut_z": 2.0,
+  "bbox": {
+    "min": [
+      -265.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      265.0,
+      295.0,
+      18.0
+    ],
+    "size": [
+      530.0,
+      295.0,
+      18.0
+    ]
+  },
+  "parts": [
+    "music-stand-plate-bolt-1",
+    "music-stand-plate-bolt-2",
+    "music-stand-plate-centre",
+    "music-stand-plate-extender-left",
+    "music-stand-plate-extender-right",
+    "music-stand-plate-jam-nut-1",
+    "music-stand-plate-jam-nut-2",
+    "music-stand-plate-nut",
+    "music-stand-plate-v-tab"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 1042,
+      "hidden_edges": 8349
+    },
+    "side": {
+      "visible_edges": 5024,
+      "hidden_edges": 8640
+    },
+    "top": {
+      "visible_edges": 12733,
+      "hidden_edges": 42851
+    },
+    "plan": {
+      "visible_edges": 2590,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 530.0,
+      "model": 530.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 295.0,
+      "model": 295.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 18.0,
+      "model": 18.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D19 top horizontal",
+      "measured": 170.0,
+      "expect": 170.0,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D20 top vertical",
+      "measured": 170.0,
+      "expect": 170.0,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D16 top vertical",
+      "measured": 65.0,
+      "expect": 65.0,
+      "tol": 0.3,
+      "ok": true
+    },
+    {
+      "check": "D3 top horizontal",
+      "measured": 32.106,
+      "expect": 32.1,
+      "tol": 0.1,
+      "ok": true
+    },
+    {
+      "check": "D52 top horizontal",
+      "measured": 7.4,
+      "expect": 7.4,
+      "tol": 0.1,
+      "ok": true
+    },
+    {
+      "check": "D53 top horizontal",
+      "measured": 11.0,
+      "expect": 11.0,
+      "tol": 0.1,
+      "ok": true
+    },
+    {
+      "check": "D64 top horizontal",
+      "measured": 44.0,
+      "expect": 44.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D66 top vertical",
+      "measured": 15.0,
+      "expect": 15.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D67 top vertical",
+      "measured": 38.0,
+      "expect": 38.0,
+      "tol": 0.05,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

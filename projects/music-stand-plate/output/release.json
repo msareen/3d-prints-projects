@@ -1,0 +1,74 @@
+{
+  "project": "music-stand-plate",
+  "released_utc": "2026-11-10T10:17:00+00:00",
+  "spec_revision": 12,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PLA"
+  ],
+  "fits": {
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "music-stand-plate-drawing.svg": "0aa0edbcf590731f44cc2eb6414c9545e073f5e725b9566d993eb30814331c78",
+    "music-stand-plate-spec.md": "82a8788d68cfa817cd0dde41c3b8ba06a664eb91d84421603e005e648e229ddd",
+    "PLA/music-stand-plate-bolt-1.json": "d61fa188fa12f182956b4c40c377cd6e2439aa18062bdef8148ec57e68ae6784",
+    "PLA/music-stand-plate-bolt-1.stl": "726ab3efc5dee16f3d6fa84016f84d63554d83fddd02484a2c6c2f7a5be02fb1",
+    "PLA/music-stand-plate-bolt-2.json": "40027ba8fbe909ff3dda5ef88173a4e00535134ad2b219f974fe96456325dc6a",
+    "PLA/music-stand-plate-bolt-2.stl": "7226320ee634c29066b172a5d9dff38fdf0ac59c706e160323390bd5342198b6",
+    "PLA/music-stand-plate-centre.json": "7e84d705024a2b1c48139c6b86c7cd76a2e2e3fd80653f1f9159ed15233d78da",
+    "PLA/music-stand-plate-centre.stl": "5256fa7e40f753dd89adb0cc8198a00b9abf3b83f6740094ece87ecb85a2341f",
+    "PLA/music-stand-plate-extender-left.json": "0a18ed5bbe2179a4203b6e1995fa787d8577c983fc1af0b70cb892e903fd3ac9",
+    "PLA/music-stand-plate-extender-left.stl": "d2b9bd50ee1627d0931756db620809ba1658bec566e9799eb31f482eb388dc44",
+    "PLA/music-stand-plate-extender-right.json": "fbbce1d751c626c7d7f9706256068e0c6a3c02e1688a62e098cae5d28291a4a2",
+    "PLA/music-stand-plate-extender-right.stl": "979a64b33ed800171cec468b3c902f3c1d434aa1e12ace263763f7f2f183f7e3",
+    "PLA/music-stand-plate-jam-nut-1.json": "c1d6fefb653fbb772636109cb7ac17d53485264f939ccd104c0c638812eb8342",
+    "PLA/music-stand-plate-jam-nut-1.stl": "a0ec059d88ec3f3db0465dcf74cdbff4c428466b6ed4ae81baf2c7a55b405731",
+    "PLA/music-stand-plate-jam-nut-2.json": "49b78f9c1ceac6ab892276a895fdfe7cbd4ce652c055ff2b3678d2043a4aea16",
+    "PLA/music-stand-plate-jam-nut-2.stl": "232b9cfbd30bebd42bd17b8357f74916094a90c4b2f057f44fed131a7a968ef9",
+    "PLA/music-stand-plate-nut.json": "b1a85ba0fa14a358c899c38bb115fd7ae68f1339806f3a47d4a7e2b75a278539",
+    "PLA/music-stand-plate-nut.stl": "e97e951e118a86df48baf134d9ce38f4106b21c4591e96e1bbb9df1d2f1e0277",
+    "PLA/music-stand-plate-PLA-plates.svg": "0357c89e823c0dbd099b53bce1f359a420caedea3b06e3079705b530b3047240",
+    "PLA/music-stand-plate-PLA.3mf": "014cb25a324204c08ed68bb0a6501142a760e7339435d33a586b2b33ba59ba66",
+    "PLA/music-stand-plate-v-tab.json": "6026da7f74198fb5b36944e014aac7ffbf9aa34c18371f947304d9e8e2dd3235",
+    "PLA/music-stand-plate-v-tab.stl": "93d736424d9a123d5e2e0473ca6c5aa934d4355f976fb1cb949e849d3b609381",
+    "PLA/print-sheet.md": "967111e8890b199ab4f1b0f1b785ca70977ae5f9662c1e12e5c369464ae15cf9"
+  },
+  "printcheck_warnings": {
+    "PLA/music-stand-plate-bolt-1": [
+      "thin_walls: 74/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.015 mm"
+    ],
+    "PLA/music-stand-plate-bolt-2": [
+      "thin_walls: 74/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.015 mm"
+    ],
+    "PLA/music-stand-plate-centre": [
+      "thin_walls: 5/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.05 mm"
+    ],
+    "PLA/music-stand-plate-extender-left": [
+      "thin_walls: 6/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.093 mm"
+    ],
+    "PLA/music-stand-plate-extender-right": [
+      "thin_walls: 2/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.207 mm"
+    ],
+    "PLA/music-stand-plate-jam-nut-1": [
+      "thin_walls: 15/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.058 mm"
+    ],
+    "PLA/music-stand-plate-jam-nut-2": [
+      "thin_walls: 15/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.058 mm"
+    ],
+    "PLA/music-stand-plate-nut": [
+      "small_holes: 13 hole(s) narrower than 3 mm: they print undersize, compensate or drill out; 13 horizontal hole(s): use a teardrop or accept a rough top",
+      "thin_walls: 17/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.018 mm"
+    ],
+    "PLA/music-stand-plate-v-tab": [
+      "thin_walls: 7/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.041 mm"
+    ]
+  }
+}

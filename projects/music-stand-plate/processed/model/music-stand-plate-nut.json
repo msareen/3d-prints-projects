@@ -1,0 +1,984 @@
+{
+  "name": "music-stand-plate-nut",
+  "units": "mm",
+  "generated_utc": "2026-11-10T10:15:56+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "music-stand-plate-nut.stl",
+  "stl_sha256": "e97e951e118a86df48baf134d9ce38f4106b21c4591e96e1bbb9df1d2f1e0277",
+  "material": "PLA",
+  "density_g_cm3": 1.24,
+  "bbox": {
+    "min": [
+      52.14,
+      254.0,
+      0.0
+    ],
+    "max": [
+      67.86,
+      270.0,
+      8.0
+    ],
+    "size": [
+      15.72,
+      16.0,
+      8.0
+    ]
+  },
+  "volume_mm3": 1110.13,
+  "estimated_mass_g_solid": 1.38,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 72768,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "small_holes",
+      "thin_walls"
+    ],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 15.7 x 16.0 x 8.0 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "1110.1 mm3",
+        "data": {
+          "volume_mm3": 1110.13
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "1 body as expected",
+        "data": {
+          "bodies": 1,
+          "expected": 1
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "pass",
+        "message": "125.9 mm2 flat contact on the bed",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 125.92,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": []
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 180 x 180 x 180 with 5 mm margin",
+        "data": {
+          "bed": [
+            180.0,
+            180.0,
+            180.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "pass",
+        "message": "no overhang steeper than 60 deg (beyond 1 mm2)",
+        "data": {
+          "limit_deg": 60,
+          "area_mm2": 0.0,
+          "flat_ceiling_area_mm2": 0.0,
+          "bridge_area_mm2": 0.0,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [],
+          "wide_regions_not_measured": 0,
+          "faces": 0
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "pass",
+        "message": "all flat faces sit on 0.2 mm layer boundaries",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 1,
+          "off_grid_levels": []
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "warn",
+        "message": "13 hole(s) narrower than 3 mm: they print undersize, compensate or drill out; 13 horizontal hole(s): use a teardrop or accept a rough top",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 14,
+          "small": [
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                1.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                2.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                3.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                4.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                5.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                6.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                1.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                2.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                3.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                4.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                5.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                6.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                7.0
+              ]
+            }
+          ],
+          "horizontal": [
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                1.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                2.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                3.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                4.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                5.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                6.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                1.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                2.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                3.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                4.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                5.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                6.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                7.0
+              ]
+            }
+          ],
+          "all": [
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                1.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                2.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                3.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                4.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                5.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                56.86,
+                262.0,
+                6.5
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                1.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                2.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                3.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                4.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                5.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                6.0
+              ]
+            },
+            {
+              "axis": "x",
+              "min_width_mm": 0.21,
+              "center": [
+                63.14,
+                262.0,
+                7.0
+              ]
+            },
+            {
+              "axis": "z",
+              "min_width_mm": 5.85,
+              "center": [
+                60.17,
+                261.84,
+                0.88
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "warn",
+        "message": "17/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.018 mm",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 17,
+          "min_thickness_mm": 0.018,
+          "thin_points": [
+            [
+              62.64,
+              261.69,
+              2.48
+            ],
+            [
+              57.52,
+              261.02,
+              6.06
+            ],
+            [
+              61.37,
+              264.66,
+              7.4
+            ],
+            [
+              58.0,
+              263.78,
+              1.9
+            ],
+            [
+              61.73,
+              264.04,
+              5.66
+            ]
+          ]
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "2 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              66.18,
+              264.01,
+              4.0
+            ]
+          ],
+          "outside": [
+            [
+              60.0,
+              262.0,
+              4.0
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 72768,
+      "vertices": 36384,
+      "bbox_min": [
+        52.14,
+        254.0,
+        0.0
+      ],
+      "bbox_max": [
+        67.86,
+        270.0,
+        8.0
+      ],
+      "size": [
+        15.72,
+        16.0,
+        8.0
+      ],
+      "surface_area_mm2": 996.13,
+      "volume_mm3": 1110.13,
+      "bodies": 1
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3,
+      "source": "fits.json (printer not named, PLA)"
+    },
+    "NAME": "music-stand-plate",
+    "MATERIAL": "PLA",
+    "COLOR": {
+      "nut": "#c9a227",
+      "v-tab": "#e07a5f",
+      "bolt-1": "#9aa0a6",
+      "bolt-2": "#9aa0a6",
+      "jam-nut-1": "#9aa0a6",
+      "jam-nut-2": "#9aa0a6",
+      "centre": "#f5c896",
+      "extender-left": "#aacdeb",
+      "extender-right": "#aae1b4"
+    },
+    "PRINTER_BED": [
+      180,
+      180,
+      180
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 60,
+    "SUPPORTS_ALLOWED": false,
+    "EXPECTED_BODIES": 1,
+    "CH_LEN": 66.4,
+    "CH_IN_TOP": 37.6,
+    "CH_IN_BOT": 30.6,
+    "CH_DEPTH": 9.5,
+    "CH_STOP_H": 1.0,
+    "STUD_POS": 9.5,
+    "STUD_D": 5.9,
+    "DOME1_POS": 36.3,
+    "DOME2_POS": 57.8,
+    "DOME_D": 9.5,
+    "COLLAR_D": 6.4,
+    "DOME_H": 2.0,
+    "TAB_WIDEN": 1.0,
+    "TAB_L": 65.0,
+    "TAB_T": 4.0,
+    "TAB_LEADIN": 2.0,
+    "STUD_SLOT_EXTRA": 1.0,
+    "BRIDGE_L": 5.0,
+    "BRIDGE_RELIEF": 4.0,
+    "RELIEF_W": 13.0,
+    "TIP_BOSS_T": 7.0,
+    "TIP_BOSS_W": 15.0,
+    "TIP_BOSS_L": 8.0,
+    "SLOT_OVERRUN": 1.0,
+    "DOME_SLOT_EXTRA": 1.5,
+    "NUT_RECESS_D": 17.0,
+    "NUT_RECESS_DEPTH": 2.0,
+    "THREAD_D": 6.0,
+    "THREAD_P": 1.0,
+    "NUT_OD": 16.0,
+    "NUT_H": 8.0,
+    "NUT_GRIP_N": 10,
+    "NUT_GRIP_D": 3.0,
+    "NUT_POS": [
+      60.0,
+      262.0
+    ],
+    "THREAD_CLEAR": 0.2,
+    "PLATE_T": 4.0,
+    "PLATE_W": 170.0,
+    "PLATE_H": 170.0,
+    "LIP_H": 10.0,
+    "LIP_T": 4.0,
+    "OVERLAP": 40.0,
+    "EXT_VIS_W": 130.0,
+    "EXT_T": 8.0,
+    "REBATE_D": 4.0,
+    "EXT_H": 170.0,
+    "CORNER_R": 3.0,
+    "FOOT_CHAMFER": 0.4,
+    "RAIL_NECK": 5.0,
+    "RAIL_HEAD": 8.0,
+    "RAIL_H": 2.4,
+    "RAIL_EDGE0": 10.0,
+    "RAIL_PITCH": 20.0,
+    "RAIL_Y0": 8.0,
+    "RAIL_TOP_GAP": 8.0,
+    "MESH_AF": 12.0,
+    "MESH_RIB": 3.0,
+    "MESH_BORDER": 8.0,
+    "TONGUE_L": 50.0,
+    "TONGUE_W": 44.0,
+    "KEY_X": 13.0,
+    "KEY_END": 2.0,
+    "BOLT_Y1": 15.0,
+    "BOLT_Y2": 38.0,
+    "BOLT_L": 10.0,
+    "BOLT_HEAD_D": 12.0,
+    "BOLT_HEX": 4.0,
+    "BOLT_CLEAR": 0.2,
+    "BOLT_HOLE_CLEAR": 0.3,
+    "JAM_AF": 10.0,
+    "JAM_T": 3.2,
+    "JAM_POCKET": 2.0,
+    "JAM_CLEAR": 0.1,
+    "TAB_SHIFT_Y": 245.0,
+    "SMALL_POS": {
+      "bolt-1": [
+        50.0,
+        200.0
+      ],
+      "bolt-2": [
+        50.0,
+        225.0
+      ],
+      "jam-nut-1": [
+        72.0,
+        200.0
+      ],
+      "jam-nut-2": [
+        72.0,
+        225.0
+      ]
+    },
+    "LAYOUT_SHIFT": 50.0,
+    "TAB_CLEAR": 0.3,
+    "RAIL_CLEAR": 0.2,
+    "REBATE_CLEAR": 0.2,
+    "PROBES_INSIDE": {
+      "centre": [
+        [
+          0.0,
+          50.0,
+          2.0
+        ],
+        [
+          0.0,
+          26.0,
+          3.0
+        ],
+        [
+          13.0,
+          30.0,
+          3.5
+        ],
+        [
+          60.0,
+          60.0,
+          2.0
+        ],
+        [
+          75.0,
+          60.0,
+          3.6
+        ],
+        [
+          0.0,
+          2.0,
+          8.0
+        ]
+      ],
+      "v-tab": [
+        [
+          -10.0,
+          195.0,
+          2.0
+        ],
+        [
+          0.0,
+          275.0,
+          2.0
+        ],
+        [
+          13.0,
+          270.0,
+          5.5
+        ],
+        [
+          0.0,
+          182.5,
+          4.5
+        ],
+        [
+          0.0,
+          182.5,
+          5.8
+        ]
+      ],
+      "bolt-1": [
+        [
+          54.0,
+          200.0,
+          1.0
+        ],
+        [
+          50.0,
+          200.0,
+          6.0
+        ]
+      ],
+      "bolt-2": [
+        [
+          54.0,
+          225.0,
+          1.0
+        ],
+        [
+          50.0,
+          225.0,
+          6.0
+        ]
+      ],
+      "jam-nut-1": [
+        [
+          76.2,
+          200.0,
+          1.6
+        ]
+      ],
+      "jam-nut-2": [
+        [
+          76.2,
+          225.0,
+          1.6
+        ]
+      ],
+      "nut": [
+        [
+          66.18,
+          264.01,
+          4.0
+        ]
+      ],
+      "extender-right": [
+        [
+          115.0,
+          60.0,
+          2.0
+        ],
+        [
+          125.0,
+          60.0,
+          5.0
+        ]
+      ],
+      "extender-left": [
+        [
+          -115.0,
+          60.0,
+          2.0
+        ],
+        [
+          -125.0,
+          60.0,
+          5.0
+        ]
+      ]
+    },
+    "PROBES_OUTSIDE": {
+      "centre": [
+        [
+          0.0,
+          15.0,
+          2.0
+        ],
+        [
+          0.0,
+          15.0,
+          3.8
+        ],
+        [
+          13.0,
+          30.0,
+          1.0
+        ],
+        [
+          75.0,
+          60.0,
+          1.0
+        ],
+        [
+          55.0,
+          60.0,
+          1.0
+        ]
+      ],
+      "v-tab": [
+        [
+          0.0,
+          225.0,
+          2.0
+        ],
+        [
+          0.0,
+          195.0,
+          2.0
+        ],
+        [
+          0.0,
+          260.0,
+          3.0
+        ],
+        [
+          0.0,
+          260.0,
+          1.0
+        ],
+        [
+          8.0,
+          235.0,
+          3.5
+        ],
+        [
+          0.0,
+          182.5,
+          1.5
+        ],
+        [
+          0.0,
+          300.0,
+          2.0
+        ]
+      ],
+      "bolt-1": [
+        [
+          50.0,
+          200.0,
+          11.0
+        ],
+        [
+          55.5,
+          200.0,
+          1.0
+        ],
+        [
+          50.0,
+          200.0,
+          0.5
+        ]
+      ],
+      "bolt-2": [
+        [
+          50.0,
+          225.0,
+          11.0
+        ],
+        [
+          55.5,
+          225.0,
+          1.0
+        ],
+        [
+          50.0,
+          225.0,
+          0.5
+        ]
+      ],
+      "jam-nut-1": [
+        [
+          72.0,
+          200.0,
+          1.6
+        ]
+      ],
+      "jam-nut-2": [
+        [
+          72.0,
+          225.0,
+          1.6
+        ]
+      ],
+      "nut": [
+        [
+          60.0,
+          262.0,
+          4.0
+        ]
+      ],
+      "extender-right": [
+        [
+          115.0,
+          60.0,
+          6.0
+        ]
+      ],
+      "extender-left": [
+        [
+          -115.0,
+          60.0,
+          6.0
+        ]
+      ]
+    }
+  },
+  "preview_color": "#c9a227",
+  "printer_bed": [
+    180.0,
+    180.0,
+    180.0
+  ]
+}
