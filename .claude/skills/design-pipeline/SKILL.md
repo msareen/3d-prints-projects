@@ -162,6 +162,24 @@ the viewer always show the primary material, built with that material's
 clearances, so `processed/model/` equals `output/<primary>/`. A project
 `processed/fits.json` is no longer read: use `fits-<MAT>.json`.
 
+**Plates and extra 3MFs (optional).** `print.plates`, a list of part lists such as
+`[["centre"], ["extender-left"], ["extender-right"]]` (part stems, or the suffix after the
+project name), makes the main 3MF a multi-plate file for Bambu Studio / OrcaSlicer: one
+plate per entry, each centred on its own bed, plate list in `Metadata/model_settings.config`.
+Bambu Studio applies that plate list only when the 3MF also carries a project config
+(`Metadata/project_settings.config`); without one it loads every part onto one plate. So
+finalize also writes the full printer, process and filament presets, flattened from the Bambu
+Lab profiles installed with Bambu Studio (`scripts/bambu.py`): the printer whose bed matches
+`print.printer_bed` (all three numbers) and `print.nozzle`, its process for `print.layer`, and
+a filament of the release material. If several printers share the bed (256 mm: A1, P2S), set
+`print.printer` to the model name, e.g. `"Bambu Lab A1"`. If no profile matches, or Bambu
+Studio is not installed, the 3MF is written without one and finalize warns that it will open as
+one plate. Finalize also writes `<project>-<MAT>-plates.svg`, a top view of the plates in
+Bambu Studio's plate grid: check it, and tell the user to open the 3MF as a project (not
+"import geometry only"). Parts on no plate stay out of the main 3MF. `print.extra_3mf`, e.g.
+`{"test-plate": ["fit-test", "nut"]}`, writes `<project>-<MAT>-test-plate.3mf` with just
+those parts (single plate). Both are in `release.json`. Without these keys nothing changes.
+
 Never edit `output/<MAT>/print-sheet.md` by hand: the next finalize
 regenerates it. Put part-specific notes (accepted warnings, assembly, test-fit
 advice) in `processed/print-notes.md` instead.
