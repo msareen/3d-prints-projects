@@ -5,3 +5,6 @@ __pycache__/
 projects/*/processed/.build-tmp/
 projects/*/output/.*.tmp
 projects/*/processed/.mat-*/
+
+# uv environment (uv sync); uv.lock is committed
+.venv/

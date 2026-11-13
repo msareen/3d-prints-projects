@@ -94,7 +94,7 @@ def model_settings_xml(plates) -> str:
     return "".join(out)
 
 
-def model_xml(parts, title: str, application: str = "design-pipeline (Claude Code skill)") -> str:
+def model_xml(parts, title: str, application: str = "3d-design-pipeline (Claude Code skill)") -> str:
     """parts: list of (name, vertices (n,3), faces (m,3), colour '#rrggbb' or None)."""
     bbl = application.startswith("BambuStudio-")
     out = ['<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -104,7 +104,7 @@ def model_xml(parts, title: str, application: str = "design-pipeline (Claude Cod
            f' <metadata name="Title">{escape(title)}</metadata>\n',
            f' <metadata name="Application">{escape(application)}</metadata>\n',
            *([' <metadata name="BambuStudio:3mfVersion">1</metadata>\n'] if bbl else []),
-           ' <metadata name="Generator">design-pipeline (Claude Code skill)</metadata>\n',
+           ' <metadata name="Generator">3d-design-pipeline (Claude Code skill)</metadata>\n',
            " <resources>\n  <basematerials id=\"1\">\n"]
     for name, _, _, color in parts:
         col = (color if color and HEX.fullmatch(color) else "#B0B0B0").upper() + "FF"

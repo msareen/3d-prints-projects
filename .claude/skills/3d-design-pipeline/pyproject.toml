@@ -1,0 +1,26 @@
+[project]
+name = "3d-design-pipeline"
+version = "0.1.0"
+description = "Photos, sketches and measurements -> confirmed spec -> checked model + drawings -> STL + 3MF (wraps the 3d-print-design skill)"
+requires-python = ">=3.11,<3.15"
+# The geometry stack of the 3d-print-design skill (its requirements.txt), used by
+# build.py, printcheck, draw.py and make3mf.py. Keep these pins equal to that file.
+dependencies = [
+    "numpy==2.4.6",
+    "trimesh==5.1.1",
+    "manifold3d==3.5.4",
+    "shapely==2.2.0",
+]
+
+[project.scripts]
+# uv run pipeline <command> <project>   (same as python scripts/pipeline.py ...)
+pipeline = "design_pipeline:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+# Only the entry-point shim is packaged. uv installs this project editable, so the
+# shim runs scripts/pipeline.py in place and the skill keeps its folder layout.
+only-include = ["design_pipeline.py"]

@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""pipeline.py: drive a design-pipeline project from input to STL + 3MF (stdlib only).
+"""pipeline.py: drive a 3d-design-pipeline project from input to STL + 3MF (stdlib only).
 
-    python pipeline.py setup                  create the geometry venv (3d-print-design/.venv)
+    python pipeline.py setup                  create the geometry environment (`uv sync` if uv is
+                                              installed, else a pip venv in 3d-print-design/.venv)
+
+With uv, every command is also `uv run pipeline <command> ...` (see pyproject.toml).
     python pipeline.py new <project>          scaffold projects/<project>/{input,processed,output}
     python pipeline.py status <project>       what exists, what is next
     python pipeline.py check <project>        validate spec.json and its links to build.py
@@ -61,13 +64,31 @@ def print3d_dir() -> Path:
     sys.exit("cannot find the 3d-print-design skill: run `git submodule update --init` or set PRINT3D_SKILL_DIR")
 
 
+GEOMETRY_MODULES = ("numpy", "trimesh", "manifold3d", "shapely")
+
+
+def _has_geometry_stack() -> bool:
+    import importlib.util
+    return all(importlib.util.find_spec(m) for m in GEOMETRY_MODULES)
+
+
 def venv_python(required: bool = True) -> Path | None:
-    base = print3d_dir() / ".venv"
-    for p in (base / "Scripts" / "python.exe", base / "bin" / "python"):
-        if p.is_file():
-            return p
+    """The interpreter for the geometry scripts, in this order:
+    1. the one running this script, if it has the geometry stack (`uv run pipeline ...`);
+    2. the uv environment: <repo>/.venv (uv workspace) or this skill's own .venv;
+    3. the older pip venv in the 3d-print-design submodule (3d-print-design/.venv)."""
+    if _has_geometry_stack():
+        return Path(sys.executable)
+    bases = []
+    if SKILL_DIR.parent.name == "skills" and SKILL_DIR.parent.parent.name == ".claude":
+        bases.append(SKILL_DIR.parent.parent.parent / ".venv")
+    bases += [SKILL_DIR / ".venv", print3d_dir() / ".venv"]
+    for base in bases:
+        for p in (base / "Scripts" / "python.exe", base / "bin" / "python"):
+            if p.is_file():
+                return p
     if required:
-        sys.exit("geometry venv missing: run `python pipeline.py setup` first")
+        sys.exit("geometry environment missing: run `uv sync` (or `python pipeline.py setup`) first")
     return None
 
 
@@ -89,6 +110,14 @@ def run(cmd, cwd=None, env=None) -> int:
 # commands
 # --------------------------------------------------------------------------
 def cmd_setup(args) -> int:
+    uv = shutil.which("uv")
+    if uv:
+        # pyproject.toml in this skill pins the geometry stack; uv.lock pins everything else
+        rc = run([uv, "sync"], cwd=SKILL_DIR)
+        if rc == 0:
+            rc = run([uv, "run", "python", "-c",
+                      "import trimesh, manifold3d, shapely, numpy; print('geometry stack ok')"], cwd=SKILL_DIR)
+        return rc
     p3 = print3d_dir()
     if venv_python(required=False):
         print(f"venv already present: {venv_python()}")
@@ -677,7 +706,7 @@ def cmd_status(args) -> int:
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description="design-pipeline: input -> spec -> model + drawings -> STL + 3MF")
+    ap = argparse.ArgumentParser(description="3d-design-pipeline: input -> spec -> model + drawings -> STL + 3MF")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("setup").set_defaults(fn=cmd_setup)
     for name, fn in (("new", cmd_new), ("status", cmd_status), ("check", cmd_check), ("draw", cmd_draw)):

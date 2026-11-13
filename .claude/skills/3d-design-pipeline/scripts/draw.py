@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""draw.py: orthographic drawings of a design-pipeline model, checked against the spec.
+"""draw.py: orthographic drawings of a 3d-design-pipeline model, checked against the spec.
 
 Reads every STL (and its JSON metadata) in <project>/processed/model/ and
 <project>/processed/spec.json, then writes to <project>/processed/drawings/:
@@ -729,7 +729,7 @@ def load_parts(model_dir: Path):
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description="Front/side/top elevations and plan view of a design-pipeline model.")
+    ap = argparse.ArgumentParser(description="Front/side/top elevations and plan view of a 3d-design-pipeline model.")
     ap.add_argument("project", help="project folder (projects/<name>)")
     ap.add_argument("--cut-z", type=float, default=None, help="plan view cut height in mm (default: spec, else mid height)")
     args = ap.parse_args(argv)

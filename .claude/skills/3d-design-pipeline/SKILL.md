@@ -1,9 +1,9 @@
 ---
-name: design-pipeline
+name: 3d-design-pipeline
 description: Turn photos, sketches, technical drawings and written descriptions with measurements into a printable part through a three-stage project pipeline. Stage 1 reads every input and writes a precise, fully dimensioned text specification (spec.md + spec.json, every number with its source and confidence). Stage 2 models it parametrically, draws front, side and top elevations plus a sectioned plan view (SVG, checked against the spec), and shows it in a browser 3D viewer. Stage 3 uses the 3d-print-design skill to release checked STL and 3MF files. Use it whenever the user gives images or text with measurements and wants a 3D model, a spec, elevations or drawings, STL or 3MF, or mentions a project under projects/, "new design project", "describe this part", "extract the dimensions", "elevations", "plan view".
 ---
 
-# design-pipeline
+# 3d-design-pipeline
 
 Every design is a project folder that moves through three stages:
 
@@ -29,17 +29,27 @@ Material profiles live in `$PIPE/materials/<MAT>.json` (PLA, PETG). Each has
 per-side clearances and slicer settings. List them with `pipeline.py materials`.
 Add a material by adding a profile: copy one and change the numbers.
 
-`$PIPE` below means this skill's folder (`.claude/skills/design-pipeline`).
+`$PIPE` below means this skill's folder (`.claude/skills/3d-design-pipeline`).
 `$P3D` means the 3d-print-design skill next to it (`.claude/skills/3d-print-design`).
-All commands run from the repository root with the system Python (3.11+):
+All commands run from the repository root. With uv (preferred):
 
 ```
-python $PIPE/scripts/pipeline.py <command> <project>
+uv run pipeline <command> <project>
 ```
+
+or with the system Python (3.11+): `python $PIPE/scripts/pipeline.py <command> <project>`.
+
+This skill is a uv project: `$PIPE/pyproject.toml` pins the geometry stack
+(the same pins as `$P3D/requirements.txt`) and defines the `pipeline` command.
+In this repo the root `pyproject.toml` makes it a uv workspace member, so
+`uv sync` creates `<repo>/.venv`. Outside a workspace, use
+`uv run --project $PIPE pipeline ...` (the environment is then `$PIPE/.venv`).
 
 `pipeline.py` uses only the standard library. It runs the geometry scripts
-with `$P3D/.venv`, sets `PRINT3D_SKILL_DIR` itself, and always uses `python -P`.
-If the venv is missing, run `python $PIPE/scripts/pipeline.py setup` once.
+with the first interpreter that has the geometry stack: the one running it,
+then `<repo>/.venv` or `$PIPE/.venv` (uv), then `$P3D/.venv` (older pip venv).
+It sets `PRINT3D_SKILL_DIR` itself and always uses `python -P`. If no
+environment exists, run `uv sync` (or `python $PIPE/scripts/pipeline.py setup`) once.
 
 **Relationship to 3d-print-design.** This skill wraps it.
 - Stage 1 replaces its intake (Steps 1 and 2) with a written spec.
@@ -121,8 +131,8 @@ guessed critical dimension wastes a print.
    serves `processed/model/` on 127.0.0.1 with the 3d-print-design three.js
    viewer and prints the URL. Give the user that URL and the path to
    `processed/drawings/sheet.svg`. For an image in chat, run
-   `$P3D/.venv/Scripts/python.exe -P $P3D/scripts/render_png.py projects/<project>/processed/model --out projects/<project>/processed/drawings/preview.png`
-   (`.venv/bin/python` on macOS and Linux).
+   `uv run python -P $P3D/scripts/render_png.py projects/<project>/processed/model --out projects/<project>/processed/drawings/preview.png`
+   (render_png.py needs only the standard library, so the system Python works too).
 5. Iterate on numbers until the user approves both the drawings and the 3D
    view. A changed requirement goes back into the spec first: bump
    `revision`, update it, and get the user to re-confirm.

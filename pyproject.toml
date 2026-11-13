@@ -1,0 +1,11 @@
+# uv workspace root. The Python project itself lives in the skill:
+# .claude/skills/3d-design-pipeline/pyproject.toml. From the repo root:
+#   uv sync                                   create .venv with the geometry stack
+#   uv run pipeline status <project>          run the design pipeline
+#   uv run python -I <script.py>              ad-hoc Python (trimesh, manifold3d)
+[tool.uv.workspace]
+members = [".claude/skills/3d-design-pipeline"]
+
+[tool.uv]
+# the uv cache (C:) and the repo (D:) are on different drives, so hardlinks are impossible
+link-mode = "copy"
