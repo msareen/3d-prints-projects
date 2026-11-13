@@ -6,5 +6,8 @@ projects/*/processed/.build-tmp/
 projects/*/output/.*.tmp
 projects/*/processed/.mat-*/
 
+# stage 2 working model: `pipeline build` regenerates it from build.py; the released copies live in output/
+projects/*/processed/model/
+
 # uv environment (uv sync); uv.lock is committed
 .venv/
