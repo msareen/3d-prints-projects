@@ -1,4 +1,4 @@
-# 3d-projects
+# 3d-prints-projects
 
 Design work in this repo follows the `3d-design-pipeline` skill
 (`.claude/skills/3d-design-pipeline/SKILL.md`). Load it for any request to

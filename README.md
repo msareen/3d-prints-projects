@@ -1,4 +1,4 @@
-# 3d-projects
+# 3d-prints-projects
 
 3D print designs built with Claude Code. Every design is a project that goes
 from my own material (photos, sketches, drawings with measurements, written
