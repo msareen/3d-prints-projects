@@ -1,0 +1,35 @@
+{
+  "project": "u-hook-cable-manager",
+  "released_utc": "2026-11-13T18:36:56+00:00",
+  "spec_revision": 4,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PLA"
+  ],
+  "fits": {
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "PLA/print-sheet.md": "9afd479a4e1c6e9c4d4f235c1a3cab046da71a47f2842f2a1a963f6910c0afe9",
+    "PLA/u-hook-cable-manager-PLA.3mf": "b476eea2059e692d4883f4e6310a3a0c8c2c36b279438421f4f337a92653623a",
+    "PLA/u-hook-cable-manager.json": "8ee0c41db5e97ffec3993048efee834a2149ee9e315f28dbb6f373daed5be929",
+    "PLA/u-hook-cable-manager.stl": "1a4f325f7fe56a6a277f8ba2bc5fe2562f2b9e152f2a72b83be8fe7fd0e8a996",
+    "u-hook-cable-manager-drawing.svg": "fe21bc38ef67696ca559390423df28ffcd4f06d48ed2221da6e7fd52b4f400a5",
+    "u-hook-cable-manager-spec.md": "919b81956198ac782411c62465ebc3b0d7ddb75fe7fcdbe031a30fafe8791cc5"
+  },
+  "printcheck_warnings": {
+    "PLA/u-hook-cable-manager": [
+      "on_bed: 154.8 mm2 on the bed; print in place: 2 lid(s) rest 0.30 mm above the base (all lowest faces checked)",
+      "overhang: 2248.8 mm2 of downward faces steeper than 45 deg (2095.6 mm2 of it flat, not a short bridge); supports needed or redesign (chamfer, teardrop, split)",
+      "layer_alignment: 16 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=3.1): the slicer will round them",
+      "thin_walls: 2/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.037 mm"
+    ]
+  }
+}

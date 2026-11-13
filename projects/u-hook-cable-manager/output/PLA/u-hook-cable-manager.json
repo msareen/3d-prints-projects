@@ -1,0 +1,533 @@
+{
+  "name": "u-hook-cable-manager",
+  "units": "mm",
+  "generated_utc": "2026-11-13T18:36:55+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "u-hook-cable-manager.stl",
+  "stl_sha256": "1a4f325f7fe56a6a277f8ba2bc5fe2562f2b9e152f2a72b83be8fe7fd0e8a996",
+  "material": "PLA",
+  "density_g_cm3": 1.24,
+  "bbox": {
+    "min": [
+      -10.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      30.0,
+      54.0,
+      23.15
+    ],
+    "size": [
+      40.0,
+      54.0,
+      23.15
+    ]
+  },
+  "volume_mm3": 9611.37,
+  "estimated_mass_g_solid": 11.92,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 6426,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "on_bed",
+      "overhang",
+      "layer_alignment",
+      "thin_walls"
+    ],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 40.0 x 54.0 x 23.1 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "9611.4 mm3",
+        "data": {
+          "volume_mm3": 9611.374
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "3 bodies as expected",
+        "data": {
+          "bodies": 3,
+          "expected": 3
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "warn",
+        "message": "154.8 mm2 on the bed; print in place: 2 lid(s) rest 0.30 mm above the base (all lowest faces checked)",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 154.79,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": [
+            0,
+            2
+          ],
+          "print_in_place": [
+            {
+              "body": 0,
+              "lowest_z": 9.05,
+              "faces": 14,
+              "max_gap": 0.301,
+              "ok": true
+            },
+            {
+              "body": 2,
+              "lowest_z": 9.05,
+              "faces": 14,
+              "max_gap": 0.301,
+              "ok": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 180 x 180 x 180 with 5 mm margin",
+        "data": {
+          "bed": [
+            180.0,
+            180.0,
+            180.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "warn",
+        "message": "2248.8 mm2 of downward faces steeper than 45 deg (2095.6 mm2 of it flat, not a short bridge); supports needed or redesign (chamfer, teardrop, split)",
+        "data": {
+          "limit_deg": 45,
+          "area_mm2": 2248.81,
+          "flat_ceiling_area_mm2": 2095.57,
+          "bridge_area_mm2": 0.0,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [
+            {
+              "z": 4.75,
+              "span_mm": 40.0,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.12,
+              "area_mm2": 1298.11,
+              "bridge": false
+            },
+            {
+              "z": 20.75,
+              "span_mm": 12.0,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.3,
+              "area_mm2": 338.83,
+              "bridge": false
+            },
+            {
+              "z": 20.75,
+              "span_mm": 12.0,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.3,
+              "area_mm2": 338.83,
+              "bridge": false
+            },
+            {
+              "z": 9.05,
+              "span_mm": 1.3,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.0,
+              "area_mm2": 15.6,
+              "bridge": false
+            },
+            {
+              "z": 9.05,
+              "span_mm": 1.3,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.0,
+              "area_mm2": 15.6,
+              "bridge": false
+            },
+            {
+              "z": 14.05,
+              "span_mm": 1.1,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.46,
+              "area_mm2": 13.2,
+              "bridge": false
+            },
+            {
+              "z": 14.05,
+              "span_mm": 1.1,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.46,
+              "area_mm2": 13.2,
+              "bridge": false
+            },
+            {
+              "z": 14.63,
+              "span_mm": 2.4,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.32,
+              "area_mm2": 12.0,
+              "bridge": false
+            },
+            {
+              "z": 14.63,
+              "span_mm": 2.4,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.32,
+              "area_mm2": 12.0,
+              "bridge": false
+            },
+            {
+              "z": 9.05,
+              "span_mm": 1.87,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.0,
+              "area_mm2": 6.55,
+              "bridge": false
+            }
+          ],
+          "wide_regions_not_measured": 0,
+          "faces": 1014,
+          "bbox_min": [
+            -10.0,
+            0.0,
+            4.75
+          ],
+          "bbox_max": [
+            30.0,
+            54.0,
+            20.75
+          ],
+          "main_z_levels": [
+            {
+              "z": 4.8,
+              "area_mm2": 1298.11
+            },
+            {
+              "z": 20.8,
+              "area_mm2": 672.0
+            },
+            {
+              "z": 9.0,
+              "area_mm2": 56.4
+            },
+            {
+              "z": 20.7,
+              "area_mm2": 39.58
+            },
+            {
+              "z": 14.0,
+              "area_mm2": 26.4
+            }
+          ]
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "warn",
+        "message": "16 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=3.1): the slicer will round them",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 16,
+          "off_grid_levels": [
+            3.1,
+            4.75,
+            8.75,
+            9.05,
+            10.45,
+            11.25,
+            11.55,
+            13.75,
+            14.05,
+            14.06,
+            14.631,
+            20.749
+          ]
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "pass",
+        "message": "1 hole(s) found, none narrower than 3 mm",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 1,
+          "small": [],
+          "horizontal": [],
+          "all": [
+            {
+              "axis": "z",
+              "min_width_mm": 12.0,
+              "center": [
+                10.0,
+                27.0,
+                6.94
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "warn",
+        "message": "2/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.037 mm",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 2,
+          "min_thickness_mm": 0.037,
+          "thin_points": [
+            [
+              28.23,
+              6.5,
+              11.22
+            ],
+            [
+              28.52,
+              49.86,
+              11.25
+            ]
+          ]
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "10 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              10.0,
+              8.0,
+              3.9
+            ],
+            [
+              10.0,
+              46.0,
+              1.5499999999999998
+            ],
+            [
+              -8.200000000000001,
+              8.0,
+              11.25
+            ],
+            [
+              -7.900000000000001,
+              41.75,
+              11.25
+            ],
+            [
+              10.0,
+              46.0,
+              21.95
+            ],
+            [
+              27.2,
+              8.0,
+              13.25
+            ]
+          ],
+          "outside": [
+            [
+              10.0,
+              27.0,
+              6.75
+            ],
+            [
+              10.0,
+              8.0,
+              14.75
+            ],
+            [
+              -6.600000000000001,
+              5.65,
+              11.25
+            ],
+            [
+              10.0,
+              8.0,
+              8.9
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 6426,
+      "vertices": 3217,
+      "bbox_min": [
+        -10.0,
+        0.0,
+        0.0
+      ],
+      "bbox_max": [
+        30.0,
+        54.0,
+        23.15
+      ],
+      "size": [
+        40.0,
+        54.0,
+        23.15
+      ],
+      "surface_area_mm2": 8292.22,
+      "volume_mm3": 9611.374,
+      "bodies": 3
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3,
+      "source": "fits.json (printer not named, PLA)"
+    },
+    "NAME": "u-hook-cable-manager",
+    "MATERIAL": "PLA",
+    "COLOR": {
+      "": "#4f8cff"
+    },
+    "PRINTER_BED": [
+      180,
+      180,
+      180
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 45,
+    "SUPPORTS_ALLOWED": true,
+    "EXPECTED_BODIES": 3,
+    "PRINT_IN_PLACE_GAP": 0.35,
+    "PLATE_W": 20.0,
+    "BACK_T": 4.0,
+    "PLATE_H": 54.0,
+    "PIN_PITCH": 38.0,
+    "LOWER_PIN_Z": 8.0,
+    "PIN_X": 10.0,
+    "NECK_D": 5.6,
+    "NECK_L": 1.7,
+    "HEAD_D": 9.6,
+    "HEAD_T": 3.0,
+    "LOOP_H": 12.0,
+    "CAV_W": 35.2,
+    "CAV_D": 12.0,
+    "WALL": 2.4,
+    "R_OUT": 6.0,
+    "R_IN": 3.6,
+    "GAP": 0.3,
+    "POST_H": 5.0,
+    "HINGE_W": 3.6,
+    "KNUCKLE": 3.5,
+    "CONE_D": 2.4,
+    "CONE_L": 1.2,
+    "POST_W": 2.4,
+    "SKIRT_T": 1.3,
+    "BARB": 0.5,
+    "WIN_W": 12.0,
+    "WIN_H": 20.0,
+    "PIN_ZS": [
+      8.0,
+      46.0
+    ],
+    "LOOP_Z0": [
+      2.0,
+      40.0
+    ],
+    "LX0": -10.0,
+    "LX1": 30.0,
+    "Y_BASE": -4.0,
+    "Y_POST": -9.0,
+    "Y_FRONT": -18.4,
+    "HX": -8.2,
+    "HY": -6.5,
+    "TONGUE": 4.4,
+    "PX1": 28.4,
+    "WIN_Z0": 17.0,
+    "PROBES_INSIDE": [
+      [
+        10.0,
+        8.0,
+        3.9
+      ],
+      [
+        10.0,
+        46.0,
+        1.55
+      ],
+      [
+        -8.2,
+        8.0,
+        11.25
+      ],
+      [
+        -7.9,
+        41.75,
+        11.25
+      ],
+      [
+        10.0,
+        46.0,
+        21.95
+      ],
+      [
+        27.2,
+        8.0,
+        13.25
+      ]
+    ],
+    "PROBES_OUTSIDE": [
+      [
+        10.0,
+        27.0,
+        6.75
+      ],
+      [
+        10.0,
+        8.0,
+        14.75
+      ],
+      [
+        -6.6,
+        5.65,
+        11.25
+      ],
+      [
+        10.0,
+        8.0,
+        8.9
+      ]
+    ],
+    "RES": 48
+  },
+  "preview_color": "#4f8cff",
+  "printer_bed": [
+    180.0,
+    180.0,
+    180.0
+  ]
+}

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="900" viewBox="0 0 1250 900" font-family="Arial, sans-serif" font-size="13">
+<rect width="1250" height="900" fill="#fff"/>
+<text x="20" y="28" font-size="17" font-weight="bold">u-hook-cable-manager: elevation v6 (rev 2: loop 40 wide) - U strap lid, flush hinge, snap latch</text>
+<text x="20" y="46" fill="#a00">Shape after the reference (one rounded U strap is the lid, 3-knuckle hinge, hook latch), thinner walls, loop 40 wide, cavity depth = reference + 2 mm. Plate and pins unchanged.</text>
+<text x="40" y="80" font-weight="bold">FRONT ELEVATION (6 px = 1 mm)</text>
+<rect x="80" y="146.0" width="120.0" height="324.0" fill="#eef" stroke="#000" stroke-width="2"/>
+<rect x="104.0" y="248.0" width="72.0" height="120.0" rx="35.9" fill="#fff" stroke="#080" stroke-width="2"/>
+<rect x="19.999999999999986" y="386.0" width="240.0" height="72.0" rx="6" fill="#fd9" stroke="#c60" stroke-width="2"/>
+<line x1="19.999999999999986" y1="436.1" x2="34.39999999999999" y2="436.1" stroke="#c60" stroke-width="1.5"/>
+<line x1="19.999999999999986" y1="407.9" x2="34.39999999999999" y2="407.9" stroke="#c60" stroke-width="1.5"/>
+<circle cx="140" cy="422.0" r="28.799999999999997" fill="none" stroke="#444" stroke-dasharray="5 3"/>
+<circle cx="140" cy="422.0" r="16.799999999999997" fill="none" stroke="#444" stroke-dasharray="5 3"/>
+<rect x="19.999999999999986" y="158.0" width="240.0" height="72.0" rx="6" fill="#fd9" stroke="#c60" stroke-width="2"/>
+<line x1="19.999999999999986" y1="208.10000000000002" x2="34.39999999999999" y2="208.10000000000002" stroke="#c60" stroke-width="1.5"/>
+<line x1="19.999999999999986" y1="179.89999999999998" x2="34.39999999999999" y2="179.89999999999998" stroke="#c60" stroke-width="1.5"/>
+<circle cx="140" cy="194.0" r="28.799999999999997" fill="none" stroke="#444" stroke-dasharray="5 3"/>
+<circle cx="140" cy="194.0" r="16.799999999999997" fill="none" stroke="#444" stroke-dasharray="5 3"/>
+<g stroke="#000" fill="#000" font-size="12">
+<line x1="19.999999999999986" y1="494" x2="260.0" y2="494"/><text x="116" y="510" stroke="none">loop 40</text>
+<line x1="80" y1="518" x2="200" y2="518"/><text x="104" y="534" stroke="none">plate 20</text>
+<line x1="52" y1="470" x2="52" y2="146"/><text x="36" y="326" stroke="none" transform="rotate(-90 40 326)">54</text>
+<line x1="284" y1="422" x2="284" y2="194"/><text x="290" y="308" stroke="none">38 pin pitch</text>
+<line x1="320" y1="458" x2="320" y2="386"/><text x="326" y="428" stroke="none">12 loop band</text>
+</g>
+<text x="290" y="170" font-size="12" fill="#444">pin z 46 (dashed, behind)</text>
+<text x="326" y="398" font-size="12" fill="#444">pin z 8</text>
+<text x="290" y="284" font-size="12" fill="#080">window 12 x 20</text>
+<text x="68" y="554" font-size="12" fill="#c60">loops z 2-14 and 40-52, centred on the pins;</text>
+<text x="68" y="570" font-size="12" fill="#c60">lines at left = hinge knuckle split</text>
+<text x="420" y="80" font-weight="bold">TOP VIEW - loop profile at the hinge tongue (11 px = 1 mm), lid closed</text>
+<path d="M 860.00,194.00 L 860.00,150.00 L 640.00,150.00 L 640.00,194.00 L 860.00,194.00 Z" fill="#eef" stroke="#000" stroke-width="2"/>
+<path d="M 556.40,245.70 L 530.00,245.70 L 530.00,211.60 L 530.00,194.00 L 970.00,194.00 L 970.00,211.60 L 955.70,211.60 L 955.70,211.60 L 945.80,211.60 L 945.80,223.70 L 955.70,223.70 L 955.70,245.70 L 943.60,245.70 L 943.60,211.60 L 556.40,211.60 L 556.40,245.70 Z" fill="#cfe0ff" stroke="#000" stroke-width="1.8"/>
+<path d="M 589.53,369.68 L 587.39,369.44 L 585.25,369.12 L 583.12,368.73 L 581.01,368.28 L 578.92,367.75 L 576.84,367.16 L 574.78,366.50 L 572.75,365.77 L 570.74,364.98 L 568.76,364.12 L 566.81,363.19 L 564.89,362.21 L 563.00,361.16 L 561.15,360.05 L 559.33,358.88 L 557.56,357.65 L 555.82,356.36 L 554.13,355.02 L 552.48,353.62 L 550.88,352.17 L 549.33,350.67 L 547.83,349.12 L 546.38,347.52 L 544.98,345.87 L 543.64,344.18 L 542.35,342.44 L 541.12,340.67 L 539.95,338.85 L 538.84,337.00 L 537.79,335.11 L 536.81,333.19 L 535.88,331.24 L 535.02,329.26 L 534.23,327.25 L 533.50,325.22 L 532.84,323.16 L 532.25,321.08 L 531.72,318.99 L 531.27,316.88 L 530.88,314.75 L 530.56,312.61 L 530.32,310.47 L 530.14,308.32 L 530.04,306.16 L 530.00,304.00 L 530.00,249.00 L 556.40,249.00 L 556.40,304.00 L 556.42,305.30 L 556.48,306.59 L 556.59,307.88 L 556.74,309.17 L 556.93,310.45 L 557.16,311.73 L 557.43,312.99 L 557.75,314.25 L 558.11,315.50 L 558.50,316.73 L 558.94,317.95 L 559.41,319.15 L 559.93,320.34 L 560.48,321.51 L 561.08,322.67 L 561.71,323.80 L 562.37,324.91 L 563.07,326.00 L 563.81,327.07 L 564.58,328.11 L 565.39,329.12 L 566.23,330.11 L 567.10,331.07 L 568.00,332.00 L 568.93,332.90 L 569.89,333.77 L 570.88,334.61 L 571.89,335.42 L 572.93,336.19 L 574.00,336.93 L 575.09,337.63 L 576.20,338.29 L 577.33,338.92 L 578.49,339.52 L 579.66,340.07 L 580.85,340.59 L 582.05,341.06 L 583.27,341.50 L 584.50,341.89 L 585.75,342.25 L 587.01,342.57 L 588.27,342.84 L 589.55,343.07 L 590.83,343.26 L 592.12,343.41 L 593.41,343.52 L 594.70,343.58 L 596.00,343.60 L 904.00,343.60 L 905.30,343.58 L 906.59,343.52 L 907.88,343.41 L 909.17,343.26 L 910.45,343.07 L 911.73,342.84 L 912.99,342.57 L 914.25,342.25 L 915.50,341.89 L 916.73,341.50 L 917.95,341.06 L 919.15,340.59 L 920.34,340.07 L 921.51,339.52 L 922.67,338.92 L 923.80,338.29 L 924.91,337.63 L 926.00,336.93 L 927.07,336.19 L 928.11,335.42 L 929.12,334.61 L 930.11,333.77 L 931.07,332.90 L 932.00,332.00 L 932.90,331.07 L 933.77,330.11 L 934.61,329.12 L 935.42,328.11 L 936.19,327.07 L 936.93,326.00 L 937.63,324.91 L 938.29,323.80 L 938.92,322.67 L 939.52,321.51 L 940.07,320.34 L 940.59,319.15 L 941.06,317.95 L 941.50,316.73 L 941.89,315.50 L 942.25,314.25 L 942.57,312.99 L 942.84,311.73 L 943.07,310.45 L 943.26,309.17 L 943.41,307.88 L 943.52,306.59 L 943.58,305.30 L 943.60,304.00 L 943.60,249.00 L 959.00,249.00 L 959.00,220.40 L 970.00,220.40 L 970.00,249.00 L 970.00,304.00 L 969.96,306.16 L 969.86,308.32 L 969.68,310.47 L 969.44,312.61 L 969.12,314.75 L 968.73,316.88 L 968.28,318.99 L 967.75,321.08 L 967.16,323.16 L 966.50,325.22 L 965.77,327.25 L 964.98,329.26 L 964.12,331.24 L 963.19,333.19 L 962.21,335.11 L 961.16,337.00 L 960.05,338.85 L 958.88,340.67 L 957.65,342.44 L 956.36,344.18 L 955.02,345.87 L 953.62,347.52 L 952.17,349.12 L 950.67,350.67 L 949.12,352.17 L 947.52,353.62 L 945.87,355.02 L 944.18,356.36 L 942.44,357.65 L 940.67,358.88 L 938.85,360.05 L 937.00,361.16 L 935.11,362.21 L 933.19,363.19 L 931.24,364.12 L 929.26,364.98 L 927.25,365.77 L 925.22,366.50 L 923.16,367.16 L 921.08,367.75 L 918.99,368.28 L 916.88,368.73 L 914.75,369.12 L 912.61,369.44 L 910.47,369.68 L 908.32,369.86 L 906.16,369.96 L 904.00,370.00 L 596.00,370.00 L 593.84,369.96 L 591.68,369.86 L 589.53,369.68 Z M 949.10,214.90 L 959.00,214.90 L 959.00,220.40 L 949.10,220.40 L 949.10,214.90 Z" fill="#fd9" stroke="#c60" stroke-width="2" fill-rule="evenodd"/>
+<rect x="719.2" y="131.3" width="61.599999999999994" height="18.7" fill="#ddd" stroke="#000"/>
+<rect x="697.2" y="98.3" width="105.6" height="33" fill="#ddd" stroke="#000"/>
+<circle cx="543.1999999999999" cy="228.64999999999998" r="13.2" fill="none" stroke="#c00" stroke-width="1.5" stroke-dasharray="3 2"/>
+<line x1="533.1999999999999" y1="228.64999999999998" x2="553.1999999999999" y2="228.64999999999998" stroke="#c00"/><line x1="543.1999999999999" y1="218.64999999999998" x2="543.1999999999999" y2="238.64999999999998" stroke="#c00"/>
+<circle cx="750" cy="277.6" r="60.5" fill="none" stroke="#06a" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="719.2" y="275.4" font-size="12" fill="#06a">cables, 34 x 12 space</text>
+<line x1="530.0" y1="392.0" x2="970.0" y2="392.0" stroke="#000"/><text x="728" y="408.0" fill="#000" font-size="12">40.0 overall</text><line x1="556.4" y1="315" x2="943.6" y2="315" stroke="#06a"/><text x="640" y="310.6" fill="#06a" font-size="12">inner 35.2</text><line x1="1000.0" y1="150" x2="1000.0" y2="370.0" stroke="#000"/><text x="1006.0" y="260" fill="#000" font-size="12">20 from the back face</text><line x1="1040.0" y1="211.6" x2="1040.0" y2="343.6" stroke="#000"/><text x="1046.0" y="293" fill="#000" font-size="12">cavity 12 (ref 10 + 2)</text>
+<text x="410" y="326" font-size="12" fill="#c60">lid: one U strap, wall 2.4,</text>
+<text x="410" y="342" font-size="12" fill="#c60">outer R6, inner R3.6</text>
+<text x="410" y="232" font-size="12" fill="#c00">hinge axis (along the cable)</text>
+<text x="410" y="205" font-size="12" fill="#000">base strip 1.6 + posts</text>
+<text x="1080" y="223" font-size="12" fill="#c60">snap latch: skirt + barb</text>
+<text x="1080" y="239" font-size="12" fill="#c60">into a notch in the post</text>
+<text x="816" y="115" font-size="12" fill="#444">rack pin</text>
+<text x="420" y="642.0" font-weight="bold">HINGE SECTION through the axis (X right, Z up)</text>
+<rect x="560.0" y="781.5" width="52.8" height="38.5" fill="#fd9" stroke="#c60" stroke-width="2"/>
+<rect x="560.0" y="688.0" width="52.8" height="38.5" fill="#fd9" stroke="#c60" stroke-width="2"/>
+<rect x="560.0" y="729.8" width="52.8" height="48.400000000000006" fill="#cfe0ff" stroke="#000" stroke-width="2"/>
+<polygon points="573.1999999999999,778.2 599.6,778.2 586.4,791.4" fill="#cfe0ff" stroke="#000" stroke-width="1.5"/>
+<polygon points="569.9,774.9 602.9,774.9 586.4,796.02" fill="none" stroke="#c60" stroke-width="1.2" stroke-dasharray="3 2"/>
+<polygon points="573.1999999999999,729.8 599.6,729.8 586.4,716.6" fill="#cfe0ff" stroke="#000" stroke-width="1.5"/>
+<polygon points="569.9,733.1 602.9,733.1 586.4,711.98" fill="none" stroke="#c60" stroke-width="1.2" stroke-dasharray="3 2"/>
+<line x1="586.4" y1="826.6" x2="586.4" y2="681.4" stroke="#c00" stroke-dasharray="6 3"/>
+<text x="626.8" y="804.75" font-size="12" fill="#c60">lid knuckle 3.5</text>
+<text x="626.8" y="758.0" font-size="12" fill="#000">base tongue 4.4 (on the plate)</text>
+<text x="626.8" y="711.25" font-size="12" fill="#c60">lid knuckle 3.5</text>
+<text x="842.8" y="698.0" font-size="12">Two 45 deg cone pins on the tongue;</text>
+<text x="842.8" y="714.0" font-size="12">Ø2.4 x 1.2, in cone sockets with 0.3 gap:</text>
+<text x="842.8" y="730.0" font-size="12">the lid knuckles flex and snap over them.</text>
+<text x="842.8" y="746.0" font-size="12">Gaps 0.3 between all moving faces.</text>
+<text x="40" y="640" font-size="12" fill="#000" font-weight="bold">Changes from v3</text>
+<text x="40" y="658" font-size="12" fill="#000">- lid = the whole rounded U (was a fixed U + flat bar)</text>
+<text x="40" y="676" font-size="12" fill="#000">- flush 3-knuckle hinge along the cable (was rings sticking out)</text>
+<text x="40" y="694" font-size="12" fill="#000">- loop 40 wide (user), cavity 35.2 x 12; loop 40 x 20 x 12</text>
+<text x="40" y="712" font-size="12" fill="#000">- wall 2.4 (reference 4-5); loop centred on the 20 mm plate</text>
+<text x="40" y="730" font-size="12" fill="#000" font-weight="bold">Printing (assistant choice, see chat)</text>
+<text x="40" y="748" font-size="12" fill="#c00">- lids: printed flat on the bed and snapped onto</text>
+<text x="40" y="766" font-size="12" fill="#c00">  the hinge cones (not print-in-place), see chat</text>
+<text x="40" y="784" font-size="12" fill="#c00">- small 45 deg chamfers under the base strip ends</text>
+<text x="40" y="802" font-size="12" fill="#c00">  so the plate part prints upright without support</text>
+</svg>

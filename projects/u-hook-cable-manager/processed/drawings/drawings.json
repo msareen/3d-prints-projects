@@ -1,0 +1,131 @@
+{
+  "generated_utc": "2026-11-13T18:36:54+00:00",
+  "scale": "2:1",
+  "plan_cut_z": 11.25,
+  "bbox": {
+    "min": [
+      -10.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      30.0,
+      54.0,
+      23.15
+    ],
+    "size": [
+      40.0,
+      54.0,
+      23.15
+    ]
+  },
+  "parts": [
+    "u-hook-cable-manager"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 613,
+      "hidden_edges": 242
+    },
+    "side": {
+      "visible_edges": 1206,
+      "hidden_edges": 657
+    },
+    "top": {
+      "visible_edges": 1233,
+      "hidden_edges": 812
+    },
+    "plan": {
+      "visible_edges": 462,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 40.0,
+      "model": 40.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 54.0,
+      "model": 54.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 23.15,
+      "model": 23.15,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D31 front horizontal",
+      "measured": 40.0,
+      "expect": 40.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D13 front horizontal",
+      "measured": 35.2,
+      "expect": 35.2,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D14 front vertical",
+      "measured": 12.0,
+      "expect": 12.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D15 front vertical",
+      "measured": 2.4,
+      "expect": 2.4,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D25 front vertical",
+      "measured": 5.0,
+      "expect": 5.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D1 top horizontal",
+      "measured": 20.0,
+      "expect": 20.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D28 top horizontal",
+      "measured": 12.0,
+      "expect": 12.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D3 top vertical",
+      "measured": 54.0,
+      "expect": 54.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D4 top vertical",
+      "measured": 38.0,
+      "expect": 38.0,
+      "tol": 1.5,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

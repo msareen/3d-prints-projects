@@ -1,0 +1,653 @@
+{
+ "schema": "design-pipeline/spec@1",
+ "project": "u-hook-cable-manager",
+ "status": "confirmed",
+ "revision": 4,
+ "units": "mm",
+ "summary": "A cable manager for the same rack keyholes as the adaptor holder. A 20 x 54 x 4 plate carries the two teardrop rack pins (z 8 and 46) and, centred on each pin, a cable loop 40 wide and 12 long: a rounded U strap lid (2.4 wall, R6 outside) over a 35.2 x 12 cable space, hinged along the cable on a 3-knuckle hinge with 45 deg cone pins and closed by a skirt-and-barb latch, like the reference Deskcable organiser. Everything prints in place in one go, lying on its back (rack pin heads on the bed, lids on top, already on their hinges); the only support is under the plate's back. A 12 x 20 window saves material. PLA, one per plate.",
+ "inputs": [
+  {
+   "file": "input/brief.md",
+   "kind": "text",
+   "notes": "the user's words"
+  },
+  {
+   "file": "input/elevation.svg",
+   "kind": "sketch",
+   "notes": "assistant-drawn elevation v6 (loop 40 wide), approved by the user; the hinge detail is superseded by rev 4"
+  },
+  {
+   "file": "projects/u-hook-adaptor-holder/processed/spec.json",
+   "kind": "text",
+   "notes": "plate, rack pins, keyhole sizes"
+  },
+  {
+   "file": "~/Downloads/Deskcable_organiser.3mf (not in the repo)",
+   "kind": "model",
+   "notes": "reference; sections measured: base 4, cavity 31.75 x 10, walls 4-5, outer R ~8, 3-knuckle print-in-place hinge (tongue on the base, ~2.5 pins), lid legs 0.25-0.3 above the posts"
+  }
+ ],
+ "datum": {
+  "origin": "design frame: left face of the plate (X), back face (Y), plate bottom end (Z); the model files are in print orientation: print X = X, print Y = Z, print Z = 4.75 - Y",
+  "x": "left to right seen from the front",
+  "y": "towards the rack: +Y = back; loops at -Y, rack pins at +Y",
+  "z": "along the cable (up in use); print Z = up from the bed, the rack pin heads sit on Z = 0"
+ },
+ "envelope": {
+  "x": 40.0,
+  "y": 54.0,
+  "z": 23.15,
+  "tolerance": 0.5
+ },
+ "print": {
+  "printer_bed": [
+   180,
+   180,
+   180
+  ],
+  "nozzle": 0.4,
+  "layer": 0.2,
+  "material": "PLA",
+  "materials": [
+   "PLA"
+  ],
+  "supports": true,
+  "orientation": "on its back: rack pin heads on the bed, plate and loop bases above them, lids on top, printed closed on their hinges; supports on build plate only (under the plate's back, 4.75 mm)",
+  "quantity": 1
+ },
+ "parts": [
+  {
+   "name": "u-hook-cable-manager",
+   "description": "one print-in-place part: plate, rack pins, two loop bases and two hinged lids (three bodies)"
+  }
+ ],
+ "dimensions": [
+  {
+   "id": "D1",
+   "name": "plate width (X)",
+   "value": 20.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D12, pin column width",
+   "fit": null,
+   "param": "PLATE_W"
+  },
+  {
+   "id": "D2",
+   "name": "plate and loop base thickness (Y)",
+   "value": 4.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D5; reference base 4",
+   "fit": null,
+   "param": "BACK_T"
+  },
+  {
+   "id": "D3",
+   "name": "plate length (Z, along the cable)",
+   "value": 54.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec pin test sample height",
+   "fit": null,
+   "param": "PLATE_H"
+  },
+  {
+   "id": "D4",
+   "name": "rack pin pitch",
+   "value": 38.0,
+   "tol": "±1.5",
+   "basis": "derived",
+   "confidence": "medium",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D15; proven by the pin sample",
+   "fit": null,
+   "param": "PIN_PITCH"
+  },
+  {
+   "id": "D5",
+   "name": "lower rack pin centre Z",
+   "value": 8.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D36",
+   "fit": null,
+   "param": "LOWER_PIN_Z"
+  },
+  {
+   "id": "D6",
+   "name": "upper rack pin centre Z",
+   "value": 46.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "D5 + D4",
+   "fit": null
+  },
+  {
+   "id": "D7",
+   "name": "rack pin centre X",
+   "value": 10.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "D1 / 2",
+   "fit": null,
+   "param": "PIN_X"
+  },
+  {
+   "id": "D8",
+   "name": "pin groove width across (teardrop)",
+   "value": 5.6,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D17",
+   "fit": null,
+   "param": "NECK_D"
+  },
+  {
+   "id": "D9",
+   "name": "pin groove width (Y)",
+   "value": 1.7,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D18",
+   "fit": null,
+   "param": "NECK_L"
+  },
+  {
+   "id": "D10",
+   "name": "pin head width (teardrop)",
+   "value": 9.6,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D19",
+   "fit": null,
+   "param": "HEAD_D"
+  },
+  {
+   "id": "D11",
+   "name": "pin head thickness (Y)",
+   "value": 3.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "u-hook-adaptor-holder spec D20",
+   "fit": null,
+   "param": "HEAD_T"
+  },
+  {
+   "id": "D12",
+   "name": "loop length along the cable (Z), centred on its pin",
+   "value": 12.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "elevation v5",
+   "fit": null,
+   "param": "LOOP_H"
+  },
+  {
+   "id": "D13",
+   "name": "cable space width (X)",
+   "value": 35.2,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": true,
+   "source": "user rev 2: loop 40 overall; 40 - 2 x D15",
+   "fit": "free",
+   "param": "CAV_W"
+  },
+  {
+   "id": "D14",
+   "name": "cable space depth (Y), base face to lid",
+   "value": 12.0,
+   "basis": "given",
+   "confidence": "high",
+   "critical": true,
+   "source": "user: reference + 2 mm; reference Deskcable_organiser.3mf (measured sections): 10",
+   "fit": "free",
+   "param": "CAV_D"
+  },
+  {
+   "id": "D15",
+   "name": "lid wall",
+   "value": 2.4,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "user: thinner than the reference (4-5); 6 lines of 0.4",
+   "fit": null,
+   "param": "WALL"
+  },
+  {
+   "id": "D17",
+   "name": "lid outer corner radius",
+   "value": 6.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "user: rounder; reference Deskcable_organiser.3mf (measured sections): ~8",
+   "fit": null,
+   "param": "R_OUT"
+  },
+  {
+   "id": "D18",
+   "name": "lid inner corner radius",
+   "value": 3.6,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "D17 - D15",
+   "fit": null,
+   "param": "R_IN"
+  },
+  {
+   "id": "D19",
+   "name": "clearance between moving faces (hinge, posts, latch)",
+   "value": 0.3,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "reference Deskcable_organiser.3mf (measured sections): 0.25-0.3; print-in-place",
+   "fit": "sliding",
+   "param": "GAP"
+  },
+  {
+   "id": "D24",
+   "name": "latch post width (X)",
+   "value": 2.4,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "rev 4",
+   "fit": null,
+   "param": "POST_W"
+  },
+  {
+   "id": "D25",
+   "name": "hinge and latch post height above the base (Y)",
+   "value": 5.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "reference Deskcable_organiser.3mf (measured sections): posts 4; rev 4: 5 so the knuckle can turn",
+   "fit": null,
+   "param": "POST_H"
+  },
+  {
+   "id": "D26",
+   "name": "lid latch skirt thickness (X)",
+   "value": 1.3,
+   "basis": "default",
+   "confidence": "low",
+   "critical": false,
+   "source": "reference Deskcable_organiser.3mf (measured sections): ~1.25; flexes over the post",
+   "fit": null,
+   "param": "SKIRT_T"
+  },
+  {
+   "id": "D27",
+   "name": "latch barb depth (X), 45 deg lead-in",
+   "value": 0.5,
+   "basis": "default",
+   "confidence": "low",
+   "critical": false,
+   "source": "rides 0.2 over the post (D27 - D19); test print",
+   "fit": null,
+   "param": "BARB"
+  },
+  {
+   "id": "D28",
+   "name": "window width (X)",
+   "value": 12.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "user: save material",
+   "fit": null,
+   "param": "WIN_W"
+  },
+  {
+   "id": "D29",
+   "name": "window length (Z)",
+   "value": 20.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "3 mm from each loop",
+   "fit": null,
+   "param": "WIN_H"
+  },
+  {
+   "id": "D31",
+   "name": "loop width overall (X)",
+   "value": 40.0,
+   "basis": "given",
+   "confidence": "high",
+   "critical": false,
+   "source": "user rev 2; centred on the plate",
+   "fit": null
+  },
+  {
+   "id": "D32",
+   "name": "loop depth from the back face (Y)",
+   "value": 18.4,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "D2 + D14 + D15",
+   "fit": null
+  },
+  {
+   "id": "D33",
+   "name": "hinge cone pin base diameter",
+   "value": 2.4,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "reference Deskcable_organiser.3mf (measured sections): pins ~2.5; 45 deg cones print without support",
+   "fit": null,
+   "param": "CONE_D"
+  },
+  {
+   "id": "D34",
+   "name": "hinge cone pin length",
+   "value": 1.2,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "45 deg cone",
+   "fit": null,
+   "param": "CONE_L"
+  },
+  {
+   "id": "D35",
+   "name": "lid knuckle length (Z), one at each end of the loop",
+   "value": 3.5,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "reference Deskcable_organiser.3mf (measured sections): 3-knuckle hinge",
+   "fit": null,
+   "param": "KNUCKLE"
+  },
+  {
+   "id": "D36",
+   "name": "hinge tongue length (Z)",
+   "value": 4.4,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "D12 - 2 x (D35 + D19)",
+   "fit": null
+  },
+  {
+   "id": "D37",
+   "name": "hinge post / knuckle width (X)",
+   "value": 3.6,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "carries the cone pins and sockets",
+   "fit": null,
+   "param": "HINGE_W"
+  }
+ ],
+ "features": [
+  {
+   "id": "F1",
+   "name": "back plate with window",
+   "count": 1,
+   "position": "x 0-20, y -4-0, z 0-54; window x 4-16, z 17-37",
+   "dims": [
+    "D1",
+    "D2",
+    "D3",
+    "D28",
+    "D29"
+   ],
+   "notes": "printed lying on its back: the window is a vertical hole"
+  },
+  {
+   "id": "F2",
+   "name": "rack pin (grooved teardrop)",
+   "count": 2,
+   "position": "x 10; z 8 and 46; +Y",
+   "dims": [
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "D8",
+    "D9",
+    "D10",
+    "D11"
+   ],
+   "notes": "the pin heads are the bed contact; support under the plate's back"
+  },
+  {
+   "id": "F3",
+   "name": "loop base: 40 mm wide base, hinge tongue with two cone pins, latch post with notch",
+   "count": 2,
+   "position": "x -10 to 30, y 0 to -9, z 2-14 and 40-52",
+   "dims": [
+    "D2",
+    "D12",
+    "D25",
+    "D24",
+    "D33",
+    "D34",
+    "D36",
+    "D37"
+   ],
+   "notes": "hinge axis x -8.2, y -6.5, along Z"
+  },
+  {
+   "id": "F4",
+   "name": "lid: rounded U strap with two knuckles and a latch skirt",
+   "count": 2,
+   "position": "x -10 to 30, y -4.3 to -18.4, same z as F3; printed in place, closed",
+   "dims": [
+    "D13",
+    "D14",
+    "D15",
+    "D17",
+    "D18",
+    "D19",
+    "D26",
+    "D27",
+    "D35"
+   ],
+   "notes": "legs rest 0.3 above the posts and base; opens about 105 deg"
+  }
+ ],
+ "assumptions": [
+  "A1: one loop centred on each rack pin (user).",
+  "A2: loop 40 wide (user); cable space depth = reference + 2 mm (user).",
+  "A3: print in place on its back, like the reference (user, rev 4): the lids print on their hinges; only the plate's back needs support (build plate only).",
+  "A4: gaps (D19), barb (D27) and skirt (D26) are first guesses for PLA, checked by the motion sweep only; print one and adjust in 0.05 mm steps.",
+  "A5: the rack pins now print with their layers across them (they stood upright in the tested sample); fine for the light load of cables.",
+  "A6: the lid ceiling bridges about 28 mm over the cable space, as in the reference."
+ ],
+ "open_questions": [
+  {
+   "id": "Q1",
+   "question": "Cable size?",
+   "blocking": true,
+   "answer": "reference cavity + 2 mm (user)"
+  },
+  {
+   "id": "Q2",
+   "question": "Each loop centred on its pin?",
+   "blocking": true,
+   "answer": "yes (user)"
+  },
+  {
+   "id": "Q3",
+   "question": "Quantity per plate?",
+   "blocking": false,
+   "answer": "one per plate (user)"
+  },
+  {
+   "id": "Q4",
+   "question": "Loop width?",
+   "blocking": true,
+   "answer": "40 mm overall (user, rev 2)"
+  },
+  {
+   "id": "Q5",
+   "question": "Separate lids or print in place, and orientation?",
+   "blocking": true,
+   "answer": "print in place, on its back with support under the plate (user, rev 4)"
+  }
+ ],
+ "drawing": {
+  "plan_cut_z": 11.25,
+  "dimensions": [
+   {
+    "id": "D31",
+    "view": "front",
+    "from": [
+     -10,
+     2,
+     16.75
+    ],
+    "to": [
+     30,
+     2,
+     16.75
+    ],
+    "offset": 12
+   },
+   {
+    "id": "D13",
+    "view": "front",
+    "from": [
+     -7.6,
+     2,
+     16.75
+    ],
+    "to": [
+     27.6,
+     2,
+     16.75
+    ],
+    "offset": 20
+   },
+   {
+    "id": "D14",
+    "view": "front",
+    "from": [
+     10,
+     2,
+     8.75
+    ],
+    "to": [
+     10,
+     2,
+     20.75
+    ],
+    "offset": 12
+   },
+   {
+    "id": "D15",
+    "view": "front",
+    "from": [
+     10,
+     2,
+     20.75
+    ],
+    "to": [
+     10,
+     2,
+     23.15
+    ],
+    "offset": 20
+   },
+   {
+    "id": "D25",
+    "view": "front",
+    "from": [
+     26.0,
+     2,
+     8.75
+    ],
+    "to": [
+     26.0,
+     2,
+     13.75
+    ],
+    "offset": 10
+   },
+   {
+    "id": "D1",
+    "view": "top",
+    "from": [
+     0,
+     27,
+     8.75
+    ],
+    "to": [
+     20,
+     27,
+     8.75
+    ],
+    "offset": 12
+   },
+   {
+    "id": "D28",
+    "view": "top",
+    "from": [
+     4,
+     27,
+     8.75
+    ],
+    "to": [
+     16,
+     27,
+     8.75
+    ],
+    "offset": 20
+   },
+   {
+    "id": "D3",
+    "view": "top",
+    "from": [
+     10,
+     0,
+     8.75
+    ],
+    "to": [
+     10,
+     54,
+     8.75
+    ],
+    "offset": 14
+   },
+   {
+    "id": "D4",
+    "view": "top",
+    "from": [
+     10,
+     8,
+     8.75
+    ],
+    "to": [
+     10,
+     46,
+     8.75
+    ],
+    "offset": 22,
+    "on_geometry": false
+   }
+  ]
+ }
+}
