@@ -127,6 +127,28 @@ automatically as project skills.
 
 ## Setup
 
+### Quick start
+
+Clone, then run the init script from the repo root. It fetches the git
+submodules (the 3d-print-design skill, at the commit this repo pins) and
+creates the Python environment, then checks that the geometry stack imports.
+It is safe to re-run, for example after a pull that moves the submodule.
+
+```bash
+git clone <this-repo-url>
+cd 3d-prints-projects
+./init.sh            # macOS, Linux, Git Bash
+```
+
+```powershell
+.\init.ps1           # Windows PowerShell
+# if script execution is blocked:
+powershell -ExecutionPolicy Bypass -File .\init.ps1
+```
+
+The script runs steps 1 and 2 below for you. With uv it runs `uv sync`;
+without uv it falls back to `pipeline.py setup`.
+
 ### 1. Clone with submodules
 
 ```bash
