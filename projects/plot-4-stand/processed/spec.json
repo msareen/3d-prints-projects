@@ -22,11 +22,6 @@
       "notes": "part floor side up on the mat: flat bottom, handle flush with the floor"
     },
     {
-      "file": "input/20261105_213709.jpg",
-      "kind": "photo",
-      "notes": "part open side up, closer: same outline; handle channel shows a step/taper line along each side wall"
-    },
-    {
       "file": "input/20261105_213755.jpg",
       "kind": "photo",
       "notes": "caliper across the handle outside: '20.6 mm'"
@@ -52,19 +47,9 @@
       "notes": "part standing on its arm ends, caliper inside the handle channel at the top: '15.0 mm'"
     },
     {
-      "file": "input/20261105_214111.jpg",
-      "kind": "photo",
-      "notes": "caliper across one handle side wall, part way down: '3.3 mm'"
-    },
-    {
       "file": "input/20261105_214128.jpg",
       "kind": "photo",
       "notes": "caliper across a handle side wall at the top: '2.6 mm'"
-    },
-    {
-      "file": "input/20261105_214133.jpg",
-      "kind": "photo",
-      "notes": "same wall, other angle: '2.6 mm'"
     },
     {
       "file": "input/20261105_214151.jpg",
@@ -268,7 +253,7 @@
       "basis": "measured",
       "confidence": "high",
       "critical": false,
-      "source": "input/20261105_214151.jpg '2.8'; 214128/214133 '2.6'; check (D10 - D12) / 2 = 2.8",
+      "source": "input/20261105_214151.jpg '2.8'; 214128 '2.6'; check (D10 - D12) / 2 = 2.8",
       "fit": null
     },
     {
@@ -470,7 +455,7 @@
   "assumptions": [
     "A1: the arcs are concentric half circles centred on the arm-end plane: inner radius D4 checks against the photo within 0.7 mm.",
     "A2: the 4 round marks and 2 small dots in the floor are moulding ejector marks and are not copied.",
-    "A3: the channel is a clip. Lips at the opening (outer side) grip the board rail's 12.8 end; below them it widens to the original's 15.0 (user: 'it is outer side to catch ... clip on'; board photos 215353, 215421, 215633). The 3.3 reading (214111) is not used.",
+    "A3: the channel is a clip. Lips at the opening (outer side) grip the board rail's 12.8 end; below them it widens to the original's 15.0 (user: 'it is outer side to catch ... clip on'; board photos 215353, 215421, 215633). A 3.3 reading part way down a handle wall is not used.",
     "A4: rim top is flat; no lips, fillets or draft on the ring walls (none visible in the photos).",
     "A5: bed 250 x 210 (Prusa MK4 class); every Bambu bed is larger.",
     "A6: lips use PLA press (0.05 per side), the wide part PLA snug (0.10 per side). PLA is stiffer than the original's soft plastic: if the clip is too hard to push on or cracks, open the lips in 0.05 steps (processed/fits-PLA.json press) or print in PETG.",

@@ -26,14 +26,12 @@ gives the footprint.
 | input/brief.md | text | user's words: copy the spare part; PLA; Bambu/Prusa 0.4 | goal, print setup |
 | input/20261105_213638.jpg | photo | open side up on a cm mat, about 99 px/cm | D1, D17 (estimated), D4 check, outline |
 | input/20261105_213652.jpg | photo | floor side up: flat bottom, handle flush | floor plane |
-| input/20261105_213709.jpg | photo | open side up, closer; taper line in the handle channel | outline, A3 |
 | input/20261105_213755.jpg | photo | caliper across the handle: "20.6 mm" | D10 |
 | input/20261105_213829.jpg | photo | caliper across one arm end: "20.4 mm" | D2 |
 | input/20261105_213910.jpg | photo | caliper over the handle end: "9.6 mm"; handle end open | D15 |
 | input/20261105_213947.jpg | photo | caliper inside the channel at the floor: "12.7 mm" | D11 |
 | input/20261105_214036.jpg | photo | caliper inside the channel at the top: "15.0 mm" | D12 |
-| input/20261105_214111.jpg | photo | caliper on a handle wall, part way down: "3.3 mm" | A3 check |
-| input/20261105_214128.jpg, 214133.jpg | photo | caliper on a handle wall at the top: "2.6 mm" | D13 cross-check |
+| input/20261105_214128.jpg | photo | caliper on a handle wall at the top: "2.6 mm" | D13 cross-check |
 | input/20261105_214151.jpg | photo | caliper on the other handle wall at the top: "2.8 mm" | D13 |
 | input/20261105_214205.jpg | photo | caliper on a handle wall at the base: "4.0 mm" | D14 |
 | input/20261105_215353.jpg | photo | the board the foot fits; caliper across its edge rail at the end: "12.8 mm" | D20 |

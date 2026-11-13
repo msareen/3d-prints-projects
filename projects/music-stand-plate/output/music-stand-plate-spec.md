@@ -17,14 +17,11 @@ A music plate for an existing folding music-stand holder: a tapered sheet-metal 
 | `input/Suggested-Plate design_261110_111501.jpg` | sketch | hand sketch: stand holder (U channel with one hole = stud), connector plate with 8 holes and tapered fit-plate tab, and a 3-section assembly with 4 push-button holes per joint. Proportions are meaningless, only words count. | holder and layout |
 | `input/20261110_110257.jpg` | photo | caliper 66.2 mm along channel length | holder and layout |
 | `input/20261110_110315.jpg` | photo | caliper 44.5 mm outer width at the top; stud and two domes visible, curved support at the bottom | holder and layout |
-| `input/20261110_110327.jpg` | photo | caliper 42.5 mm, outer width at mid length | holder and layout |
 | `input/20261110_110346.jpg` | photo | caliper 38.0 mm, outer width at the bottom | holder and layout |
 | `input/20261110_110352.jpg` | photo | caliper 44.0 mm, outer width near the top | holder and layout |
 | `input/20261110_110441.jpg` | photo | caliper 10.1 mm, side wall height (outer) | holder and layout |
-| `input/20261110_110514.jpg` | photo | caliper 10.1 mm, same measurement from another angle | holder and layout |
 | `input/20261110_110530.jpg` | photo | no number; shows stud, two domes and thumb nut behind the channel | holder and layout |
-| `input/20261110_110534.jpg` | photo | no number; same view | holder and layout |
-| `input/20261110_110612.jpg` | photo | no number; side view of the channel and clamp head | holder and layout |
+| `input/20261110_110534.jpg` | photo | no number; side view of the channel, clamp head, stud and the backed-off thumb nut | holder and layout |
 | `input/20261110_110614.jpg` | photo | caliper 66.4 mm, channel length | holder and layout |
 | `input/20261110_115004.jpg` | sketch | user's dimensioned sketch of the channel: front 44.4 outer top, 37.6 inner top, 30.6 inner bottom, 37.9 outer bottom, 66.9 length; side 9.5; top view 9.5 each side, 15.9 wide x 1 high curved support at the bottom | holder and layout |
 | `input/20261110_131610.jpg` | photo | channel with the stud removed and a ruler along the right side: stud hole with a raised collar about 6.4 mm, about 9.2 mm below the top; rivet domes about 36.3 and 57.8 mm below the top, 9.5 mm across; all on the centre line (scaled from the dome width, about 16.3 px/mm) | holder and layout |
@@ -60,7 +57,7 @@ A 4-plate music plate for an existing folding music-stand holder (tapered sheet-
 | D3 | holder inner width at the bottom end | 30.6 | ±0.2 | measured | high | yes | input/20261110_115004.jpg: '30.6' near the bottom | CH_IN_BOT |
 | D4 | holder outer width at the top | 44.4 | ±0.2 | measured | high | no | sketch 115004 '44.4'; photo 110315 44.5, 110352 44.0 (reference only) |  |
 | D5 | holder outer width at the bottom | 37.9 | ±0.2 | measured | high | no | sketch 115004 '37.9mm'; photo 110346 38.0 (reference only) |  |
-| D6 | holder channel depth (usable) | 9.5 | ±0.2 | measured | medium | yes | sketch 115004 side '9.5mm' and top view '9.5'; photos 110441/110514 read 10.1 on the outer edge | CH_DEPTH |
+| D6 | holder channel depth (usable) | 9.5 | ±0.2 | measured | medium | yes | sketch 115004 side '9.5mm' and top view '9.5'; photo 110441 reads 10.1 on the outer edge | CH_DEPTH |
 | D7 | bottom curved support width | 15.9 | ±0.3 | measured | medium | no | sketch 115004 top view '15.9' with arrow 'At Bottom' |  |
 | D8 | bottom curved support height (into the channel) | 1.0 | ±0.3 | measured | low | no | sketch 115004 top view, small '1' beside the half-circle | CH_STOP_H |
 | D9 | stud distance from the top end of the channel | 9.5 |  | measured | medium | yes | fit-test marks 9.7 mm (photo 125957) and 10.7 mm (photo 130026) below the tab root, photo 131610 about 9.2 mm; 9.5 used and the slot runs 1 mm further (D55), so 8.5 to 10.7 are all clear | STUD_POS |
@@ -68,7 +65,7 @@ A 4-plate music plate for an existing folding music-stand holder (tapered sheet-
 | D11 | dome rivet 1 distance from the top end | 36.3 |  | measured | medium | no | photo 131610, ruler along the channel, scaled from the 9.5 mm dome width | DOME1_POS |
 | D12 | dome rivet 2 distance from the top end | 57.8 |  | measured | medium | no | photo 131610, ruler along the channel | DOME2_POS |
 | D13 | dome rivet head diameter | 9.5 |  | measured | medium | no | photo 131610: dome 155 px across at about 16.3 px/mm | DOME_D |
-| D14 | dome rivet head height | 2.0 |  | estimated | low | no | side photos 110612/110530, not measurable | rev 7: the dome slot is back | DOME_H |
+| D14 | dome rivet head height | 2.0 |  | estimated | low | no | side photos 110534/110530, not measurable | rev 7: the dome slot is back | DOME_H |
 | D15 | tab clearance per side in the channel | 0.3 |  | default | high | no | user: a slightly loose fit is fine, the nut tightens the plate (FITS free = 0.30 mm per side) |  |
 | D16 | tab length (below the plate) | 65.0 | ±0.3 | derived | medium | yes | D1 - D8 (stop) = 65.4 is where the tip stops; 65.0 leaves 0.4 mm at the tip so the plate edge rests on the channel top (found in the insertion sweep, rev 3) | TAB_L |
 | D17 | tab thickness | 4.0 |  | derived | high | yes | = D18. rev 7: the slot is back (the solid tab was pushed up by the stud), so the tab sits on the floor and the stud comes through for the nut | TAB_T |

@@ -30,7 +30,6 @@ tab, and pulling the cap off the neck.
 | 20261104_075007.jpg | photo | caliper across the neck at the ribbed band, another angle: **19.4 mm** | D1 (check) |
 | 20261104_075017.jpg | photo | caliper across the neck at a narrower band: **18.6 mm** | D2 |
 | 20261104_075055.jpg | photo | side profile of the neck, no scale. From the top down: a small raised ring, a plain band, vertical ribs, a segmented bead, the plain neck, the shoulder collar, and a raised lug on the shoulder | D3, D4, D6 estimates, features |
-| 20261104_075109.jpg | photo | inside of the original cap: skirt, central sleeve with internal ribs, white valve insert, one radial rib, the hinge | concept |
 | 20261104_075137.jpg | photo | caliper across the outside of the original cap: **46.1 mm** | D7 |
 | 20261104_075156.jpg | photo | the original is a flip-top with a centre orifice | concept |
 | 20261104_075221.jpg | photo | caliper across the original inner sleeve: **22.6 mm** | D8 (reference) |

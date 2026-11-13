@@ -13,8 +13,8 @@ The outside is decorative. It bulges outward like a pommel knob, a circular arc 
 ## 2. Inputs
 
 - `input/brief.md`: the user's words.
-- `input/2026110609*.jpg` (13 photos): caliper readings on the broken sword. Width 28.8 / 29.1 / 31.6; thickness 19.9, 21.4, 22.6, 24.1, 26.0, 27.7, 28.3; broken zone 15.1; one photo of the whole sword.
-- `input/tapper/*.jpg` (7 photos): a second, intact sword on a cm mat, reference only. It has a closed rounded end with a small hole. Readings 23.3 / 28.2 / 30.3 at about 2.5 / 3 / 4 cm from the end.
+- `input/2026110609*.jpg` (7 photos): caliper readings on the broken sword. Width 28.8 / 29.1 / 31.6; thickness 19.9, 21.4, 22.6, 24.1, 26.0, 27.7, 28.3; broken zone 15.1; one photo of the whole sword.
+- `input/tapper/*.jpg` (5 photos): a second, intact sword on a cm mat, reference only. It has a closed rounded end with a small hole. Readings 23.3 / 28.2 / 30.3 at about 2.5 / 3 / 4 cm from the end.
 
 ## 3. Datum and orientation
 

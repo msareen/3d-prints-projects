@@ -27,11 +27,6 @@
       "notes": "caliper 44.5 mm outer width at the top; stud and two domes visible, curved support at the bottom"
     },
     {
-      "file": "input/20261110_110327.jpg",
-      "kind": "photo",
-      "notes": "caliper 42.5 mm, outer width at mid length"
-    },
-    {
       "file": "input/20261110_110346.jpg",
       "kind": "photo",
       "notes": "caliper 38.0 mm, outer width at the bottom"
@@ -47,11 +42,6 @@
       "notes": "caliper 10.1 mm, side wall height (outer)"
     },
     {
-      "file": "input/20261110_110514.jpg",
-      "kind": "photo",
-      "notes": "caliper 10.1 mm, same measurement from another angle"
-    },
-    {
       "file": "input/20261110_110530.jpg",
       "kind": "photo",
       "notes": "no number; shows stud, two domes and thumb nut behind the channel"
@@ -59,12 +49,7 @@
     {
       "file": "input/20261110_110534.jpg",
       "kind": "photo",
-      "notes": "no number; same view"
-    },
-    {
-      "file": "input/20261110_110612.jpg",
-      "kind": "photo",
-      "notes": "no number; side view of the channel and clamp head"
+      "notes": "no number; side view of the channel, clamp head, stud and the backed-off thumb nut"
     },
     {
       "file": "input/20261110_110614.jpg",
@@ -271,7 +256,7 @@
       "basis": "measured",
       "confidence": "medium",
       "critical": true,
-      "source": "sketch 115004 side '9.5mm' and top view '9.5'; photos 110441/110514 read 10.1 on the outer edge",
+      "source": "sketch 115004 side '9.5mm' and top view '9.5'; photo 110441 reads 10.1 on the outer edge",
       "fit": null,
       "param": "CH_DEPTH"
     },
@@ -360,7 +345,7 @@
       "basis": "estimated",
       "confidence": "low",
       "critical": false,
-      "source": "side photos 110612/110530, not measurable | rev 7: the dome slot is back",
+      "source": "side photos 110534/110530, not measurable | rev 7: the dome slot is back",
       "fit": null,
       "param": "DOME_H"
     },

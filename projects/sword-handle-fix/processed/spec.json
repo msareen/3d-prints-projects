@@ -27,11 +27,6 @@
       "notes": "whole toy sword: green plastic blade, black guard and chevron-ribbed handle, broken open at the pommel end"
     },
     {
-      "file": "input/20261106_093403.jpg",
-      "kind": "photo",
-      "notes": "width at the broken end, chevron face up: '29.1 mm'"
-    },
-    {
       "file": "input/20261106_093418.jpg",
       "kind": "photo",
       "notes": "same, other angle: '29.1 mm'"
@@ -42,34 +37,9 @@
       "notes": "thickness (narrow side) near the broken end: '19.9 mm'"
     },
     {
-      "file": "input/20261106_093500.jpg",
-      "kind": "photo",
-      "notes": "thickness: '21.4 mm'"
-    },
-    {
-      "file": "input/20261106_093502.jpg",
-      "kind": "photo",
-      "notes": "thickness: '22.6 mm'"
-    },
-    {
-      "file": "input/20261106_093509.jpg",
-      "kind": "photo",
-      "notes": "thickness: '24.1 mm'"
-    },
-    {
-      "file": "input/20261106_093513.jpg",
-      "kind": "photo",
-      "notes": "thickness: '26.0 mm'"
-    },
-    {
-      "file": "input/20261106_093517.jpg",
-      "kind": "photo",
-      "notes": "thickness: '27.7 mm'"
-    },
-    {
       "file": "input/20261106_093520.jpg",
       "kind": "photo",
-      "notes": "thickness: '28.3 mm' (largest reading)"
+      "notes": "thickness: '28.3 mm' (largest reading; the same burst read 21.4, 22.6, 24.1, 26.0 and 27.7 between this and 093457's 19.9)"
     },
     {
       "file": "input/20261106_093612.jpg",
@@ -82,19 +52,9 @@
       "notes": "second, intact sword ('Ratna's' sticker) standing on its pommel end on a cm mat: handle narrows to a rounded end"
     },
     {
-      "file": "input/tapper/20261106_094457.jpg",
-      "kind": "photo",
-      "notes": "intact sword, side view on the mat"
-    },
-    {
       "file": "input/tapper/20261106_094504.jpg",
       "kind": "photo",
       "notes": "intact sword: closed, rounded pommel end with a small round hole"
-    },
-    {
-      "file": "input/tapper/20261106_094512.jpg",
-      "kind": "photo",
-      "notes": "intact sword, oblique view on the mat"
     },
     {
       "file": "input/tapper/20261106_094640.jpg",
