@@ -62,6 +62,17 @@ What it adds on top of 3d-print-design:
   line and register updates, and is rebuilt and re-released for every material.
 - **Never contacts a printer.** Slicing and printing are always my steps.
 
+## Privacy: photos are scrubbed
+
+Phone photos carry GPS coordinates, a timestamp and the phone model. Before
+a photo is used, `uv run pipeline scrub <project>` removes all of it from every
+image in `input/`. It does not re-encode: the pixels are byte-identical and the
+EXIF orientation is kept so photos still show upright (JPEG: EXIF, XMP, IPTC,
+comments and motion-photo trailers; PNG: text, time and EXIF chunks). `check`,
+`build` and `finalize` fail while any photo in `input/` still has GPS, so
+an unscrubbed photo cannot slip into a release. HEIC, TIFF and WebP are reported
+but not rewritten: convert them to JPEG first.
+
 ## Layout
 
 ```
@@ -98,6 +109,7 @@ bracket for my shelf"*, or invoke `/3d-design-pipeline`. The commands it runs
 
 ```bash
 uv run pipeline new <project>
+uv run pipeline scrub <project>      # strip GPS / device info from input/ photos
 uv run pipeline status <project>
 uv run pipeline check <project>      # spec.json <-> build.py
 uv run pipeline build <project> [--quick]

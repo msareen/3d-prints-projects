@@ -6,6 +6,8 @@
 
 With uv, every command is also `uv run pipeline <command> ...` (see pyproject.toml).
     python pipeline.py new <project>          scaffold projects/<project>/{input,processed,output}
+    python pipeline.py scrub <project>        strip GPS, timestamps and device info from input/ photos
+                                              (lossless; `check` fails while any photo still has GPS)
     python pipeline.py status <project>       what exists, what is next
     python pipeline.py check <project>        validate spec.json and its links to build.py
     python pipeline.py build <project>        run processed/build.py -> processed/model/ (printcheck gated)
@@ -150,7 +152,8 @@ def cmd_new(args) -> int:
     build = (print3d_dir() / "templates" / "build.py").read_text(encoding="utf-8")
     build = re.sub(r'^NAME = "[^"]*"', f'NAME = "{args.project}"', build, count=1, flags=re.M)
     (proj / "processed" / "build.py").write_text(build, encoding="utf-8")
-    print(f"created {proj}\n  input/      put photos, sketches, drawings, notes here (data only)\n"
+    print(f"created {proj}\n  input/      put photos, sketches, drawings, notes here (data only);\n"
+          f"              run `scrub` after adding photos: it strips GPS and device info\n"
           f"  processed/  spec.md, spec.json, build.py (template), later model/ and drawings/\n"
           f"  output/     final STL, 3MF, drawing sheet after `finalize`")
     return 0
@@ -181,10 +184,32 @@ def _build_literals(build_py: Path) -> dict:
     return out
 
 
+def check_input_privacy(proj: Path):
+    """Photos in input/ must not carry GPS: the repo may be pushed. Returns (errors, warnings)."""
+    import scrub
+    errors, warnings = [], []
+    inp = proj / "input"
+    if not inp.is_dir():
+        return errors, warnings
+    gps = [f for f in scrub.iter_images(inp) if scrub.find_gps(f) == "gps"]
+    unchecked = [f for f in scrub.iter_images(inp) if scrub.find_gps(f) == "unchecked"]
+    if gps:
+        names = ", ".join(f.name for f in gps[:3]) + (f" and {len(gps) - 3} more" if len(gps) > 3 else "")
+        errors.append(f"{len(gps)} photo(s) in input/ carry GPS coordinates ({names}): "
+                      f"run `pipeline.py scrub {proj.name}`")
+    if unchecked:
+        warnings.append(f"{len(unchecked)} image(s) in input/ could not be checked for GPS "
+                        f"(HEIC/TIFF/WebP or unreadable): convert to JPEG/PNG or strip them by hand")
+    return errors, warnings
+
+
 def check_spec(proj: Path):
     """Returns (errors, warnings)."""
     spec, errors = _load_spec(proj)
     warnings = []
+    priv_errors, priv_warnings = check_input_privacy(proj)
+    errors += priv_errors
+    warnings += priv_warnings
     if spec is None:
         return errors, warnings
     status = spec.get("status")
@@ -283,6 +308,24 @@ def check_spec(proj: Path):
                 if a != b:
                     errors.append(f"print.{key} = {pr[key]!r} but build.py {param} = {lits[param]!r}")
     return errors, warnings
+
+
+def cmd_scrub(args) -> int:
+    import scrub
+    proj = project_dir(args.project)
+    inp = proj / "input"
+    if not inp.is_dir():
+        print(f"no input/ folder in {proj}", file=sys.stderr)
+        return 1
+    n = {"scrubbed": 0, "clean": 0, "unchecked": 0}
+    for f in scrub.iter_images(inp):
+        state = scrub.scrub_file(f)
+        if state in n:
+            n[state] += 1
+        if state in ("scrubbed", "unchecked"):
+            print(f"  {state:9} {f.relative_to(proj)}")
+    print(f"scrub: {n['scrubbed']} cleaned, {n['clean']} already clean, {n['unchecked']} could not be handled")
+    return 1 if n["unchecked"] else 0
 
 
 def cmd_check(args) -> int:
@@ -709,7 +752,8 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="3d-design-pipeline: input -> spec -> model + drawings -> STL + 3MF")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("setup").set_defaults(fn=cmd_setup)
-    for name, fn in (("new", cmd_new), ("status", cmd_status), ("check", cmd_check), ("draw", cmd_draw)):
+    for name, fn in (("new", cmd_new), ("status", cmd_status), ("check", cmd_check), ("draw", cmd_draw),
+                     ("scrub", cmd_scrub)):
         sp = sub.add_parser(name)
         sp.add_argument("project")
         sp.set_defaults(fn=fn)

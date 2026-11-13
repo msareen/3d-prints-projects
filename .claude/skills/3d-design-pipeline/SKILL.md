@@ -72,6 +72,11 @@ so its reason for the default does not apply. Its hard limits all still hold:
   Then copy, never move, the files the user supplied into `input/`, or
   ask the user to drop them there. Save text the user typed in chat as
   `input/brief.md`, in their own words.
+- Privacy: phone photos carry GPS coordinates, a timestamp and the device model.
+  After copying photos in, run `pipeline.py scrub <project>` (lossless: the pixels
+  and the orientation stay, all EXIF/XMP and trailing data go). `check`, `build` and
+  `finalize` fail while any photo in `input/` still has GPS. HEIC, TIFF and WebP
+  cannot be scrubbed: convert them to JPEG first. Never commit unscrubbed photos.
 - Existing project: run `pipeline.py status <project>`. It shows the next step.
 
 ## Stage 1: inputs → spec (the core of this skill)
