@@ -1,4 +1,4 @@
 [submodule ".claude/skills/3d-print-design"]
 	path = .claude/skills/3d-print-design
-	url = https://github.com/Matteoikarieth96/3d-print-design-skill.git
+	url = https://github.com/msareen/3d-print-design-skill.git
 	branch = main
