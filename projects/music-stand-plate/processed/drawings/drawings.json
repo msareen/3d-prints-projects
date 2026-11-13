@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-10T10:16:28+00:00",
+  "generated_utc": "2026-11-11T14:43:39+00:00",
   "scale": "1:5",
   "plan_cut_z": 2.0,
   "bbox": {
@@ -11,40 +11,44 @@
     "max": [
       265.0,
       295.0,
-      18.0
+      21.0
     ],
     "size": [
       530.0,
       295.0,
-      18.0
+      21.0
     ]
   },
   "parts": [
     "music-stand-plate-bolt-1",
     "music-stand-plate-bolt-2",
+    "music-stand-plate-bolt-3",
+    "music-stand-plate-bolt-4",
     "music-stand-plate-centre",
     "music-stand-plate-extender-left",
     "music-stand-plate-extender-right",
     "music-stand-plate-jam-nut-1",
     "music-stand-plate-jam-nut-2",
+    "music-stand-plate-jam-nut-3",
+    "music-stand-plate-jam-nut-4",
     "music-stand-plate-nut",
     "music-stand-plate-v-tab"
   ],
   "views": {
     "front": {
-      "visible_edges": 1042,
-      "hidden_edges": 8349
+      "visible_edges": 1498,
+      "hidden_edges": 13066
     },
     "side": {
-      "visible_edges": 5024,
-      "hidden_edges": 8640
+      "visible_edges": 5155,
+      "hidden_edges": 10881
     },
     "top": {
-      "visible_edges": 12733,
-      "hidden_edges": 42851
+      "visible_edges": 23123,
+      "hidden_edges": 70987
     },
     "plan": {
-      "visible_edges": 2590,
+      "visible_edges": 3861,
       "hidden_edges": 0
     }
   },
@@ -65,8 +69,8 @@
     },
     {
       "check": "envelope Z",
-      "spec": 18.0,
-      "model": 18.0,
+      "spec": 21.0,
+      "model": 21.0,
       "tol": 0.5,
       "ok": true
     },
@@ -130,6 +134,20 @@
       "check": "D67 top vertical",
       "measured": 38.0,
       "expect": 38.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D74 top horizontal",
+      "measured": 20.0,
+      "expect": 20.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D75 top vertical",
+      "measured": 85.0,
+      "expect": 85.0,
       "tol": 0.05,
       "ok": true
     }

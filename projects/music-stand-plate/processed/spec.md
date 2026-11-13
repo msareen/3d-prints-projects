@@ -1,9 +1,9 @@
 # music-stand-plate: design specification
 
-> Status: **confirmed**, revision 12. All dimensions in mm. Machine-readable twin:
+> Status: **confirmed**, revision 14. All dimensions in mm. Machine-readable twin:
 > `spec.json` (same IDs). The model is built only from what is written here.
 
-**Revisions:** rev 1 = first spec. rev 2 = mesh in the centre plate. rev 3 = tab 65, heights 105. rev 4 = extenders drop on from the top on dovetail rails. rev 5 = solid tab. rev 6 = fit test. rev 7 = slot back, M6 stud, nut recess, printed thumb nut. rev 8 = slot sized for the raised collar and measured rivets. rev 9 = 5 mm bridge at the tip. rev 10 = 3-plate 3MF. rev 11 = V 1 mm wider per side after the fit test. rev 12 = 4-plate system: the V is a separate part held by 2 dovetail keys and 2 printed M6 bolts + nuts; all plates 170 x 170 (430 x 170 total); fit test dropped.
+**Revisions:** rev 1 = first spec. rev 2 = mesh in the centre plate. rev 3 = tab 65, heights 105. rev 4 = extenders drop on from the top on dovetail rails. rev 5 = solid tab. rev 6 = fit test. rev 7 = slot back, M6 stud, nut recess, printed thumb nut. rev 8 = slot sized for the raised collar and measured rivets. rev 9 = 5 mm bridge at the tip. rev 10 = 3-plate 3MF. rev 11 = V 1 mm wider per side after the fit test. rev 12 = 4-plate system: the V is a separate part held by 2 dovetail keys and 2 printed M6 bolts + nuts; all plates 170 x 170 (430 x 170 total); fit test dropped. rev 13 = one printed M6 bolt + nut per extender locks it against lifting out; rails moved to 8 and 32 mm from the edge to make room; V unchanged (already printed). rev 14 = every rev 13 part fits; paper stop 13 mm deep (was 10) with a gentle 2 mm upward J curl at its end.
 
 ## 1. Purpose and context
 
@@ -44,10 +44,10 @@ The two sketches' proportions are not used; only their written numbers are.
 
 ## 4. Overall description
 
-A 4-plate music plate for an existing folding music-stand holder (tapered sheet-metal channel, M6 stud with a thumb nut, two rivet heads). A separate V part slides into the holder; its 50 mm tongue sits behind the centre plate, held by 2 dovetail keys in grooves in the plate's back and 2 printed M6 countersunk bolts with printed nuts. The 170 x 170 centre plate and two 170 x 170 extenders (dropped on from the top on dovetail rails) make a 430 x 170 mm plate with a 10 mm lip and a hex mesh. PLA on an A1 mini, one part per plate.
+A 4-plate music plate for an existing folding music-stand holder (tapered sheet-metal channel, M6 stud with a thumb nut, two rivet heads). A separate V part slides into the holder; its 50 mm tongue sits behind the centre plate, held by 2 dovetail keys in grooves in the plate's back and 2 printed M6 countersunk bolts with printed nuts. The 170 x 170 centre plate and two 170 x 170 extenders (dropped on from the top on dovetail rails, then locked by one printed M6 bolt and nut each) make a 430 x 170 mm plate with a 13 mm J-shaped paper stop and a hex mesh. PLA on an A1 mini, one big part per plate.
 
-- **Centre plate**: 170 x 170 x 4 mm, 10 mm lip, hex mesh (12 mm holes, 3 mm ribs) except round the joints; 4 dovetail grooves in the back for the extender rails (x = +-55, +-75, open at the top, closed at y = 8); 2 dovetail key grooves for the V (x = +-13, open at the bottom edge, closed at y = 48); 2 M6 clearance holes (6.6 mm) on the centre line at y = 15 and 38 with 90 degree countersinks on the music face.
-- **Extenders** (left and right, mirrored): 170 x 170 mm, 8 mm thick over the visible 130 mm, 10 mm lip, hex mesh; the inner 40 mm is a 4 mm strip behind the centre plate with a 4 mm rebate and 2 dovetail rails. They drop on from the top and rest on the closed groove ends.
+- **Centre plate**: 170 x 170 x 4 mm, 13 mm J-shaped paper stop, hex mesh (12 mm holes, 3 mm ribs) except round the joints; 4 dovetail grooves in the back for the extender rails (x = +-53, +-77 (rev 13), open at the top, closed at y = 8); 2 dovetail key grooves for the V (x = +-13, open at the bottom edge, closed at y = 48); 2 M6 clearance holes (6.6 mm) on the centre line at y = 15 and 38 and 2 more at x = +-65, y = 85 for the extender bolts (rev 13), all with 90 degree countersinks on the music face.
+- **Extenders** (left and right, mirrored): 170 x 170 mm, 8 mm thick over the visible 130 mm, 13 mm J-shaped paper stop, hex mesh; the inner 40 mm is a 4 mm strip behind the centre plate with a 4 mm rebate and 2 dovetail rails. They drop on from the top and rest on the closed groove ends. rev 13: a 6.6 mm hole through the strip at the extender bolt position with a 2 mm hex nut pocket on its back; one printed M6 x 10 bolt from the music face into a printed nut locks the extender (same bolt and nut as the V).
 - **V** (separate part, rev 12): the tested V (65 mm long, 38.4 mm wide at the root, 32.1 at the tip, 4 mm; 7.4 mm stud slot, 11 mm through the rivet range, 5 mm bridge at the tip with a 4 mm gable relief behind and a 7 mm boss in front; 17 x 2 mm nut recess) with a 50 x 44 mm tongue above it that sits flat behind the centre plate. Two dovetail keys on the tongue front slide up into the plate's key grooves and stop at their closed ends; 2 printed M6 x 10 countersunk bolts (4 mm hex key) go in from the music face into 2 printed M6 nuts (10 AF x 3.2) held in 2 mm hex pockets on the back of the tongue. A printed M6 thumb nut fits the stand's stud.
 - Assembled 430 x 170 mm plate, V below it. Edge treatment: R3 outer corners, 0.4 mm bottom elephant-foot chamfer on the bed face.
 
@@ -75,7 +75,7 @@ A 4-plate music plate for an existing folding music-stand holder (tapered sheet-
 | D18 | plate thickness | 4.0 |  | given | high | no | user answer: PLA, 4 mm | PLATE_T |
 | D19 | centre plate width | 170.0 | ±0.3 | default | high | no | A1 mini bed 180 minus 10 margin | PLATE_W |
 | D20 | centre plate height (above the tab) | 170.0 | ±0.3 | default | high | no | rev 12: the V is a separate part, so the plate uses the 170 the bed allows (5 mm margin per side) | PLATE_H |
-| D21 | bottom lip projection (towards the music) | 10.0 |  | given | high | no | user answer: yes, 10 mm lip | LIP_H |
+| D21 | bottom lip projection (towards the music) | 13.0 |  | given | high | no | user answer: yes, 10 mm lip; rev 14: user, after printing rev 13: 3-5 mm larger for stability, 13 chosen | LIP_H |
 | D22 | bottom lip thickness | 4.0 |  | default | high | no | = D18 | LIP_T |
 | D23 | overlap length (extender strip behind the centre plate) | 40.0 |  | given | high | no | user: overlap for maximum strength; recommended option chosen: behind the centre plate, 40 mm | OVERLAP |
 | D24 | extender width beyond the centre plate edge | 130.0 |  | given | high | no | rev 12: full size: extender 170 wide = 40 overlap + 130 visible; total 170 + 2 x 130 = 430 | EXT_VIS_W |
@@ -89,8 +89,8 @@ A 4-plate music plate for an existing folding music-stand holder (tapered sheet-
 | D37 | rail neck width (base of the dovetail) | 5.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_NECK |
 | D38 | rail head width (top of the dovetail) | 8.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_HEAD |
 | D39 | rail height above the strip face | 2.4 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_H |
-| D40 | first rail centre from the centre plate side edge | 10.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_EDGE0 |
-| D41 | rail pitch (second rail further in) | 20.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_PITCH |
+| D40 | first rail centre from the centre plate side edge | 8.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs); rev 13: rails moved (8 and 32 from the edge) to make room for the extender bolt between them | RAIL_EDGE0 |
+| D41 | rail pitch (second rail further in) | 24.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs); rev 13: rails moved (8 and 32 from the edge) to make room for the extender bolt between them | RAIL_PITCH |
 | D42 | rail bottom end = closed groove bottom (y from the plate bottom edge) | 8.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_Y0 |
 | D43 | gap from the rail top end to the extender top edge | 8.0 |  | default | medium | no | user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | RAIL_TOP_GAP |
 | D44 | lead-in chamfer at the tab tip (back edge, 45 deg) | 2.0 |  | default | medium | no | rev 5 lead-in; kept in rev 7 for easier entry | TAB_LEADIN |
@@ -121,6 +121,10 @@ A 4-plate music plate for an existing folding music-stand holder (tapered sheet-
 | D71 | printed M6 nut, thickness | 3.2 |  | default | medium | no | rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove | JAM_T |
 | D72 | nut pocket depth in the back of the tongue | 2.0 |  | default | medium | no | rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove | JAM_POCKET |
 | D73 | hex key socket in the bolt head, across flats | 4.0 |  | default | medium | no | rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove | BOLT_HEX |
+| D74 | extender bolt, distance from the centre plate side edge (midway between the rails) | 20.0 |  | default | medium | no | rev 13: user: put a bolt through the slide plate too so it cannot slide back up; 1 nut and bolt will do | EXT_BOLT_EDGE |
+| D75 | extender bolt, height above the plate bottom edge | 85.0 |  | default | medium | no | rev 13: same; mid height | EXT_BOLT_Y |
+| D76 | J curl of the paper stop: tip rise up the plate | 2.0 |  | given | high | no | rev 14: user: a very gentle upward J at the end so paper does not slip; 2 mm chosen | LIP_CURL |
+| D77 | J curl length (outer part of the stop that curves, parabolic) | 8.0 |  | default | medium | no | rev 14: steepest face 26.6 deg from vertical when printed | LIP_CURL_L |
 
 Basis: `given`, `measured`, `derived`, `estimated` (scaled from a photo), `default`.
 
@@ -131,8 +135,8 @@ Basis: `given`, `measured`, `derived`, `estimated` (scaled from a photo), `defau
 | F1 | tapered tab | 1 | x = 0 centred, hangs below the plate from y = 0 to y = -65 | D2, D3, D15, D16, D17, D44, D62 | 4 mm, on the channel floor; width = channel inner width - 0.3 + 1.0 mm per side (rev 11, from the fit test): about 38.4 mm at the root, 32.1 mm at the tip; 2 mm lead-in at the tip |
 | F2 | stud slot in the tab (narrow) | 1 | x = 0; from the tab tip up to 1 mm past the stud (slot end centre 8.5 mm below the channel top) | D9, D10, D52, D54, D55 | rev 8: 7.4 mm wide, clears the raised collar (6.4) around the stud; the nut clamps the tab around it; rev 9: closed at the tip by the 5 mm bridge |
 | F3 | dome slot (wider part of the slot) | 1 | x = 0; from the tab tip up to 1.75 mm past the top edge of rivet 1 (D11) | D11, D12, D13, D53, D55 | 11 mm wide, through; ends 21 mm below the stud so the nut bears on solid tab; rev 9: closed at the tip by the 5 mm bridge |
-| F4 | dovetail grooves in the back face of the centre plate | 4 | 2 per side, centre lines 10 and 30 mm from the side edge, from y = 8 up to the top edge (open at the top, closed at the bottom) | D37, D38, D39, D40, D41, D42 | the extender's rails slide in from the top; the closed bottom end carries the weight; groove = rail + 0.2 mm per side |
-| F5 | bottom lip | 3 | along the bottom edge of every part, y = 0..4, full width | D21, D22 | protrudes up (towards the music) 10 mm |
+| F4 | dovetail grooves in the back face of the centre plate | 4 | 2 per side, centre lines 8 and 32 mm from the side edge (rev 13), from y = 8 up to the top edge (open at the top, closed at the bottom) | D37, D38, D39, D40, D41, D42 | the extender's rails slide in from the top; the closed bottom end carries the weight; groove = rail + 0.2 mm per side |
+| F5 | bottom lip | 3 | along the bottom edge of every part, y = 0..4, full width | D21, D22, D76, D77 | protrudes up (towards the music) 13 mm (rev 14); the outer 8 mm curves 2 mm up the plate on a parabola (a gentle J), 4 mm thick throughout |
 | F6 | extender rebate and strip | 2 | inner 40 mm of each extender, front face recessed 4 mm | D23, D25, D26 | the centre plate edge sits in the rebate; fronts end up flush |
 | F7 | dovetail rails on the extender strip | 4 | 2 per extender, mirrored positions of F4, from y = 8 to 8 mm below the top edge, standing on the rebate floor | D37, D38, D39, D40, D41, D42, D43 | overhang of the head is about 31 degrees from vertical, so it prints without support |
 | F8 | full-height square outline | 2 | extender is a 130 x 105 rectangle: x from the overlap inner end (45 from the centre line) to 175, y = 0 to 105 | D24, D27 | the user chose a full square with the mesh over sloped wings; corners R3 on the outer end |
@@ -145,11 +149,14 @@ Basis: `given`, `measured`, `derived`, `estimated` (scaled from a photo), `defau
 | F16 | key grooves and countersunk bolt holes in the centre plate | 1 | plate back, x = +-13, open at the bottom edge, closed at y = 48; bolt holes on the centre line at y = 15 and 38 | D65, D66, D67, D69 | the V slides up into the grooves until the keys stop at the closed ends; 6.6 mm holes, 90 deg countersinks on the music face |
 | F17 | 2 printed M6 countersunk bolts | 2 | separate parts, printed head down | D68, D69, D73, D47 | M6 x 1, 0.2 mm smaller per side than nominal, 4 mm hex key socket, chamfered tip |
 | F18 | 2 printed M6 nuts in hex pockets on the back of the tongue | 2 | V back, at the bolt positions | D70, D71, D72 | 10 mm across flats, 3.2 mm thick; 2 mm in the pocket so they do not turn, 1.2 mm stand out behind |
+| F19 | extender bolt holes | 2 | x = +-65 (20 mm in from each side edge, midway between the rails), y = 85; through the centre plate (countersink on the music face) and the extender strip (2 mm hex nut pocket on its back) | D74, D75, D69, D70, D72 | same 4 + 4 mm stack as the V; locks the extender so it cannot lift out of the grooves |
+| F20 | 2 more printed M6 bolts and nuts (one set per extender) | 2 | separate parts, plate 5 | D68, D69, D70, D71, D73, D47 | identical to bolt-1 / jam-nut-1 |
 
 ## 7. Consistency checks
 
 - Assembled width: 170 (centre) + 2 x (170 - 40 overlap) = 170 + 260 = 430 ✓.
-- Overlap: the strip reaches 45 from the centre line; the rails and grooves sit at 55 and 75 from the centre line (head width 8 -> 51..59 and 71..79), inside the 45..85 overlap ✓; the grooves leave a 1.4 mm front skin on the 4 mm plate.
+- Overlap: the strip reaches 45 from the centre line; the rails and grooves sit at 53 and 77 from the centre line (rev 13; groove 8.4 wide at depth -> 48.8..57.2 and 72.8..81.2), inside the 45..85 overlap ✓; the grooves leave a 1.4 mm front skin on the 4 mm plate; 3.8 mm from the outer groove to the plate edge.
+- Extender bolt (rev 13): x = 65 is midway between the grooves (7.8 mm to each groove edge); the countersink is 9.8 mm across at the groove depth, so 2.9 mm of wall is left ✓ (with the rev 12 rails at 55 / 75 it would be 0.9 mm). Stack 4 plate + 4 strip = the V's, so bolt 10 = head 3 + 1 + 2 + nut 3.2 + 0.8 ✓. Nut pocket (10.2 AF) 59.1..70.9 on the strip back, rails on its front ✓.
 - Bed: centre 170 x 170, extenders 170 x 170, V 44 x 115: all <= 170 (180 bed, 5 mm margin) ✓.
 - Thickness: extender 8 = 4 (behind) + 4 (music plane) = 2 x D18 ✓; the rebate 4 = plate thickness (+ fit clearance).
 - V fit: widths = channel inner width - 0.3 + 1.0 per side (rev 11 fit test) = 38.4 at the root, 32.1 at the tip; checked by the user's fit test.
@@ -158,7 +165,7 @@ Basis: `given`, `measured`, `derived`, `estimated` (scaled from a photo), `defau
 
 ## 8. Print setup
 
-Printer bed [180, 180, 180] (A1 mini), nozzle 0.4, layer 0.2, material PLA, supports: none. Orientation: back face flat on the bed, music face and lip pointing up; no supports (the extender's rebate faces up). Quantity: one set (centre + 2 extenders). Fits: tab sliding (loose, 0.3 mm per side), rails sliding (0.2 mm per side, drops on under its weight).
+Printer bed [180, 180, 180] (A1 mini), nozzle 0.4, layer 0.2, material PLA, supports: none. Orientation: back face flat on the bed, music face and lip pointing up; no supports (the extender's rebate faces up). Quantity: one set (centre + 2 extenders, V, 4 bolts, 4 nuts, thumb nut). Plates: 1 centre, 2 left extender, 3 right extender, 4 V + its 2 bolts and nuts + thumb nut (unchanged in rev 13, already printed), 5 the 2 extender bolts and nuts. Fits: tab sliding (loose, 0.3 mm per side), rails sliding (0.2 mm per side, drops on under its weight).
 
 ## 9. Assumptions
 
@@ -177,6 +184,8 @@ Printer bed [180, 180, 180] (A1 mini), nozzle 0.4, layer 0.2, material PLA, supp
 13. A16 (rev 10): the final 3MF has 3 plates (centre, left extender, right extender) for Bambu Studio / OrcaSlicer; the fit test and the nut are only in the separate test-plate 3MF.
 14. A17 (rev 11): tab widened 1 mm per side after the physical fit test; the sweep checks the stud, collar, domes and the stop, and the side walls were checked by the user's test print.
 15. A18 (rev 12): the V is a separate part. The chosen 'thickened pad with a socket on the back of the centre plate' cannot print with the plate's back on the bed (the pad would stick out below the bed face, a back socket needs a 40 mm flat roof), so the V's tongue sits behind the plate and goes into it with 2 dovetail keys in grooves (2.4 mm deep) instead, plus 2 printed M6 bolts. Printed M6 threads are weak: the keys carry the load, the bolts only clamp.
+16. A19 (rev 13): one printed M6 x 10 bolt per extender at x = +-65, y = 85 locks it against lifting out; the paper load still goes into the closed groove ends, the bolt only keeps the extender down. The rails moved to 8 / 32 mm from the side edge to leave about 3 mm of wall between the countersink and each groove. The V, its bolts and nuts and the thumb nut do not change.
+17. A20 (rev 14): the user printed rev 13 and every part fits (2026-11-11). The paper stop is 13 mm deep with its outer 8 mm curving 2 mm up the plate (parabola), so paper stays on it; the curl's steepest face is 26.6 deg from vertical when printed, no supports. Only the centre plate and the two extenders change.
 
 ## 10. Open questions
 

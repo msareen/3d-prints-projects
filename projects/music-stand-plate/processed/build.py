@@ -64,7 +64,7 @@ FITS = cad.load_fits(PROJECT_DIR)  # per-side clearances: fits.json if present, 
 # ===================== PARAMETERS START (edit only this block) =====================
 NAME = "music-stand-plate"          # output file stem: a-z, 0-9 and dashes only
 MATERIAL = "PLA"                 # from intake; sets density for the mass estimate
-COLOR = {"nut": "#c9a227", "v-tab": "#e07a5f", "bolt-1": "#9aa0a6", "bolt-2": "#9aa0a6", "jam-nut-1": "#9aa0a6", "jam-nut-2": "#9aa0a6", "centre": "#f5c896", "extender-left": "#aacdeb", "extender-right": "#aae1b4"}  # viewer only
+COLOR = {"nut": "#c9a227", "v-tab": "#e07a5f", "bolt-1": "#9aa0a6", "bolt-2": "#9aa0a6", "jam-nut-1": "#9aa0a6", "jam-nut-2": "#9aa0a6", "bolt-3": "#9aa0a6", "bolt-4": "#9aa0a6", "jam-nut-3": "#9aa0a6", "jam-nut-4": "#9aa0a6", "centre": "#f5c896", "extender-left": "#aacdeb", "extender-right": "#aae1b4"}  # viewer only
 
 PRINTER_BED = (180, 180, 180)    # A1 mini build volume (A1)
 NOZZLE = 0.4                     # nozzle diameter; minimum wall = 2 x NOZZLE
@@ -118,7 +118,9 @@ THREAD_CLEAR = FITS["sliding"]   # radial clearance on the printed internal thre
 PLATE_T = 4.0                    # D18 plate thickness
 PLATE_W = 170.0                  # D19 centre plate width
 PLATE_H = 170.0                  # D20 centre plate height (rev 12: the V is a separate part, so the full 170 the bed allows)
-LIP_H = 10.0                     # D21 bottom lip projection towards the music
+LIP_H = 13.0                     # D21 bottom lip projection towards the music (rev 14: was 10)
+LIP_CURL = 2.0                   # D76 J curl: the stop's tip rises this much up the plate (rev 14)
+LIP_CURL_L = 8.0                 # D77 over this outer length of the stop (parabola: steepest 26.6 deg from vertical)
 LIP_T = 4.0                      # D22 bottom lip thickness
 OVERLAP = 40.0                   # D23 extender strip length behind the centre plate
 EXT_VIS_W = 130.0                 # D24 extender width beyond the centre plate edge
@@ -132,8 +134,8 @@ FOOT_CHAMFER = 0.4               # bottom edge chamfer that hides elephant foot
 RAIL_NECK = 5.0                  # D37 rail width at its base (narrow neck)
 RAIL_HEAD = 8.0                  # D38 rail width at its top (the dovetail head, 45 deg or less overhang)
 RAIL_H = 2.4                     # D39 rail height above the strip face (groove depth is this + clearance)
-RAIL_EDGE0 = 10.0                # D40 first rail centre from the centre plate side edge
-RAIL_PITCH = 20.0                # D41 second rail this much further in (rails 10 and 30 from the edge)
+RAIL_EDGE0 = 8.0                 # D40 first rail centre from the centre plate side edge (rev 13: was 10, room for the extender bolt)
+RAIL_PITCH = 24.0                # D41 second rail this much further in (rails 8 and 32 from the edge)
 RAIL_Y0 = 8.0                    # D42 rail bottom end = closed bottom end of the groove (the extender rests here)
 RAIL_TOP_GAP = 8.0               # D43 the rail stops this far below the extender top edge
 
@@ -159,7 +161,12 @@ JAM_T = 3.2                      # D71 printed M6 nut thickness (thin "jam" nut)
 JAM_POCKET = 2.0                 # D72 hex pocket depth in the back of the tongue (nut stops turning)
 JAM_CLEAR = FITS["snug"]         # hex pocket clearance per side
 TAB_SHIFT_Y = 245.0              # the V sits above the centre plate in the model files
-SMALL_POS = {"bolt-1": (50.0, 200.0), "bolt-2": (50.0, 225.0), "jam-nut-1": (72.0, 200.0), "jam-nut-2": (72.0, 225.0)}
+SMALL_POS = {"bolt-1": (50.0, 200.0), "bolt-2": (50.0, 225.0), "jam-nut-1": (72.0, 200.0), "jam-nut-2": (72.0, 225.0),
+             "bolt-3": (-50.0, 200.0), "bolt-4": (-50.0, 225.0), "jam-nut-3": (-72.0, 200.0), "jam-nut-4": (-72.0, 225.0)}
+
+# --- extender lock bolt (rev 13): one printed M6 bolt + nut per extender, same stack as the V (4 plate + 4 strip) ---
+EXT_BOLT_EDGE = 20.0             # D74 bolt centre from the centre plate side edge, midway between the rails (8 / 32)
+EXT_BOLT_Y = 85.0                # D75 bolt height above the plate bottom edge (mid height)
 
 # --- model layout ---
 LAYOUT_SHIFT = 50.0              # extenders are moved this far out in the model files (print layout, 10 mm gaps)
@@ -171,18 +178,24 @@ REBATE_CLEAR = FITS["sliding"]   # side gap between the centre plate edge and th
 
 # probes per part: points that must be solid / empty (x, y, z in the part's print position)
 PROBES_INSIDE = {
-    "centre": [(0.0, 50.0, 2.0), (0.0, 26.0, 3.0), (13.0, 30.0, 3.5), (60.0, 60.0, 2.0), (75.0, 60.0, 3.6), (0.0, 2.0, 8.0)],
+    "centre": [(0.0, 50.0, 2.0), (0.0, 26.0, 3.0), (13.0, 30.0, 3.5), (60.0, 60.0, 2.0), (75.0, 60.0, 3.6), (0.0, 2.0, 8.0),
+               (65.0, 75.0, 2.0), (-65.0, 75.0, 2.0), (0.0, 5.0, 16.5)],
     "v-tab": [(-10.0, 195.0, 2.0), (0.0, 275.0, 2.0), (13.0, 270.0, 5.5), (0.0, 182.5, 4.5), (0.0, 182.5, 5.8)],
     "bolt-1": [(54.0, 200.0, 1.0), (50.0, 200.0, 6.0)],
     "bolt-2": [(54.0, 225.0, 1.0), (50.0, 225.0, 6.0)],
     "jam-nut-1": [(76.2, 200.0, 1.6)],
     "jam-nut-2": [(76.2, 225.0, 1.6)],
     "nut": [(66.18, 264.01, 4.0)],
-    "extender-right": [(115.0, 60.0, 2.0), (125.0, 60.0, 5.0)],
-    "extender-left": [(-115.0, 60.0, 2.0), (-125.0, 60.0, 5.0)],
+    "extender-right": [(115.0, 60.0, 2.0), (125.0, 60.0, 5.0), (119.0, 85.0, 3.0), (200.0, 5.0, 20.5)],
+    "extender-left": [(-115.0, 60.0, 2.0), (-125.0, 60.0, 5.0), (-119.0, 85.0, 3.0), (-200.0, 5.0, 20.5)],
+    "bolt-3": [(-46.0, 200.0, 1.0), (-50.0, 200.0, 6.0)],
+    "bolt-4": [(-46.0, 225.0, 1.0), (-50.0, 225.0, 6.0)],
+    "jam-nut-3": [(-67.8, 200.0, 1.6)],
+    "jam-nut-4": [(-67.8, 225.0, 1.6)],
 }
 PROBES_OUTSIDE = {
-    "centre": [(0.0, 15.0, 2.0), (0.0, 15.0, 3.8), (13.0, 30.0, 1.0), (75.0, 60.0, 1.0), (55.0, 60.0, 1.0)],
+    "centre": [(0.0, 15.0, 2.0), (0.0, 15.0, 3.8), (13.0, 30.0, 1.0), (75.0, 60.0, 1.0), (55.0, 60.0, 1.0),
+               (65.0, 85.0, 2.0), (-65.0, 85.0, 2.0), (69.0, 85.0, 3.9), (-69.0, 85.0, 3.9), (0.0, 1.0, 16.5)],
     "v-tab": [(0.0, 225.0, 2.0), (0.0, 195.0, 2.0), (0.0, 260.0, 3.0), (0.0, 260.0, 1.0), (8.0, 235.0, 3.5),
               (0.0, 182.5, 1.5), (0.0, 300.0, 2.0)],
     "bolt-1": [(50.0, 200.0, 11.0), (55.5, 200.0, 1.0), (50.0, 200.0, 0.5)],
@@ -190,8 +203,12 @@ PROBES_OUTSIDE = {
     "jam-nut-1": [(72.0, 200.0, 1.6)],
     "jam-nut-2": [(72.0, 225.0, 1.6)],
     "nut": [(60.0, 262.0, 4.0)],
-    "extender-right": [(115.0, 60.0, 6.0)],
-    "extender-left": [(-115.0, 60.0, 6.0)],
+    "extender-right": [(115.0, 60.0, 6.0), (115.0, 85.0, 3.0), (119.0, 85.0, 1.0), (200.0, 1.0, 20.5)],
+    "extender-left": [(-115.0, 60.0, 6.0), (-115.0, 85.0, 3.0), (-119.0, 85.0, 1.0), (-200.0, 1.0, 20.5)],
+    "bolt-3": [(-50.0, 200.0, 11.0), (-44.5, 200.0, 1.0), (-50.0, 200.0, 0.5)],
+    "bolt-4": [(-50.0, 225.0, 11.0), (-44.5, 225.0, 1.0), (-50.0, 225.0, 0.5)],
+    "jam-nut-3": [(-72.0, 200.0, 1.6)],
+    "jam-nut-4": [(-72.0, 225.0, 1.6)],
 }
 # ====================== PARAMETERS END ======================
 
@@ -227,6 +244,18 @@ def _tab_outline():
     y_dome_top = -(DOME1_POS - DOME_D / 2 - DOME_SLOT_EXTRA / 2 - SLOT_OVERRUN - p_root)
     dome = cad.box2d(-dw / 2, -TAB_L + BRIDGE_L, dw / 2, y_dome_top)
     return tab, slot.union(dome), y_stud
+
+
+def _lip(x0, x1, z_face):
+    """Paper stop along the bottom edge, from x0 to x1, standing on the music face at z_face: LIP_T thick (y),
+    LIP_H tall (z); its outer LIP_CURL_L curves LIP_CURL up the plate (+y) on a parabola, a gentle J."""
+    z0 = LIP_H - LIP_CURL_L                    # curl starts here, measured from the music face
+    steps = 24
+    zs = [-0.05] + [z0 + LIP_CURL_L * k / steps for k in range(steps + 1)]
+    f = [LIP_CURL * max(0.0, (z - z0) / LIP_CURL_L) ** 2 for z in zs]
+    prof = cad.Polygon([(fy, z) for fy, z in zip(f, zs)] + [(LIP_T + fy, z) for fy, z in reversed(list(zip(f, zs)))])
+    lip = cad.rotate(cad.rotate(cad.extrude(prof, x1 - x0), x=90.0), z=90.0)   # (u, v, l) -> (l, u, v): u = y, v = z, l = x
+    return cad.translate(lip, x=x0, z=z_face)
 
 
 def _rail_xs():
@@ -295,7 +324,7 @@ def _centre():
     for x, y in _centre_mesh():
         outline = outline.difference(_hex(x, y))
     body = cad.chamfered_extrude(outline, PLATE_T, bottom=FOOT_CHAMFER)
-    lip = cad.translate(cad.box(PLATE_W, LIP_T, LIP_H + 0.05, center_xy=False), x=-PLATE_W / 2, z=PLATE_T - 0.05)
+    lip = _lip(-PLATE_W / 2, PLATE_W / 2, PLATE_T)
     body = cad.union(body, lip)
     cutters = []
     for sx in (-1, 1):
@@ -308,14 +337,15 @@ def _centre():
         k0, k1 = _key_span()
         cutters.append(_dovetail(sx * KEY_X, k1, k1 + 1.0, RAIL_NECK + 2 * RAIL_CLEAR, RAIL_HEAD + 2 * RAIL_CLEAR,
                                  RAIL_H + RAIL_CLEAR + 0.05, -0.05))
-    for by in (BOLT_Y1, BOLT_Y2):
+    bx = PLATE_W / 2 - EXT_BOLT_EDGE
+    for x, by in ((0.0, BOLT_Y1), (0.0, BOLT_Y2), (-bx, EXT_BOLT_Y), (bx, EXT_BOLT_Y)):
         hole = THREAD_D + 2 * BOLT_HOLE_CLEAR
-        cutters.append(cad.translate(cad.cylinder(hole, PLATE_T + 2.0), y=by, z=-1.0))
+        cutters.append(cad.translate(cad.cylinder(hole, PLATE_T + 2.0), x=x, y=by, z=-1.0))
         head = BOLT_HEAD_D + 2 * BOLT_HOLE_CLEAR      # 90 deg countersink on the music face
         depth = (head - hole) / 2
         cs = cad.cylinder(hole, depth + 0.01, d_top=head)
-        cutters.append(cad.translate(cs, y=by, z=PLATE_T - depth))
-        cutters.append(cad.translate(cad.cylinder(head, 2.0), y=by, z=PLATE_T))
+        cutters.append(cad.translate(cs, x=x, y=by, z=PLATE_T - depth))
+        cutters.append(cad.translate(cad.cylinder(head, 2.0), x=x, y=by, z=PLATE_T))
     return cad.difference(body, *cutters)
 
 
@@ -378,12 +408,16 @@ def _extender_right():
     rebate = cad.translate(cad.box(x_step - x_in + 1.0, EXT_H + 2.0, REBATE_D + 1.0, center_xy=False),
                            x=x_in - 1.0, y=-1.0, z=EXT_T - REBATE_D)
     body = cad.difference(body, rebate)
-    lip = cad.translate(cad.box(x_out - x_step, LIP_T, LIP_H + 0.05, center_xy=False), x=x_step, z=EXT_T - 0.05)
+    lip = _lip(x_step, x_out, EXT_T)
     rails = []
     for x in _rail_xs():
         rails.append(_dovetail(x, EXT_H - RAIL_TOP_GAP, EXT_H - RAIL_TOP_GAP - RAIL_Y0, RAIL_NECK, RAIL_HEAD,
                                RAIL_H + 0.05, EXT_T - REBATE_D - 0.05))
-    return cad.union(body, lip, *rails)
+    body = cad.union(body, lip, *rails)
+    bx = PLATE_W / 2 - EXT_BOLT_EDGE
+    hole = cad.translate(cad.cylinder(THREAD_D + 2 * BOLT_HOLE_CLEAR, EXT_T - REBATE_D + 2.0), x=bx, y=EXT_BOLT_Y, z=-1.0)
+    pocket = cad.extrude(_hexagon(JAM_AF + 2 * JAM_CLEAR, bx, EXT_BOLT_Y), JAM_POCKET + 1.0, z0=-1.0)
+    return cad.difference(body, hole, pocket)
 
 
 def _thread_bolt(d_major, pitch, length, clear):

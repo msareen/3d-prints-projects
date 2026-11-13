@@ -2,9 +2,9 @@
   "schema": "design-pipeline/spec@1",
   "project": "music-stand-plate",
   "status": "confirmed",
-  "revision": 12,
+  "revision": 14,
   "units": "mm",
-  "summary": "A 4-plate music plate for an existing folding music-stand holder (tapered sheet-metal channel, M6 stud with a thumb nut, two rivet heads). A separate V part slides into the holder; its 50 mm tongue sits behind the centre plate, held by 2 dovetail keys in grooves in the plate's back and 2 printed M6 countersunk bolts with printed nuts. The 170 x 170 centre plate and two 170 x 170 extenders (dropped on from the top on dovetail rails) make a 430 x 170 mm plate with a 10 mm lip and a hex mesh. PLA on an A1 mini, one part per plate.",
+  "summary": "A 4-plate music plate for an existing folding music-stand holder (tapered sheet-metal channel, M6 stud with a thumb nut, two rivet heads). A separate V part slides into the holder; its 50 mm tongue sits behind the centre plate, held by 2 dovetail keys in grooves in the plate's back and 2 printed M6 countersunk bolts with printed nuts. The 170 x 170 centre plate and two 170 x 170 extenders (dropped on from the top on dovetail rails, then locked by one printed M6 bolt and nut each) make a 430 x 170 mm plate with a 13 mm J-shaped paper stop and a hex mesh. PLA on an A1 mini, one big part per plate.",
   "inputs": [
     {
       "file": "input/brief.md",
@@ -106,7 +106,7 @@
   "envelope": {
     "x": 530,
     "y": 295,
-    "z": 18,
+    "z": 21,
     "tolerance": 0.5
   },
   "print": {
@@ -141,17 +141,23 @@
         "jam-nut-1",
         "jam-nut-2",
         "nut"
+      ],
+      [
+        "bolt-3",
+        "bolt-4",
+        "jam-nut-3",
+        "jam-nut-4"
       ]
     ]
   },
   "parts": [
     {
       "name": "music-stand-plate-centre",
-      "description": "170 x 170 plate, 4 mm, 10 mm lip, hex mesh, 4 rail grooves, 2 key grooves, 2 countersunk bolt holes"
+      "description": "170 x 170 plate, 4 mm, 10 mm lip, hex mesh, 4 rail grooves, 2 key grooves, 4 countersunk bolt holes"
     },
     {
       "name": "music-stand-plate-extender-left",
-      "description": "170 x 170 extender, 8 mm, rear strip with rebate and 2 rails, lip, hex mesh"
+      "description": "170 x 170 extender, 8 mm, rear strip with rebate, 2 rails and a bolt hole with a nut pocket, lip, hex mesh"
     },
     {
       "name": "music-stand-plate-extender-right",
@@ -180,6 +186,22 @@
     {
       "name": "music-stand-plate-nut",
       "description": "printed M6 thumb nut for the stand's stud, 16 x 8"
+    },
+    {
+      "name": "music-stand-plate-bolt-3",
+      "description": "printed M6 x 10 countersunk bolt (left extender)"
+    },
+    {
+      "name": "music-stand-plate-bolt-4",
+      "description": "printed M6 x 10 countersunk bolt (right extender)"
+    },
+    {
+      "name": "music-stand-plate-jam-nut-3",
+      "description": "printed M6 nut, 10 AF x 3.2 (left extender)"
+    },
+    {
+      "name": "music-stand-plate-jam-nut-4",
+      "description": "printed M6 nut, 10 AF x 3.2 (right extender)"
     }
   ],
   "dimensions": [
@@ -413,11 +435,11 @@
     {
       "id": "D21",
       "name": "bottom lip projection (towards the music)",
-      "value": 10.0,
+      "value": 13.0,
       "basis": "given",
       "confidence": "high",
       "critical": false,
-      "source": "user answer: yes, 10 mm lip",
+      "source": "user answer: yes, 10 mm lip | rev 14: user, 2026-11-11, after printing rev 13 (every part fits): make the paper stop 3-5 mm larger for stability, with a very gentle upward J at the end so paper does not slip; 13 mm and a 2 mm curl chosen",
       "fit": null,
       "param": "LIP_H"
     },
@@ -567,22 +589,22 @@
     {
       "id": "D40",
       "name": "first rail centre from the centre plate side edge",
-      "value": 10.0,
+      "value": 8.0,
       "basis": "default",
       "confidence": "medium",
       "critical": false,
-      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | rev 13: rails moved (8 and 32 from the edge) to make room for the extender bolt between them",
       "fit": null,
       "param": "RAIL_EDGE0"
     },
     {
       "id": "D41",
       "name": "rail pitch (second rail further in)",
-      "value": 20.0,
+      "value": 24.0,
       "basis": "default",
       "confidence": "medium",
       "critical": false,
-      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs)",
+      "source": "user, rev 4: the side plates must come on from the top so gravity helps hold them (replaces the push-in pegs) | rev 13: rails moved (8 and 32 from the edge) to make room for the extender bolt between them",
       "fit": null,
       "param": "RAIL_PITCH"
     },
@@ -915,6 +937,50 @@
       "source": "rev 12: user asked for a separate V held by 2 printed M6 bolts and nuts, going a little deep into the main plate with a key groove",
       "fit": null,
       "param": "BOLT_HEX"
+    },
+    {
+      "id": "D74",
+      "name": "extender bolt, distance from the centre plate side edge (midway between the rails)",
+      "value": 20.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 13: user: put a bolt through the slide plate too so it cannot slide back up; 1 nut and bolt will do",
+      "fit": null,
+      "param": "EXT_BOLT_EDGE"
+    },
+    {
+      "id": "D75",
+      "name": "extender bolt, height above the plate bottom edge",
+      "value": 85.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 13: user: put a bolt through the slide plate too so it cannot slide back up; 1 nut and bolt will do; mid height",
+      "fit": null,
+      "param": "EXT_BOLT_Y"
+    },
+    {
+      "id": "D76",
+      "name": "J curl of the paper stop: tip rise up the plate",
+      "value": 2.0,
+      "basis": "given",
+      "confidence": "high",
+      "critical": false,
+      "source": "rev 14: user, 2026-11-11, after printing rev 13 (every part fits): make the paper stop 3-5 mm larger for stability, with a very gentle upward J at the end so paper does not slip; 13 mm and a 2 mm curl chosen",
+      "fit": null,
+      "param": "LIP_CURL"
+    },
+    {
+      "id": "D77",
+      "name": "J curl length (outer part of the stop that curves, parabolic)",
+      "value": 8.0,
+      "basis": "default",
+      "confidence": "medium",
+      "critical": false,
+      "source": "rev 14: user, 2026-11-11, after printing rev 13 (every part fits): make the paper stop 3-5 mm larger for stability, with a very gentle upward J at the end so paper does not slip; 13 mm and a 2 mm curl chosen; steepest face 26.6 deg from vertical when printed",
+      "fit": null,
+      "param": "LIP_CURL_L"
     }
   ],
   "features": [
@@ -966,7 +1032,7 @@
       "id": "F4",
       "name": "dovetail grooves in the back face of the centre plate",
       "count": 4,
-      "position": "2 per side, centre lines 10 and 30 mm from the side edge, from y = 8 up to the top edge (open at the top, closed at the bottom)",
+      "position": "2 per side, centre lines 8 and 32 mm from the side edge (rev 13), from y = 8 up to the top edge (open at the top, closed at the bottom)",
       "dims": [
         "D37",
         "D38",
@@ -984,9 +1050,11 @@
       "position": "along the bottom edge of every part, y = 0..4, full width",
       "dims": [
         "D21",
-        "D22"
+        "D22",
+        "D76",
+        "D77"
       ],
-      "notes": "protrudes up (towards the music) 10 mm"
+      "notes": "protrudes up (towards the music) 13 mm (rev 14); the outer 8 mm curves up the plate by 2 mm on a parabola (a gentle J) so paper cannot slide off the front; 4 mm thick throughout"
     },
     {
       "id": "F6",
@@ -1143,6 +1211,35 @@
         "D72"
       ],
       "notes": "10 mm across flats, 3.2 mm thick; 2 mm in the pocket so they do not turn, 1.2 mm stand out behind"
+    },
+    {
+      "id": "F19",
+      "name": "extender bolt holes",
+      "count": 2,
+      "position": "x = +-65 (20 mm in from each side edge, midway between the rails), y = 85; through the centre plate (90 deg countersink on the music face) and through the extender strip (2 mm hex nut pocket on its back)",
+      "dims": [
+        "D74",
+        "D75",
+        "D69",
+        "D70",
+        "D72"
+      ],
+      "notes": "the same bolt stack as the V: 4 mm plate + 4 mm strip; locks the extender so it cannot lift out of the grooves"
+    },
+    {
+      "id": "F20",
+      "name": "2 more printed M6 bolts and nuts (one set per extender)",
+      "count": 2,
+      "position": "separate parts, plate 5",
+      "dims": [
+        "D68",
+        "D69",
+        "D70",
+        "D71",
+        "D73",
+        "D47"
+      ],
+      "notes": "identical to bolt-1 / jam-nut-1"
     }
   ],
   "assumptions": [
@@ -1160,7 +1257,9 @@
     "A15 (rev 9): with the slot closed at the tip, the stud (bolt) must be taken out before the tab slides in, then pushed back through the slot from behind and the nut fitted. The bridge rides over the domes and the collar: if the domes are taller than 3 mm, the relief must be deeper.",
     "A16 (rev 10): the final 3MF has 3 plates (centre, left extender, right extender) for Bambu Studio / OrcaSlicer; the fit test and the nut are only in the separate test-plate 3MF.",
     "A17 (rev 11): tab widened 1 mm per side after the physical fit test; the sweep checks the stud, collar, domes and the stop, and the side walls were checked by the user's test print.",
-    "A18 (rev 12): the V is a separate part. The chosen 'thickened pad with a socket on the back of the centre plate' cannot print with the plate's back on the bed (the pad would stick out below the bed face, a back socket needs a 40 mm flat roof), so the V's tongue sits behind the plate and goes into it with 2 dovetail keys in grooves (2.4 mm deep) instead, plus 2 printed M6 bolts. Printed M6 threads are weak: the keys carry the load, the bolts only clamp."
+    "A18 (rev 12): the V is a separate part. The chosen 'thickened pad with a socket on the back of the centre plate' cannot print with the plate's back on the bed (the pad would stick out below the bed face, a back socket needs a 40 mm flat roof), so the V's tongue sits behind the plate and goes into it with 2 dovetail keys in grooves (2.4 mm deep) instead, plus 2 printed M6 bolts. Printed M6 threads are weak: the keys carry the load, the bolts only clamp.",
+    "A19 (rev 13): one printed M6 x 10 bolt per extender, through the centre plate and the extender strip at x = +-65, y = 85, so the extender cannot lift out of its grooves. The stack is the same as at the V (4 + 4 mm), so the bolt and nut are the same parts. The rails moved from 10/30 to 8/32 mm from the side edge so the countersink keeps about 3 mm of wall to each groove (at 10/30 it would be 0.9 mm). The V, its bolts and nuts and the thumb nut do not change (already printed); they stay on plate 4, the 2 new bolts and nuts are plate 5.",
+    "A20 (rev 14): the user printed rev 13 and every part fits (2026-11-11). The paper stop is 13 mm deep (was 10) and its outer 8 mm curves 2 mm up the plate (parabola, constant 4 mm thickness), so paper stays on it. The curl is an overhang of at most 26.6 deg from vertical when printed, no supports. Only the centre plate and the two extenders change."
   ],
   "open_questions": [
     {
@@ -1336,6 +1435,39 @@
           0
         ],
         "offset": 22,
+        "orient": "vertical",
+        "on_geometry": false
+      },
+      {
+        "id": "D74",
+        "view": "top",
+        "from": [
+          65,
+          85,
+          0
+        ],
+        "to": [
+          85,
+          85,
+          0
+        ],
+        "offset": 10,
+        "on_geometry": false
+      },
+      {
+        "id": "D75",
+        "view": "top",
+        "from": [
+          65,
+          0,
+          0
+        ],
+        "to": [
+          65,
+          85,
+          0
+        ],
+        "offset": -14,
         "orient": "vertical",
         "on_geometry": false
       }
