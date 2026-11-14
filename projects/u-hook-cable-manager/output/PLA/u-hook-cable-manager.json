@@ -1,47 +1,45 @@
 {
   "name": "u-hook-cable-manager",
   "units": "mm",
-  "generated_utc": "2026-11-13T18:36:55+00:00",
+  "generated_utc": "2026-11-14T05:02:09+00:00",
   "generator": "3d-print-design build script",
   "stl": "u-hook-cable-manager.stl",
-  "stl_sha256": "1a4f325f7fe56a6a277f8ba2bc5fe2562f2b9e152f2a72b83be8fe7fd0e8a996",
+  "stl_sha256": "309d58dcca04b49634e89c7ede241e5c211ac6b8b111aa98431aff929833be5f",
   "material": "PLA",
   "density_g_cm3": 1.24,
   "bbox": {
     "min": [
       -10.0,
-      0.0,
+      -18.4,
       0.0
     ],
     "max": [
       30.0,
-      54.0,
-      23.15
+      4.75,
+      53.0
     ],
     "size": [
       40.0,
-      54.0,
-      23.15
+      23.15,
+      53.0
     ]
   },
-  "volume_mm3": 9611.37,
-  "estimated_mass_g_solid": 11.92,
+  "volume_mm3": 11315.53,
+  "estimated_mass_g_solid": 14.03,
   "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
-  "triangles": 6426,
+  "triangles": 6448,
   "printcheck": {
     "ok": true,
     "errors": [],
     "warnings": [
       "on_bed",
-      "overhang",
-      "layer_alignment",
-      "thin_walls"
+      "overhang"
     ],
     "checks": [
       {
         "name": "units",
         "status": "pass",
-        "message": "size 40.0 x 54.0 x 23.1 mm",
+        "message": "size 40.0 x 23.1 x 53.0 mm",
         "data": {}
       },
       {
@@ -57,9 +55,9 @@
       {
         "name": "volume",
         "status": "pass",
-        "message": "9611.4 mm3",
+        "message": "11315.5 mm3",
         "data": {
-          "volume_mm3": 9611.374
+          "volume_mm3": 11315.53
         }
       },
       {
@@ -74,28 +72,20 @@
       {
         "name": "on_bed",
         "status": "warn",
-        "message": "154.8 mm2 on the bed; print in place: 2 lid(s) rest 0.30 mm above the base (all lowest faces checked)",
+        "message": "321.7 mm2 on the bed; print in place: 1 lid(s) off the bed, captured on their hinges; 1 need(s) support under it",
         "data": {
           "min_z": 0.0,
-          "contact_area_mm2": 154.79,
+          "contact_area_mm2": 321.72,
           "min_contact_mm2": 10.0,
           "floating_bodies": [
-            0,
             2
           ],
           "print_in_place": [
             {
-              "body": 0,
-              "lowest_z": 9.05,
-              "faces": 14,
-              "max_gap": 0.301,
-              "ok": true
-            },
-            {
               "body": 2,
-              "lowest_z": 9.05,
-              "faces": 14,
-              "max_gap": 0.301,
+              "lowest_z": 38.0,
+              "rests_on_base": false,
+              "captured_on_hinge": true,
               "ok": true
             }
           ]
@@ -117,171 +107,160 @@
       {
         "name": "overhang",
         "status": "warn",
-        "message": "2248.8 mm2 of downward faces steeper than 45 deg (2095.6 mm2 of it flat, not a short bridge); supports needed or redesign (chamfer, teardrop, split)",
+        "message": "240.3 mm2 of downward faces steeper than 45 deg (221.5 mm2 of it flat, not a short bridge); 0.0 mm2 short bridges (<= 10 mm span) left to the slicer; supports needed or redesign (chamfer, teardrop, split)",
         "data": {
           "limit_deg": 45,
-          "area_mm2": 2248.81,
-          "flat_ceiling_area_mm2": 2095.57,
+          "area_mm2": 240.33,
+          "flat_ceiling_area_mm2": 221.54,
           "bridge_area_mm2": 0.0,
           "max_bridge_mm": 10.0,
           "flat_regions": [
             {
-              "z": 4.75,
-              "span_mm": 40.0,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.12,
-              "area_mm2": 1298.11,
-              "bridge": false
-            },
-            {
-              "z": 20.75,
-              "span_mm": 12.0,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.3,
-              "area_mm2": 338.83,
-              "bridge": false
-            },
-            {
-              "z": 20.75,
-              "span_mm": 12.0,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.3,
-              "area_mm2": 338.83,
-              "bridge": false
-            },
-            {
-              "z": 9.05,
-              "span_mm": 1.3,
+              "z": 38.0,
+              "span_mm": 14.1,
               "span_is_upper_bound": true,
               "supported_outline": 0.0,
-              "area_mm2": 15.6,
+              "area_mm2": 146.23,
               "bridge": false
             },
             {
-              "z": 9.05,
-              "span_mm": 1.3,
+              "z": 10.0,
+              "span_mm": 4.4,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.08,
+              "area_mm2": 20.93,
+              "bridge": false
+            },
+            {
+              "z": 48.0,
+              "span_mm": 4.4,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.08,
+              "area_mm2": 20.93,
+              "bridge": false
+            },
+            {
+              "z": 4.4,
+              "span_mm": 4.4,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.49,
+              "area_mm2": 16.7,
+              "bridge": false
+            },
+            {
+              "z": 42.4,
+              "span_mm": 4.4,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.49,
+              "area_mm2": 16.7,
+              "bridge": false
+            },
+            {
+              "z": 3.11,
+              "span_mm": 0.2,
               "span_is_upper_bound": true,
               "supported_outline": 0.0,
-              "area_mm2": 15.6,
+              "area_mm2": 0.03,
               "bridge": false
             },
             {
-              "z": 14.05,
-              "span_mm": 1.1,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.46,
-              "area_mm2": 13.2,
-              "bridge": false
-            },
-            {
-              "z": 14.05,
-              "span_mm": 1.1,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.46,
-              "area_mm2": 13.2,
-              "bridge": false
-            },
-            {
-              "z": 14.63,
-              "span_mm": 2.4,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.32,
-              "area_mm2": 12.0,
-              "bridge": false
-            },
-            {
-              "z": 14.63,
-              "span_mm": 2.4,
-              "span_is_upper_bound": true,
-              "supported_outline": 0.32,
-              "area_mm2": 12.0,
-              "bridge": false
-            },
-            {
-              "z": 9.05,
-              "span_mm": 1.87,
+              "z": 41.11,
+              "span_mm": 0.2,
               "span_is_upper_bound": true,
               "supported_outline": 0.0,
-              "area_mm2": 6.55,
+              "area_mm2": 0.03,
               "bridge": false
+            },
+            {
+              "z": 11.44,
+              "span_mm": 0.01,
+              "span_is_upper_bound": true,
+              "supported_outline": 1.0,
+              "area_mm2": 0.0,
+              "bridge": true
+            },
+            {
+              "z": 49.44,
+              "span_mm": 0.01,
+              "span_is_upper_bound": true,
+              "supported_outline": 1.0,
+              "area_mm2": 0.0,
+              "bridge": true
             }
           ],
           "wide_regions_not_measured": 0,
-          "faces": 1014,
+          "faces": 678,
           "bbox_min": [
             -10.0,
-            0.0,
-            4.75
+            -18.4,
+            3.11
           ],
           "bbox_max": [
             30.0,
-            54.0,
-            20.75
+            -4.0,
+            48.0
           ],
           "main_z_levels": [
             {
-              "z": 4.8,
-              "area_mm2": 1298.11
+              "z": 38.0,
+              "area_mm2": 146.23
             },
             {
-              "z": 20.8,
-              "area_mm2": 672.0
+              "z": 10.0,
+              "area_mm2": 20.93
             },
             {
-              "z": 9.0,
-              "area_mm2": 56.4
+              "z": 48.0,
+              "area_mm2": 20.93
             },
             {
-              "z": 20.7,
-              "area_mm2": 39.58
+              "z": 4.4,
+              "area_mm2": 16.7
             },
             {
-              "z": 14.0,
-              "area_mm2": 26.4
+              "z": 42.4,
+              "area_mm2": 16.7
             }
           ]
         }
       },
       {
         "name": "layer_alignment",
-        "status": "warn",
-        "message": "16 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=3.1): the slicer will round them",
+        "status": "pass",
+        "message": "all flat faces sit on 0.2 mm layer boundaries",
         "data": {
           "layer_mm": 0.2,
-          "levels_checked": 16,
-          "off_grid_levels": [
-            3.1,
-            4.75,
-            8.75,
-            9.05,
-            10.45,
-            11.25,
-            11.55,
-            13.75,
-            14.05,
-            14.06,
-            14.631,
-            20.749
-          ]
+          "levels_checked": 14,
+          "off_grid_levels": []
         }
       },
       {
         "name": "small_holes",
         "status": "pass",
-        "message": "1 hole(s) found, none narrower than 3 mm",
+        "message": "1 hole(s) found, none narrower than 3 mm; 1 horizontal hole(s): use a teardrop or accept a rough top",
         "data": {
           "min_hole_mm": 3.0,
           "holes_found": 1,
           "small": [],
-          "horizontal": [],
-          "all": [
+          "horizontal": [
             {
-              "axis": "z",
+              "axis": "y",
               "min_width_mm": 12.0,
               "center": [
                 10.0,
-                27.0,
-                6.94
+                -2.19,
+                25.19
+              ]
+            }
+          ],
+          "all": [
+            {
+              "axis": "y",
+              "min_width_mm": 12.0,
+              "center": [
+                10.0,
+                -2.19,
+                25.19
               ]
             }
           ],
@@ -290,86 +269,69 @@
       },
       {
         "name": "thin_walls",
-        "status": "warn",
-        "message": "2/400 samples thinner than 0.8 mm (2 x nozzle), thinnest 0.037 mm",
+        "status": "pass",
+        "message": "no sampled wall thinner than 0.8 mm (2 x nozzle)",
         "data": {
           "limit_mm": 0.8,
           "samples": 400,
           "samples_asked": 400,
           "measured": 400,
-          "thin_samples": 2,
-          "min_thickness_mm": 0.037,
-          "thin_points": [
-            [
-              28.23,
-              6.5,
-              11.22
-            ],
-            [
-              28.52,
-              49.86,
-              11.25
-            ]
-          ]
+          "thin_samples": 0,
+          "min_thickness_mm": 1.0
         }
       },
       {
         "name": "probes",
         "status": "pass",
-        "message": "10 probe point(s) solid/empty as expected",
+        "message": "9 probe point(s) solid/empty as expected",
         "data": {
           "inside": [
             [
               10.0,
-              8.0,
-              3.9
+              0.85,
+              7.0
             ],
             [
               10.0,
-              46.0,
-              1.5499999999999998
+              3.2,
+              45.0
             ],
             [
-              -8.200000000000001,
-              8.0,
-              11.25
+              -7.800000000000002,
+              -7.0,
+              7.0
             ],
             [
-              -7.900000000000001,
-              41.75,
-              11.25
+              -7.300000000000002,
+              -8.5,
+              40.0
             ],
             [
               10.0,
-              46.0,
-              21.95
+              -17.2,
+              45.0
             ],
             [
-              27.2,
-              8.0,
-              13.25
+              26.45,
+              -9.5,
+              6.0
             ]
           ],
           "outside": [
             [
               10.0,
-              27.0,
-              6.75
+              -2.0,
+              26.0
             ],
             [
               10.0,
-              8.0,
-              14.75
+              -10.0,
+              6.0
             ],
             [
-              -6.600000000000001,
-              5.65,
-              11.25
-            ],
-            [
-              10.0,
-              8.0,
-              8.9
+              -5.900000000000002,
+              -7.0,
+              4.2
             ]
           ],
           "failed": []
@@ -377,25 +339,25 @@
       }
     ],
     "stats": {
-      "triangles": 6426,
-      "vertices": 3217,
+      "triangles": 6448,
+      "vertices": 3228,
       "bbox_min": [
         -10.0,
-        0.0,
+        -18.4,
         0.0
       ],
       "bbox_max": [
         30.0,
-        54.0,
-        23.15
+        4.75,
+        53.0
       ],
       "size": [
         40.0,
-        54.0,
-        23.15
+        23.15,
+        53.0
       ],
-      "surface_area_mm2": 8292.22,
-      "volume_mm3": 9611.374,
+      "surface_area_mm2": 9394.42,
+      "volume_mm3": 11315.53,
       "bodies": 3
     }
   },
@@ -422,104 +384,103 @@
     "OVERHANG_LIMIT": 45,
     "SUPPORTS_ALLOWED": true,
     "EXPECTED_BODIES": 3,
-    "PRINT_IN_PLACE_GAP": 0.35,
+    "PRINT_IN_PLACE_GAP": 0.45,
     "PLATE_W": 20.0,
     "BACK_T": 4.0,
-    "PLATE_H": 54.0,
+    "PLATE_H": 53.0,
     "PIN_PITCH": 38.0,
-    "LOWER_PIN_Z": 8.0,
+    "LOWER_PIN_Z": 7.0,
     "PIN_X": 10.0,
     "NECK_D": 5.6,
     "NECK_L": 1.7,
     "HEAD_D": 9.6,
     "HEAD_T": 3.0,
-    "LOOP_H": 12.0,
+    "LOOP_H": 14.0,
     "CAV_W": 35.2,
     "CAV_D": 12.0,
     "WALL": 2.4,
     "R_OUT": 6.0,
     "R_IN": 3.6,
     "GAP": 0.3,
-    "POST_H": 5.0,
-    "HINGE_W": 3.6,
-    "KNUCKLE": 3.5,
-    "CONE_D": 2.4,
-    "CONE_L": 1.2,
+    "POST_H": 6.0,
+    "HINGE_W": 4.4,
+    "KNUCKLE": 4.0,
+    "AX_GAP": 0.4,
+    "CONE_D": 3.0,
+    "CONE_L": 1.4,
+    "CONE_GAP": 0.25,
     "POST_W": 2.4,
-    "SKIRT_T": 1.3,
-    "BARB": 0.5,
+    "SKIRT_T": 1.0,
+    "BEAD_H": 1.05,
     "WIN_W": 12.0,
-    "WIN_H": 20.0,
+    "WIN_H": 18.0,
     "PIN_ZS": [
-      8.0,
-      46.0
+      7.0,
+      45.0
     ],
     "LOOP_Z0": [
-      2.0,
-      40.0
+      0.0,
+      38.0
     ],
     "LX0": -10.0,
     "LX1": 30.0,
     "Y_BASE": -4.0,
-    "Y_POST": -9.0,
+    "Y_POST": -10.0,
     "Y_FRONT": -18.4,
-    "HX": -8.2,
-    "HY": -6.5,
-    "TONGUE": 4.4,
-    "PX1": 28.4,
+    "HX": -7.8,
+    "HY": -7.0,
+    "TONGUE": 5.2,
+    "PX1": 27.65,
+    "HOOK_Y": -5.35,
+    "BEAD_Y": -6.524264,
     "WIN_Z0": 17.0,
     "PROBES_INSIDE": [
       [
         10.0,
-        8.0,
-        3.9
+        0.85,
+        7.0
       ],
       [
         10.0,
-        46.0,
-        1.55
+        3.2,
+        45.0
       ],
       [
-        -8.2,
-        8.0,
-        11.25
+        -7.8,
+        -7.0,
+        7.0
       ],
       [
-        -7.9,
-        41.75,
-        11.25
+        -7.3,
+        -8.5,
+        40.0
       ],
       [
         10.0,
-        46.0,
-        21.95
+        -17.2,
+        45.0
       ],
       [
-        27.2,
-        8.0,
-        13.25
+        26.45,
+        -9.5,
+        6.0
       ]
     ],
     "PROBES_OUTSIDE": [
       [
         10.0,
-        27.0,
-        6.75
+        -2.0,
+        26.0
       ],
       [
         10.0,
-        8.0,
-        14.75
+        -10.0,
+        6.0
       ],
       [
-        -6.6,
-        5.65,
-        11.25
-      ],
-      [
-        10.0,
-        8.0,
-        8.9
+        -5.9,
+        -7.0,
+        4.2
       ]
     ],
     "RES": 48

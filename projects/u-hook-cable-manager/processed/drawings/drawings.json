@@ -1,22 +1,22 @@
 {
-  "generated_utc": "2026-11-13T18:36:54+00:00",
+  "generated_utc": "2026-11-14T05:02:08+00:00",
   "scale": "2:1",
-  "plan_cut_z": 11.25,
+  "plan_cut_z": 6.0,
   "bbox": {
     "min": [
       -10.0,
-      0.0,
+      -18.4,
       0.0
     ],
     "max": [
       30.0,
-      54.0,
-      23.15
+      4.75,
+      53.0
     ],
     "size": [
       40.0,
-      54.0,
-      23.15
+      23.15,
+      53.0
     ]
   },
   "parts": [
@@ -24,19 +24,19 @@
   ],
   "views": {
     "front": {
-      "visible_edges": 613,
-      "hidden_edges": 242
+      "visible_edges": 1240,
+      "hidden_edges": 805
     },
     "side": {
-      "visible_edges": 1206,
-      "hidden_edges": 657
+      "visible_edges": 1237,
+      "hidden_edges": 681
     },
     "top": {
-      "visible_edges": 1233,
-      "hidden_edges": 812
+      "visible_edges": 676,
+      "hidden_edges": 257
     },
     "plan": {
-      "visible_edges": 462,
+      "visible_edges": 188,
       "hidden_edges": 0
     }
   },
@@ -50,15 +50,15 @@
     },
     {
       "check": "envelope Y",
-      "spec": 54.0,
-      "model": 54.0,
+      "spec": 23.15,
+      "model": 23.15,
       "tol": 0.5,
       "ok": true
     },
     {
       "check": "envelope Z",
-      "spec": 23.15,
-      "model": 23.15,
+      "spec": 53.0,
+      "model": 53.0,
       "tol": 0.5,
       "ok": true
     },
@@ -70,59 +70,59 @@
       "ok": true
     },
     {
-      "check": "D13 front horizontal",
-      "measured": 35.2,
-      "expect": 35.2,
-      "tol": 0.05,
-      "ok": true
-    },
-    {
-      "check": "D14 front vertical",
-      "measured": 12.0,
-      "expect": 12.0,
-      "tol": 0.05,
-      "ok": true
-    },
-    {
-      "check": "D15 front vertical",
-      "measured": 2.4,
-      "expect": 2.4,
-      "tol": 0.05,
-      "ok": true
-    },
-    {
-      "check": "D25 front vertical",
-      "measured": 5.0,
-      "expect": 5.0,
-      "tol": 0.05,
-      "ok": true
-    },
-    {
-      "check": "D1 top horizontal",
+      "check": "D1 front horizontal",
       "measured": 20.0,
       "expect": 20.0,
       "tol": 0.05,
       "ok": true
     },
     {
-      "check": "D28 top horizontal",
+      "check": "D3 front vertical",
+      "measured": 53.0,
+      "expect": 53.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D4 side vertical",
+      "measured": 38.0,
+      "expect": 38.0,
+      "tol": 1.5,
+      "ok": true
+    },
+    {
+      "check": "D12 side vertical",
+      "measured": 14.0,
+      "expect": 14.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D13 plan horizontal",
+      "measured": 35.2,
+      "expect": 35.2,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D14 plan vertical",
       "measured": 12.0,
       "expect": 12.0,
       "tol": 0.05,
       "ok": true
     },
     {
-      "check": "D3 top vertical",
-      "measured": 54.0,
-      "expect": 54.0,
+      "check": "D15 plan vertical",
+      "measured": 2.4,
+      "expect": 2.4,
       "tol": 0.05,
       "ok": true
     },
     {
-      "check": "D4 top vertical",
-      "measured": 38.0,
-      "expect": 38.0,
-      "tol": 1.5,
+      "check": "D31 plan horizontal",
+      "measured": 40.0,
+      "expect": 40.0,
+      "tol": 0.05,
       "ok": true
     }
   ],

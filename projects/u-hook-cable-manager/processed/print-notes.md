@@ -1,35 +1,34 @@
-## Print in place: one piece, lids already on their hinges
+## Print in place, upright
 
-- **Orientation:** lay it on its back as exported. The two rack pin heads touch the bed, and the lids are on top, closed. Do not rotate it.
-- **Supports: on build plate only.** They fill the 4.75 mm under the plate's back and the loop bases. Do not use "everywhere": that would fill the 0.3 mm hinge and latch gaps and weld the lids shut.
-- **Lid ceilings:** they bridge about 28 mm over the cable space, as in the reference. Keep bridge cooling on.
-- **After printing:** peel the support off the back. Then open each lid once by pulling its right end, with the latch side, away from the base. The first opening breaks any light fusing in the 0.3 mm gaps.
+- **Orientation:** upright as exported, standing on the plate's bottom edge, with the rack pins pointing sideways. Both lids print closed on their hinges, so there is nothing to fit afterwards.
+- **Lower lid:** it stands on the bed.
+- **Upper lid:** it needs **support under it**. Use tree support, or a support enforcer painted on its underside. The support stands on top of the lower lid, about 24 mm tall, under the lid's U only.
+- **Before printing:** check the slicer preview. There must be no support inside the 0.4 mm hinge gaps or the 0.3 mm latch gap. If your slicer puts some there, add a support blocker around the hinge (the left end of each loop).
+- **Upper loop base:** the 45 deg wings under it are part of the design. It needs no support.
+- **After printing:** remove the support, then open each lid once by pulling its right end forward. That breaks any light fusing in the gaps.
 
 ## Using it
 
-- **Open:** pull the right end of the lid forward. The skirt flexes and the barb leaves the notch. The lid swings open about 105 deg along the cable.
-- **Close:** press the lid shut until the barb clicks under the post notch.
-- **Hang:** push both rack pin heads into the round holes of the keyholes, then let it drop so the grooves slide down the slots, as with the adaptor holder.
+- **Open:** pull the right end of the lid forward. It swings about 105 deg along the cable.
+- **Close:** press it shut. The hook on the lid's thin right skirt clicks past the 45 deg bead on the latch post, as on seba-med-cap's flip lid.
 
 ## Test fit, then adjust in 0.05 mm steps
 
-These are first guesses for PLA, checked only by the motion sweep. FDM adds about 0.1 mm per side, so gaps print smaller than drawn.
-
-- **Hinge or lid fused or stiff:** raise `GAP` 0.30 -> 0.35 -> 0.40. This changes every clearance: hinge, posts and latch.
-- **Latch too stiff:** lower `BARB` 0.50 -> 0.45, or thin `SKIRT_T` 1.3 -> 1.2.
-- **Latch too loose:** raise `BARB` to 0.55.
+- **Hinge:** cone clearance `CONE_GAP` is 0.25, one step tighter than rev 4 (user: tighter). If it fuses or is stiff, go to 0.30. If it wobbles, go to 0.20. The lid has about 0.35 mm axial play before the cones take it.
+- **Latch** (after seba-med-cap): the bead `BEAD_H` is 1.05 (rev 9: raised 0.30 from 0.75 at your request, not the usual 0.05 step), so the hook travels 0.75 mm over it on a 1.0 mm arm (`SKIRT_T`).
+  - The arm now bends to about 4.6 % strain, above the usual ~3 % guide for PLA. Open and close it gently the first few times.
+  - If the skirt cracks or stays bent outwards, go back towards 0.90.
 
 ## Motion check (manifold3d sweep, both loops)
 
 - **Closed:** no overlap.
-- **0-4 deg:** the barb rides 0.2 mm over the post. That is the click.
-- **6-105 deg:** free.
+- **1-3 deg:** the hook rides 0.73 mm over the bead. This is the click, and it holds the lid shut.
+- **4-105 deg:** free.
 - **About 110 deg:** the lid stops against the base.
-- The cone pins never touch their sockets.
+- **Lid moved 0.35 mm up or down:** no contact. The cone pins hold it on the hinge.
 
 ## Accepted printcheck warnings
 
-- **on_bed:** the two lids do not touch the bed. They rest 0.30 mm above the base, as in a print-in-place hinge, and build.py checks every lowest face of each lid for this.
-- **overhang:** the plate's back sits over the build-plate support, and the lid ceilings are bridges.
-- **thin_walls:** the barb's 45 deg tip.
-- **layer_alignment:** the 0.3 gaps and the hinge axis levels are not on the 0.2 grid. The slicer rounds them, so check that the gaps stay open in the slicer preview.
+- **on_bed:** the upper lid is off the bed. It is captured on its hinge (it cannot drop) and is printed on support.
+- **overhang:** the upper lid's underside, about 240 mm2, sits on support.
+- **thin_walls:** the 45 deg tips of the bead and the hook.

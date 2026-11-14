@@ -2,9 +2,9 @@
  "schema": "design-pipeline/spec@1",
  "project": "u-hook-cable-manager",
  "status": "confirmed",
- "revision": 4,
+ "revision": 9,
  "units": "mm",
- "summary": "A cable manager for the same rack keyholes as the adaptor holder. A 20 x 54 x 4 plate carries the two teardrop rack pins (z 8 and 46) and, centred on each pin, a cable loop 40 wide and 12 long: a rounded U strap lid (2.4 wall, R6 outside) over a 35.2 x 12 cable space, hinged along the cable on a 3-knuckle hinge with 45 deg cone pins and closed by a skirt-and-barb latch, like the reference Deskcable organiser. Everything prints in place in one go, lying on its back (rack pin heads on the bed, lids on top, already on their hinges); the only support is under the plate's back. A 12 x 20 window saves material. PLA, one per plate.",
+ "summary": "A cable manager for the same rack keyholes as the adaptor holder. A 20 x 53 x 4 plate carries the two teardrop rack pins (z 7 and 45) and, centred on each pin, a cable loop 40 wide and 14 tall: a rounded U strap lid (2.4 wall, R6 outside) over a 35.2 x 12 cable space, hinged along the cable on a 3-knuckle hinge with 45 deg cone pins (printed in place, like the reference) and closed by a bead-and-hook click latch taken from seba-med-cap. Printed upright as used: the lower loop stands on the bed, the upper lid needs support under it only. A 12 x 18 window saves material. PLA, one per plate.",
  "inputs": [
   {
    "file": "input/brief.md",
@@ -14,7 +14,7 @@
   {
    "file": "input/elevation.svg",
    "kind": "sketch",
-   "notes": "assistant-drawn elevation v6 (loop 40 wide), approved by the user; the hinge detail is superseded by rev 4"
+   "notes": "assistant-drawn elevation v6 (loop 40 wide), approved by the user; the hinge detail is superseded by rev 6"
   },
   {
    "file": "projects/u-hook-adaptor-holder/processed/spec.json",
@@ -28,15 +28,15 @@
   }
  ],
  "datum": {
-  "origin": "design frame: left face of the plate (X), back face (Y), plate bottom end (Z); the model files are in print orientation: print X = X, print Y = Z, print Z = 4.75 - Y",
+  "origin": "left face of the plate (X), back face resting on the rack upright (Y), underside of the plate (Z)",
   "x": "left to right seen from the front",
   "y": "towards the rack: +Y = back; loops at -Y, rack pins at +Y",
-  "z": "along the cable (up in use); print Z = up from the bed, the rack pin heads sit on Z = 0"
+  "z": "up = print direction; printed upright as used, lids closed on their hinges"
  },
  "envelope": {
   "x": 40.0,
-  "y": 54.0,
-  "z": 23.15,
+  "y": 23.15,
+  "z": 53.0,
   "tolerance": 0.5
  },
  "print": {
@@ -52,7 +52,7 @@
    "PLA"
   ],
   "supports": true,
-  "orientation": "on its back: rack pin heads on the bed, plate and loop bases above them, lids on top, printed closed on their hinges; supports on build plate only (under the plate's back, 4.75 mm)",
+  "orientation": "upright as used, on the plate's bottom edge (rack pins sideways, layers along them); lids printed closed on their hinges; the lower lid stands on the bed, the upper lid needs slicer support under it (it rests on the lower lid); 45 deg wings under the upper loop base",
   "quantity": 1
  },
  "parts": [
@@ -86,12 +86,12 @@
   },
   {
    "id": "D3",
-   "name": "plate length (Z, along the cable)",
-   "value": 54.0,
+   "name": "plate height (Z)",
+   "value": 53.0,
    "basis": "derived",
    "confidence": "high",
    "critical": false,
-   "source": "u-hook-adaptor-holder spec pin test sample height",
+   "source": "rev 6: lower loop on the bed; upper pin + 8 (u-hook-adaptor-holder spec D16)",
    "fit": null,
    "param": "PLATE_H"
   },
@@ -110,18 +110,18 @@
   {
    "id": "D5",
    "name": "lower rack pin centre Z",
-   "value": 8.0,
+   "value": 7.0,
    "basis": "derived",
    "confidence": "high",
    "critical": false,
-   "source": "u-hook-adaptor-holder spec D36",
+   "source": "rev 6: D12 / 2, so the lower loop sits on the bed",
    "fit": null,
    "param": "LOWER_PIN_Z"
   },
   {
    "id": "D6",
    "name": "upper rack pin centre Z",
-   "value": 46.0,
+   "value": 45.0,
    "basis": "derived",
    "confidence": "high",
    "critical": false,
@@ -185,12 +185,12 @@
   },
   {
    "id": "D12",
-   "name": "loop length along the cable (Z), centred on its pin",
-   "value": 12.0,
-   "basis": "default",
-   "confidence": "medium",
+   "name": "loop height along the cable (Z), centred on its pin",
+   "value": 14.0,
+   "basis": "given",
+   "confidence": "high",
    "critical": false,
-   "source": "elevation v5",
+   "source": "user rev 6: 12 + 2 for a bigger hinge",
    "fit": null,
    "param": "LOOP_H"
   },
@@ -251,12 +251,12 @@
   },
   {
    "id": "D19",
-   "name": "clearance between moving faces (hinge, posts, latch)",
+   "name": "side clearance between moving faces (legs, posts, latch, knuckles)",
    "value": 0.3,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "reference Deskcable_organiser.3mf (measured sections): 0.25-0.3; print-in-place",
+   "source": "reference Deskcable_organiser.3mf (measured sections): 0.25-0.3",
    "fit": "sliding",
    "param": "GAP"
   },
@@ -273,36 +273,25 @@
   },
   {
    "id": "D25",
-   "name": "hinge and latch post height above the base (Y)",
-   "value": 5.0,
+   "name": "hinge tongue and latch post height above the base (Y)",
+   "value": 6.0,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "reference Deskcable_organiser.3mf (measured sections): posts 4; rev 4: 5 so the knuckle can turn",
+   "source": "reference Deskcable_organiser.3mf (measured sections): posts 4; rev 6: 6 for the bigger hinge",
    "fit": null,
    "param": "POST_H"
   },
   {
    "id": "D26",
-   "name": "lid latch skirt thickness (X)",
-   "value": 1.3,
-   "basis": "default",
-   "confidence": "low",
+   "name": "lid skirt = latch arm thickness (X)",
+   "value": 1.0,
+   "basis": "derived",
+   "confidence": "medium",
    "critical": false,
-   "source": "reference Deskcable_organiser.3mf (measured sections): ~1.25; flexes over the post",
+   "source": "rev 7: seba-med-cap latch arm D40; strain 3 x 1.0 x 0.45 / (2 x 5.3^2) = 2.4 %",
    "fit": null,
    "param": "SKIRT_T"
-  },
-  {
-   "id": "D27",
-   "name": "latch barb depth (X), 45 deg lead-in",
-   "value": 0.5,
-   "basis": "default",
-   "confidence": "low",
-   "critical": false,
-   "source": "rides 0.2 over the post (D27 - D19); test print",
-   "fit": null,
-   "param": "BARB"
   },
   {
    "id": "D28",
@@ -317,12 +306,12 @@
   },
   {
    "id": "D29",
-   "name": "window length (Z)",
-   "value": 20.0,
+   "name": "window length (Z), round bottom, 45 deg pointed top",
+   "value": 18.0,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "3 mm from each loop",
+   "source": "rev 6: 3 mm from each 14 mm loop",
    "fit": null,
    "param": "WIN_H"
   },
@@ -347,58 +336,101 @@
    "fit": null
   },
   {
-   "id": "D33",
+   "id": "D50",
+   "name": "latch bead height on the post, 45 deg both faces",
+   "value": 1.05,
+   "basis": "given",
+   "confidence": "high",
+   "critical": false,
+   "source": "rev 9: 0.75 + 0.30 (user: snap still not good, tighter by 0.3); rev 7 after seba-med-cap",
+   "fit": null,
+   "param": "BEAD_H"
+  },
+  {
+   "id": "D51",
+   "name": "latch hook travel over the bead (X)",
+   "value": 0.75,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "D50 - D19; arm strain 3 x 1.0 x 0.75 / (2 x 4.95^2) = 4.6 %, above the ~3 % PLA guide (user asked for it)",
+   "fit": null
+  },
+  {
+   "id": "D43",
    "name": "hinge cone pin base diameter",
-   "value": 2.4,
+   "value": 3.0,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "reference Deskcable_organiser.3mf (measured sections): pins ~2.5; 45 deg cones print without support",
+   "source": "rev 6: bigger hinge (user); reference Deskcable_organiser.3mf (measured sections): pins ~2.5",
    "fit": null,
    "param": "CONE_D"
   },
   {
-   "id": "D34",
-   "name": "hinge cone pin length",
-   "value": 1.2,
+   "id": "D44",
+   "name": "hinge cone pin length (45 deg)",
+   "value": 1.4,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "45 deg cone",
+   "source": "rev 6",
    "fit": null,
    "param": "CONE_L"
   },
   {
-   "id": "D35",
-   "name": "lid knuckle length (Z), one at each end of the loop",
-   "value": 3.5,
+   "id": "D45",
+   "name": "lid knuckle height (Z), one below and one above the tongue",
+   "value": 4.0,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "reference Deskcable_organiser.3mf (measured sections): 3-knuckle hinge",
+   "source": "rev 6: 3-knuckle hinge like the reference",
    "fit": null,
    "param": "KNUCKLE"
   },
   {
-   "id": "D36",
-   "name": "hinge tongue length (Z)",
-   "value": 4.4,
+   "id": "D46",
+   "name": "hinge tongue height (Z)",
+   "value": 5.2,
    "basis": "derived",
    "confidence": "high",
    "critical": false,
-   "source": "D12 - 2 x (D35 + D19)",
+   "source": "D12 - 2 x (D45 + D48)",
    "fit": null
   },
   {
-   "id": "D37",
-   "name": "hinge post / knuckle width (X)",
-   "value": 3.6,
+   "id": "D47",
+   "name": "hinge tongue / knuckle width (X)",
+   "value": 4.4,
    "basis": "default",
    "confidence": "medium",
    "critical": false,
-   "source": "carries the cone pins and sockets",
+   "source": "rev 6: bigger hinge (user)",
    "fit": null,
    "param": "HINGE_W"
+  },
+  {
+   "id": "D48",
+   "name": "axial gap tongue / knuckle",
+   "value": 0.4,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "two 0.2 layers so it prints open upright",
+   "fit": null,
+   "param": "AX_GAP"
+  },
+  {
+   "id": "D49",
+   "name": "cone pin to socket clearance, normal to the cone",
+   "value": 0.25,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "rev 6: tighter hinge (user), 0.30 - 0.05",
+   "fit": null,
+   "param": "CONE_GAP"
   }
  ],
  "features": [
@@ -406,7 +438,7 @@
    "id": "F1",
    "name": "back plate with window",
    "count": 1,
-   "position": "x 0-20, y -4-0, z 0-54; window x 4-16, z 17-37",
+   "position": "x 0-20, y -4-0, z 0-53; window x 4-16, z 17-35",
    "dims": [
     "D1",
     "D2",
@@ -414,13 +446,13 @@
     "D28",
     "D29"
    ],
-   "notes": "printed lying on its back: the window is a vertical hole"
+   "notes": "window has a 45 deg pointed top so it prints upright"
   },
   {
    "id": "F2",
    "name": "rack pin (grooved teardrop)",
    "count": 2,
-   "position": "x 10; z 8 and 46; +Y",
+   "position": "x 10; z 7 and 45; +Y",
    "dims": [
     "D4",
     "D5",
@@ -431,28 +463,29 @@
     "D10",
     "D11"
    ],
-   "notes": "the pin heads are the bed contact; support under the plate's back"
+   "notes": "same as the adaptor holder, printed upright like the tested sample"
   },
   {
    "id": "F3",
-   "name": "loop base: 40 mm wide base, hinge tongue with two cone pins, latch post with notch",
+   "name": "loop base: 40 mm ear, hinge tongue with two cone pins, latch post with a 45/45 bead",
    "count": 2,
-   "position": "x -10 to 30, y 0 to -9, z 2-14 and 40-52",
+   "position": "x -10 to 30, y 0 to -10, z 0-14 and 38-52",
    "dims": [
     "D2",
     "D12",
-    "D25",
     "D24",
-    "D33",
-    "D34",
-    "D36",
-    "D37"
+    "D25",
+    "D43",
+    "D44",
+    "D46",
+    "D47",
+    "D50"
    ],
-   "notes": "hinge axis x -8.2, y -6.5, along Z"
+   "notes": "hinge axis x -7.8, y -7 (vertical); 45 deg wings under the upper loop beside the plate"
   },
   {
    "id": "F4",
-   "name": "lid: rounded U strap with two knuckles and a latch skirt",
+   "name": "lid: rounded U strap with two knuckles and a latch arm with a 45/45 hook",
    "count": 2,
    "position": "x -10 to 30, y -4.3 to -18.4, same z as F3; printed in place, closed",
    "dims": [
@@ -463,19 +496,20 @@
     "D18",
     "D19",
     "D26",
-    "D27",
-    "D35"
+    "D45",
+    "D48",
+    "D49",
+    "D51"
    ],
-   "notes": "legs rest 0.3 above the posts and base; opens about 105 deg"
+   "notes": "lower lid on the bed; upper lid needs support under it; opens about 105 deg; 45/45 hook clicks past the post bead"
   }
  ],
  "assumptions": [
   "A1: one loop centred on each rack pin (user).",
-  "A2: loop 40 wide (user); cable space depth = reference + 2 mm (user).",
-  "A3: print in place on its back, like the reference (user, rev 4): the lids print on their hinges; only the plate's back needs support (build plate only).",
-  "A4: gaps (D19), barb (D27) and skirt (D26) are first guesses for PLA, checked by the motion sweep only; print one and adjust in 0.05 mm steps.",
-  "A5: the rack pins now print with their layers across them (they stood upright in the tested sample); fine for the light load of cables.",
-  "A6: the lid ceiling bridges about 28 mm over the cable space, as in the reference."
+  "A2: loop 40 wide (user), 14 tall (user rev 6); cable space depth = reference + 2 mm (user).",
+  "A3: rev 6 (user): print in place, upright; support only under the upper lid (it stands on the lower lid). Rev 5 drop-on lids broke while fitting (user).",
+  "A4: hinge tighter (user): cone clearance 0.25; the lid has about 0.35 axial play before the cones take it.",
+  "A5: rev 7 latch after seba-med-cap (user): 45/45 bead on the post, 45/45 hook on a 1.0 arm; rev 8 bead 0.75 (user: raise it); rev 9 bead 1.05, 0.75 travel (user: tighter by 0.3; arm strain about 4.6 %, test it); no preload, because the lid prints closed and the hook must print 0.3 clear of the bead."
  ],
  "open_questions": [
   {
@@ -506,147 +540,166 @@
    "id": "Q5",
    "question": "Separate lids or print in place, and orientation?",
    "blocking": true,
-   "answer": "print in place, on its back with support under the plate (user, rev 4)"
+   "answer": "rev 4: print in place on its back; rev 5: upright, no support, lids drop on (user)"
+  },
+  {
+   "id": "Q6",
+   "question": "Latch?",
+   "blocking": true,
+   "answer": "rev 4 printed too loose (user): barb +0.05"
+  },
+  {
+   "id": "Q8",
+   "question": "Latch click?",
+   "blocking": true,
+   "answer": "use the seba-med-cap bead and hook (user, rev 7)"
+  },
+  {
+   "id": "Q7",
+   "question": "Hinge?",
+   "blocking": true,
+   "answer": "rev 6: print in place upright, 2 mm taller band, bigger and tighter hinge (user)"
   }
  ],
  "drawing": {
-  "plan_cut_z": 11.25,
+  "plan_cut_z": 6.0,
   "dimensions": [
    {
     "id": "D31",
     "view": "front",
     "from": [
      -10,
-     2,
-     16.75
+     0,
+     20
     ],
     "to": [
      30,
-     2,
-     16.75
+     0,
+     20
     ],
-    "offset": 12
+    "offset": 12,
+    "on_geometry": false
+   },
+   {
+    "id": "D1",
+    "view": "front",
+    "from": [
+     0,
+     0,
+     26
+    ],
+    "to": [
+     20,
+     0,
+     26
+    ],
+    "offset": 22
+   },
+   {
+    "id": "D3",
+    "view": "front",
+    "from": [
+     10,
+     0,
+     0
+    ],
+    "to": [
+     10,
+     0,
+     53
+    ],
+    "offset": -14
+   },
+   {
+    "id": "D4",
+    "view": "side",
+    "from": [
+     30,
+     4.75,
+     7
+    ],
+    "to": [
+     30,
+     4.75,
+     45
+    ],
+    "offset": 10,
+    "on_geometry": false
+   },
+   {
+    "id": "D12",
+    "view": "side",
+    "from": [
+     30,
+     -18.4,
+     0
+    ],
+    "to": [
+     30,
+     -18.4,
+     14
+    ],
+    "offset": -10
    },
    {
     "id": "D13",
-    "view": "front",
+    "view": "plan",
     "from": [
      -7.6,
-     2,
-     16.75
+     -12,
+     6
     ],
     "to": [
      27.6,
-     2,
-     16.75
-    ],
-    "offset": 20
-   },
-   {
-    "id": "D14",
-    "view": "front",
-    "from": [
-     10,
-     2,
-     8.75
-    ],
-    "to": [
-     10,
-     2,
-     20.75
-    ],
-    "offset": 12
-   },
-   {
-    "id": "D15",
-    "view": "front",
-    "from": [
-     10,
-     2,
-     20.75
-    ],
-    "to": [
-     10,
-     2,
-     23.15
-    ],
-    "offset": 20
-   },
-   {
-    "id": "D25",
-    "view": "front",
-    "from": [
-     26.0,
-     2,
-     8.75
-    ],
-    "to": [
-     26.0,
-     2,
-     13.75
+     -12,
+     6
     ],
     "offset": 10
    },
    {
-    "id": "D1",
-    "view": "top",
+    "id": "D14",
+    "view": "plan",
     "from": [
-     0,
-     27,
-     8.75
+     10,
+     -4,
+     6
     ],
     "to": [
-     20,
-     27,
-     8.75
+     10,
+     -16,
+     6
     ],
-    "offset": 12
+    "offset": 10
    },
    {
-    "id": "D28",
-    "view": "top",
+    "id": "D15",
+    "view": "plan",
     "from": [
-     4,
-     27,
-     8.75
+     10,
+     -16,
+     6
     ],
     "to": [
-     16,
-     27,
-     8.75
+     10,
+     -18.4,
+     6
     ],
-    "offset": 20
+    "offset": 18
    },
    {
-    "id": "D3",
-    "view": "top",
+    "id": "D31",
+    "view": "plan",
     "from": [
-     10,
-     0,
-     8.75
+     -10,
+     -14,
+     6
     ],
     "to": [
-     10,
-     54,
-     8.75
+     30,
+     -14,
+     6
     ],
-    "offset": 14
-   },
-   {
-    "id": "D4",
-    "view": "top",
-    "from": [
-     10,
-     8,
-     8.75
-    ],
-    "to": [
-     10,
-     46,
-     8.75
-    ],
-    "offset": 22,
-    "on_geometry": false
+    "offset": 18
    }
   ]
  }
