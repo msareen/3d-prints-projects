@@ -39,6 +39,80 @@ stages:
 | 2. Model + drawings | `build.py` (the 3d-print-design template) with every parameter traced to a spec ID, then printcheck. Front, side and top elevations plus a sectioned plan view as SVG, with every annotation **measured on the model and checked against the spec**. 3D viewer in the browser | `check` passes (spec = build.py), printcheck passes, drawing checks pass, I approve |
 | 3. Release | Full rebuild with every check, then one output folder **per material**: STLs, a 3MF, a generated print sheet, plus the drawing, the spec and `release.json` (sha256 of every file) | Everything above |
 
+### Pipeline diagram
+
+Blue boxes are **3d-design-pipeline** (this repo), orange boxes are
+**3d-print-design** (the submodule), purple boxes use both, and grey boxes are
+where I decide. Every `pipeline` command is `uv run pipeline <command> <project>`.
+
+```mermaid
+flowchart TD
+    IN(["My material: photos, sketches,<br/>drawings, notes, caliper measurements"])
+
+    subgraph S0["Stage 0: project"]
+        NEW["pipeline new<br/>creates input/ processed/ output/<br/>copies the build.py template<br/><i>pipeline.py</i>"]:::pipe
+        SCRUB["pipeline scrub<br/>strips GPS, time and device info<br/>from photos, no re-encoding<br/><i>scrub.py</i>"]:::pipe
+        NEW --> SCRUB
+    end
+
+    subgraph S1["Stage 1: spec"]
+        READ["Read every input, transcribe callouts,<br/>convert to mm, fix datum and print orientation,<br/>build the dimension register D1, D2, ...<br/><i>references/spec-extraction.md, spec-format.md</i>"]:::pipe
+        ASK{{"Blocking gaps?<br/>ask me, at most 2 rounds"}}:::gate
+        CHECK["pipeline check<br/>spec.json valid, photos scrubbed,<br/>spec values = build.py parameters<br/><i>pipeline.py</i>"]:::pipe
+        OK1{{"I confirm the spec"}}:::gate
+        READ --> ASK --> CHECK --> OK1
+    end
+
+    subgraph S2["Stage 2: model, drawings, 3D view"]
+        MODEL["Edit build.py: parametric model,<br/>every parameter traced to a spec ID<br/><i>templates/build.py, cad.py, design rules</i>"]:::p3d
+        BUILD["pipeline build<br/>spec check + build.py + printcheck<br/>passes only: writes processed/model/<br/><i>pipeline.py + printcheck.py</i>"]:::mixed
+        DRAW["pipeline draw<br/>front, side, top elevations + plan section,<br/>every annotation measured on the model<br/><i>draw.py, references/drawings.md</i>"]:::pipe
+        VIEW["pipeline view + PNG previews<br/>three.js viewer on 127.0.0.1<br/><i>serve.py, viewer/, render_png.py</i>"]:::p3d
+        SWEEP["Moving parts: motion sweep<br/>overlap at each hinge angle and closed<br/><i>manifold3d, AGENTS.md rule</i>"]:::pipe
+        OK2{{"I approve the drawings<br/>and the 3D view"}}:::gate
+        MODEL --> BUILD --> DRAW --> VIEW --> SWEEP --> OK2
+    end
+
+    REV["Change requested:<br/>bump revision, revision line,<br/>update the register"]:::pipe
+
+    subgraph S3["Stage 3: release"]
+        FIN["pipeline finalize<br/>refuses an unconfirmed spec;<br/>re-runs check, full build, printcheck, draw<br/><i>pipeline.py</i>"]:::pipe
+        MAT["Per material: rebuild with that<br/>material's clearances, printcheck again<br/><i>materials/MAT.json, fits-MAT.json, printcheck.py</i>"]:::mixed
+        OUT["output/MAT/: STL + JSON, 3MF,<br/>print-sheet.md with print-notes.md<br/><i>make3mf.py, bambu.py, pipeline.py</i>"]:::pipe
+        REL["output/: drawing sheet, spec copy,<br/>release.json with sha256 of every file"]:::pipe
+        FIN --> MAT --> OUT --> REL
+    end
+
+    SLICE(["I slice and print<br/>the pipeline never contacts a printer"])
+
+    IN --> NEW
+    SCRUB --> READ
+    OK1 --> MODEL
+    OK2 -- "approved" --> FIN
+    OK2 -- "change" --> REV
+    REV --> CHECK
+    REL --> SLICE
+
+    classDef pipe fill:#dbeafe,stroke:#2563eb,color:#0b1f44
+    classDef p3d fill:#ffedd5,stroke:#ea580c,color:#431407
+    classDef mixed fill:#ede9fe,stroke:#7c3aed,color:#2e1065
+    classDef gate fill:#f3f4f6,stroke:#6b7280,color:#111827
+```
+
+Which skill does what:
+
+| Step | Skill | Files used |
+|---|---|---|
+| `new`, `scrub`, `status` | 3d-design-pipeline | `scripts/pipeline.py`, `scripts/scrub.py` |
+| Spec (stage 1) | 3d-design-pipeline | `SKILL.md`, `references/spec-extraction.md`, `references/spec-format.md` |
+| `check` | 3d-design-pipeline | `scripts/pipeline.py` |
+| Model (`build.py`) | 3d-print-design | `templates/build.py`, `scripts/cad.py`, design rules |
+| `build` | both | `scripts/pipeline.py` runs `build.py` with 3d-print-design's `scripts/printcheck.py` |
+| `draw` | 3d-design-pipeline | `scripts/draw.py`, `references/drawings.md` |
+| `view`, PNG previews | 3d-print-design | `scripts/serve.py`, `scripts/viewer/`, `scripts/render_png.py` |
+| Motion sweep | 3d-design-pipeline (project rule in `AGENTS.md`) | manifold3d, run ad hoc with `uv run python -I` |
+| `finalize` | both | `scripts/pipeline.py`, `materials/<MAT>.json`, `scripts/make3mf.py`, `scripts/bambu.py`, printcheck |
+
 What it adds on top of 3d-print-design:
 
 - **Written spec first.** No modelling until the spec is confirmed; a guessed
@@ -100,6 +174,7 @@ projects/<project>/
 | [seba-med-cap](projects/seba-med-cap) | Two-piece snap-on flip-top cap for a lotion bottle | PETG, PLA | 8 |
 | [sword-handle-fix](projects/sword-handle-fix) | Pommel cap for a toy sword with a broken handle end | PLA | 1 |
 | [u-hook-adaptor-holder](projects/u-hook-adaptor-holder) | Cup that hangs a Surface 65 W power brick on a keyhole-slotted rack | PLA | 2 |
+| [u-hook-cable-manager](projects/u-hook-cable-manager) | Cable manager for the same rack keyholes: two hinged U-strap cable loops, printed in place with snap latches | PLA | 9 |
 
 ## Usage
 
