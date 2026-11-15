@@ -53,4 +53,4 @@ are unreliable here.
 - For parts that move into each other (lids, hinges, plugs), sweep the
   motion with manifold3d and measure the overlap at each step and when
   closed, before releasing.
-- Commit only when the user asks.
+- Do not commit or push unless the user explicitly asks for each action.
