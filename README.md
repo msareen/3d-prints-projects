@@ -120,6 +120,12 @@ Details, optional Bambu Studio and Windows PNG previews are in
   `projects/` were created with Claude Code but are designed to be worked on by
   any agent that follows `AGENTS.md`.
 
+## License
+
+This repository is licensed under the [MIT License](LICENSE). The
+`3d-print-design` git submodule is separately licensed under MIT by its
+upstream author; see its included license for its terms and copyright notice.
+
 ## Documentation
 
 | Page | What is in it |
