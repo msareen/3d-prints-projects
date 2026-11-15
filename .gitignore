@@ -11,3 +11,6 @@ projects/*/processed/model/
 
 # uv environment (uv sync); uv.lock is committed
 .venv/
+
+# showcase build output (showcase/build.py); GitHub Pages builds its own copy
+_site/

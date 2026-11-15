@@ -1,5 +1,7 @@
 # 3d-prints-projects
 
+**[See everything built so far in the project showcase](https://msareen.github.io/3d-prints-projects/)**: what each part started from, a 3D preview, photos of the print and the files to download.
+
 This is by far the easiest and cheapest way I have found to go from a real
 object to a 3D print: photograph the part (or the gap a part has to fill),
 describe it, and let a coding agent turn that into a checked, printable model.
@@ -45,7 +47,7 @@ Studio 3MFs on top. See [Credits](#credits).
    ```
 
    This creates `projects/<projectName>/` with `input/`, `processed/` and
-   `output/`.
+   `output/` (with an empty `output/printed-pic/` for photos of the print).
 
 2. Put your pictures (and any sketches or measurements) into `input/`, then
    scrub them. It strips GPS, timestamps and device info, and the checks fail
@@ -84,6 +86,11 @@ Studio 3MFs on top. See [Credits](#credits).
    slicer settings. `--material PETG` releases just one.
 
 Slicing and printing stay with you: it never contacts a printer.
+
+6. Once it is printed, put a photo or two of the part into
+   `output/printed-pic/` and scrub them the same way. The
+   [showcase](https://msareen.github.io/3d-prints-projects/) uses the first
+   one as the project's picture once you commit and push.
 
 First time on this machine? Clone, then run the init script from the repo
 root. It fetches the git submodule and creates the Python environment:
@@ -133,3 +140,4 @@ upstream author; see its included license for its terms and copyright notice.
 | [How the pipeline works](docs/pipeline.md) | The stages and their gates, the pipeline diagram, which skill does what, what the pipeline adds, the project folder layout, and how photos are scrubbed of GPS and device info |
 | [Setup and usage](docs/usage.md) | Clone and Python environment, Bambu Studio and PNG previews on Windows, every `pipeline` command, the two skills and how to update or add one |
 | [Projects](docs/projects.md) | Every design in this repo, and the hair band as a worked example |
+| [Showcase](docs/usage.md#showcase) | The GitHub Pages site built from `projects/`: how it is generated, previewed locally and published |

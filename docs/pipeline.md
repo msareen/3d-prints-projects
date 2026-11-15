@@ -130,15 +130,17 @@ projects/<project>/
   output/       3. release
     <MAT>/      <part>.stl + .json, <project>-<MAT>.3mf, -plates.svg, print-sheet.md
     <project>-drawing.svg, <project>-spec.md, release.json
+    printed-pic/  photos of the finished print, added after release (not in release.json)
 ```
 
 ## Privacy: photos are scrubbed
 
 Phone photos carry GPS coordinates, a timestamp and the phone model. Before
 a photo is used, `uv run pipeline scrub <project>` removes all of it from every
-image in `input/`. It does not re-encode: the pixels are byte-identical and the
+image in `input/` and `output/printed-pic/`. It does not re-encode: the pixels are byte-identical and the
 EXIF orientation is kept so photos still show upright (JPEG: EXIF, XMP, IPTC,
 comments and motion-photo trailers; PNG: text, time and EXIF chunks). `check`,
-`build` and `finalize` fail while any photo in `input/` still has GPS, so
-an unscrubbed photo cannot slip into a release. HEIC, TIFF and WebP are reported
+`build` and `finalize` fail while any of those photos still has GPS, and so
+does the showcase build, so an unscrubbed photo cannot slip into a release or
+onto the published site. HEIC, TIFF and WebP are reported
 but not rewritten: convert them to JPEG first.

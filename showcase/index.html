@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>3D prints showcase</title>
+<meta name="description" content="Parts designed from photos and measurements, with their inputs, a 3D preview and the files to print them.">
+<link rel="stylesheet" href="showcase.css">
+<script src="viewer.js" defer></script>
+<script src="showcase.js" defer></script>
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="#/">3D prints showcase</a>
+  <nav><a id="repo-link" href="#/" hidden>Source on GitHub</a></nav>
+</header>
+<main id="app" aria-live="polite">
+  <p class="loading">Loading projects...</p>
+</main>
+<footer class="site">
+  <p>Each part was designed from photos and measurements with the
+  <code>3d-design-pipeline</code> skill: confirmed spec, checked drawings, then STL and 3MF.
+  <span id="generated"></span></p>
+</footer>
+<noscript><p class="loading">This showcase needs JavaScript.</p></noscript>
+</body>
+</html>

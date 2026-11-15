@@ -84,7 +84,7 @@ bracket for my shelf"*, or invoke `/3d-design-pipeline`. The commands it runs
 
 ```bash
 uv run pipeline new <project>
-uv run pipeline scrub <project>      # strip GPS / device info from input/ photos
+uv run pipeline scrub <project>      # strip GPS / device info from input/ + output/printed-pic/ photos
 uv run pipeline status <project>
 uv run pipeline check <project>      # spec.json <-> build.py
 uv run pipeline build <project> [--quick]
@@ -101,6 +101,36 @@ does the same.
 Open `processed/drawings/sheet.svg` in a browser or in VS Code to see the
 drawings. Open the 3MF in Bambu Studio **as a project** (not "import geometry
 only") to get the plates.
+
+## Showcase
+
+[msareen.github.io/3d-prints-projects](https://msareen.github.io/3d-prints-projects/)
+is a static site built from the committed projects. `showcase/build.py`
+(standard library only) reads every project that has `output/release.json` and
+writes `_site/`: the page (`showcase/index.html`, `showcase.js`, `showcase.css`,
+`viewer.js`), a `projects.json` index, and copies of the files it shows:
+
+- the brief, photos, sketches and drawings in `input/` (with the notes from
+  `spec.json` `inputs` as captions);
+- the 3D preview of the primary material's STLs (three.js r128 from cdnjs with
+  an integrity hash), the `processed/drawings/preview*` renders and the drawing sheet;
+- photos of the finished print from `output/printed-pic/` (the first one is the
+  card picture);
+- the downloads: each material's 3MF, STLs and print sheet, plus the drawing,
+  the spec and `release.json`.
+
+`build.py`, `spec.json` and the other working files are not published. Only files
+tracked by git are included, so a local build shows what Pages will show, and
+the build fails if any published photo still carries GPS. Preview it locally:
+
+```bash
+python showcase/build.py                 # --untracked to include files not committed yet
+python -m http.server -d _site 8000      # http://127.0.0.1:8000/
+```
+
+`.github/workflows/showcase.yml` rebuilds and deploys it on every push to `main`
+that touches `projects/` or `showcase/`. One-time setup: repository Settings ->
+Pages -> Source: **GitHub Actions**.
 
 ## Skills
 

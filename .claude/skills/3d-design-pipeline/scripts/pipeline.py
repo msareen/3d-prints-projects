@@ -5,8 +5,8 @@
                                               installed, else a pip venv in 3d-print-design/.venv)
 
 With uv, every command is also `uv run pipeline <command> ...` (see pyproject.toml).
-    python pipeline.py new <project>          scaffold projects/<project>/{input,processed,output}
-    python pipeline.py scrub <project>        strip GPS, timestamps and device info from input/ photos
+    python pipeline.py new <project>          scaffold projects/<project>/{input,processed,output,output/printed-pic}
+    python pipeline.py scrub <project>        strip GPS, timestamps and device info from input/ + output/printed-pic/ photos
                                               (lossless; `check` fails while any photo still has GPS)
     python pipeline.py status <project>       what exists, what is next
     python pipeline.py check <project>        validate spec.json and its links to build.py
@@ -139,7 +139,7 @@ def cmd_new(args) -> int:
     if proj.exists() and any(proj.iterdir()):
         print(f"{proj} already exists and is not empty; nothing changed", file=sys.stderr)
         return 1
-    for sub in ("input", "processed", "output"):
+    for sub in ("input", "processed", "output", PRINTED_DIR):
         (proj / sub).mkdir(parents=True, exist_ok=True)
         (proj / sub / ".gitkeep").touch()
     tpl = SKILL_DIR / "templates"
@@ -155,7 +155,8 @@ def cmd_new(args) -> int:
     print(f"created {proj}\n  input/      put photos, sketches, drawings, notes here (data only);\n"
           f"              run `scrub` after adding photos: it strips GPS and device info\n"
           f"  processed/  spec.md, spec.json, build.py (template), later model/ and drawings/\n"
-          f"  output/     final STL, 3MF, drawing sheet after `finalize`")
+          f"  output/     final STL, 3MF, drawing sheet after `finalize`\n"
+          f"  output/printed-pic/  photos of the finished print (shown in the showcase); run `scrub` too")
     return 0
 
 
@@ -184,22 +185,31 @@ def _build_literals(build_py: Path) -> dict:
     return out
 
 
+# folders that hold the user's photos: input/ (the source material) and output/printed-pic/
+# (the finished print, added after release; finalize neither removes nor hashes it)
+PRINTED_DIR = "output/printed-pic"
+PHOTO_DIRS = ("input", PRINTED_DIR)
+
+
 def check_input_privacy(proj: Path):
-    """Photos in input/ must not carry GPS: the repo may be pushed. Returns (errors, warnings)."""
+    """Photos in input/ and output/printed-pic/ must not carry GPS: the repo may be pushed and the
+    showcase publishes them. Returns (errors, warnings)."""
     import scrub
     errors, warnings = [], []
-    inp = proj / "input"
-    if not inp.is_dir():
-        return errors, warnings
-    gps = [f for f in scrub.iter_images(inp) if scrub.find_gps(f) == "gps"]
-    unchecked = [f for f in scrub.iter_images(inp) if scrub.find_gps(f) == "unchecked"]
-    if gps:
-        names = ", ".join(f.name for f in gps[:3]) + (f" and {len(gps) - 3} more" if len(gps) > 3 else "")
-        errors.append(f"{len(gps)} photo(s) in input/ carry GPS coordinates ({names}): "
-                      f"run `pipeline.py scrub {proj.name}`")
-    if unchecked:
-        warnings.append(f"{len(unchecked)} image(s) in input/ could not be checked for GPS "
-                        f"(HEIC/TIFF/WebP or unreadable): convert to JPEG/PNG or strip them by hand")
+    for sub in PHOTO_DIRS:
+        folder = proj / sub
+        if not folder.is_dir():
+            continue
+        states = [(f, scrub.find_gps(f)) for f in scrub.iter_images(folder)]
+        gps = [f for f, st in states if st == "gps"]
+        unchecked = [f for f, st in states if st == "unchecked"]
+        if gps:
+            names = ", ".join(f.name for f in gps[:3]) + (f" and {len(gps) - 3} more" if len(gps) > 3 else "")
+            errors.append(f"{len(gps)} photo(s) in {sub}/ carry GPS coordinates ({names}): "
+                          f"run `pipeline.py scrub {proj.name}`")
+        if unchecked:
+            warnings.append(f"{len(unchecked)} image(s) in {sub}/ could not be checked for GPS "
+                            f"(HEIC/TIFF/WebP or unreadable): convert to JPEG/PNG or strip them by hand")
     return errors, warnings
 
 
@@ -313,12 +323,12 @@ def check_spec(proj: Path):
 def cmd_scrub(args) -> int:
     import scrub
     proj = project_dir(args.project)
-    inp = proj / "input"
-    if not inp.is_dir():
-        print(f"no input/ folder in {proj}", file=sys.stderr)
+    folders = [proj / sub for sub in PHOTO_DIRS if (proj / sub).is_dir()]
+    if not folders:
+        print(f"no input/ or {PRINTED_DIR}/ folder in {proj}", file=sys.stderr)
         return 1
     n = {"scrubbed": 0, "clean": 0, "unchecked": 0}
-    for f in scrub.iter_images(inp):
+    for f in (img for folder in folders for img in scrub.iter_images(folder)):
         state = scrub.scrub_file(f)
         if state in n:
             n[state] += 1
@@ -688,7 +698,9 @@ def cmd_finalize(args) -> int:
     if spec_md.is_file():
         shutil.copy2(spec_md, out / f"{name}-spec.md")
 
-    files = sorted(p for p in out.rglob("*") if p.is_file() and p.name not in (".gitkeep", "release.json"))
+    printed_pic = proj / PRINTED_DIR                 # photos of the print come later: not part of the release
+    files = sorted(p for p in out.rglob("*") if p.is_file() and p.name not in (".gitkeep", "release.json")
+                   and not p.is_relative_to(printed_pic))
     release = {
         "project": name,
         "released_utc": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
@@ -723,6 +735,7 @@ def cmd_status(args) -> int:
     p = proj / "processed"
     spec, _ = _load_spec(proj)
     inputs = [f.name for f in sorted((proj / "input").iterdir()) if f.name != ".gitkeep"] if (proj / "input").is_dir() else []
+    printed = [f.name for f in sorted((proj / PRINTED_DIR).iterdir()) if f.name != ".gitkeep"] if (proj / PRINTED_DIR).is_dir() else []
     rows = [
         ("input files", ", ".join(inputs) or "none"),
         ("spec", f"rev {spec.get('revision')} {spec.get('status')}, {len(spec.get('dimensions') or [])} dimensions"
@@ -730,14 +743,24 @@ def cmd_status(args) -> int:
         ("model", ", ".join(f.name for f in sorted((p / "model").glob("*.stl"))) or "not built"),
         ("drawings", "yes" if (p / "drawings" / "sheet.svg").is_file() else "no"),
         ("output", ", ".join(f.name + ("/" if f.is_dir() else "") for f in sorted((proj / "output").iterdir())
-                            if f.name != ".gitkeep") if (proj / "output").is_dir() else "empty"),
+                            if f.name not in (".gitkeep", "printed-pic")) if (proj / "output").is_dir() else "empty"),
+        ("printed pic", ", ".join(printed) or "no photos yet"),
     ]
     for k, v in rows:
         print(f"{k:12} {v}")
+    try:   # a release is current when it was made from the spec revision on disk
+        rel = json.loads((proj / "output" / "release.json").read_text(encoding="utf-8"))
+        released = bool(spec) and str(rel.get("spec_revision")) == str(spec.get("revision"))
+    except (OSError, json.JSONDecodeError, AttributeError):
+        released = False
     if not inputs:
         nxt = "add the user's photos / drawings / notes to input/"
     elif not spec or spec.get("status") != "confirmed":
         nxt = "stage 1: write spec.md + spec.json, resolve questions, get the user's OK, set status confirmed"
+    elif released and not printed:
+        nxt = f"released: after printing, add photos of the print to {PRINTED_DIR}/ and run `scrub`"
+    elif released:
+        nxt = "released and printed; a change starts a new spec revision"
     elif not any((p / "model").glob("*.stl")):
         nxt = "stage 2: write build.py from the spec, then `build`"
     elif not (p / "drawings" / "sheet.svg").is_file():

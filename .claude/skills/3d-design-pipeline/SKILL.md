@@ -23,6 +23,8 @@ projects/<project>/
     PLA/        <part>.stl + .json, <project>-PLA.3mf, print-sheet.md (generated)
     PETG/       the same, built with PETG clearances and PETG slicer settings
     <project>-drawing.svg, <project>-spec.md, release.json (sha256 of every file, all materials)
+    printed-pic/  photos of the finished print, added by the user after printing; finalize
+                  neither removes nor hashes it; shown by the showcase (showcase/build.py)
 ```
 
 Material profiles live in `$PIPE/materials/<MAT>.json` (PLA, PETG). Each has
@@ -97,9 +99,9 @@ so its reason for the default does not apply. Its hard limits all still hold:
   ask the user to drop them there. Save text the user typed in chat as
   `input/brief.md`, in their own words.
 - Privacy: phone photos carry GPS coordinates, a timestamp and the device model.
-  After copying photos in, run `pipeline.py scrub <project>` (lossless: the pixels
+  After copying photos into `input/` or `output/printed-pic/`, run `pipeline.py scrub <project>` (lossless: the pixels
   and the orientation stay, all EXIF/XMP and trailing data go). `check`, `build` and
-  `finalize` fail while any photo in `input/` still has GPS. HEIC, TIFF and WebP
+  `finalize` fail while any of those photos still has GPS. HEIC, TIFF and WebP
   cannot be scrubbed: convert them to JPEG first. Never commit unscrubbed photos.
 - Existing project: run `pipeline.py status <project>`. It shows the next step.
 
@@ -234,7 +236,9 @@ build of every material. Inspect the final warnings; if they require new notes
 or changes, update the source notes or model and finalize again. Hand over with
 links to the material-specific 3MF, print sheet, and drawings. End with
 $P3D Step 10: slicing and printing are the user's steps, and you never
-contact the printer.
+contact the printer. Mention that photos of the finished print can go in
+`output/printed-pic/` (scrub them too); the showcase shows them once they
+are committed and pushed.
 
 ## Hand-over checklist
 
