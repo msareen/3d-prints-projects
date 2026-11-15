@@ -1,9 +1,10 @@
 # 3d-prints-projects
 
-Design work in this repo follows the `3d-design-pipeline` skill
-(`.claude/skills/3d-design-pipeline/SKILL.md`). Load it for any request to
-design, model, describe or dimension a part, or to produce drawings, STL or
-3MF.
+Design work in this repo follows the `3d-design-pipeline` skill. Load
+`.agents/skills/3d-design-pipeline/SKILL.md` for any request to design, model,
+describe or dimension a part, or to produce drawings, STL or 3MF. It delegates
+to the authoritative implementation under `.claude/skills/`, which is retained
+for Claude Code compatibility.
 
 - One folder per design: `projects/<project>/{input,processed,output}`. Create
   it with `python .claude/skills/3d-design-pipeline/scripts/pipeline.py new <project>`.

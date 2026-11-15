@@ -2,16 +2,18 @@
 
 This is by far the easiest and cheapest way I have found to go from a real
 object to a 3D print: photograph the part (or the gap a part has to fill),
-describe it, and let Claude Code turn that into a checked, printable model. I
-have used it to fill gaps around the house, to make parts for broken toys and
-to copy things I already own, and it has worked every time.
+describe it, and let a coding agent turn that into a checked, printable model.
+The repository was created with Claude Code, but its workflow and local skills
+are also available to Codex and other agents that follow `AGENTS.md`. I have
+used it to fill gaps around the house, to make parts for broken toys and to
+copy things I already own, and it has worked every time.
 
 It works because of **engineering drawing**. A part described by its
 orthographic views (front, side and top elevations plus a plan section, with
 every size dimensioned from one datum) is fully defined, and almost anything
 can be built and printed from it. The engineering drawing course I did with
 Claude is what made this click, and it is the idea the whole repo is built on.
-Claude reads my photos and notes and writes the part down as a dimension
+The agent reads my photos and notes and writes the part down as a dimension
 register. It asks me only for the measurements it cannot get from them. Then it
 checks the finished model against drawings of itself.
 
@@ -32,11 +34,12 @@ Studio 3MFs on top. See [Credits](#credits).
 
 ## Getting started
 
-1. Launch Claude Code in this repo and create the project. Either ask in plain
-   words, or run the command yourself:
+1. Open this repository in your coding agent and create the project. The agent
+   should follow `AGENTS.md`; Codex-compatible agents can discover the skills
+   under `.agents/skills/`, while `.claude/skills/` remains for Claude Code.
+   Either ask in plain words, or run the command yourself:
 
    ```bash
-   claude
    > new project "<projectName>"
    # or, outside Claude:  uv run pipeline new <projectName>
    ```
@@ -53,7 +56,7 @@ Studio 3MFs on top. See [Credits](#credits).
    uv run pipeline scrub <projectName>
    ```
 
-3. Tell Claude what you want to make. It reads the inputs, asks for any
+3. Tell the agent what you want to make. It reads the inputs, asks for any
    missing measurement, and writes the spec (`spec.md` + `spec.json`). Check
    it and say yes: nothing is modelled before you confirm.
 
@@ -111,8 +114,11 @@ Details, optional Bambu Studio and Windows PNG previews are in
   <https://github.com/msareen/3d-print-design-skill>, so local changes can live
   there. The fork keeps the original licence and history. Nothing in
   `.claude/skills/3d-print-design/` is edited from this repo.
-- **3d-design-pipeline** (`.claude/skills/3d-design-pipeline/`) and the projects in
-  `projects/` are mine, written with Claude Code.
+- **3d-design-pipeline** is my own workflow. Its authoritative implementation
+  is in `.claude/skills/3d-design-pipeline/` for Claude Code compatibility,
+  with agent-neutral discovery entries in `.agents/skills/`. The projects in
+  `projects/` were created with Claude Code but are designed to be worked on by
+  any agent that follows `AGENTS.md`.
 
 ## Documentation
 
