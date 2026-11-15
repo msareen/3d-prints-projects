@@ -1,7 +1,5 @@
 # 3d-prints-projects
 
-**[See everything built so far in the project showcase](https://msareen.github.io/3d-prints-projects/)**: what each part started from, a 3D preview, photos of the print and the files to download.
-
 This is by far the easiest and cheapest way I have found to go from a real
 object to a 3D print: photograph the part (or the gap a part has to fill),
 describe it, and let a coding agent turn that into a checked, printable model.
@@ -33,6 +31,13 @@ by [Matteoikarieth96](https://github.com/Matteoikarieth96)** (MIT licence).
 **3d-design-pipeline** is my own pipeline, which wraps it: it adds the spec
 stage, the checked drawings, multi-material releases and multi-plate Bambu
 Studio 3MFs on top. See [Credits](#credits).
+
+## Showcase
+
+**[See everything built so far in the project showcase](https://msareen.github.io/3d-prints-projects/)**:
+what each part started from, a 3D preview, photos and GIFs of the print and the
+files to download. It is rebuilt from `projects/` on every push to `main`
+([how it works](docs/usage.md#showcase)).
 
 ## Getting started
 
@@ -89,8 +94,8 @@ Slicing and printing stay with you: it never contacts a printer.
 
 6. Once it is printed, put a photo or two of the part into
    `output/printed-pic/` and scrub them the same way. The
-   [showcase](https://msareen.github.io/3d-prints-projects/) uses the first
-   one as the project's picture once you commit and push.
+   [showcase](https://msareen.github.io/3d-prints-projects/) uses the one named
+   `cover*` (else the first) as the project's picture once you commit and push.
 
 First time on this machine? Clone, then run the init script from the repo
 root. It fetches the git submodule and creates the Python environment:
@@ -107,6 +112,27 @@ cd 3d-prints-projects
 
 Details, optional Bambu Studio and Windows PNG previews are in
 [Setup](docs/usage.md#setup).
+
+## Use it in your own repo
+
+To bring the pipeline into another repository, clone this one and run the
+installer with the target folder (it can be an existing repo or a new folder):
+
+```bash
+git clone <this-repo-url>
+python install.py /path/to/your-repo                # add --showcase for the GitHub Pages site
+cd /path/to/your-repo
+uv sync
+uv run pipeline new <projectName>
+```
+
+It copies the pipeline to `.claude/skills/3d-design-pipeline/`, adds the
+agent entry points in `.agents/skills/`, adds `3d-print-design` as a git
+submodule (a plain clone if the target is not a git repo), appends the workflow
+rules to `AGENTS.md`, and adds a `pyproject.toml` and the `.gitignore` lines.
+It never overwrites an existing file unless you pass `--force`, never commits,
+and `--dry-run` shows what it would do. It needs Python 3.11+, git and
+[uv](https://docs.astral.sh/uv/).
 
 ## Credits
 

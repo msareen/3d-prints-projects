@@ -114,8 +114,8 @@ writes `_site/`: the page (`showcase/index.html`, `showcase.js`, `showcase.css`,
   `spec.json` `inputs` as captions);
 - the 3D preview of the primary material's STLs (three.js r128 from cdnjs with
   an integrity hash), the `processed/drawings/preview*` renders and the drawing sheet;
-- photos of the finished print from `output/printed-pic/` (the first one is the
-  card picture);
+- photos of the finished print from `output/printed-pic/` (the card picture is the
+  one whose name starts with `cover`, such as `cover.jpg`, else the first by name);
 - the downloads: each material's 3MF, STLs and print sheet, plus the drawing,
   the spec and `release.json`.
 

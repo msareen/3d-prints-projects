@@ -150,6 +150,7 @@ def build_project(site: Site, proj: Path) -> dict | None:
         e["notes"] = notes.get(f.relative_to(proj).as_posix(), "")
         inputs.append(e)
     printed = [file_entry(site, f, "image") for f in site.files(proj / "output" / "printed-pic", PRINTED_EXT)]
+    printed.sort(key=lambda e: not e["name"].lower().startswith("cover"))   # a "cover*" photo leads and is the card picture
     renders = [file_entry(site, f, "image") for f in site.files(proj / "processed" / "drawings", IMAGE_EXT)
                if f.name.startswith("preview")]
     for folder in ("input", "output/printed-pic"):
