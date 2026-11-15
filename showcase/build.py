@@ -42,6 +42,8 @@ import scrub  # noqa: E402  (stdlib-only GPS check shared with the pipeline)
 STATIC = ("index.html", "showcase.css", "showcase.js", "viewer.js")
 IMAGE_EXT = {".jpg", ".jpeg", ".png", ".svg"}         # what a browser shows and scrub can check
 INPUT_EXT = IMAGE_EXT | {".pdf"}
+# printed-pic also takes GIFs (animations of the print); scrub checks and cleans them
+PRINTED_EXT = IMAGE_EXT | {".gif"}
 SAFE_SLUG = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 SAFE_MAT = re.compile(r"^[A-Za-z0-9_-]{1,16}$")
 # a published relative path: no control characters, no '..', no backslashes, no leading dot
@@ -108,7 +110,7 @@ class Site:
     def copy(self, path: Path) -> str:
         """Copy one project file into the site; returns its site-relative URL path."""
         rel = path.relative_to(REPO).as_posix()
-        if path.suffix.lower() in scrub.JPEG_EXT | scrub.PNG_EXT and scrub.find_gps(path) == "gps":
+        if path.suffix.lower() in scrub.JPEG_EXT | scrub.PNG_EXT | scrub.GIF_EXT and scrub.find_gps(path) == "gps":
             self.errors.append(f"{rel} carries GPS coordinates: run `uv run pipeline scrub "
                                f"{path.relative_to(PROJECTS).parts[0]}`")
         dest = self.out / rel
@@ -147,12 +149,12 @@ def build_project(site: Site, proj: Path) -> dict | None:
         e = file_entry(site, f, "pdf" if f.suffix.lower() == ".pdf" else "image")
         e["notes"] = notes.get(f.relative_to(proj).as_posix(), "")
         inputs.append(e)
-    printed = [file_entry(site, f, "image") for f in site.files(proj / "output" / "printed-pic", IMAGE_EXT)]
+    printed = [file_entry(site, f, "image") for f in site.files(proj / "output" / "printed-pic", PRINTED_EXT)]
     renders = [file_entry(site, f, "image") for f in site.files(proj / "processed" / "drawings", IMAGE_EXT)
                if f.name.startswith("preview")]
     for folder in ("input", "output/printed-pic"):
         for f in site.files(proj / folder):
-            if f.suffix.lower() in scrub.OTHER_IMAGE_EXT:
+            if f.suffix.lower() in scrub.OTHER_IMAGE_EXT | (scrub.GIF_EXT if folder == "input" else set()):
                 site.warnings.append(f"skipped {f.relative_to(REPO).as_posix()}: convert it to JPEG to publish it")
 
     out_dir = proj / "output"

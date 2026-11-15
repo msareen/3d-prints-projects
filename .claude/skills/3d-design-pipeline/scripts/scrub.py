@@ -9,6 +9,9 @@ JPEG: every APP1 (EXIF, XMP), APP13 (Photoshop/IPTC), COM segment and every byte
 the end-of-image marker (Samsung/Google motion-photo and "SEF" trailers) is dropped. The
 EXIF orientation is kept as a minimal EXIF block so the photo still shows upright.
 PNG: eXIf, tEXt, zTXt, iTXt and tIME chunks are dropped.
+GIF: comment extensions, XMP and every other application extension are dropped (the
+NETSCAPE/ANIMEXTS loop count and the ICC profile are kept), and so are bytes after the
+trailer. GIF has no EXIF, so GPS can only hide in an XMP block or a comment.
 Other image types (HEIC, TIFF, WebP, ...) are not rewritten; `find_gps` only reports
 them as "unchecked".
 
@@ -25,12 +28,14 @@ from pathlib import Path
 
 JPEG_EXT = {".jpg", ".jpeg", ".jpe"}
 PNG_EXT = {".png"}
-OTHER_IMAGE_EXT = {".heic", ".heif", ".tif", ".tiff", ".webp", ".avif", ".dng", ".gif", ".bmp"}
+GIF_EXT = {".gif"}
+OTHER_IMAGE_EXT = {".heic", ".heif", ".tif", ".tiff", ".webp", ".avif", ".dng", ".bmp"}
 GPS_IFD_TAG = 0x8825
 ORIENTATION_TAG = 0x0112
 XMP_GPS_MARKERS = (b"GPSLatitude", b"GPSLongitude", b"exif:GPS", b"GPSPosition")
 PNG_SIG = b"\x89PNG\r\n\x1a\n"
 PNG_DROP = {b"eXIf", b"tEXt", b"zTXt", b"iTXt", b"tIME"}
+GIF_KEEP_APPS = {b"NETSCAPE2.0", b"ANIMEXTS1.0", b"ICCRGBG1012"}    # loop count, colour profile
 
 
 # --------------------------------------------------------------------------
@@ -185,6 +190,75 @@ def scrub_png(data: bytes) -> bytes:
 
 
 # --------------------------------------------------------------------------
+def _gif_blocks(data: bytes):
+    """Yields (kind, start, end, app_id) for each block after the header and colour table;
+    kind is 'header', 'gce', 'comment', 'app', 'text', 'image' or 'trailer'. The header block
+    covers the signature, logical screen descriptor and global colour table. Raises
+    ValueError on a malformed file."""
+    if data[:6] not in (b"GIF87a", b"GIF89a") or len(data) < 13:
+        raise ValueError("not a GIF")
+    pos = 13 + (3 << ((data[10] & 7) + 1) if data[10] & 0x80 else 0)
+    yield "header", 0, pos, b""
+
+    def sub_blocks(i: int) -> int:                      # returns the offset after the 0 terminator
+        while True:
+            n = data[i]
+            i += 1 + n
+            if n == 0:
+                return i
+
+    while pos < len(data):
+        b = data[pos]
+        if b == 0x3B:
+            yield "trailer", pos, pos + 1, b""
+            return
+        if b == 0x21:
+            label = data[pos + 1]
+            if label == 0xFF:
+                size = data[pos + 2]
+                app = data[pos + 3:pos + 3 + size]
+                end = sub_blocks(pos + 2)
+                yield "app", pos, end, app
+            else:
+                end = sub_blocks(pos + 2)
+                yield {0xF9: "gce", 0xFE: "comment", 0x01: "text"}.get(label, "app"), pos, end, b""
+        elif b == 0x2C:
+            flags = data[pos + 9]
+            i = pos + 10 + (3 << ((flags & 7) + 1) if flags & 0x80 else 0)
+            end = sub_blocks(i + 1)                      # skip the LZW minimum code size byte
+            yield "image", pos, end, b""
+        else:
+            raise ValueError(f"bad block at {pos}")
+        pos = end
+    raise ValueError("no trailer")
+
+
+def _gif_drops(kind: str, app: bytes) -> bool:
+    return kind == "comment" or (kind == "app" and app not in GIF_KEEP_APPS)
+
+
+def inspect_gif(data: bytes) -> dict:
+    gps, meta, end = False, [], 0
+    for kind, start, stop, app in _gif_blocks(data):
+        end = stop
+        if _gif_drops(kind, app):
+            meta.append("comment" if kind == "comment" else (app.decode("latin-1") or "extension"))
+            gps = gps or any(m in data[start:stop] for m in XMP_GPS_MARKERS)
+    if len(data) > end:
+        meta.append(f"{len(data) - end} trailing bytes")
+        gps = gps or any(m in data[end:] for m in XMP_GPS_MARKERS)
+    return {"gps": gps, "meta": meta}
+
+
+def scrub_gif(data: bytes) -> bytes:
+    out = []
+    for kind, start, stop, app in _gif_blocks(data):
+        if not _gif_drops(kind, app):
+            out.append(data[start:stop])
+    return b"".join(out)
+
+
+# --------------------------------------------------------------------------
 def find_gps(path: Path):
     """Returns 'gps', 'meta' (metadata but no GPS), 'clean', or 'unchecked' (an image type
     this module cannot read). Returns None for files that are not images."""
@@ -197,6 +271,8 @@ def find_gps(path: Path):
             if data[:8] != PNG_SIG:
                 return "unchecked"
             info = inspect_png(data)
+        elif ext in GIF_EXT:
+            info = inspect_gif(path.read_bytes())
         elif ext in OTHER_IMAGE_EXT:
             return "unchecked"
         else:
@@ -209,13 +285,17 @@ def find_gps(path: Path):
 def scrub_file(path: Path) -> str:
     """Scrubs one file in place. Returns 'scrubbed', 'clean', 'unchecked' or 'skipped'."""
     ext = path.suffix.lower()
-    if ext not in JPEG_EXT | PNG_EXT:
+    if ext not in JPEG_EXT | PNG_EXT | GIF_EXT:
         return "unchecked" if ext in OTHER_IMAGE_EXT else "skipped"
     data = path.read_bytes()
     try:
         if ext in JPEG_EXT:
             new = scrub_jpeg(data)
             if inspect_jpeg(new)["meta"] and any(m != "EXIF" for m in inspect_jpeg(new)["meta"]):
+                raise ValueError("metadata survived the scrub")
+        elif ext in GIF_EXT:
+            new = scrub_gif(data)
+            if inspect_gif(new)["meta"]:
                 raise ValueError("metadata survived the scrub")
         else:
             if data[:8] != PNG_SIG:
@@ -238,7 +318,7 @@ def iter_images(root: Path):
         yield root
         return
     for p in sorted(root.rglob("*")):
-        if p.is_file() and p.suffix.lower() in JPEG_EXT | PNG_EXT | OTHER_IMAGE_EXT:
+        if p.is_file() and p.suffix.lower() in JPEG_EXT | PNG_EXT | GIF_EXT | OTHER_IMAGE_EXT:
             yield p
 
 

@@ -139,7 +139,8 @@ Phone photos carry GPS coordinates, a timestamp and the phone model. Before
 a photo is used, `uv run pipeline scrub <project>` removes all of it from every
 image in `input/` and `output/printed-pic/`. It does not re-encode: the pixels are byte-identical and the
 EXIF orientation is kept so photos still show upright (JPEG: EXIF, XMP, IPTC,
-comments and motion-photo trailers; PNG: text, time and EXIF chunks). `check`,
+comments and motion-photo trailers; PNG: text, time and EXIF chunks; GIF: comment and
+XMP blocks and trailing bytes). `check`,
 `build` and `finalize` fail while any of those photos still has GPS, and so
 does the showcase build, so an unscrubbed photo cannot slip into a release or
 onto the published site. HEIC, TIFF and WebP are reported
