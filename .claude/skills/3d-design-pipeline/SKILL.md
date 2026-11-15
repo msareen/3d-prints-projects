@@ -66,6 +66,30 @@ so its reason for the default does not apply. Its hard limits all still hold:
 - no weapons;
 - ask for consent before modelling a real person's likeness.
 
+## Interaction and iteration
+
+- Reuse measurements and print settings already supplied in this conversation
+  or the current project's spec. Ask only for missing or conflicting values;
+  do not silently borrow another project's printer or material settings.
+- Use the host agent's available question tool, or plain text if unavailable.
+  Tool names such as `AskUserQuestion` are examples, not dependencies.
+- For measurement requests, say what two surfaces to measure, the unit, and
+  why the measurement matters. Batch related requests into one message.
+- Present spec approvals as a short description, the full dimension register
+  table, the assumptions, and links to spec.md and the drawings. Every value
+  must be visible to the user before they confirm. For revisions, still show
+  the full table, mark the changed rows and explain their effects.
+- Resume existing work with `status` and the current spec and notes. Reuse
+  recorded input transcriptions; inspect original inputs again when they have
+  changed or a measurement, interpretation, or source is uncertain.
+- Use quick builds during geometry iteration; regenerate drawings when geometry
+  changes. Full release checks are still mandatory. Reuse an already-running
+  viewer for the same project instead of starting another server.
+- Release only the materials the user asked for (`print.materials`); after a
+  revision, finalize all of them, never just one with `--material`. For uncertain snap/press fits, suggest a
+  small fit coupon before a full print; obtain agreement before adding it to
+  the spec. Do not claim print time or monetary savings without slicer data.
+
 ## Stage 0: project
 
 - New design: pick a short name (a-z, 0-9, dashes) and run `pipeline.py new <project>`.
@@ -102,7 +126,8 @@ In short:
    Handle the rest with defaults recorded as assumptions.
 7. Write `processed/spec.md` and `processed/spec.json`
    ([references/spec-format.md](references/spec-format.md)). Run `pipeline.py check`.
-8. Show the user the description and the dimension table, and wait for a yes.
+8. Show the user the description, the full dimension table and the
+   assumptions (on revisions, mark the changed rows), and wait for a yes.
    Then set `"status": "confirmed"`.
 
 Do not start modelling while a blocking question is open. A model built on a
@@ -202,9 +227,12 @@ advice) in `processed/print-notes.md` instead.
 `--force` exists for a deliberate exception. Use it only with the user's OK,
 and say so in the hand-over.
 
-Then write or update `processed/print-notes.md` following $P3D Step 9
-(accepted warnings with a reason, assembly, test fit) and run finalize again
-so every material's sheet carries it. Hand over with paths. End with
+Before running finalize, write or update `processed/print-notes.md` following
+$P3D Step 9 (accepted preview warnings with a reason, assembly, test fit).
+This includes the notes in the first release and avoids a routine second full
+build of every material. Inspect the final warnings; if they require new notes
+or changes, update the source notes or model and finalize again. Hand over with
+links to the material-specific 3MF, print sheet, and drawings. End with
 $P3D Step 10: slicing and printing are the user's steps, and you never
 contact the printer.
 

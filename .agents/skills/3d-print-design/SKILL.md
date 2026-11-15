@@ -15,5 +15,10 @@ authoritative skill:
 
 `../../../.claude/skills/3d-print-design/SKILL.md`
 
-For work under `projects/`, use `3d-design-pipeline` instead. Do not edit,
+The relative paths above are relative to this entry point's directory.
+Resolve the authoritative skill's references and `$SKILL` from its canonical
+`.claude/skills/3d-print-design/` directory, not from this wrapper.
+
+For design work in this repository, use `3d-design-pipeline` first, as required
+by AGENTS.md; it selects the relevant upstream modelling steps. Do not edit,
 copy, or fork the submodule from this compatibility entry point.

@@ -14,6 +14,9 @@ Before acting on a 3D-design request, read the complete authoritative skill:
 
 `../../../.claude/skills/3d-design-pipeline/SKILL.md`
 
-Follow it exactly. Resolve paths and run commands from the repository root;
+The relative paths above are relative to this entry point's directory.
+Resolve references inside the authoritative skill relative to its own directory;
+`$PIPE` and `$P3D` refer to the canonical `.claude/skills/` folders.
+Run commands from the repository root;
 do not copy, edit, or fork the implementation merely because this compatibility
 entry point is in `.agents/`.

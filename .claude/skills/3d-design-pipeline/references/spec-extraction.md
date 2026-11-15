@@ -131,7 +131,8 @@ dimension is involved.
 
 ## 8. Questions to the user
 
-Ask in batches: `AskUserQuestion`, at most 4 questions per call, options with
+Ask in batches using the host's available question tool or plain text, respecting
+the tool's question limit and never exceeding 4 questions per round, options with
 the recommended one first. Put measurement requests ("please measure X with
 calipers") in plain text next to it. Ask about blocking items only. Settle
 non-blocking ones with sensible defaults, list them in `assumptions`, and say
@@ -146,8 +147,9 @@ nozzle, material, supports) belong here too: put the answers in `print`.
 1. Write `processed/spec.md` (human) and `processed/spec.json` (machine). They
    use the same IDs and must agree.
 2. Run `pipeline.py check <project>` and fix every error.
-3. Show the user: a 3 to 6 sentence description, the dimension register
-   table, the assumptions, and any still-open questions.
+3. Show the user: a 3 to 6 sentence description, the full dimension register
+   table, the assumptions, and any still-open questions. On revisions, still
+   show the full table, mark the changed rows and explain their effects.
 4. When the user confirms, set `"status": "confirmed"`. Any later change bumps
    `revision`, notes the change in spec.md, and sets the status back to
    `draft` until the user re-confirms.
