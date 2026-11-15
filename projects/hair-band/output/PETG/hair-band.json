@@ -1,0 +1,424 @@
+{
+  "name": "hair-band",
+  "units": "mm",
+  "generated_utc": "2026-11-14T10:22:18+00:00",
+  "generator": "3d-print-design build script",
+  "stl": "hair-band.stl",
+  "stl_sha256": "83623bcb8aed6f0b8bb719080a3dc16b9437839ff64761c1de733c7298a072e1",
+  "material": "PETG",
+  "density_g_cm3": 1.27,
+  "bbox": {
+    "min": [
+      -62.339,
+      0.115,
+      0.0
+    ],
+    "max": [
+      62.273,
+      147.0,
+      8.0
+    ],
+    "size": [
+      124.611,
+      146.885,
+      8.0
+    ]
+  },
+  "volume_mm3": 9480.05,
+  "estimated_mass_g_solid": 12.04,
+  "mass_note": "upper bound at 100 % infill; a slicer estimate with your infill will be lower",
+  "triangles": 84180,
+  "printcheck": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "layer_alignment",
+      "small_holes"
+    ],
+    "checks": [
+      {
+        "name": "units",
+        "status": "pass",
+        "message": "size 124.6 x 146.9 x 8.0 mm",
+        "data": {}
+      },
+      {
+        "name": "watertight",
+        "status": "pass",
+        "message": "closed surface with consistent winding",
+        "data": {
+          "open_edges": 0,
+          "non_manifold_edges": 0,
+          "winding_consistent": true
+        }
+      },
+      {
+        "name": "volume",
+        "status": "pass",
+        "message": "9480.0 mm3",
+        "data": {
+          "volume_mm3": 9480.046
+        }
+      },
+      {
+        "name": "bodies",
+        "status": "pass",
+        "message": "1 body as expected",
+        "data": {
+          "bodies": 1,
+          "expected": 1
+        }
+      },
+      {
+        "name": "on_bed",
+        "status": "pass",
+        "message": "807.0 mm2 flat contact on the bed",
+        "data": {
+          "min_z": 0.0,
+          "contact_area_mm2": 807.03,
+          "min_contact_mm2": 10.0,
+          "floating_bodies": []
+        }
+      },
+      {
+        "name": "build_volume",
+        "status": "pass",
+        "message": "fits 180 x 180 x 180 with 5 mm margin",
+        "data": {
+          "bed": [
+            180.0,
+            180.0,
+            180.0
+          ],
+          "margin": 5.0
+        }
+      },
+      {
+        "name": "overhang",
+        "status": "pass",
+        "message": "no overhang steeper than 45 deg (beyond 1 mm2); 76.8 mm2 short bridges (<= 10 mm span) left to the slicer",
+        "data": {
+          "limit_deg": 45,
+          "area_mm2": 0.0,
+          "flat_ceiling_area_mm2": 0.0,
+          "bridge_area_mm2": 76.79,
+          "max_bridge_mm": 10.0,
+          "flat_regions": [
+            {
+              "z": 4.2,
+              "span_mm": 2.12,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.86,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 2.11,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.86,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 2.31,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.86,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 2.31,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.86,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 1.53,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.85,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 1.53,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.85,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 1.68,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.85,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 1.68,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.85,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 2.67,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.85,
+              "bridge": true
+            },
+            {
+              "z": 4.2,
+              "span_mm": 2.67,
+              "span_is_upper_bound": true,
+              "supported_outline": 0.64,
+              "area_mm2": 3.85,
+              "bridge": true
+            }
+          ],
+          "wide_regions_not_measured": 0,
+          "faces": 0
+        }
+      },
+      {
+        "name": "layer_alignment",
+        "status": "warn",
+        "message": "5 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=2.305): the slicer will round them",
+        "data": {
+          "layer_mm": 0.2,
+          "levels_checked": 6,
+          "off_grid_levels": [
+            2.305,
+            2.306,
+            2.307,
+            2.308,
+            2.309
+          ]
+        }
+      },
+      {
+        "name": "small_holes",
+        "status": "warn",
+        "message": "1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out; 1 horizontal hole(s): use a teardrop or accept a rough top",
+        "data": {
+          "min_hole_mm": 3.0,
+          "holes_found": 1,
+          "small": [
+            {
+              "axis": "y",
+              "min_width_mm": 0.11,
+              "center": [
+                -37.61,
+                130.84,
+                4.81
+              ]
+            }
+          ],
+          "horizontal": [
+            {
+              "axis": "y",
+              "min_width_mm": 0.11,
+              "center": [
+                -37.61,
+                130.84,
+                4.81
+              ]
+            }
+          ],
+          "all": [
+            {
+              "axis": "y",
+              "min_width_mm": 0.11,
+              "center": [
+                -37.61,
+                130.84,
+                4.81
+              ]
+            }
+          ],
+          "sections_skipped": []
+        }
+      },
+      {
+        "name": "thin_walls",
+        "status": "pass",
+        "message": "no sampled wall thinner than 0.8 mm (2 x nozzle)",
+        "data": {
+          "limit_mm": 0.8,
+          "samples": 400,
+          "samples_asked": 400,
+          "measured": 400,
+          "thin_samples": 0,
+          "min_thickness_mm": 1.078
+        }
+      },
+      {
+        "name": "probes",
+        "status": "pass",
+        "message": "6 probe point(s) solid/empty as expected",
+        "data": {
+          "inside": [
+            [
+              -0.69,
+              2.32,
+              6.4
+            ],
+            [
+              1.5,
+              6.4,
+              6.7
+            ],
+            [
+              0.0,
+              3.8,
+              3.8
+            ]
+          ],
+          "outside": [
+            [
+              0.0,
+              1.0,
+              3.8
+            ],
+            [
+              0.0,
+              70.0,
+              4.0
+            ],
+            [
+              0.0,
+              145.0,
+              4.0
+            ]
+          ],
+          "failed": []
+        }
+      }
+    ],
+    "stats": {
+      "triangles": 84180,
+      "vertices": 42052,
+      "bbox_min": [
+        -62.339,
+        0.115,
+        0.0
+      ],
+      "bbox_max": [
+        62.273,
+        147.0,
+        8.0
+      ],
+      "size": [
+        124.611,
+        146.885,
+        8.0
+      ],
+      "surface_area_mm2": 9917.86,
+      "volume_mm3": 9480.046,
+      "bodies": 1
+    }
+  },
+  "parameters": {
+    "FITS": {
+      "press": 0.1,
+      "snug": 0.15,
+      "sliding": 0.25,
+      "free": 0.35,
+      "source": "fits.json (printer not named, PETG)"
+    },
+    "NAME": "hair-band",
+    "MATERIAL": "PETG",
+    "COLOR": "#2b2b2b",
+    "COLOUR_NAME": "black",
+    "PRINTER": "generic",
+    "PRINTER_BED": [
+      180,
+      180,
+      180
+    ],
+    "NOZZLE": 0.4,
+    "LAYER": 0.2,
+    "OVERHANG_LIMIT": 45,
+    "SUPPORTS_ALLOWED": false,
+    "EXPECTED_BODIES": 1,
+    "ASSEMBLY": false,
+    "INNER_W": 116.0,
+    "OUTER_L": 147.0,
+    "BAND_H": 8.0,
+    "TIP_GAP": 25.0,
+    "WIDEST_Y": 70.0,
+    "LINK_PITCH": 9.0,
+    "LINK_L": 14.0,
+    "WIRE_D": 2.4,
+    "LINK_SLANT": 15.0,
+    "LINK_YAW": 10.0,
+    "KEEL_DEG": 50.0,
+    "BED_SINK": 0.4,
+    "LINK_SEGMENTS": 40,
+    "WIRE_FACETS": 20,
+    "TOOTH_D": 1.4,
+    "TOOTH_L": 2.5,
+    "TOOTH_GAP": 3.0,
+    "TOOTH_Z_LOW": 1.0,
+    "TOOTH_Z_HIGH": 6.7,
+    "TEETH_SPAN": 170.0,
+    "SPINE_T": 2.6,
+    "SPINE_H": 7.6,
+    "TIP_PAD_L": 10.0,
+    "GAP_MARGIN": 0.3,
+    "BRIDGE_MAX": 1.6,
+    "PROBES_INSIDE": [
+      [
+        -0.69,
+        2.32,
+        6.4
+      ],
+      [
+        1.5,
+        6.4,
+        6.7
+      ],
+      [
+        0.0,
+        3.8,
+        3.8
+      ]
+    ],
+    "PROBES_OUTSIDE": [
+      [
+        0.0,
+        1.0,
+        3.8
+      ],
+      [
+        0.0,
+        70.0,
+        4.0
+      ],
+      [
+        0.0,
+        145.0,
+        4.0
+      ]
+    ]
+  },
+  "preview_color": "#2b2b2b",
+  "printer_bed": [
+    180.0,
+    180.0,
+    180.0
+  ],
+  "printer": "generic",
+  "assembly": false,
+  "printer_notes": [],
+  "colour": "black"
+}

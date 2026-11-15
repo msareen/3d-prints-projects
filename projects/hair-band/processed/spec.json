@@ -1,0 +1,544 @@
+{
+ "schema": "design-pipeline/spec@1",
+ "project": "hair-band",
+ "status": "confirmed",
+ "revision": 4,
+ "units": "mm",
+ "summary": "Open C headband copied from the user's moulded chain-link band: a curb chain of round oval wire links, slanted and twisted so each passes in front of the next, on a hidden solid spine along the inner face that makes the band stiffer (with see-through windows behind the links on the toothless arms), with two rows of grip teeth pointing at the head over the top arc and a smooth rounded pad at each tip. One piece, printed flat on the bed without supports (a hidden 50 deg keel under every wire, a 50 deg web under every tooth), in PETG (primary) and PLA.",
+ "inputs": [
+  {
+   "file": "input/brief.md",
+   "kind": "text",
+   "notes": "the user's words and stage 1 answers"
+  },
+  {
+   "file": "input/20261114_131012.jpg",
+   "kind": "photo",
+   "notes": "top view, band lying flat on a cutting mat (1/2 inch grid, cm edge rulers); used for the outline sizes"
+  },
+  {
+   "file": "input/20261114_131024.jpg",
+   "kind": "photo",
+   "notes": "low side view of the outer face: curb chain links, through openings, round end link"
+  },
+  {
+   "file": "input/20261114_131038.jpg",
+   "kind": "photo",
+   "notes": "close-up of the inner face: two staggered rows of round pin teeth, about 2 per link per row"
+  },
+  {
+   "file": "input/20261114_131056.jpg",
+   "kind": "photo",
+   "notes": "oblique top view: teeth run over the top arc only and stop above the widest point; the arms are plain chain"
+  }
+ ],
+ "datum": {
+  "origin": "X = 0 on the band's mirror line (midway between the tips); Y = 0 at the outer face of the crown (top of the band); Z = 0 on the bed",
+  "x": "across the band, ear to ear, left to right seen from the front",
+  "y": "from the crown towards the tips (front = the crown's outer face, at -Y)",
+  "z": "up = print direction; the band lies flat, its height (D3) is the Z extent"
+ },
+ "envelope": {
+  "x": 124.6,
+  "y": 146.9,
+  "z": 8.0,
+  "tolerance": 0.5
+ },
+ "print": {
+  "printer_bed": [
+   180,
+   180,
+   180
+  ],
+  "nozzle": 0.4,
+  "layer": 0.2,
+  "material": "PETG",
+  "materials": [
+   "PETG",
+   "PLA"
+  ],
+  "supports": false,
+  "orientation": "flat on the bed as it lies on a table: the C shape in XY, band height in Z; layers run along the band, so bending it open never pulls layers apart; every tooth grows out of the spine on a 50 deg web, so nothing starts in mid-air",
+  "quantity": 1
+ },
+ "parts": [
+  {
+   "name": "hair-band",
+   "description": "one piece: chain-link band with grip teeth"
+  }
+ ],
+ "dimensions": [
+  {
+   "id": "D1",
+   "name": "inside width at the widest point, between the inner faces of the band body (teeth excluded)",
+   "value": 116.0,
+   "tol": "±3",
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131012.jpg scaled on the 12.7 mm mat grid (grid fit rms < 1.5 px): right inner face x 115-117.5, left outer face x -4.5, minus D6; user chose the photo estimates over measuring (band flexes to fit)",
+   "fit": null,
+   "param": "INNER_W"
+  },
+  {
+   "id": "D2",
+   "name": "overall length, crown outer face to the tips (Y)",
+   "value": 147.0,
+   "tol": "±3",
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131012.jpg on the mat grid: band Y extent 145-148",
+   "fit": null,
+   "param": "OUTER_L"
+  },
+  {
+   "id": "D3",
+   "name": "band height lying flat (Z) = link height",
+   "value": 8.0,
+   "tol": "±1",
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131024.jpg end link ~255 px at ~31 px/mm; 40 layers of 0.2",
+   "fit": null,
+   "param": "BAND_H"
+  },
+  {
+   "id": "D4",
+   "name": "gap between the tips, inner faces",
+   "value": 25.0,
+   "tol": "±4",
+   "basis": "estimated",
+   "confidence": "low",
+   "critical": false,
+   "source": "20261114_131012.jpg: tip inner edges ~225 display px apart at 103 px per 12.7 mm = 27.7, bottom-most points 24-25 apart",
+   "fit": null,
+   "param": "TIP_GAP"
+  },
+  {
+   "id": "D5",
+   "name": "widest point, distance from the crown outer face (Y)",
+   "value": 70.0,
+   "tol": "±5",
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131012.jpg: outer width peaks at Y 60-76",
+   "fit": null,
+   "param": "WIDEST_Y"
+  },
+  {
+   "id": "D6",
+   "name": "band body radial thickness (chain only, no teeth)",
+   "value": 4.36,
+   "basis": "derived",
+   "confidence": "medium",
+   "critical": false,
+   "source": "WIRE_D + 2 x twist travel = 2.4 + 2 x 5.65 x sin 10 deg; photo 131012: body+teeth ~7",
+   "fit": null
+  },
+  {
+   "id": "D7",
+   "name": "link pitch along the band (nominal; adjusted so whole links end at the tips)",
+   "value": 9.0,
+   "tol": "±0.3",
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131012.jpg: link bumps on the left outer edge ~75 display px apart = 9.2 mm; built: 43 links at 9.018 (whole links, the end links reach the tips)",
+   "fit": null,
+   "param": "LINK_PITCH"
+  },
+  {
+   "id": "D8",
+   "name": "link outer length along its own long axis",
+   "value": 14.0,
+   "basis": "estimated",
+   "confidence": "low",
+   "critical": false,
+   "source": "20261114_131024.jpg: links overlap about a third of their length (14 at a 9 pitch)",
+   "fit": null,
+   "param": "LINK_L"
+  },
+  {
+   "id": "D13",
+   "name": "tooth diameter",
+   "value": 1.4,
+   "basis": "given",
+   "confidence": "high",
+   "critical": false,
+   "source": "user (stage 1 answer); original ~1.1 in 20261114_131038.jpg, thickened for a 0.4 nozzle",
+   "fit": null,
+   "param": "TOOTH_D"
+  },
+  {
+   "id": "D14",
+   "name": "tooth length, from the band's innermost face to the tip",
+   "value": 2.5,
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131038.jpg: teeth ~100-120 px at ~51 px/mm",
+   "fit": null,
+   "param": "TOOTH_L"
+  },
+  {
+   "id": "D15",
+   "name": "tooth spacing within a pair (2 teeth per link per row)",
+   "value": 3.0,
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131038.jpg: pairs of teeth on each link",
+   "fit": null,
+   "param": "TOOTH_GAP"
+  },
+  {
+   "id": "D16",
+   "name": "lower tooth row, axis height Z (45 deg keel touches the bed)",
+   "value": 1.0,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "rev 3: in the lower wire; its keel is cut flat by the bed",
+   "fit": null,
+   "param": "TOOTH_Z_LOW"
+  },
+  {
+   "id": "D17",
+   "name": "upper tooth row, axis height Z",
+   "value": 6.7,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "in the upper wire (wire centre ~6.4 at the link middle, D27/2 = 1.2)",
+   "fit": null,
+   "param": "TOOTH_Z_HIGH"
+  },
+  {
+   "id": "D18",
+   "name": "toothed length along the centreline, centred on the crown",
+   "value": 170.0,
+   "tol": "±15",
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131012.jpg / 131056.jpg: teeth stop ~15 above the widest point on both arms",
+   "fit": null,
+   "param": "TEETH_SPAN"
+  },
+  {
+   "id": "D19",
+   "name": "upper / lower tooth row offset along the band",
+   "value": 4.5,
+   "basis": "derived",
+   "confidence": "medium",
+   "critical": false,
+   "source": "D7 / 2: rows staggered as in 20261114_131038.jpg",
+   "fit": null
+  },
+  {
+   "id": "D27",
+   "name": "link wire diameter",
+   "value": 2.4,
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131024.jpg: rails ~2.5 of an 8 high link; 6 lines of 0.4",
+   "fit": null,
+   "param": "WIRE_D"
+  },
+  {
+   "id": "D28",
+   "name": "link slant in the face, degrees",
+   "value": 15.0,
+   "basis": "estimated",
+   "confidence": "medium",
+   "critical": false,
+   "source": "20261114_131024.jpg: slanted oval links; limited by D3 (the wider the slant, the narrower the opening)",
+   "fit": null,
+   "param": "LINK_SLANT"
+  },
+  {
+   "id": "D29",
+   "name": "link twist about Z, degrees (leading end in front of the next link, trailing end behind)",
+   "value": 10.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "curb / braid crossing of 20261114_131024.jpg and 131056.jpg; gives D6",
+   "fit": null,
+   "param": "LINK_YAW"
+  },
+  {
+   "id": "D30",
+   "name": "hidden keel under every wire and tooth, and slope of the web under every tooth (deg from horizontal)",
+   "value": 50.0,
+   "basis": "default",
+   "confidence": "high",
+   "critical": false,
+   "source": "40 deg from vertical: inside the 45 deg overhang limit, so the round wire prints without support",
+   "fit": null,
+   "param": "KEEL_DEG"
+  },
+  {
+   "id": "D31",
+   "name": "lowest wire cut flat for bed contact",
+   "value": 0.4,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "2 layers; wire spans -0.4 .. 8 before the cut at z = 0",
+   "fit": null,
+   "param": "BED_SINK"
+  },
+  {
+   "id": "D32",
+   "name": "hidden spine, radial thickness from the band's inner face outward",
+   "value": 2.6,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "rev 4, user: 'too flexible, I need little bit hard' and 'too much support'. Smallest spine (tried 2.2 / 2.6 / 3.0) under which the layer check finds no area starting in mid-air: it carries the keel ridges of the upper wires (z 4.5-5.1). About 3x the bending stiffness of rev 3.",
+   "fit": null,
+   "param": "SPINE_T"
+  },
+  {
+   "id": "D33",
+   "name": "spine height (round top)",
+   "value": 7.6,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "just under the 8 mm wire crowns, covers the upper tooth roots (D17 + D13/2 = 7.4)",
+   "fit": null,
+   "param": "SPINE_H"
+  },
+  {
+   "id": "D34",
+   "name": "rounded tip pad, length along the band",
+   "value": 10.0,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "rev 4, user: 'make the last end little smooth, it is poking against skin'. About one link; pad is D6 thick, D3 high, ends round with radius D6/2 = 2.18; wires and spine are trimmed inside it",
+   "fit": null,
+   "param": "TIP_PAD_L"
+  },
+  {
+   "id": "D35",
+   "name": "see-through spine windows: clearance from every wire edge (projected along the band normal)",
+   "value": 0.3,
+   "basis": "default",
+   "confidence": "medium",
+   "critical": false,
+   "source": "rev 4, user: 'can we still have some chain gaps'. 0.2 gains only 0.1 mm per side and adds thin-wall samples; window built 3.9 long x 1.9 high, 20 windows (every link of the arms clear of the teeth zone and the tip blend)",
+   "fit": null,
+   "param": "GAP_MARGIN"
+  },
+  {
+   "id": "D36",
+   "name": "longest flat (bridged) window top; beyond it the top slopes down at D30",
+   "value": 1.6,
+   "basis": "derived",
+   "confidence": "high",
+   "critical": false,
+   "source": "printcheck counts a flat ceiling as a bridge when at least 60 % of its outline is held from below: through a 2.6 spine that allows at most 2.6 x 2/3 = 1.7. Layer check: window tops are bridges of at most 2.7 mm, nothing overhangs on one side only",
+   "fit": null,
+   "param": "BRIDGE_MAX"
+  }
+ ],
+ "features": [
+  {
+   "id": "F1",
+   "name": "band centreline",
+   "count": 1,
+   "position": "two half-ellipses meeting at Y = D5: semi-axis X = D1/2 + D6/2 = 60.2 for both; upper vertical semi-axis D5 - D6/2 = 67.8 (crown centreline at Y 2.2); the lower half ends at the tips, X = ±(D4/2 + D6/2) = ±14.7, with the tip outer extreme at Y = D2",
+   "dims": [
+    "D1",
+    "D2",
+    "D4",
+    "D5",
+    "D6"
+   ],
+   "notes": "symmetric about X = 0; the inner face of the body is D6/2 inside the centreline"
+  },
+  {
+   "id": "F2",
+   "name": "curb chain links",
+   "count": 43,
+   "position": "centred on the centreline at the adjusted pitch (9.018), crown link at u = 0, from tip to tip",
+   "dims": [
+    "D3",
+    "D6",
+    "D7",
+    "D8",
+    "D27",
+    "D28",
+    "D29",
+    "D30",
+    "D31"
+   ],
+   "notes": "43 identical links. Each: an elliptical wire loop, D8 = 14 outer length, wire D27 = 2.4, its height filling D3 (wire centre half-axes 5.8 x 2.69), slanted D28 in the face and twisted D29 about Z, so its leading end passes in front of the next link and its trailing end behind: the curb / braid look. Neighbours overlap by D8 - D7 and fuse where the wires cross; the openings are open from the outside; behind them the spine (F5) is solid over the toothed zone and has a see-through window on the arms. Every wire carries a hidden D30 keel underneath; the lowest wire is cut flat D31 at the bed."
+  },
+  {
+   "id": "F3",
+   "name": "grip teeth",
+   "count": 76,
+   "position": "over D18 of centreline centred on the crown; per link 2 teeth D15 apart in each row; lower row at Z = D16, upper row at Z = D17, rows shifted D19 along the band; pointing inward along the centreline normal",
+   "dims": [
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17",
+    "D18",
+    "D19",
+    "D30",
+    "D32"
+   ],
+   "notes": "76 teeth. Round pins (D13) with a rounded tip, rooted in the spine and pointing radially inward. Under each tooth a web, D13 wide with a D30 keel, whose lower edge climbs at D30 from the spine face (D14 x tan D30 = 3.0 below the tooth axis) to the tooth tip, so the tooth grows out of the spine layer by layer. The lower row's webs end on the bed."
+  },
+  {
+   "id": "F4",
+   "name": "tips",
+   "count": 2,
+   "position": "ends of the centreline, X = ±14.7",
+   "dims": [
+    "D2",
+    "D3",
+    "D4",
+    "D6",
+    "D34"
+   ],
+   "notes": "each tip is a smooth rounded pad, D34 long, D6 thick and D3 high, round at the end and on the edges (radius D6/2); the last link runs into it; links and spine are trimmed inside the pad (all but its first 2 mm) so nothing pokes through"
+  },
+  {
+   "id": "F5",
+   "name": "hidden spine",
+   "count": 1,
+   "position": "along the whole centreline, tip pad to tip pad; inner face flush with the band's inner face (D6/2 inside the centreline), extending D32 outward; Z 0 to D33",
+   "dims": [
+    "D6",
+    "D30",
+    "D32",
+    "D33",
+    "D35",
+    "D36"
+   ],
+   "notes": "solid wall with a round top and a keeled bottom cut by the bed, fused with every link; blends into each tip pad over 3 mm. It makes the band stiffer and carries the upper wires and teeth. On the arms, beyond the toothed zone, it has a see-through window behind every link's clear opening (20 in all, about 3.9 x 1.9): the window follows the opening D35 inside the wires, its floor is the material below, its top is flat for at most D36 (a short bridge) and slopes down at D30 beyond that. The toothed zone keeps a solid spine: each upper tooth's web stands on the spine right behind the link opening."
+  }
+ ],
+ "assumptions": [
+  "A1: all outline sizes (D1, D2, D4, D5) are scaled from the top-view photo on the 1/2 inch mat grid (about ±3 mm); the user chose these over ruler measurements. The band flexes, so a few mm still fits; re-measure if the first print is too tight or loose.",
+  "A2: the mat grid is 1/2 inch (12.7 mm): the big numbers are inches, the edge rulers are cm (82-85 px/cm vs ~103 px per grid square in the display).",
+  "A3: rev 4: round interlocked links like the original, on a hidden spine. Over the toothed zone the openings are ~1.8 mm deep pockets; on the arms the spine has a see-through window behind each link (about a third of rev 3's clear opening). The spine stiffens the band and gives every wire and tooth something to grow from, so the slicer has nothing to support.",
+  "A4: the band is printed in its relaxed shape, the shape it has lying on the table in the photo.",
+  "A5: teeth are 1.4 thick instead of ~1.1 (user), round with a keel underneath and rounded tips.",
+  "A6: shape is mirror-symmetric about X = 0 (the photo shows the ends ~2 mm off centre: how it was lying); the link slant runs the same way along the whole band, as on a real chain.",
+  "A7: PETG is the primary material (flexes over the head); PLA is released too, but it is stiffer and can crack at the arms if opened wide.",
+  "A8: two printcheck warnings are accepted. Thin walls: the thin samples (z ~4.9) are the sharp edge of the hidden 50 deg keel under the upper wires, outside the spine, printed as a single line. Small hole: one 0.3 mm sliver gap between a wire and the spine on the left arm (x -37, y 131), thinner than one extrusion line; the slicer fills it. Layer alignment: a few short flat stretches of the sloped window floors (e.g. z 2.305) fall between layers; the slicer rounds them, harmless.",
+  "A9: stiffness: in the PETG band, opening it 17 mm per side (a 150 mm head) strains the spine about 0.7 % (PETG yields at about 4 %), roughly 1 N clamping per side. Infill barely changes this: the wires and spine are mostly perimeters. D32 is the stiffness setting."
+ ],
+ "open_questions": [],
+ "drawing": {
+  "plan_cut_z": 6.7,
+  "dimensions": [
+   {
+    "id": "D1",
+    "view": "top",
+    "from": [
+     -57.999,
+     70.0,
+     4.0
+    ],
+    "to": [
+     57.999,
+     70.0,
+     4.0
+    ],
+    "offset": 10
+   },
+   {
+    "id": "D2",
+    "view": "top",
+    "from": [
+     -3.523,
+     0.115,
+     4.9
+    ],
+    "to": [
+     14.68,
+     147.0,
+     4.0
+    ],
+    "orient": "vertical",
+    "offset": 18
+   },
+   {
+    "id": "D4",
+    "view": "top",
+    "from": [
+     -12.5,
+     144.82,
+     4.0
+    ],
+    "to": [
+     12.5,
+     144.82,
+     4.0
+    ],
+    "orient": "horizontal",
+    "offset": 10
+   },
+   {
+    "id": "D13",
+    "view": "top",
+    "from": [
+     0.688,
+     6.0,
+     6.7
+    ],
+    "to": [
+     2.088,
+     6.0,
+     6.7
+    ],
+    "offset": -8
+   },
+   {
+    "id": "D15",
+    "view": "top",
+    "from": [
+     -1.5,
+     6.88,
+     6.7
+    ],
+    "to": [
+     1.5,
+     6.88,
+     6.7
+    ],
+    "offset": -16,
+    "on_geometry": false
+   },
+   {
+    "id": "D3",
+    "view": "front",
+    "from": [
+     -21.324,
+     142.674,
+     0.0
+    ],
+    "to": [
+     -20.839,
+     142.746,
+     7.996
+    ],
+    "orient": "vertical",
+    "offset": -12
+   }
+  ]
+ }
+}

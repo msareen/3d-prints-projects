@@ -1,0 +1,49 @@
+{
+  "project": "hair-band",
+  "released_utc": "2026-11-14T10:22:27+00:00",
+  "spec_revision": 4,
+  "spec_status": "confirmed",
+  "forced": false,
+  "materials": [
+    "PETG",
+    "PLA"
+  ],
+  "fits": {
+    "PETG": {
+      "source": "fits.json (printer not named, PETG)",
+      "press": 0.1,
+      "snug": 0.15,
+      "sliding": 0.25,
+      "free": 0.35
+    },
+    "PLA": {
+      "source": "fits.json (printer not named, PLA)",
+      "press": 0.05,
+      "snug": 0.1,
+      "sliding": 0.2,
+      "free": 0.3
+    }
+  },
+  "files": {
+    "hair-band-drawing.svg": "aa131c31fffaad0a1bac2df9b700e025f9cd404b4ce742884b8241d0155edcfb",
+    "hair-band-spec.md": "5ababbe24e384f8f3a7663f63f674c48d2685ee354ed5ca49aa553cc994dbdff",
+    "PETG/hair-band-PETG.3mf": "bd4163ba98d892809532a7be2af59a124aa0f90604cdd84ec7d99fdc9f7a0641",
+    "PETG/hair-band.json": "cc3231fd72ed140410cf80efef2f979c23d250fd20bf585674b014826f73b285",
+    "PETG/hair-band.stl": "83623bcb8aed6f0b8bb719080a3dc16b9437839ff64761c1de733c7298a072e1",
+    "PETG/print-sheet.md": "aa0fed17e641d6a74ca05cce4ef5180bc9d142d90eb50015eeb4525fc81f693b",
+    "PLA/hair-band-PLA.3mf": "986ee22f5d705fe3121ede595f4ab86a73d5fbd1463dea84fbc682c52d6cc3b4",
+    "PLA/hair-band.json": "2d782acde9ca19da4b6b6bc48953b1e3e7e3fc17fee62be48b5c281fb2c0b2e7",
+    "PLA/hair-band.stl": "83623bcb8aed6f0b8bb719080a3dc16b9437839ff64761c1de733c7298a072e1",
+    "PLA/print-sheet.md": "24d685fb0bb3afa93900d36d3cddf7c3d57af1a8939441a109ee7a5ab2584f50"
+  },
+  "printcheck_warnings": {
+    "PETG/hair-band": [
+      "layer_alignment: 5 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=2.305): the slicer will round them",
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out; 1 horizontal hole(s): use a teardrop or accept a rough top"
+    ],
+    "PLA/hair-band": [
+      "layer_alignment: 5 flat face level(s) not on a 0.2 mm layer boundary (e.g. z=2.305): the slicer will round them",
+      "small_holes: 1 hole(s) narrower than 3 mm: they print undersize, compensate or drill out; 1 horizontal hole(s): use a teardrop or accept a rough top"
+    ]
+  }
+}

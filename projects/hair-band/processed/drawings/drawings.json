@@ -1,0 +1,110 @@
+{
+  "generated_utc": "2026-11-14T10:22:11+00:00",
+  "scale": "1:1",
+  "plan_cut_z": 6.7,
+  "bbox": {
+    "min": [
+      -62.339,
+      0.115,
+      0.0
+    ],
+    "max": [
+      62.273,
+      147.0,
+      8.0
+    ],
+    "size": [
+      124.611,
+      146.885,
+      8.0
+    ]
+  },
+  "parts": [
+    "hair-band"
+  ],
+  "views": {
+    "front": {
+      "visible_edges": 3514,
+      "hidden_edges": 19051
+    },
+    "side": {
+      "visible_edges": 8191,
+      "hidden_edges": 12991
+    },
+    "top": {
+      "visible_edges": 6348,
+      "hidden_edges": 24512
+    },
+    "plan": {
+      "visible_edges": 4417,
+      "hidden_edges": 0
+    }
+  },
+  "checks": [
+    {
+      "check": "envelope X",
+      "spec": 124.6,
+      "model": 124.611,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Y",
+      "spec": 146.9,
+      "model": 146.885,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "envelope Z",
+      "spec": 8.0,
+      "model": 8.0,
+      "tol": 0.5,
+      "ok": true
+    },
+    {
+      "check": "D1 top horizontal",
+      "measured": 115.998,
+      "expect": 116.0,
+      "tol": 3.0,
+      "ok": true
+    },
+    {
+      "check": "D2 top vertical",
+      "measured": 146.885,
+      "expect": 147.0,
+      "tol": 3.0,
+      "ok": true
+    },
+    {
+      "check": "D4 top horizontal",
+      "measured": 25.0,
+      "expect": 25.0,
+      "tol": 4.0,
+      "ok": true
+    },
+    {
+      "check": "D13 top horizontal",
+      "measured": 1.4,
+      "expect": 1.4,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D15 top horizontal",
+      "measured": 3.0,
+      "expect": 3.0,
+      "tol": 0.05,
+      "ok": true
+    },
+    {
+      "check": "D3 front vertical",
+      "measured": 7.996,
+      "expect": 8.0,
+      "tol": 1.0,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "ok": true
+}
