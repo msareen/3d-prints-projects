@@ -595,6 +595,18 @@ def _clean_output(out: Path, mats: list[str]):
                     pass        # held open (Windows: an Explorer window or a shell in it); it is reused
 
 
+def stale_renders(proj: Path) -> list[str]:
+    """Hand-made renders (processed/drawings/preview*) older than the newest geometry source:
+    build.py or fits-*.json (a spec change that alters the geometry changes build.py too,
+    `check` enforces it). `draw` regenerates the drawings, but nothing regenerates these,
+    and the showcase publishes them."""
+    p = proj / "processed"
+    sources = [p / "build.py", *p.glob("fits-*.json")]
+    newest = max((f.stat().st_mtime for f in sources if f.is_file()), default=0)
+    renders = sorted(f for f in (p / "drawings").glob("preview*") if f.suffix.lower() in (".png", ".svg"))
+    return [f.name for f in renders if f.stat().st_mtime < newest - 1]
+
+
 def cmd_finalize(args) -> int:
     proj = project_dir(args.project)
     spec, errs = _load_spec(proj)
@@ -718,6 +730,12 @@ def cmd_finalize(args) -> int:
         print(f"  {p.relative_to(out).as_posix()}")
     print("  release.json\nPart-specific print notes go in processed/print-notes.md and "
           "processed/print-notes-<MATERIAL>.md; finalize copies them into each print-sheet.md.")
+    stale = stale_renders(proj)
+    if stale:
+        print(f"\nWARNING: {len(stale)} render(s) in processed/drawings/ predate the last change to the "
+              f"geometry sources and may show an old revision: {', '.join(stale)}.\n"
+              f"The showcase publishes them: re-render them from output/<primary>/ "
+              f"($P3D/scripts/render_png.py) or delete them.", file=sys.stderr)
     return 0
 
 
@@ -768,6 +786,10 @@ def cmd_status(args) -> int:
     else:
         nxt = "stage 3: `finalize` when the user approves the drawings and the 3D view"
     print(f"{'next':12} {nxt}")
+    stale = stale_renders(proj)
+    if stale:
+        print(f"{'warning':12} render(s) older than build.py, may show an old revision: "
+              f"{', '.join(stale)} (re-render or delete; the showcase publishes them)")
     return 0
 
 

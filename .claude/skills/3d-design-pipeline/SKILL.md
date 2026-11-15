@@ -165,6 +165,10 @@ guessed critical dimension wastes a print.
    `processed/drawings/sheet.svg`. For an image in chat, run
    `uv run python -P $P3D/scripts/render_png.py projects/<project>/processed/model --out projects/<project>/processed/drawings/preview.png`
    (render_png.py needs only the standard library, so the system Python works too).
+   Renders named `preview*` in `processed/drawings/` are published by the showcase
+   and nothing regenerates them: after the last geometry change, re-render every
+   one (same name and view) or delete it. `status` and `finalize` warn about
+   renders older than build.py or a fits file.
 5. Iterate on numbers until the user approves both the drawings and the 3D
    view. A changed requirement goes back into the spec first: bump
    `revision`, update it, and get the user to re-confirm.
